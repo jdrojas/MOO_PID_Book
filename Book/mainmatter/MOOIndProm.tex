@@ -1,0 +1,236 @@
+\chapter{Process control as a multi-objective problem}
+\label{chap:PromContr}
+\begin{refsection}
+\abstract{
+	In this chapter, the problem of the tuning of closed-loop control system is posed as a multi-objective optimization problem. The main variables and constraints are presented.
+}
+\section{Characteristics of the controlled system}
+\label{sec:CaracControl}
+A feedback control system\index{Feedback System} like the one shown in %
+\begin{figure}%[b]%
+	\centering
+	\includesvg[width=0.8\columnwidth]{./figuras/bloques}%pretex=\scriptsize,
+	\caption{Feedback control loop.}% 
+	\label{fig:bloques}%
+\end{figure}
+%
+Figure~\ref{fig:bloques}, also called closed-loop control system, is designed to keep certain relationship between the process output $y(s)$ and the reference input $r(s)$. For such task, the difference between those signal is used to compute the control signal $u(s)$ needed in order to achieve $y(s)=r(s)$. 
+
+In Figure.~\ref{fig:bloques}, $C(s,\bm{\theta})$ is the \gls{2dof} \gls{pid} controller with parameters:
+\begin{equation*}
+\bm{\theta}=\left[	\begin{tabular}{cccc} \gls{kp} & \gls{ti} & \gls{td} & \gls{beta}	\end{tabular}\right]^T
+\end{equation*}
+%
+with \gls{kp} the proportional gain, \gls{ti} the integral time constant, \gls{td} is the derivative time constant, \gls{beta} the weight on the reference signal. \gls{plan} represents the controlled process, modeled as a \gls{soptd} plant, with a transfer function of the form:
+\begin{equation}  %inclusión de ecuaciones
+P(s) =  \frac{K e^{-Ls}}{(T s+1)(a T s+1)},
+\label{eq:plantaX}
+\end{equation}
+%
+where \gls{k}, \gls{l} and \gls{t}, correspond to the static gain, the time delay and main time constant respectively. The other pole of the system is represented with a time constant that is fraction of $T$, therefore $0 \leq a \leq 1$. \gls{di} represent the input disturbance while \gls{do} is the output disturbance.
+
+%El diagrama de bloques de un controlador PI de dos grados de libertad se muestra en la Figura \ref{fig:controlador}. 
+%
+The relationship between the control signal, the reference and the process output is given by:
+%
+\begin{equation}  %inclusión de ecuaciones
+	\gls{u} = \gls{contr} \gls{r} - \gls{conty} \gls{y},
+	\label{us}
+\end{equation}
+%
+where the part applied to the reference signal is given by:
+%
+\begin{equation}  %inclusión de ecuaciones
+	\gls{contr}=  \gls{kp}\left({\gls{beta} + \frac{1}{\gls{ti} s}+ \gls{gamma} \frac{\gls{td} s}{\gls{alpha} \gls{td} s +1}}\right),
+	\label{eq:cr}
+\end{equation}
+%
+and the part applied to the process output is:
+%
+\begin{equation}  %inclusión de ecuaciones
+	\gls{conty}=  \gls{kp}\left({1 + \frac{1}{\gls{ti} s}+\frac{\gls{td} s}{\gls{alpha} \gls{td} s +1} }\right).
+	\label{eq:cy}
+\end{equation}
+
+It is common to set $\gls{alpha}=0.1$ and $\gls{gamma}=0$. For this reason, the controller parameter vector is give as $\gls{theta}=[\begin{tabular}{cccc} \gls{kp} & \gls{ti} & \gls{td} &\gls{beta} \end{tabular}]^T$.
+
+%Para simplificar el análisis, el modelo del proceso controlado y parámetros del controlador se suelen normalizar:
+%%
+%\begin{equation*}
+%\hat{s}= Ts, \ \tau_0=  \displaystyle\frac{L}{T}, \ \tau_i=  \displaystyle\frac{T_i}{T}, \ \tau_d = \frac{T_d}{T}, \ \kappa_p= K_p K.
+%\end{equation*}  %inclusión de ecuaciones
+%
+%\begin{equation}  %inclusión de ecuaciones
+% \tau_0=  \displaystyle\frac{L}{T},
+%\label{tau0}
+%\end{equation}
+%
+%\begin{equation}  %inclusión de ecuaciones
+% \tau_i=  \displaystyle\frac{T_i}{T},  
+%\label{taui}
+%\end{equation}
+%
+%\begin{equation}  %inclusión de ecuaciones
+% \kappa_p= K_p K.  
+%\label{kappa}
+%\end{equation}
+
+%Entonces los parámetros normalizados del controlador son, $\hat{\theta}=\left[\kappa, \tau_i,\beta\right]^T$.
+%
+%Y la respuesta del sistema controlado vendría dada por: 
+%%
+%\begin{equation} 
+% y(\hat{s})= y_r(\hat{s}) + y_{di}(\hat{s}) + y_{do}(\hat{s}),
+%\label{ys}
+%\end{equation}
+%%
+%donde $y_r(\hat{s})$, es la respuesta de salida ante un cambio en el valor deseado, $y_{di}(\hat{s})$ es la respuesta ante un cambio en la perturbación a la entrada y $y_{do}(\hat{s})$ es la respuesta ante un cambio en la perturbación a la salida del proceso controlado.
+%Tomando en cuenta el esquema de la Figura \ref{fig:controlador}, estas señales estarían dadas por:
+%
+%\begin{align*}
+% y_r(\hat{s}) &= \frac{P(\hat{s}) C_r(\hat{s}%,\hat{\theta}) }{1 + P(\hat{s}) C_y(\hat{s},\hat{\theta})} r(\hat{s})\\
+ %y_{di}(\hat{s}) &=  \frac{C_r(\hat{s},\hat{\theta}%)}{1 + P(\hat{s}) C_y(\hat{s},\hat{\theta})} d_i%(\hat{s}) \\%
+ %y_{do}(\hat{s}) &= \frac{1}{1 + P(\hat{s}) C_y(\hat{s},\hat{\theta})} {d_o(\hat{s})}
+%\label{ytot}
+%\end{align*}
+
+%Dada \eqref{ys}, la respuesta de salida del lazo cerrado ante un cambio en el valor deseado puede ser ajustada a través del controlador de valor deseado $C_r(\hat{s},\theta)$, independientemente de cambios en la perturbación de entrada o en la de salida. Los parámetros de $C_r(\hat{s},\theta)$ y $C_y(\hat{s},\theta)$ son los mismos con un grado de libertad \cite{apuntescontrol}.
+
+Robustness is an indication of the relative stability of the controlled system and it measure the ability of the controller to keep the closed loop stable despite the variation in the process dynamics. A metric of the degree of relative stability is the maximum sensitivity \gls{ms} given by:
+%
+\begin{equation}  %inclusión de ecuaciones
+\gls{ms}=  \max_\omega \left\{ \frac{1}{\left |{1 + C_y(j\omega ) P(j\omega )}\right |}\right\} 
+\label{Ms}
+\end{equation}
+
+The recommended value range is  $1.2\leq \gls{ms} \leq 2.0$.
+%
+\section{Problem formulation}
+%
+%%Para hablar de optimización multi-objetivo (MOO), el problema debe admitir más de una solución. Se establece, como se lee en \cite{optimization} que: ``\emph{ El proceso de optimización es el proceso de obtener lo ``mejor'', si es posible, para medir y cambiar lo que es ``bueno'' o ``malo''. La optimización es un proceso que optimiza simultáneamente un conjunto de funciones objetivo, puede lograrse mediante la búsqueda de la mejor solución al problema en términos de algún criterio de desempeño.}''.
+%%
+%La sintonización del controlador \gls{conty}, puede ser resuelta como un problema de optimización multi-objetivo. Un criterio utilizado como indicador del desempeño, es la \gls{iae}, dado por:
+%%
+%\begin{equation}  %inclusión de ecuaciones
+%J=\int_0^\infty \left |{e(t)}\right | dt.
+%\label{IAE}
+%\end{equation}
+%
+%La señal de error $e(t)$ se calcula con:
+% %
+%\begin{equation}  %inclusión de ecuaciones
+%e(t)=r(t)-y(t).
+%\label{error}
+%\end{equation}
+%
+%Para el caso de rechazo de perturbaciones la señal de error se convierte en:
+%%
+%\begin{equation}  %inclusión de ecuaciones
+%e_d(t)=-y_d(t)
+%\label{per}.
+%\end{equation}
+%
+%%Pero evaluada para un cambio en la perturbación de entrada la ecuación se :
+%
+%Evaluada para un cambio en la perturbación de entrada, la señal de error se transforma en:
+%%
+%\begin{equation}  %inclusión de ecuaciones
+%J_{di}= \int_0^\infty  \left |-{y_{di}(t,\hat{ \theta})}\right | dt,
+%\label{perin}
+%\end{equation}
+%
+% y a la salida del proceso controlado en:
+%%
+%\begin{equation}  %inclusión de ecuaciones
+%J_{do}= \int_0^\infty  \left |-{y_{do}(t,\hat{ \theta})}\right | dt.
+%\label{perout}
+%\end{equation}		
+%
+%El controlador óptimo para el rechazo de perturbaciones a la entrada y a la salida del proceso controlado puede ser obtenido minimizando \eqref{perin} y \eqref{perout} al mismo tiempo, pero por lo general es imposible minimizar $J_{di}$ y $J_{do}$ con un mismo conjunto de parámetros $\hat{\theta}$ (por lo que a esta solución hipotética se le conoce como punto de utopía). Todas las soluciones que se encuentran más cercanas al  punto de utopía crean la frontera de Pareto \cite{Marler2004}, que en la Figura \ref{fig:pareto} corresponden al arco $ACB$. El punto de utopía sería precisamente el origen del plano (el punto $O$) que, se debe notar, no se encuentra dentro de la región factible.
+%%
+%\begin{figure}%
+%\centering
+%\capstart
+%\includesvg[width=0.7\columnwidth]{./figuras/pareto}%graphics
+%\caption{Frontera de Pareto para optimización de dos objetivos.}%
+%\label{fig:pareto}%
+%\end{figure}
+%%
+%%La sintonización para el rechazo de perturbaciones a la entrada, se obtiene resolviendo el problema de optimización:
+%%
+%%\begin{equation}  %inclusión de ecuaciones
+%%J_{di}(\hat{\theta}^*_{di})=  _{\begin{subarray}{l} min\\ \ \ \hat{\theta}\end{subarray}} J_{di}(\hat{\theta}),
+%%\label{di}
+%%\end{equation}
+%%
+%%mientras que para el rechazo de perturbaciones a la salida se resuelve:
+%%
+%%\begin{equation}  %inclusión de ecuaciones
+%%J_{do}(\hat{\theta}^*_{do})=  _{\begin{subarray}{l} min\\ \ \ \hat{\theta}\end{subarray}} J_{do}(\hat{\theta}).
+%%\label{do}
+%%\end{equation}
+%
+%%La solución ${\theta}^*$ ya sea $\hat{\theta}^*_{di}$ o $\hat{\theta}^*_{do}$ es un vector que contiene todos los puntos óptimos que son solución del problema de optimización.
+%
+%La sintonización del controlador de realimentación se puede resolver como un problema de optimización multi-objetivo definiendo la función de coste como:
+%%
+%\begin{equation}  %inclusión de ecuaciones
+%\textbf{J}=\left[J_{do}(\hat{\theta}_{di}),J_{do}(\hat{\theta}_{do})\right]^T,
+%\label{J}
+%\end{equation}
+%%
+%y creando una única función objetivo
+%%
+%\begin{equation}  %inclusión de ecuaciones
+%\textbf{J}(\hat{\theta}^*)= \min_{\hat{\theta}} \textbf{J}(\hat{\theta}).
+%\label{probmoo}
+%\end{equation}
+One of the objectives of the project was to develop a tuning rule based on the results of a \gls{moo} problem. As it is widely established, the controller tuning can be solved as a multi-objective optimization problem~\cite{Gambier2007}. One common indicator of performance, is the \gls{iae} given by:
+%
+\begin{equation}  %inclusión de ecuaciones
+J(\bm{\theta})=\int_0^\infty \left |{e(t,\bm{\theta})}\right | dt.
+\label{IAE}
+\end{equation}
+
+The error signal $e(t, \bm{\theta})$ it is calculated using:
+%
+\begin{equation}  %inclusión de ecuaciones
+e(t,\bm{\theta})=r(t)-y(t,\bm{\theta}).
+\label{error}
+\end{equation}
+
+When \eqref{IAE} is computed for a step change in the reference signal, the cost function becomes $J_r(\bm{\theta})$; for an input disturbance response, the function is defined as $J_{di}(\bm{\theta})$ and finally, for an output disturbance response, the cost function is named as $J_{do}(\bm{\theta})$. In general, it is not possible to optimize $\bm{\theta}$ for those three functions at the same time. Such impossible point where all the cost functions are optimal is called Utopia point, but optimizing one of them always produce a degradation in the other remaining functions. All the solutions that are closest to the utopia point, create the Pareto frontier. %Due to space constraints, the details on MOO cannot be presented in this paper, 
+Interest reader are encouraged to go to \textcite{Marler2004} for a good introduction in the subject.
+
+%For a general explanation of this concept, %
+%\begin{figure}%
+%	\centering
+%	\includesvg[width=0.8\columnwidth]{./figuras/pareto}%graphics
+%	\caption{Pareto frontier to optimize two objectives.}%
+%	\label{fig:pareto}%
+%\end{figure}
+%%
+%in Fig.~\ref{fig:pareto} the Pareto front formed with two different cost function $f_1(\bm{x})$ and $f_2(\bm{x})$ corresponds to the arc $ACB$. As it can be seen, when the feasible region (the cost function values that are attainable with the possible allowed values of the decision variables $\bm{x}$) is drawn in a plane whose axis are the values of the objective functions, the Pareto front is the border of the feasible region that gives the minimal values for both objective functions. This concept can be extrapolated to a three dimensional case (three different cost functions), but the Pareto front becomes a surface, instead of an arc.
+%
+%Points A and B in Fig.~\ref{fig:pareto} are called anchor points and represents the cases where at least one of the functions is minimal. For example, point A represents the point where the minimal value of $f_1(\bm{x})$ is achieved, while point B represents the case where the minimal value of $f_2(\bm{x})$ is found. Point O represents the Utopia point, where both functions have their minimal values. As it can be seen, this point is out of the Feasible region and therefore cannot be achieved.
+
+The problem of minimizing $J_r(\bm{\theta})$, $J_{di}(\bm{\theta})$ and $J_{do}(\bm{\theta})$ at the same time can be posed as a \gls{moo} problem. In addition, the obtained parameters are constrained to always satisfy  $\gls{ms} \leq M_{s,max}$, where $M_{s,max}$ is the allowed limit of the maximum sensitivity. For this paper, only the case $M_{s,max} = 2.0$ is considered. The cost function then becomes:
+%
+\begin{equation}  %inclusión de ecuaciones
+\textbf{J}(\bm{\theta})=\left[J_{di}(\bm{\theta}), J_{do}(\bm{\theta}), J_{r}(\bm{\theta})\right]^T,
+\label{J}
+\end{equation}
+%
+and solved by finding all possible optimal solutions of:
+%
+\begin{equation}  %inclusión de ecuaciones
+\begin{gathered}
+\textbf{J}(\bm{\theta}^*) = \min_{\bm{\theta}} \textbf{J}(\bm{\theta}),\\
+\text{s.t.} \quad  M_s \leq M_{s,max}
+\end{gathered}
+\label{probmoo}
+\end{equation}
+
+This problem can be solved using different methods. Some authors have presented results where a bio-inspired methods have been applied in order to find the Pareto front of the problem (see for \cite{Sayed2012, Reynoso-Meza2012, Reynoso-Meza2012b, Chiha2012} references). In this work, to avoid the stochastic nature of the results of those bio-inspired methods, the \gls{ennc} method was used to scalarize the problem and then use an standard mathematical version to solve the rewritten problem. For a study on the feasibility of the \gls{ennc} in \gls{pid} tuning see~\textcite{Contreras-Leiva2016}, and for a comparison of using bio-inspired methods in \gls{pid} tuning see~\textcite{Cespedes2016}.
+\printbibliography
+\end{refsection}

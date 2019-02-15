@@ -1,0 +1,960 @@
+\ifglsentryexists{pid}{}%
+{%
+\gls@defglossaryentry{pid}%
+{%
+name={PID},%
+sort={PID},%
+type={acronym},%
+first={proportional integral derivative\glsspace (PID)},%
+firstplural={proportional integral derivatives\glsspace (PIDs)},%
+text={PID},%
+plural={PIDs},%
+description={proportional integral derivative},%
+descriptionplural={proportional integral derivative\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={proportional integral derivative},%
+longplural={proportional integral derivatives},%
+short={PID},%
+shortplural={PIDs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ws}{}%
+{%
+\gls@defglossaryentry{ws}%
+{%
+name={WS},%
+sort={WS},%
+type={acronym},%
+first={weighted sum\glsspace (WS)},%
+firstplural={weighted sums\glsspace (WSs)},%
+text={WS},%
+plural={WSs},%
+description={weighted sum},%
+descriptionplural={weighted sum\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={weighted sum},%
+longplural={weighted sums},%
+short={WS},%
+shortplural={WSs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{nbi}{}%
+{%
+\gls@defglossaryentry{nbi}%
+{%
+name={NBI},%
+sort={NBI},%
+type={acronym},%
+first={normal boundary intersection\glsspace (NBI)},%
+firstplural={normal boundary intersections\glsspace (NBIs)},%
+text={NBI},%
+plural={NBIs},%
+description={normal boundary intersection},%
+descriptionplural={normal boundary intersection\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={normal boundary intersection},%
+longplural={normal boundary intersections},%
+short={NBI},%
+shortplural={NBIs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{nnc}{}%
+{%
+\gls@defglossaryentry{nnc}%
+{%
+name={NNC},%
+sort={NNC},%
+type={acronym},%
+first={normalized normal constraint\glsspace (NNC)},%
+firstplural={normalized normal constraints\glsspace (NNCs)},%
+text={NNC},%
+plural={NNCs},%
+description={normalized normal constraint},%
+descriptionplural={normalized normal constraint\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={normalized normal constraint},%
+longplural={normalized normal constraints},%
+short={NNC},%
+shortplural={NNCs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ennc}{}%
+{%
+\gls@defglossaryentry{ennc}%
+{%
+name={ENNC},%
+sort={ENNC},%
+type={acronym},%
+first={enhanced normalized normal constraint\glsspace (ENNC)},%
+firstplural={enhanced normalized normal constraints\glsspace (ENNCs)},%
+text={ENNC},%
+plural={ENNCs},%
+description={enhanced normalized normal constraint},%
+descriptionplural={enhanced normalized normal constraint\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={enhanced normalized normal constraint},%
+longplural={enhanced normalized normal constraints},%
+short={ENNC},%
+shortplural={ENNCs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{iae}{}%
+{%
+\gls@defglossaryentry{iae}%
+{%
+name={IAE},%
+sort={IAE},%
+type={acronym},%
+first={integral of the absolute value of the error\glsspace (IAE)},%
+firstplural={integral of the absolute value of the errors\glsspace (IAEs)},%
+text={IAE},%
+plural={IAEs},%
+description={integral of the absolute value of the error},%
+descriptionplural={integral of the absolute value of the error\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={integral of the absolute value of the error},%
+longplural={integral of the absolute value of the errors},%
+short={IAE},%
+shortplural={IAEs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{2dof}{}%
+{%
+\gls@defglossaryentry{2dof}%
+{%
+name={2DoF},%
+sort={2DoF},%
+type={acronym},%
+first={two degrees of freedom\glsspace (2DoF)},%
+firstplural={two degrees of freedoms\glsspace (2DoFs)},%
+text={2DoF},%
+plural={2DoFs},%
+description={two degrees of freedom},%
+descriptionplural={two degrees of freedom\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={two degrees of freedom},%
+longplural={two degrees of freedoms},%
+short={2DoF},%
+shortplural={2DoFs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{cerlab}{}%
+{%
+\gls@defglossaryentry{cerlab}%
+{%
+name={CERLab},%
+sort={CERLab},%
+type={acronym},%
+first={Control Engineering Research Laboratory\glsspace (CERLab)},%
+firstplural={Control Engineering Research Laboratorys\glsspace (CERLabs)},%
+text={CERLab},%
+plural={CERLabs},%
+description={Control Engineering Research Laboratory},%
+descriptionplural={Control Engineering Research Laboratory\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={Control Engineering Research Laboratory},%
+longplural={Control Engineering Research Laboratorys},%
+short={CERLab},%
+shortplural={CERLabs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{moo}{}%
+{%
+\gls@defglossaryentry{moo}%
+{%
+name={MOO},%
+sort={MOO},%
+type={acronym},%
+first={multiobjective optimization\glsspace (MOO)},%
+firstplural={multiobjective optimizations\glsspace (MOOs)},%
+text={MOO},%
+plural={MOOs},%
+description={multiobjective optimization},%
+descriptionplural={multiobjective optimization\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={multiobjective optimization},%
+longplural={multiobjective optimizations},%
+short={MOO},%
+shortplural={MOOs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{moop}{}%
+{%
+\gls@defglossaryentry{moop}%
+{%
+name={MOOP},%
+sort={MOOP},%
+type={acronym},%
+first={multiobjective optimization problem\glsspace (MOOP)},%
+firstplural={multiobjective optimization problems\glsspace (MOOPs)},%
+text={MOOP},%
+plural={MOOPs},%
+description={multiobjective optimization problem},%
+descriptionplural={multiobjective optimization problem\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={multiobjective optimization problem},%
+longplural={multiobjective optimization problems},%
+short={MOOP},%
+shortplural={MOOPs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{soptd}{}%
+{%
+\gls@defglossaryentry{soptd}%
+{%
+name={ODSOPTD},%
+sort={ODSOPTD},%
+type={acronym},%
+first={overdamped second order plus time delay\glsspace (ODSOPTD)},%
+firstplural={overdamped second order plus time delays\glsspace (ODSOPTDs)},%
+text={ODSOPTD},%
+plural={ODSOPTDs},%
+description={overdamped second order plus time delay},%
+descriptionplural={overdamped second order plus time delay\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={overdamped second order plus time delay},%
+longplural={overdamped second order plus time delays},%
+short={ODSOPTD},%
+shortplural={ODSOPTDs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{gui}{}%
+{%
+\gls@defglossaryentry{gui}%
+{%
+name={GUI},%
+sort={GUI},%
+type={acronym},%
+first={graphical user interface\glsspace (GUI)},%
+firstplural={graphical user interfaces\glsspace (GUIs)},%
+text={GUI},%
+plural={GUIs},%
+description={graphical user interface},%
+descriptionplural={graphical user interface\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={graphical user interface},%
+longplural={graphical user interfaces},%
+short={GUI},%
+shortplural={GUIs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{k}{}%
+{%
+\gls@defglossaryentry{k}%
+{%
+name={\ensuremath {K}},%
+sort={\ensuremath {K}},%
+type={main},%
+first={\protect \ensuremath {K}},%
+firstplural={\protect \ensuremath {K}s},%
+text={\protect \ensuremath {K}},%
+plural={\protect \ensuremath {K}s},%
+description={Plant gain},%
+descriptionplural={Plant gain},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{l}{}%
+{%
+\gls@defglossaryentry{l}%
+{%
+name={\ensuremath {L}},%
+sort={\ensuremath {L}},%
+type={main},%
+first={\protect \ensuremath {L}},%
+firstplural={\protect \ensuremath {L}s},%
+text={\protect \ensuremath {L}},%
+plural={\protect \ensuremath {L}s},%
+description={Time delay},%
+descriptionplural={Time delay},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{t}{}%
+{%
+\gls@defglossaryentry{t}%
+{%
+name={\ensuremath {T}},%
+sort={\ensuremath {T}},%
+type={main},%
+first={\protect \ensuremath {T}},%
+firstplural={\protect \ensuremath {T}s},%
+text={\protect \ensuremath {T}},%
+plural={\protect \ensuremath {T}s},%
+description={Constant time},%
+descriptionplural={Constant time},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{u}{}%
+{%
+\gls@defglossaryentry{u}%
+{%
+name={\ensuremath {u(s)}},%
+sort={\ensuremath {u(s)}},%
+type={main},%
+first={\protect \ensuremath {u(s)}},%
+firstplural={\protect \ensuremath {u(s)}s},%
+text={\protect \ensuremath {u(s)}},%
+plural={\protect \ensuremath {u(s)}s},%
+description={Control signal},%
+descriptionplural={Control signal},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{r}{}%
+{%
+\gls@defglossaryentry{r}%
+{%
+name={\ensuremath {r(s)}},%
+sort={\ensuremath {r(s)}},%
+type={main},%
+first={\protect \ensuremath {r(s)}},%
+firstplural={\protect \ensuremath {r(s)}s},%
+text={\protect \ensuremath {r(s)}},%
+plural={\protect \ensuremath {r(s)}s},%
+description={Setpoint},%
+descriptionplural={Setpoint},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{y}{}%
+{%
+\gls@defglossaryentry{y}%
+{%
+name={\ensuremath {y(s)}},%
+sort={\ensuremath {y(s)}},%
+type={main},%
+first={\protect \ensuremath {y(s)}},%
+firstplural={\protect \ensuremath {y(s)}s},%
+text={\protect \ensuremath {y(s)}},%
+plural={\protect \ensuremath {y(s)}s},%
+description={Feedback signal},%
+descriptionplural={Feedback signal},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{di}{}%
+{%
+\gls@defglossaryentry{di}%
+{%
+name={\ensuremath {d_i(s)}},%
+sort={\ensuremath {d_i(s)}},%
+type={main},%
+first={\protect \ensuremath {d_i(s)}},%
+firstplural={\protect \ensuremath {d_i(s)}s},%
+text={\protect \ensuremath {d_i(s)}},%
+plural={\protect \ensuremath {d_i(s)}s},%
+description={Input disturbance signal},%
+descriptionplural={Input disturbance signal},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{do}{}%
+{%
+\gls@defglossaryentry{do}%
+{%
+name={\ensuremath {d_o(s)}},%
+sort={\ensuremath {d_o(s)}},%
+type={main},%
+first={\protect \ensuremath {d_o(s)}},%
+firstplural={\protect \ensuremath {d_o(s)}s},%
+text={\protect \ensuremath {d_o(s)}},%
+plural={\protect \ensuremath {d_o(s)}s},%
+description={Output disturbance signal},%
+descriptionplural={Output disturbance signal},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{theta}{}%
+{%
+\gls@defglossaryentry{theta}%
+{%
+name={\ensuremath {\bm {\theta }}},%
+sort={\ensuremath {\bm {\theta }}},%
+type={main},%
+first={\protect \ensuremath {\protect \bm {\theta }}},%
+firstplural={\protect \ensuremath {\protect \bm {\theta }}s},%
+text={\protect \ensuremath {\protect \bm {\theta }}},%
+plural={\protect \ensuremath {\protect \bm {\theta }}s},%
+description={Controller parameters vector},%
+descriptionplural={Controller parameters vector},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{cont}{}%
+{%
+\gls@defglossaryentry{cont}%
+{%
+name={\ensuremath {C(s,\bm {\theta })}},%
+sort={\ensuremath {C(s,\bm {\theta })}},%
+type={main},%
+first={\protect \ensuremath {C(s,\protect \bm {\theta })}},%
+firstplural={\protect \ensuremath {C(s,\protect \bm {\theta })}s},%
+text={\protect \ensuremath {C(s,\protect \bm {\theta })}},%
+plural={\protect \ensuremath {C(s,\protect \bm {\theta })}s},%
+description={Controller transfer function},%
+descriptionplural={Controller transfer function},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{plan}{}%
+{%
+\gls@defglossaryentry{plan}%
+{%
+name={\ensuremath {P(s)}},%
+sort={\ensuremath {P(s)}},%
+type={main},%
+first={\protect \ensuremath {P(s)}},%
+firstplural={\protect \ensuremath {P(s)}s},%
+text={\protect \ensuremath {P(s)}},%
+plural={\protect \ensuremath {P(s)}s},%
+description={Plant transfer function},%
+descriptionplural={Plant transfer function},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{beta}{}%
+{%
+\gls@defglossaryentry{beta}%
+{%
+name={\ensuremath {\beta }},%
+sort={\ensuremath {\beta }},%
+type={main},%
+first={\protect \ensuremath {\beta }},%
+firstplural={\protect \ensuremath {\beta }s},%
+text={\protect \ensuremath {\beta }},%
+plural={\protect \ensuremath {\beta }s},%
+description={Weight to the reference signal in the proportional part of the two degrees of freedom controller},%
+descriptionplural={Weight to the reference signal in the proportional part of the two degrees of freedom controller},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{kp}{}%
+{%
+\gls@defglossaryentry{kp}%
+{%
+name={\ensuremath {K_p}},%
+sort={\ensuremath {K_p}},%
+type={main},%
+first={\protect \ensuremath {K_p}},%
+firstplural={\protect \ensuremath {K_p}s},%
+text={\protect \ensuremath {K_p}},%
+plural={\protect \ensuremath {K_p}s},%
+description={Proportional gain},%
+descriptionplural={Proportional gain},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ti}{}%
+{%
+\gls@defglossaryentry{ti}%
+{%
+name={\ensuremath {T_i}},%
+sort={\ensuremath {T_i}},%
+type={main},%
+first={\protect \ensuremath {T_i}},%
+firstplural={\protect \ensuremath {T_i}s},%
+text={\protect \ensuremath {T_i}},%
+plural={\protect \ensuremath {T_i}s},%
+description={Integral time},%
+descriptionplural={Integral time},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{td}{}%
+{%
+\gls@defglossaryentry{td}%
+{%
+name={\ensuremath {T_d}},%
+sort={\ensuremath {T_d}},%
+type={main},%
+first={\protect \ensuremath {T_d}},%
+firstplural={\protect \ensuremath {T_d}s},%
+text={\protect \ensuremath {T_d}},%
+plural={\protect \ensuremath {T_d}s},%
+description={Derivative time},%
+descriptionplural={Derivative time},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{alpha}{}%
+{%
+\gls@defglossaryentry{alpha}%
+{%
+name={\ensuremath {\alpha }},%
+sort={\ensuremath {\alpha }},%
+type={main},%
+first={\protect \ensuremath {\alpha }},%
+firstplural={\protect \ensuremath {\alpha }s},%
+text={\protect \ensuremath {\alpha }},%
+plural={\protect \ensuremath {\alpha }s},%
+description={Filter factor of the derivative part of the controller},%
+descriptionplural={Filter factor of the derivative part of the controller},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{gamma}{}%
+{%
+\gls@defglossaryentry{gamma}%
+{%
+name={\ensuremath {\gamma }},%
+sort={\ensuremath {\gamma }},%
+type={main},%
+first={\protect \ensuremath {\gamma }},%
+firstplural={\protect \ensuremath {\gamma }s},%
+text={\protect \ensuremath {\gamma }},%
+plural={\protect \ensuremath {\gamma }s},%
+description={Weight to the reference signal in the derivative part of the two degrees of freedom controller},%
+descriptionplural={Weight to the reference signal in the derivative part of the two degrees of freedom controller},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{contr}{}%
+{%
+\gls@defglossaryentry{contr}%
+{%
+name={\ensuremath {C_r(s,\bm {\theta })}},%
+sort={\ensuremath {C_r(s,\bm {\theta })}},%
+type={main},%
+first={\protect \ensuremath {C_r(s,\protect \bm {\theta })}},%
+firstplural={\protect \ensuremath {C_r(s,\protect \bm {\theta })}s},%
+text={\protect \ensuremath {C_r(s,\protect \bm {\theta })}},%
+plural={\protect \ensuremath {C_r(s,\protect \bm {\theta })}s},%
+description={Servo component of the controller},%
+descriptionplural={Servo component of the controller},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{conty}{}%
+{%
+\gls@defglossaryentry{conty}%
+{%
+name={\ensuremath {C_y(s,\bm {\theta })}},%
+sort={\ensuremath {C_y(s,\bm {\theta })}},%
+type={main},%
+first={\protect \ensuremath {C_y(s,\protect \bm {\theta })}},%
+firstplural={\protect \ensuremath {C_y(s,\protect \bm {\theta })}s},%
+text={\protect \ensuremath {C_y(s,\protect \bm {\theta })}},%
+plural={\protect \ensuremath {C_y(s,\protect \bm {\theta })}s},%
+description={Regulator component of the controller},%
+descriptionplural={Regulator component of the controller},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ms}{}%
+{%
+\gls@defglossaryentry{ms}%
+{%
+name={\ensuremath {M_s}},%
+sort={\ensuremath {M_s}},%
+type={main},%
+first={\protect \ensuremath {M_s}},%
+firstplural={\protect \ensuremath {M_s}s},%
+text={\protect \ensuremath {M_s}},%
+plural={\protect \ensuremath {M_s}s},%
+description={Maximum sensitivity},%
+descriptionplural={Maximum sensitivity},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%

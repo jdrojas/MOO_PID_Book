@@ -1,0 +1,112 @@
+%%%%%%%%%%%%%%%%%%%% book.tex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% sample root file for the chapters of your "monograph"
+%
+% Use this file as a template for your own input.
+%
+%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% RECOMMENDED %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[graybox,envcountchap,sectrefs]{svmono}
+
+% choose options for [] as required from the list
+% in the Reference Guide
+
+\usepackage{mathptmx}
+\usepackage{helvet}
+\usepackage{courier}
+%
+\usepackage[utf8]{inputenc}
+\usepackage{type1cm}         
+
+\usepackage{makeidx}         % allows index generation
+\usepackage{graphicx}        % standard LaTeX graphics tool
+                            % when including figure files
+\usepackage{svg}
+\usepackage{multicol}        % used for the two-column index
+\usepackage[bottom]{footmisc}% places footnotes at page bottom
+%
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}%\pgfplotsset{compat=1.14}
+\pgfkeys{/pgf/number format/.cd,1000 sep={\,}}
+%----- Bibliografia ------------
+\usepackage[style=mexican]{csquotes}
+\usepackage[backend=biber, style=numeric]{biblatex}% biber
+\addbibresource{ReferenciasMulti.bib}
+\usepackage{emptypage}
+%% ********* Table layout **************
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{tabulary}
+\usepackage{tcolorbox}
+% see the list of further useful packages
+% in the Reference Guide
+%% Math Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{textcomp}
+%\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{bm}  %pone en negrita letras griegas
+%
+\usepackage[nogroupskip, nonumberlist, acronyms]{glossaries}%
+\makeglossaries
+%
+\graphicspath{{./figuras/}}
+\svgpath{{./figurasK/}}
+\pdfsuppresswarningpagegroup=1
+\newcommand{\xv}{\mathbf{x}}
+\newcolumntype{K}[1]{>{\centering\arraybackslash}p{#1}}
+
+\makeindex             % used for the subject index
+                       % please use the style svind.ist with
+                       % your makeindex program
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\matlab}{MATLAB\textregistered{}}
+
+\begin{document}
+\author{José David Rojas, Orlando Arrieta, Ramon Vilanova}
+\title{Industrial PID Controller Tuning}
+\subtitle{with a multi-objective framework using \matlab}
+\maketitle
+
+\frontmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\include{dedic}
+%\include{foreword}
+%\include{preface}
+%\include{acknow}
+
+\tableofcontents
+
+%\include{acronym}
+\input{./frontmatter/MOOIndAcron.tex}
+
+
+\mainmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\include{part}
+%\include{chapter}
+%\include{appendix}
+\input{./mainmatter/MOOIndIntro.tex}
+\input{./mainmatter/MOOIndProm.tex}
+\input{./mainmatter/MOOIndMetodos.tex}
+\chapter{Implementation of the multi-objective optimization methods using \matlab}
+\textit{Writing in process}
+\input{./mainmatter/MOOIndResults.tex}
+
+\backmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{./backmatter/glossary}
+%\include{solutions}
+%\printindex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
+
+
+
+
+

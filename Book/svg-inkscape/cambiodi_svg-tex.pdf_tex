@@ -1,0 +1,99 @@
+%% Creator: Inkscape inkscape 0.92.2, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'cambiodi_svg-tex.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{692.68410119bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.49409697)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{cambiodi_svg-tex.pdf}}%
+    \put(0.07083862,0.0276587){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$0$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{cambiodi_svg-tex.pdf}}%
+    \put(0.1585856,0.02549321){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{cambiodi_svg-tex.pdf}}%
+    \put(0.25005452,0.02549321){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{20}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{cambiodi_svg-tex.pdf}}%
+    \put(0.34152479,0.0276587){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{30}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{cambiodi_svg-tex.pdf}}%
+    \put(0.4329937,0.0276587){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{40}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{cambiodi_svg-tex.pdf}}%
+    \put(0.52446261,0.0276587){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{50}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{cambiodi_svg-tex.pdf}}%
+    \put(0.61593288,0.0276587){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{60}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{cambiodi_svg-tex.pdf}}%
+    \put(0.70740179,0.0276587){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{70}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{cambiodi_svg-tex.pdf}}%
+    \put(0.79887071,0.02982419){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{80}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{cambiodi_svg-tex.pdf}}%
+    \put(0.89034098,0.02982419){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{90}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{cambiodi_svg-tex.pdf}}%
+    \put(0.97808796,0.02982419){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{100}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{cambiodi_svg-tex.pdf}}%
+    \put(0.03285188,0.10712809){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{0}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{cambiodi_svg-tex.pdf}}%
+    \put(0.02051265,0.1687092){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{0.05}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{cambiodi_svg-tex.pdf}}%
+    \put(0.0215737,0.2302903){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{0.10}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{cambiodi_svg-tex.pdf}}%
+    \put(0.02267814,0.2918714){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{0.15}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{cambiodi_svg-tex.pdf}}%
+    \put(0.03456668,0.3534525){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{0.2}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{cambiodi_svg-tex.pdf}}%
+    \put(0.02267814,0.4150336){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{0.25}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{cambiodi_svg-tex.pdf}}%
+    \put(0.0215737,0.47650236){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{0.30}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=19]{cambiodi_svg-tex.pdf}}%
+    \put(0.5190489,0.00286927){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{time ($s$)}}}%
+    \put(0.00986651,0.24269719){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lb]{\smash{amplitude}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{cambiodi_svg-tex.pdf}}%
+    \put(0.75863331,0.44363058){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{disturbance change}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=21]{cambiodi_svg-tex.pdf}}%
+    \put(0.7731597,0.41625367){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{best $J_{di}$}}}%
+    \put(0.77464887,0.38597406){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{best $J_r$}}}%
+    \put(0.77710223,0.35465377){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$ART_2$}}}%
+    \put(0.77992867,0.31810107){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$uSORT_2$}}}%
+  \end{picture}%
+\endgroup%

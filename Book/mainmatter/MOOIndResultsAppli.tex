@@ -1,0 +1,478 @@
+%\section{Application of the MOO methodology to different cases}
+%\label{sec:Applicacion}
+\section{Comparison of different PID tuning for a benchmark problem}
+\label{sec:Benchmark}%\infty
+In order to test the capabilities of a \gls{2dof} \gls{pid} controller optimized using the \gls{ennc} method, a benchmark process presented in \parencite{Astroem2000} is used for comparison. It is a fourth order plant given by:
+\begin{equation}
+P(s) = \frac{1}{\prod_{n=0}^{n=3}(0.5^n s+1)}.
+\label{eq:benchmarkTF}
+\end{equation}
+
+A low order model can be found in order to design a suitable \gls{pid} controller for the full order plant. Using the 123c method~\parencite{Alfaro2006}, the obtained model is given by:
+%
+\begin{equation}
+F(s)=\frac{e^{-0.297s}}{(0.9477s+1)(0.6346s+1)}
+\label{eq:BenchTFfit}
+\end{equation}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%BUSCAR EL CONTROLADOR ENNC PARA ESTA PLANTA Y COMPARARLA CON OTROS MÉTODOS DE CONTROL.
+In Figure~\ref{fig:paretomodelo}, the Pareto frontier obtained for the model \eqref{eq:BenchTFfit} is presented, the curve was obtained with the \gls{ennc} optimization of the cost functions $J_r$ and $J_{di}$, and the optimal parameters of \gls{pid} controller with two degrees of freedom were obtained.%  
+%
+\begin{figure}%
+	\centering
+	\includesvg[width=0.8\columnwidth, pretex=\scriptsize]{./figuras/paretomodelo}%
+	\caption{The Pareto frontier for the benchmark process}%
+	\label{fig:paretomodelo}%
+\end{figure}
+
+It is interesting to note that, in order to improve the response of $J_{di}$, $J_{r}$ has to be augmented (worsening the regulator response), however the degradation is not as much as the improvement in the $J_{d}$ function. This is a clear example of one of the many advantages of using a multi-objective framework for controller tuning.
+
+The optimal parameters for the \gls{2dof} \gls{pid} controller, for optimum tuning in disturbance rejection ($J_{di}$) and optimal servo control ($J_r$), are presented in in Table \ref{tab:parametroscontrolador}, along with two other tunings: the ART$_2$ method \parencite{Vilanova2011} and the uSORT$_2$ \parencite{Alfaro2012a}, to compare the performance of the closed loop control. It is important to clarify that these two tuning are just the extreme points of the Pareto front, thanks to the \gls{ennc} method, the control engineer is able to select any closed-loop response between these two extremes, all of them equally optimal and robust.
+
+In Fig.~\ref{fig:cambioreferencia}, the response of the control loop with the four different tunings is presented, for a change in the reference value. The best system response is given by the \gls{ennc} optimal controller $J_r$, emphasizing its characteristics of less \gls{iae}, as shown in Table~\ref{tab:IAEref}.
+
+The optimal controller for disturbance rejection is presented in Fig.~\ref{fig:cambiodi}. Also it is clear how the loop response with optimal controller for changes in reference value is the worst for disturbance rejection.% In Table~\ref{tab:IAEdi}, the corresponding values of \gls{iae} for the curves in Fig.~\ref{fig:cambiodi} are presented, and again the optimal controller is the one that allows minor error.
+%
+%It can be seen that the ART$_2$ and the uSORT$_{2}$ methods fall between these two optimal responses. However, it does not necessarily means that these methods are optimal. Only the tuning found with the ENNC method can be considered to be Pareto optimal. In Table~\ref{tab:IAEdi}, the corresponding values of \gls{iae} for the curves in Fig.~\ref{fig:cambiodi} are presented, and again the optimal controller is the one that achieves the lower error value.
+%
+%CAMBIO EN VALOR REFERENCIA
+\begin{figure}%
+	\centering
+	\includesvg[width=0.8\columnwidth,  pretex=\scriptsize]{./figuras/cambioreferencia}%
+	\caption{Optimal response of the control system $J_r$}%
+	\label{fig:cambioreferencia}%
+\end{figure}
+%
+%CAMBIO EN PERTURBACIÓN
+\begin{figure}%
+	\centering
+	\includesvg[width=0.8\columnwidth,  pretex=\scriptsize]{./figuras/cambiodi}%
+	\caption{Optimal response of the control system $J_{di}$}%
+	\label{fig:cambiodi}%
+\end{figure}
+%
+%parámetros del controlador
+\begin{table}
+	\caption{\gls{pid} controller parameters using two degrees of freedom.}
+	\centering
+	\begin{tabular}{@{}*{5}{c}@{}}
+		\toprule
+		Tuning              &$K_c$       &$T_i$      &$T_d$     & $\beta$ 	\\
+		\midrule              
+		optimum $J_{di}$     &$3.3750$   & $1.0812$  &$0.3095$  &$0.5466$   \\
+		optimum $J_{r}$      &$3.0572$   & $8.4419$  &$0.3986$  &$1.2329$   \\
+		$ART_2$             &$3.3657$   & $1.7636$  &$0.4884$  &$0.2971$   \\
+		$uSORT_2$           &$3.1708$   & $0.8997$  &$0.3945$  &$0.4731$   \\	
+		\bottomrule				
+	\end{tabular}
+	\label{tab:parametroscontrolador}
+\end{table}
+%
+%\gls{iae} ante cambio en valor de referencia
+\begin{table}
+	\caption{Servo performance response}
+	\centering
+	\begin{tabular}{@{}*{3}{c}@{}}
+		\toprule
+		Tuning             &\gls{iae}        &$M_s$   \\
+		\midrule              
+		optimum $J_{r}$     &$1.004$   & $2$    \\
+		optimum $J_{di}$    &$1.297$   & $2$    \\
+		$uSORT_2$          &$1.522$   & $2$    \\
+		$ART_2$          &$2.121$   & $2$    \\	
+		
+		\bottomrule				
+	\end{tabular}
+	\label{tab:IAEref}
+\end{table}
+
+\section{MOOP Formulation of \gls{pid} Control for LiTaO$_3$ Thin Film Deposition Process}
+\label{sec:LiTaO3}
+According to \parencite{Zhang2004}, the temperature control is a key factor in the deposition process of lithium tantalate (LiTaO$_3$) by means of metal organic chemical vapor deposition (MOCVD). The dynamics of the reactor chamber are characterized by a large lag and time-delay. It is important for the quality of the final product, that the controller follow a predefined temperature profile accurately (servo control) while been able to reject other disturbances (regulatory control).
+
+The model of the MOCVD chamber can be given by:
+\begin{equation}
+G(s) = \frac{K e^{-L s}}{T s+1},
+\label{eq:GsLita}
+\end{equation}
+%
+where the gain $K = 3.2$, the time constant $T = 200$~s and the time-delay $L = 150$~s.
+
+For this case, a two function MOOP is considered with $J_{di}$ and $J_{r}$ as cost functions and a robustness restriction of $M_S = 2.0$. When solving the optimization using the \gls{ennc} method, the obtained Pareto front is as given in %
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	xlabel = $J_{di}$,
+	ylabel = $J_{r}$,
+	grid = major,
+	width=0.8\columnwidth,
+	xtick={0.7,0.75,...,1.2},
+	ytick={1.2,1.22,...,1.5},
+	]
+	\addplot[mark=none, line width=2pt,] table[x=Jdi, y=Jr]{./tablas/Pareto_LiTa_ms2.dat};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Pareto front for the LiTaO$_3$ thin film deposition process.}
+	\label{fig:LitaPareto}
+\end{figure}
+%
+figure~\ref{fig:LitaPareto}. In this case, the Pareto front is fairly convex.
+
+The lowest value for $J_{di}$ is $0.78602$. If the control engineer allows $J_{di}$ to be degraded to a value of $J_{di}=0.80012$, it represents a degradation of $1.8\%$, however, it represents an improvement of $4.37\%$ for $J_r$. Since the Pareto is not in general, a straight line in the function space, an improvement in one of the functions does not necessarily represent an equal degradation in the other function. How much is it viable to degrade a function in favor of other functions depends entirely on the control engineer, an the Pareto front can be an excellent tool for the decision process.
+
+In the particular case of figure~\ref{fig:LitaPareto}, the Pareto front contains 200 different controllers. To help the control engineer to decide the tuning for the given process, it may be useful to plot the variation of the controller parameters as a function of the degradation of the most important cost function. For example, one may argue that, for the  LiTaO$_3$ thin film deposition process, the most important operation of the controller is to follow the temperature setpoint profile, therefore, one may consider $J_r$ as the main function. If that is the case, the variation  of the controller gain $K_p$ is presented in %
+%
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	footnotesize,
+	xlabel = $m$ (\%),
+	ylabel = $K_p$,
+	grid = major,
+	width=0.8\columnwidth,
+	scaled x ticks={real:0.01},
+	xtick scale label code/.code={},
+	%xtick={0,0.1,...,1},
+	ytick={0.41,0.412,...,0.44},
+	y tick label style={
+		/pgf/number format/.cd,
+		fixed,
+		fixed zerofill,
+		precision=3,
+		/tikz/.cd
+	}
+	]
+	\addplot[mark=none, line width=2pt,] table[x=Jrn, y=Kp]{./tablas/Pareto_LiTa_ms2.dat};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{$K_p$ variation for the LiTaO$_3$ thin film deposition process as a function of $J_r$ degradation.}
+	\label{fig:LitaParetoKp}
+\end{figure}
+%
+figure~\ref{fig:LitaParetoKp} where $m$ is defined as the normalized degradation of $J_{r}$. It is clear that the value of $K_p$ does not vary much from a controller optimal for servo action ($m=0\%$) to a controller optimal for regulatory action ($m=100\%$). This small variation is also related to keeping a robustness of $M_S = 2$ for all possible controllers. When this restriction is not taken into account, the variation of the tuning parameters may be larger.
+
+For the case of the integral time $T_i$, the variation is as given in %
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	footnotesize,
+	xlabel = $m$ (\%),
+	ylabel = $T_i$,
+	grid = major,
+	width=0.8\columnwidth,
+	scaled x ticks={real:0.01},
+	xtick scale label code/.code={},
+	%xtick={0,0.1,...,1},
+	ytick={200,210,...,310},
+	]
+	\addplot[mark=none, line width=2pt,] table[x=Jrn, y=Ti]{./tablas/Pareto_LiTa_ms2.dat};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{$T_i$ variation for the LiTaO$_3$ thin film deposition process as a function of $J_r$ degradation.}
+	\label{fig:LitaParetoTi}
+\end{figure}
+%
+figure~\ref{fig:LitaParetoTi}. In this case, it is clear that the value of $T_i$ is highly dependent of the value of $J_r$ degradation. 
+
+The case for the derivative time $T_d$ is given in %
+%
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	footnotesize,
+	xlabel = $m$ (\%),
+	ylabel = $T_d$,
+	grid = major,
+	width=0.8\columnwidth,
+	scaled x ticks={real:0.01},
+	xtick scale label code/.code={},
+	%xtick={0,0.1,...,1},
+	ytick={41,42,...,52},
+	]
+	\addplot[mark=none, line width=2pt,] table[x=Jrn, y=Td]{./tablas/Pareto_LiTa_ms2.dat};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{$T_i$ variation for the LiTaO$_3$ thin film deposition process as a function of $J_r$ degradation.}
+	\label{fig:LitaParetoTd}
+\end{figure}
+%
+figure~\ref{fig:LitaParetoTd} and the variation of the setpoint weight factor $\beta$ is presented in %
+%
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	footnotesize,
+	xlabel = $m$ (\%),
+	ylabel = $\beta$,
+	grid = major,
+	width=0.8\columnwidth,
+	scaled x ticks={real:0.01},
+	xtick scale label code/.code={},
+	%xtick={0,0.1,...,1},
+	%ytick={41,42,...,52},
+	]
+	\addplot[mark=none, line width=2pt,] table[x=Jrn, y=beta]{./tablas/Pareto_LiTa_ms2.dat};
+	\end{axis}
+	\end{tikzpicture}
+	\caption{$\beta$ variation for the LiTaO$_3$ thin film deposition process as a function of $J_r$ degradation.}
+	\label{fig:LitaParetobeta}
+\end{figure}
+%
+figure~\ref{fig:LitaParetobeta}.
+
+From this point on, one may take two different paths: find equations of the variation of the parameters or use the parameters data as a database in a software tool.
+
+Using the data obtained from the 200 optimizations it may be possible to find a model of the variation of each parameter as a function of the desired degradation. In the case of $K_p$, the variation is so small, that it may be easier to take the average value and apply it to all possible controller tuning. On the other hand, for $T_i$ and $\beta$ may be possible to obtained a piecewise linear function for each parameter. However, as it can be seen, the relationship between $T_d$ and the degradation of $J_r$ is quite complex. One may try to approximate a high order polynomial or a non-linear function in order to obtain a good mathematical description of the behavior.
+
+If the function for each parameter became too complex, it may be easier to take the Pareto front as a database, in order to interpolate all possible allowed degradation values of $J_r$. This is easily achievable in any spreadsheet software or using a programming language as \matlab.
+
+The simulation of the response of the controlled system to a step change in the reference is presented in %
+%
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	%tiny,
+	xlabel = time~(s),
+	ylabel = output,
+	legend cell align=left,
+	legend style = {legend pos = south east},%{at={(1,0.05)}, anchor=south east},
+	grid = major,
+	width=0.8\columnwidth,
+	%scaled x ticks={real:0.01},
+	%xtick scale label code/.code={},
+	xtick={0,200,...,1600},
+	%ytick={41,42,...,52},
+	]
+	\addplot[mark=none] table[x=time, y=r]{./tablas/TestServo.dat};
+	\addplot[mark=none,dashed] table[x=time, y=yservo]{./tablas/TestServo.dat};
+	\addplot[mark=none,densely dashdotdotted] table[x=time, y=yreg]{./tablas/TestServo.dat};
+	\addplot[mark=none,dashdotted] table[x=time, y=yusort]{./tablas/TestServo.dat};
+	\legend{Reference,$m=0\%$ (\gls{iae}=$244.66$), $m=100\%$ (\gls{iae}=$285.64$),uSORT$_2$ (\gls{iae}=$304.39$)}
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Servo response of the LiTaO$_3$ thin film deposition process with tree different tuning.}
+	\label{fig:LitaServo}
+\end{figure}
+%
+figure~\ref{fig:LitaServo} for the servo response and in %
+%
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	%tiny,
+	xlabel = time~(s),
+	ylabel = output,
+	legend cell align=left,
+	legend style = {legend pos = north east},%{at={(1,0.05)}, anchor=south east},
+	grid = major,
+	width=0.8\columnwidth,
+	%scaled x ticks={real:0.01},
+	%xtick scale label code/.code={},
+	xtick={0,200,...,1600},
+	%ytick={41,42,...,52},
+	]
+	\addplot[mark=none] table[x=time, y=di]{./tablas/TestReg.dat};
+	\addplot[mark=none,dashed] table[x=time, y=yservo]{./tablas/TestReg.dat};
+	\addplot[mark=none,densely dashdotdotted] table[x=time, y=yreg]{./tablas/TestReg.dat};
+	\addplot[mark=none,dashdotted] table[x=time, y=yusort]{./tablas/TestReg.dat};
+	\legend{Disturbance, $m=0\%$ (\gls{iae}=$724.24$), $m=100\%$ (\gls{iae}=$502.65$),uSORT$_2$ (\gls{iae}=$522.00$)}
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Regulation response of the LiTaO$_3$ thin film deposition process with tree different tuning.}
+	\label{fig:LitaReg}
+\end{figure}
+%
+figure~\ref{fig:LitaReg} for the regulation response. In both cases, the responses of the two extreme cases of the Pareto are compared with the uSORT$_2$ tuning rule \parencite{Alfaro2012}.
+
+For the reference tracking in figure~\ref{fig:LitaServo}, it is clear that the best servo response taken from the Pareto is better than any other controller with the constraint of having a maximum sensitivity of $M_{S,max} = 2$. The uSORT$_2$ method is intended primarily as a regulation tuning with a given fixed $M_S$, and therefore, it is not surprising that this method has a higher \gls{iae}.
+
+In the case of the disturbance rejection case, the best tuning is the one given by the best regulator of the Pareto front. The response of this controller is much better than the response given by the best servo controller. When comparing this response with the given by the uSORT$_2$ method, the response is quite similar, since the regulation response of the uSORT$_2$ controller is just $3.85\%$ higher.
+
+However, it is clear that, from the information obtained with the Pareto front, one may be able to find more than just two controller tunings. In fact, one may find all possible optimal controllers in the \gls{iae} sense within these two extremes. For example in %
+%
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	%tiny,
+	xlabel = time~(s),
+	ylabel = output,
+	legend cell align=left,
+	legend style = {legend pos = south east},%{at={(1,0.05)}, anchor=south east},
+	grid = major,
+	width=0.8\columnwidth,
+	%scaled x ticks={real:0.01},
+	%xtick scale label code/.code={},
+	xtick={0,200,...,1600},
+	%ytick={41,42,...,52},
+	]
+	\addplot[mark=none] table[x=time, y=y1.00]{./tablas/TestParetoServo.dat};
+	\addplot[mark=none,dashed] table[x=time, y=y0.61]{./tablas/TestParetoServo.dat};
+	\addplot[mark=none,densely dashdotdotted] table[x=time, y=y0.31]{./tablas/TestParetoServo.dat};
+	\addplot[mark=none,dotted] table[x=time, y=y0.12]{./tablas/TestParetoServo.dat};
+	\addplot[mark=none,dashdotted] table[x=time, y=y0.00]{./tablas/TestParetoServo.dat};
+	\legend{$m=100\%$, $m=61\%$,$m=31\%$,$m=12\%$,$m=0\%$}
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Servo response of the LiTaO$_3$ thin film deposition process varying the tuning across the Pareto front with different degradations.}
+	\label{fig:LitaServoParetoResp}
+\end{figure}
+%
+figure~\ref{fig:LitaServoParetoResp}, five of the possible tuning on the Pareto are presented from $m=100\%$ to $m=0\%$ for the reference tracking response. In all cases $M_{S,max}\leq 2.0$. As it can be seen, one of the main advantages of finding the Pareto front is to be able to choose the desired response from an equally optimal set of controller parameters. In %
+%
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	%tiny,
+	xlabel = time~(s),
+	ylabel = output,
+	legend cell align=left,
+	legend style = {legend pos = north east},%{at={(1,0.05)}, anchor=south east},
+	grid = major,
+	width=0.8\columnwidth,
+	%scaled x ticks={real:0.01},
+	%xtick scale label code/.code={},
+	xtick={0,200,...,1600},
+	%ytick={41,42,...,52},
+	]
+	\addplot[mark=none] table[x=time, y=y1.00]{./tablas/TestParetoReg.dat};
+	\addplot[mark=none,dashed] table[x=time, y=y0.61]{./tablas/TestParetoReg.dat};
+	\addplot[mark=none,densely dashdotdotted] table[x=time, y=y0.31]{./tablas/TestParetoReg.dat};
+	\addplot[mark=none,dotted] table[x=time, y=y0.12]{./tablas/TestParetoReg.dat};
+	\addplot[mark=none,dashdotted] table[x=time, y=y0.00]{./tablas/TestParetoReg.dat};
+	\legend{$m=100\%$, $m=61\%$,$m=31\%$,$m=12\%$,$m=0\%$}
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Regulator response of the LiTaO$_3$ thin film deposition process varying the tuning across the Pareto front with different degradations.}
+	\label{fig:LitaRegParetoResp}
+\end{figure}
+%
+figure~\ref{fig:LitaRegParetoResp}, the regulator response to the same controllers taken from the Pareto front is presented. The task of selecting which controller best fits the requisites of the controlled system depends entirely to the control engineer. However, initial choice may be the controller that is closer to the utopia point in the normalized function space.
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+\section{2DoF-PID optimized tuning for a non-linear CSRT process}
+Continuous stirred tanks reactors (CSTR) are one of the most common sub-system in the chemical process field. Depending on the reaction, the dynamic of this plant can be highly non-linear, however, it is common to operate them in a given operation point with the controllers tuned for disturbances rejection.
+
+Consider the CSTR non-linear model based on~\cite{Chang2013} and references therein:
+\begin{align}
+\dot{x}_1 &= -x_1+D_a(1-x_1)e^{\frac{x_2}{1+x_2/\varphi}},\label{CSTRModel01}\\
+\dot{x}_2 &= -(1+\delta) x_2 + B D_a(1-x_1)e^{\frac{x_2}{1+x_2/\varphi}}+\delta u,\label{CSTRModel02}\\
+y &= x_2,\label{CSTRModel03} 
+\end{align}
+%
+where $x_1$ and $x_2$ represents dimensionless reactant concentration and reactor temperature, $u$ is the dimensionless cooling jacket temperature which is considered as the control input, $y$ is the output of the system, $D_a=0.072$ is the Damköhler number, $\varphi=20$ is the activated energy, $B=8$ is the heat of the reaction and $\delta=0.05$ is the heat transfer coefficient. The system is considered to be controlled from the equilibrium point $x_1=0.931$ and $x_2=7.095$ with input $u=0$.
+
+In order to find a suitable \gls{pid} controller for this plant, it is necessary to find a low order linear model. After performing a step change of amplitude $\Delta u=10$ in the input, the model found is given by:
+%
+\begin{equation}
+F(s)=\frac{0.061 e^{-0.0037}}{(0.9213 s +1)(0.0056s+1)}.
+\label{eq:FTCSTR}
+\end{equation}
+
+This model fits the plant dynamics at the operating point very well, %
+\begin{figure}%
+	\centering
+	\includesvg[width=0.8\columnwidth, pretex=\scriptsize]{./figuras/CSTR_TFfit}%
+	\caption{Comparison between the nonlinear response of the CSTR and the linear model.}%
+	\label{fig:CSTR_TFfit}%
+\end{figure}
+%
+as can be seen in Fig.~\ref{fig:CSTR_TFfit}, where the \gls{iae} between the output of the plant and the output of the model is $0.33468$.
+
+In Fig.~\ref{fig:paretoCSTR}, the Pareto frontier obtained using the CSTR model is showed. Again, the curve was obtained with the \gls{ennc} optimization method with the cost functions $J_r$ and $J_{di}$.  
+
+\begin{figure}%
+	\centering
+	\includesvg[width=0.8\columnwidth]{paretoCSTR}%
+	\caption{The Pareto frontier for the CSTR process}%
+	\label{fig:paretoCSTR}%
+\end{figure}
+
+The tuning parameters for a \gls{2dof} \gls{pid} controller optimized for this process, are presented in %
+%
+%parámetros del controlador
+\begin{table}
+	\caption{\gls{2dof} \gls{pid} controller, for the CSRT.}
+	\centering
+	\begin{tabular}{@{}*{5}{c}@{}}
+		\toprule
+		Tuning              &$K_p$       &$T_i$      &$T_d$     & $\beta$ 	\\
+		\midrule              
+		optimum $J_{di}$     &$10$   & $0.1$  &$0.1$  &$1.9406$   \\
+		optimum $J_{r}$      &$10$   & $10$  &$0.1$  &$2.5759$   \\
+		\bottomrule				
+	\end{tabular}
+	\label{tab:parametrosCSRT}
+\end{table}
+%
+Table~\ref{tab:parametrosCSRT}. The response obtained for an optimum tuning for changes in the reference value is showed in %
+%
+%CAMBIO EN VALOR REFERENCIA
+\begin{figure}%
+	\centering
+	\includesvg[width=0.8\columnwidth]{cambioreferenciaCSRT}
+	\caption{Setpoint tracking for the CSRT system.}%
+	\label{fig:cambiorCSRT}%
+\end{figure}
+%
+Fig.~\ref{fig:cambiorCSRT}, while the obtained performance values are presented in %
+%
+%\gls{iae} ante cambio en valor de referencia
+\begin{table}
+	\caption{Performance rates with optimal tuning $J_{r}$, for the CSRT.}
+	\centering
+	\begin{tabular}{@{}*{3}{c}@{}}
+		\toprule
+		Tuning             &\gls{iae}        &$M_s$   \\
+		\midrule              
+		optimum $J_{r}$     &$0.4547$   & $2$    \\
+		optimum $J_{di}$    &$0.5835$   & $2$    \\
+		\bottomrule				
+	\end{tabular}
+	\label{tab:IAErCSRT}
+\end{table}
+%
+Table~\ref{tab:IAErCSRT}. While the tuning was computed using the linear low order model, the simulation presented in this paper was performed using the non-linear model of the CSTR. It is clear how the performance of the best $J_{r}$ tune overcomes the closed loop response of the best $J_{di}$ tune, presenting a minor \gls{iae} index.
+
+%On the other hand, the response obtained for an optimum level in the disturbance rejection $J_{di}$ is shown in %
+%%
+%%CAMBIO EN PERTURBACIÓN
+%\begin{figure}%
+%\centering
+%\includegraphics[width=\myFigSize\columnwidth]{figuras/cambiodiCSRT}
+%\caption{Disturbance rejection response for the CSRT system.}%
+%\label{fig:cambiodiCSRT}%
+%\end{figure}
+%%
+%Figure~\ref{fig:cambiodiCSRT}. Here it is possible to observe the opposite behavior, where the closed loop response for an optimal controller for changes in reference value is worse than the controller tuned for disturbance rejection.
+
+In %
+%
+%\gls{iae} ante cambio en perturbación
+\begin{table}
+	\caption{Performance rates with optimal tuning $J_{di}$, for the CSRT.}
+	\centering
+	\begin{tabular}{@{}*{3}{c}@{}}
+		\toprule
+		Tuning            &\gls{iae}        &$M_s$   \\
+		\midrule              
+		optimum $J_{r}$    &$4.9390$   & $2$    \\
+		optimum $J_{di}$   &$0.1108$   & $2$    \\
+		\bottomrule				
+	\end{tabular}
+	\label{tab:IAEdiCSRT}
+\end{table}
+%
+Table~\ref{tab:IAEdiCSRT}, the corresponding values of \gls{iae} for the servo and regulator responses are presented. Note the differences between $J_{di}$ and $J_{r}$ in tables~\ref{tab:IAErCSRT} and \ref{tab:IAEdiCSRT}. The obtained Pareto front shows that considerable changes in $J_{di}$ does not correspond to large degradation in $J_{r}$. This is consistent with the simulation results shown, and therefore, one can initially tune the controller for optimal $J_{di}$, knowing that the servo response is not highly degraded, while also guaranteeing a safe robustness value. If a better servo response is needed, it can be found by picking other tuning that also belongs to the Pareto front, but with the knowledge on how this decision affects the regulator response.

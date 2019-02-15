@@ -1,0 +1,85 @@
+%% Creator: Inkscape inkscape 0.92.2, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'cambioreferencia_svg-tex.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{865.29014809bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.3686124)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{cambioreferencia_svg-tex.pdf}}%
+    \put(0.07435241,0.0276441){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$0$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{cambioreferencia_svg-tex.pdf}}%
+    \put(0.03802167,0.05073874){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$0$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{cambioreferencia_svg-tex.pdf}}%
+    \put(0.02491432,0.2757028){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$1.0$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{cambioreferencia_svg-tex.pdf}}%
+    \put(0.02362423,0.31875814){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$1.2$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{cambioreferencia_svg-tex.pdf}}%
+    \put(0.52333474,0.02681571){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{ }}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{cambioreferencia_svg-tex.pdf}}%
+    \put(0.83516036,0.1200218){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$uSORT_2$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{cambioreferencia_svg-tex.pdf}}%
+    \put(0.01580485,0.16043289){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lb]{\smash{amplitude}}}}%
+    \put(0.51139317,0.00305736){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{time ($s$)}}}%
+    \put(0.02270233,0.09591357){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$0.2$}}}%
+    \put(0.02143075,0.1389354){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$0.4$}}}%
+    \put(0.02296724,0.18439442){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$0.6$}}}%
+    \put(0.02204535,0.35971365){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$1.4$}}}%
+    \put(0.18821449,0.02916617){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$5$}}}%
+    \put(0.29365505,0.02853038){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$10$}}}%
+    \put(0.40881261,0.03078213){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$15$}}}%
+    \put(0.52288729,0.03124056){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$20$}}}%
+    \put(0.63658071,0.03279504){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$25$}}}%
+    \put(0.75191998,0.03374499){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$30$}}}%
+    \put(0.86681226,0.03358747){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$35$}}}%
+    \put(0.97471459,0.03269343){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$40$}}}%
+    \put(0.85326541,0.15122507){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$ART_2$}}}%
+    \put(0.84603902,0.24203637){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{set point}}}%
+    \put(0.02332624,0.23057707){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$0.8$}}}%
+    \put(0.84292572,0.20858401){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{best $J_{di}$}}}%
+    \put(0.84161859,0.18298701){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{best $J_{r}$}}}%
+  \end{picture}%
+\endgroup%

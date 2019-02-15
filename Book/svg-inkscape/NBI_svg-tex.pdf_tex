@@ -1,0 +1,66 @@
+%% Creator: Inkscape inkscape 0.92.2, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'NBI_svg-tex.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{241.8939387bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.69559792)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{NBI_svg-tex.pdf}}%
+    \put(0.12181298,0.65704735){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$f_1$}}}%
+    \put(0.87820923,0.01072469){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$f_2$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{NBI_svg-tex.pdf}}%
+    \put(0.39769835,0.23730973){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$\Phi \beta$}}}%
+    \put(0.52816637,0.4440119){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{feasible}}}%
+    \put(0.50121839,0.40499969){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{line}}}%
+    \put(0.32172965,0.20392551){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$\hat{\mathbf{n}}$}}}%
+    \put(0.30287989,0.10883111){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{Pareto}}}%
+    \put(0.14424415,0.44625312){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{anchor point}}}%
+    \put(0.57357727,0.02329083){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{anchor point}}}%
+    \put(0.51224889,0.13095662){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{utopia plane}}}%
+    \put(0.1336324,0.01503365){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{utopia point}}}%
+  \end{picture}%
+\endgroup%

@@ -1,0 +1,87 @@
+%% Creator: Inkscape inkscape 0.92.2, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'CSTR_TFfit_svg-tex.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{869.88623274bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.48796846)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{CSTR_TFfit_svg-tex.pdf}}%
+    \put(0.06543844,0.0363571){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$0$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{CSTR_TFfit_svg-tex.pdf}}%
+    \put(0.37871802,0.0363571){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$5$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{CSTR_TFfit_svg-tex.pdf}}%
+    \put(0.67608503,0.0363571){\color[rgb]{0,0,0}\makebox(0,0)[b]{\smash{$10$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{CSTR_TFfit_svg-tex.pdf}}%
+    \put(0.97484818,0.0363571){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$15$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{CSTR_TFfit_svg-tex.pdf}}%
+    \put(0.0642507,0.05339013){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$7$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{CSTR_TFfit_svg-tex.pdf}}%
+    \put(0.06267021,0.10655801){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$7.1$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{CSTR_TFfit_svg-tex.pdf}}%
+    \put(0.06118815,0.15972588){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$7.2$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{CSTR_TFfit_svg-tex.pdf}}%
+    \put(0.06425874,0.21289375){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$7.3$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{CSTR_TFfit_svg-tex.pdf}}%
+    \put(0.06432048,0.31913408){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$7.5$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{CSTR_TFfit_svg-tex.pdf}}%
+    \put(0.06425312,0.37230195){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$7.6$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{CSTR_TFfit_svg-tex.pdf}}%
+    \put(0.06425874,0.42546983){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$7.7$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{CSTR_TFfit_svg-tex.pdf}}%
+    \put(0.50562937,0.02265829){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{time (s)}}}%
+    \put(0.00838041,0.2451773){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lb]{\smash{amplitude}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{CSTR_TFfit_svg-tex.pdf}}%
+    \put(0.66448234,0.15096957){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Plant}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{CSTR_TFfit_svg-tex.pdf}}%
+    \put(0.66448234,0.12006552){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{ }}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{CSTR_TFfit_svg-tex.pdf}}%
+    \put(0.64071926,0.01017116){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.01790919\unitlength}\centering  \end{minipage}}}%
+    \put(0.06467411,0.47923438){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$7.8$}}}%
+    \put(0.06473586,0.26675485){\color[rgb]{0,0,0}\makebox(0,0)[rb]{\smash{$7.4$}}}%
+    \put(0.66424098,0.12416403){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Model, IAE=$0.33468$}}}%
+  \end{picture}%
+\endgroup%
