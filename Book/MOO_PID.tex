@@ -32,7 +32,7 @@
 \pgfkeys{/pgf/number format/.cd,1000 sep={\,}}
 %----- Bibliografia ------------
 \usepackage[style=mexican]{csquotes}
-\usepackage[backend=biber, style=numeric]{biblatex}% biber
+\usepackage[backend=biber, style=authoryear]{biblatex}% biber
 \addbibresource{ReferenciasMulti.bib}
 \usepackage{emptypage}
 %% ********* Table layout **************
@@ -54,7 +54,7 @@
 \makeglossaries
 %
 \graphicspath{{./figuras/}}
-\svgpath{{./figurasK/}}
+\svgpath{{./figuras/}}
 \pdfsuppresswarningpagegroup=1
 \newcommand{\xv}{\mathbf{x}}
 \newcolumntype{K}[1]{>{\centering\arraybackslash}p{#1}}
