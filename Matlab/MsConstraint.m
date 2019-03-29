@@ -1,0 +1,15 @@
+function [c,ceq]=MsConstraint(x,ParamPlant,Msdeseado)
+K=ParamPlant(1);
+T=ParamPlant(2);
+L=ParamPlant(3);
+a=ParamPlant(4);
+Kp=x(1);
+Ti=x(2);
+Td=x(3);
+alpha=0.1;
+P=tf(K,conv([T,1],[a*T,1]));
+P.iodelay=L;
+C=tf(Kp*[(1+alpha)*Ti*Td,(Ti+alpha*Td),1],[alpha*Ti*Td,Ti,0]);
+Ms=MsCalc(pade(P,5),C);
+c=Ms-Msdeseado;
+ceq=[];
