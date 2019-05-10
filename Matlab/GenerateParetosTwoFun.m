@@ -9,15 +9,15 @@ Fnum 	= 2; % number of functions: Jdi and Jr
 nvars   = 4; % number of variables: Kp,Ti,Td,beta
 %VLD : see below
 VUB     = [10 10 10 1]; % variables upper bound
-npoints=5; % Number of points. For 3 functions, the number of point are larger than npoints con 65 hace 2145 puntos mas o menos
+npoints=10; % Number of points. For 3 functions, the number of point are larger than npoints con 65 hace 2145 puntos mas o menos
 algorithm='interior-point'; %'interior-point' 'active-set'
 %--------------------------------o-----------------------------------------
 %
 %--------------------------Set of plants-----------------------------------
 % This is the set of plants. Since the plants are normalized, the only
 % values that change are the normalized delay and the value of a
-Lv=0.1:0.2:2;
-av=0:0.2:1;
+Lv=0.1;%0.1:0.2:2;
+av=0;%0:0.2:1;
 % These are the values of Ms that are going to be tested
 Msv=10;%[10,2,1.8,1.6,1.4];%[2,1.8,1.6,1.4];
 [LMesh,aMesh,MsMesh] = meshLaMs(Lv,av,Msv);
