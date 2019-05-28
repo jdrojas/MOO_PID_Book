@@ -4,11 +4,11 @@
 clear; clc;
 %
 %---------------------Optimization parameters------------------------------
-Fnum 	= 2; % number of functions: Jdi and Jr
+Fnum 	= 3; % number of functions: Jdi and Jr
 nvars   = 4; % number of variables: Kp,Ti,Td,beta
 %VLD : see below
 VUB     = [10 10 10 1]; % variables upper bound
-npoints = 120; % Number of points. For 3 functions, the number of point are larger than npoints con 65 hace 2145 puntos mas o menos
+npoints = 70; % Number of points. For 3 functions, the number of point are larger than npoints con 65 hace 2145 puntos mas o menos
 algorithm='interior-point'; %'interior-point' 'active-set'
 %--------------------------------o-----------------------------------------
 %
@@ -18,7 +18,7 @@ algorithm='interior-point'; %'interior-point' 'active-set'
 Lv=0.1:0.2:2;
 av=0:0.2:1;
 % These are the values of Ms that are going to be tested
-Msv=10;%[10,2,1.8,1.6,1.4];%[2,1.8,1.6,1.4];
+Msv=[10,2,1.8,1.6,1.4];%[2,1.8,1.6,1.4];
 [LMesh,aMesh,MsMesh] = meshLaMs(Lv,av,Msv);
 %--------------------------------o-----------------------------------------
 %
@@ -28,7 +28,7 @@ alpha=0.1; % constant for the derivative
 gamma=0.0;
 %--------------------------------o-----------------------------------------
 % Creación del archivo de logs
-FileNameLog='ArchivoLog.txt';
+FileNameLog='ArchivoLog3Fun.txt';
 fid2=fopen(FileNameLog,'a');
 textoLog=['El proceso inicio el ',datestr(clock)];
 fprintf(fid2,'%s\r\n',textoLog);
@@ -40,11 +40,12 @@ parfor k=1:length(LMesh)
         L=LMesh(k);
         a=aMesh(k);
         ParamPlant=[K;T;L;a];
-        FileNameLog='ArchivoLog.txt';
+        FileNameLog='ArchivoLog3Fun.txt';
         fid2=fopen(FileNameLog,'a');
         textoLog=['Optimizando para Ms =', num2str(Ms),' L = ', num2str(L),' a = ', num2str(a),' a las ',datestr(clock)];
         fprintf(fid2,'%s\r\n',textoLog);
         fclose(fid2);
+        disp(textoLog);
         %--------------------------------------------------------------
         % The initial point is computed using the usort2 algorithm
         if Ms>2
@@ -58,13 +59,13 @@ parfor k=1:length(LMesh)
         X0=repmat([Kp;Ti;Td;beta],1,Fnum); % initial point
         %
         Fmhandle = @(x) [Jdi([x(1);x(2);x(3);alpha;x(4);gamma],ParamPlant,time);...
-            %Jdo([x(1);x(2);x(3);alpha;x(4);gamma],ParamPlant,time);...
+            Jdo([x(1);x(2);x(3);alpha;x(4);gamma],ParamPlant,time);...
             Jr([x(1);x(2);x(3);alpha;x(4);gamma],ParamPlant,time)...
             ];% The multidimentional cost function
         Conhandle = @(x) MsConstraint(x,ParamPlant,Ms); %Robustness constraint
         %
         % Guardar resultados
-        FileName=['Pareto2Fun_a',num2str(a),'_to',num2str(L),'_ms',num2str(Ms),'.csv'];
+        FileName=['Pareto3Fun_a',num2str(a),'_to',num2str(L),'_ms',num2str(Ms),'.csv'];
         Header='a,t0,Kp,Ti,Td,beta,Jdi,Jr,JdiNorm,JrNorm,Ms';
         fid=fopen(FileName,'w');
         fprintf(fid,'%s\r\n',Header);
@@ -94,14 +95,19 @@ parfor k=1:length(LMesh)
         FunMin = repmat(min(ParetoFun),[n,1]);
         ParetoFunNorm = (ParetoFun-FunMin)./(FunMax-FunMin);
         dlmwrite(FileName,[a*ones(n,1),L/T*ones(n,1),ParetoVar,ParetoFun,ParetoFunNorm,Msvec],'delimiter',',','-append');
-        FileNameLog='ArchivoLog.txt';
+        FileNameLog='ArchivoLog3Fun.txt';
         fid2=fopen(FileNameLog,'a');
         textoLog=['Se escribió el archivo ', FileName, ' el ',datestr(clock)];
         fprintf(fid2,'%s\r\n',textoLog);
         fclose(fid2);
         disp(textoLog)
     catch
-        disp(['Se dio un error para Ms =', num2str(Ms),' L = ', num2str(L),' a = ', num2str(a),' a las ',datestr(clock)]);
+        FileNameLog='ArchivoLog3Fun.txt';
+        fid2=fopen(FileNameLog,'a');
+        textoLog=['Se dio un error para Ms =', num2str(Ms),' L = ', num2str(L),' a = ', num2str(a),' a las ',datestr(clock)];
+        fprintf(fid2,'%s\r\n',textoLog);
+        fclose(fid2);
+        disp(textoLog)
         continue
     end
 end
