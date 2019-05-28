@@ -18,7 +18,7 @@ algorithm='interior-point'; %'interior-point' 'active-set'
 Lv=0.1:0.2:2;
 av=0:0.2:1;
 % These are the values of Ms that are going to be tested
-Msv=10;%[10,2,1.8,1.6,1.4];%[2,1.8,1.6,1.4];
+Msv=[10,2,1.8,1.6,1.4];%[2,1.8,1.6,1.4];
 [LMesh,aMesh,MsMesh] = meshLaMs(Lv,av,Msv);
 %--------------------------------o-----------------------------------------
 %
