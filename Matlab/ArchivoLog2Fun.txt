@@ -1,0 +1,600 @@
+El proceso inicio el 28-May-2019 16:21:22
+Optimizando para Ms =10 L = 0.1 a = 0 a las 28-May-2019 16:21:22
+Optimizando para Ms =1.4 L = 0.1 a = 0.6 a las 28-May-2019 16:21:22
+Optimizando para Ms =1.8 L = 0.1 a = 0.4 a las 28-May-2019 16:21:22
+Optimizando para Ms =1.6 L = 0.1 a = 0.2 a las 28-May-2019 16:21:22
+Optimizando para Ms =1.6 L = 0.1 a = 0 a las 28-May-2019 16:21:22
+Optimizando para Ms =2 L = 0.1 a = 0 a las 28-May-2019 16:21:22
+Optimizando para Ms =1.8 L = 0.1 a = 0.2 a las 28-May-2019 16:21:22
+Optimizando para Ms =1.8 L = 0.1 a = 0 a las 28-May-2019 16:21:22
+Optimizando para Ms =1.6 L = 0.1 a = 0.4 a las 28-May-2019 16:21:22
+Optimizando para Ms =1.4 L = 0.1 a = 0.4 a las 28-May-2019 16:21:22
+Optimizando para Ms =1.8 L = 0.1 a = 0.6 a las 28-May-2019 16:21:22
+Optimizando para Ms =10 L = 0.1 a = 0.2 a las 28-May-2019 16:21:22
+Optimizando para Ms =2 L = 0.1 a = 0.4 a las 28-May-2019 16:21:22
+Optimizando para Ms =10 L = 0.1 a = 0.8 a las 28-May-2019 16:21:22
+Optimizando para Ms =1.4 L = 0.1 a = 0 a las 28-May-2019 16:21:22
+Optimizando para Ms =1.6 L = 0.1 a = 0.6 a las 28-May-2019 16:21:22
+Optimizando para Ms =2 L = 0.1 a = 0.2 a las 28-May-2019 16:21:22
+Optimizando para Ms =2 L = 0.1 a = 0.6 a las 28-May-2019 16:21:22
+Optimizando para Ms =10 L = 0.1 a = 0.4 a las 28-May-2019 16:21:22
+Optimizando para Ms =10 L = 0.1 a = 0.6 a las 28-May-2019 16:21:22
+Optimizando para Ms =10 L = 0.1 a = 1 a las 28-May-2019 16:21:22
+Optimizando para Ms =1.6 L = 0.1 a = 0.8 a las 28-May-2019 16:21:23
+Optimizando para Ms =1.8 L = 0.3 a = 0.2 a las 28-May-2019 16:21:23
+Optimizando para Ms =2 L = 0.3 a = 0 a las 28-May-2019 16:21:23
+Optimizando para Ms =1.6 L = 0.1 a = 1 a las 28-May-2019 16:21:23
+Optimizando para Ms =1.8 L = 0.1 a = 1 a las 28-May-2019 16:21:23
+Optimizando para Ms =1.4 L = 0.1 a = 1 a las 28-May-2019 16:21:23
+Optimizando para Ms =2 L = 0.1 a = 0.8 a las 28-May-2019 16:21:23
+Optimizando para Ms =1.8 L = 0.1 a = 0.8 a las 28-May-2019 16:21:23
+Optimizando para Ms =1.8 L = 0.3 a = 0 a las 28-May-2019 16:21:23
+Optimizando para Ms =10 L = 0.3 a = 0 a las 28-May-2019 16:21:23
+
+Optimizando para Ms =1.6 L = 0.3 a = 0 a las 28-May-2019 16:21:23
+Optimizando para Ms =1.4 L = 0.1 a = 0.8 a las 28-May-2019 16:21:23
+Optimizando para Ms =1.6 L = 0.3 a = 0.2 a las 28-May-2019 16:21:23
+Optimizando para Ms =2 L = 0.1 a = 1 a las 28-May-2019 16:21:23
+Optimizando para Ms =1.4 L = 0.3 a = 0 a las 28-May-2019 16:21:23
+Optimizando para Ms =10 L = 0.3 a = 0.2 a las 28-May-2019 16:21:23
+Se escribió el archivo Pareto2Fun_a0.4_to0.1_ms2.csv el 28-May-2019 16:24:31
+Optimizando para Ms =1.4 L = 0.5 a = 0.4 a las 28-May-2019 16:24:31
+Se escribió el archivo Pareto2Fun_a0.8_to0.1_ms1.6.csv el 28-May-2019 16:24:47
+Optimizando para Ms =10 L = 0.7 a = 0.8 a las 28-May-2019 16:24:47
+Se escribió el archivo Pareto2Fun_a1_to0.1_ms1.4.csv el 28-May-2019 16:29:27
+Optimizando para Ms =1.6 L = 0.9 a = 0.2 a las 28-May-2019 16:29:27
+Se escribió el archivo Pareto2Fun_a0.4_to0.5_ms1.4.csv el 28-May-2019 16:29:53
+Optimizando para Ms =1.6 L = 0.5 a = 0.4 a las 28-May-2019 16:29:53
+Se escribió el archivo Pareto2Fun_a0.8_to0.1_ms1.4.csv el 28-May-2019 16:29:55
+Optimizando para Ms =1.6 L = 0.7 a = 0.8 a las 28-May-2019 16:29:55
+Se escribió el archivo Pareto2Fun_a0_to0.3_ms1.6.csv el 28-May-2019 16:30:22
+Optimizando para Ms =10 L = 0.9 a = 0.8 a las 28-May-2019 16:30:22
+Se escribió el archivo Pareto2Fun_a0.6_to0.1_ms1.4.csv el 28-May-2019 16:31:06
+Optimizando para Ms =1.6 L = 0.7 a = 0.2 a las 28-May-2019 16:31:06
+Se escribió el archivo Pareto2Fun_a0_to0.3_ms1.4.csv el 28-May-2019 16:31:30
+Optimizando para Ms =1.6 L = 0.9 a = 0.8 a las 28-May-2019 16:31:30
+Se escribió el archivo Pareto2Fun_a0.2_to0.1_ms1.4.csv el 28-May-2019 16:31:31
+Optimizando para Ms =1.6 L = 0.5 a = 0.2 a las 28-May-2019 16:31:31
+Se escribió el archivo Pareto2Fun_a0.2_to0.1_ms1.8.csv el 28-May-2019 16:31:49
+Optimizando para Ms =1.8 L = 0.5 a = 0 a las 28-May-2019 16:31:49
+Se escribió el archivo Pareto2Fun_a0.4_to0.1_ms1.8.csv el 28-May-2019 16:33:11
+Optimizando para Ms =1.8 L = 0.5 a = 0.6 a las 28-May-2019 16:33:11
+Se escribió el archivo Pareto2Fun_a0_to0.3_ms1.8.csv el 28-May-2019 16:33:28
+Optimizando para Ms =1.8 L = 0.9 a = 0.6 a las 28-May-2019 16:33:28
+Se escribió el archivo Pareto2Fun_a0_to0.3_ms2.csv el 28-May-2019 16:33:34
+Optimizando para Ms =1.4 L = 0.9 a = 0.4 a las 28-May-2019 16:33:34
+Se escribió el archivo Pareto2Fun_a0.2_to0.3_ms1.6.csv el 28-May-2019 16:33:50
+Optimizando para Ms =10 L = 1.1 a = 0.2 a las 28-May-2019 16:33:50
+Se escribió el archivo Pareto2Fun_a0.2_to0.3_ms1.8.csv el 28-May-2019 16:33:55
+Optimizando para Ms =1.8 L = 1.1 a = 0 a las 28-May-2019 16:33:55
+Se escribió el archivo Pareto2Fun_a0.6_to0.1_ms1.8.csv el 28-May-2019 16:34:30
+Optimizando para Ms =1.8 L = 0.7 a = 0 a las 28-May-2019 16:34:30
+Se escribió el archivo Pareto2Fun_a0.2_to0.1_ms1.6.csv el 28-May-2019 16:34:37
+Optimizando para Ms =10 L = 0.5 a = 0.2 a las 28-May-2019 16:34:37
+Se escribió el archivo Pareto2Fun_a0.4_to0.1_ms1.4.csv el 28-May-2019 16:35:25
+Optimizando para Ms =1.6 L = 0.5 a = 0.8 a las 28-May-2019 16:35:25
+Se escribió el archivo Pareto2Fun_a0.6_to0.1_ms2.csv el 28-May-2019 16:35:31
+Optimizando para Ms =1.4 L = 0.5 a = 1 a las 28-May-2019 16:35:32
+Se escribió el archivo Pareto2Fun_a1_to0.1_ms1.8.csv el 28-May-2019 16:35:35
+Optimizando para Ms =1.8 L = 0.9 a = 0 a las 28-May-2019 16:35:35
+Se escribió el archivo Pareto2Fun_a1_to0.1_ms1.6.csv el 28-May-2019 16:35:44
+Optimizando para Ms =10 L = 0.9 a = 0.2 a las 28-May-2019 16:35:44
+Se escribió el archivo Pareto2Fun_a0.2_to0.3_ms2.csv el 28-May-2019 16:35:59
+Optimizando para Ms =1.4 L = 0.9 a = 1 a las 28-May-2019 16:35:59
+Se escribió el archivo Pareto2Fun_a0.8_to0.1_ms2.csv el 28-May-2019 16:36:15
+Optimizando para Ms =1.4 L = 0.7 a = 0.4 a las 28-May-2019 16:36:15
+Se escribió el archivo Pareto2Fun_a0_to0.1_ms1.4.csv el 28-May-2019 16:36:18
+Optimizando para Ms =1.6 L = 0.3 a = 0.8 a las 28-May-2019 16:36:18
+Se escribió el archivo Pareto2Fun_a0.4_to0.1_ms1.6.csv el 28-May-2019 16:36:36
+Optimizando para Ms =10 L = 0.5 a = 0.8 a las 28-May-2019 16:36:36
+Se escribió el archivo Pareto2Fun_a0.6_to0.1_ms1.6.csv el 28-May-2019 16:37:28
+Optimizando para Ms =10 L = 0.7 a = 0.2 a las 28-May-2019 16:37:28
+Se escribió el archivo Pareto2Fun_a0.8_to0.1_ms1.8.csv el 28-May-2019 16:37:33
+Optimizando para Ms =1.8 L = 0.7 a = 0.6 a las 28-May-2019 16:37:33
+Se escribió el archivo Pareto2Fun_a1_to0.1_ms2.csv el 28-May-2019 16:37:53
+Optimizando para Ms =1.4 L = 0.7 a = 1 a las 28-May-2019 16:37:53
+Se escribió el archivo Pareto2Fun_a0_to0.3_ms10.csv el 28-May-2019 16:38:26
+Optimizando para Ms =2 L = 0.9 a = 0.4 a las 28-May-2019 16:38:26
+Se escribió el archivo Pareto2Fun_a0.2_to0.3_ms10.csv el 28-May-2019 16:38:26
+Optimizando para Ms =2 L = 0.9 a = 1 a las 28-May-2019 16:38:26
+Se escribió el archivo Pareto2Fun_a0.8_to0.7_ms10.csv el 28-May-2019 16:38:44
+Optimizando para Ms =1.4 L = 0.7 a = 0.6 a las 28-May-2019 16:38:44
+Se escribió el archivo Pareto2Fun_a0.8_to0.1_ms10.csv el 28-May-2019 16:39:03
+Optimizando para Ms =2 L = 0.7 a = 0.4 a las 28-May-2019 16:39:03
+Se escribió el archivo Pareto2Fun_a0_to0.1_ms1.8.csv el 28-May-2019 16:39:33
+Optimizando para Ms =1.8 L = 0.3 a = 0.6 a las 28-May-2019 16:39:33
+Se escribió el archivo Pareto2Fun_a0.2_to0.1_ms2.csv el 28-May-2019 16:40:09
+Optimizando para Ms =1.4 L = 0.3 a = 1 a las 28-May-2019 16:40:09
+Se escribió el archivo Pareto2Fun_a1_to0.1_ms10.csv el 28-May-2019 16:40:12
+Optimizando para Ms =2 L = 0.7 a = 1 a las 28-May-2019 16:40:12
+Se escribió el archivo Pareto2Fun_a0_to0.1_ms1.6.csv el 28-May-2019 16:40:20
+Optimizando para Ms =10 L = 0.3 a = 0.8 a las 28-May-2019 16:40:21
+Se escribió el archivo Pareto2Fun_a0.2_to0.1_ms10.csv el 28-May-2019 16:41:15
+Optimizando para Ms =2 L = 0.3 a = 1 a las 28-May-2019 16:41:15
+Se escribió el archivo Pareto2Fun_a0.2_to0.9_ms1.6.csv el 28-May-2019 16:41:25
+Optimizando para Ms =1.8 L = 0.9 a = 0.2 a las 28-May-2019 16:41:25
+Se escribió el archivo Pareto2Fun_a0.4_to0.5_ms1.6.csv el 28-May-2019 16:41:36
+Optimizando para Ms =1.8 L = 0.5 a = 0.4 a las 28-May-2019 16:41:36
+Se escribió el archivo Pareto2Fun_a0.4_to0.1_ms10.csv el 28-May-2019 16:42:25
+Optimizando para Ms =2 L = 0.5 a = 0.4 a las 28-May-2019 16:42:25
+Se escribió el archivo Pareto2Fun_a0.4_to0.9_ms1.4.csv el 28-May-2019 16:42:42
+Optimizando para Ms =1.6 L = 0.9 a = 0.4 a las 28-May-2019 16:42:42
+Se escribió el archivo Pareto2Fun_a0.2_to0.5_ms1.6.csv el 28-May-2019 16:42:53
+Optimizando para Ms =1.8 L = 0.5 a = 0.2 a las 28-May-2019 16:42:53
+Se escribió el archivo Pareto2Fun_a0.4_to0.7_ms1.4.csv el 28-May-2019 16:43:04
+Optimizando para Ms =1.6 L = 0.7 a = 0.4 a las 28-May-2019 16:43:04
+Se escribió el archivo Pareto2Fun_a0.6_to0.1_ms10.csv el 28-May-2019 16:43:05
+Optimizando para Ms =2 L = 0.5 a = 1 a las 28-May-2019 16:43:05
+Se escribió el archivo Pareto2Fun_a0.8_to0.7_ms1.6.csv el 28-May-2019 16:43:19
+Optimizando para Ms =1.8 L = 0.7 a = 0.8 a las 28-May-2019 16:43:19
+Se escribió el archivo Pareto2Fun_a0_to0.5_ms1.8.csv el 28-May-2019 16:43:39
+Optimizando para Ms =2 L = 0.5 a = 0 a las 28-May-2019 16:43:39
+Se escribió el archivo Pareto2Fun_a0.2_to0.7_ms1.6.csv el 28-May-2019 16:43:49
+Optimizando para Ms =1.8 L = 0.7 a = 0.2 a las 28-May-2019 16:43:49
+Se escribió el archivo Pareto2Fun_a0_to0.1_ms2.csv el 28-May-2019 16:44:09
+Optimizando para Ms =1.4 L = 0.3 a = 0.4 a las 28-May-2019 16:44:09
+Se escribió el archivo Pareto2Fun_a0.8_to0.9_ms1.6.csv el 28-May-2019 16:44:12
+Optimizando para Ms =1.8 L = 0.9 a = 0.8 a las 28-May-2019 16:44:12
+Se escribió el archivo Pareto2Fun_a1_to0.9_ms1.4.csv el 28-May-2019 16:44:35
+Optimizando para Ms =1.6 L = 0.9 a = 1 a las 28-May-2019 16:44:35
+Se escribió el archivo Pareto2Fun_a0.8_to0.5_ms1.6.csv el 28-May-2019 16:45:01
+Optimizando para Ms =1.8 L = 0.5 a = 0.8 a las 28-May-2019 16:45:01
+Se escribió el archivo Pareto2Fun_a0_to1.1_ms1.8.csv el 28-May-2019 16:45:05
+Optimizando para Ms =2 L = 1.1 a = 0 a las 28-May-2019 16:45:05
+Se escribió el archivo Pareto2Fun_a1_to0.3_ms2.csv el 28-May-2019 16:45:29
+Optimizando para Ms =10 L = 0.3 a = 1 a las 28-May-2019 16:45:29
+Se escribió el archivo Pareto2Fun_a0.8_to0.9_ms10.csv el 28-May-2019 16:45:53
+Optimizando para Ms =1.4 L = 0.9 a = 0.6 a las 28-May-2019 16:45:53
+Se escribió el archivo Pareto2Fun_a0.6_to0.9_ms1.8.csv el 28-May-2019 16:46:02
+Optimizando para Ms =2 L = 0.9 a = 0.6 a las 28-May-2019 16:46:02
+Se escribió el archivo Pareto2Fun_a0_to0.7_ms1.8.csv el 28-May-2019 16:46:22
+Optimizando para Ms =2 L = 0.7 a = 0 a las 28-May-2019 16:46:22
+Se escribió el archivo Pareto2Fun_a0.6_to0.7_ms1.4.csv el 28-May-2019 16:46:29
+Optimizando para Ms =1.6 L = 0.7 a = 0.6 a las 28-May-2019 16:46:29
+Se escribió el archivo Pareto2Fun_a0.8_to0.3_ms1.6.csv el 28-May-2019 16:46:45
+Optimizando para Ms =1.8 L = 0.3 a = 0.8 a las 28-May-2019 16:46:45
+Se escribió el archivo Pareto2Fun_a0_to0.9_ms1.8.csv el 28-May-2019 16:47:05
+Optimizando para Ms =2 L = 0.9 a = 0 a las 28-May-2019 16:47:05
+Se escribió el archivo Pareto2Fun_a0.6_to0.5_ms1.8.csv el 28-May-2019 16:47:20
+Optimizando para Ms =2 L = 0.5 a = 0.6 a las 28-May-2019 16:47:20
+Se escribió el archivo Pareto2Fun_a1_to0.7_ms1.4.csv el 28-May-2019 16:47:47
+Optimizando para Ms =1.6 L = 0.7 a = 1 a las 28-May-2019 16:47:47
+Se escribió el archivo Pareto2Fun_a0.8_to0.7_ms1.8.csv el 28-May-2019 16:48:09
+Optimizando para Ms =2 L = 0.7 a = 0.8 a las 28-May-2019 16:48:09
+Se escribió el archivo Pareto2Fun_a1_to0.5_ms1.4.csv el 28-May-2019 16:49:10
+Optimizando para Ms =1.6 L = 0.5 a = 1 a las 28-May-2019 16:49:10
+Se escribió el archivo Pareto2Fun_a0.2_to1.1_ms10.csv el 28-May-2019 16:49:21
+Optimizando para Ms =1.4 L = 1.1 a = 0 a las 28-May-2019 16:49:21
+Se escribió el archivo Pareto2Fun_a0.6_to0.7_ms1.8.csv el 28-May-2019 16:49:54
+Optimizando para Ms =2 L = 0.7 a = 0.6 a las 28-May-2019 16:49:54
+Se escribió el archivo Pareto2Fun_a0_to0.1_ms10.csv el 28-May-2019 16:49:56
+Optimizando para Ms =2 L = 0.3 a = 0.4 a las 28-May-2019 16:49:56
+Se escribió el archivo Pareto2Fun_a0.2_to0.5_ms10.csv el 28-May-2019 16:50:33
+Optimizando para Ms =1.4 L = 0.5 a = 0 a las 28-May-2019 16:50:33
+Se escribió el archivo Pareto2Fun_a0.6_to0.3_ms1.8.csv el 28-May-2019 16:50:49
+Optimizando para Ms =2 L = 0.3 a = 0.6 a las 28-May-2019 16:50:49
+Se escribió el archivo Pareto2Fun_a0.2_to0.9_ms10.csv el 28-May-2019 16:50:52
+Optimizando para Ms =1.4 L = 0.9 a = 0 a las 28-May-2019 16:50:52
+Se escribió el archivo Pareto2Fun_a1_to0.9_ms2.csv el 28-May-2019 16:51:17
+Optimizando para Ms =10 L = 0.9 a = 1 a las 28-May-2019 16:51:17
+Se escribió el archivo Pareto2Fun_a0.4_to0.9_ms2.csv el 28-May-2019 16:51:37
+Optimizando para Ms =10 L = 0.9 a = 0.4 a las 28-May-2019 16:51:37
+Se escribió el archivo Pareto2Fun_a0.4_to0.7_ms2.csv el 28-May-2019 16:51:57
+Optimizando para Ms =10 L = 0.7 a = 0.4 a las 28-May-2019 16:51:57
+Se escribió el archivo Pareto2Fun_a0.8_to0.5_ms10.csv el 28-May-2019 16:51:58
+Optimizando para Ms =1.4 L = 0.5 a = 0.6 a las 28-May-2019 16:51:59
+Se escribió el archivo Pareto2Fun_a1_to0.3_ms1.4.csv el 28-May-2019 16:52:32
+Optimizando para Ms =1.6 L = 0.3 a = 1 a las 28-May-2019 16:52:32
+Se escribió el archivo Pareto2Fun_a0.2_to0.7_ms10.csv el 28-May-2019 16:52:46
+Optimizando para Ms =1.4 L = 0.7 a = 0 a las 28-May-2019 16:52:46
+Se escribió el archivo Pareto2Fun_a1_to0.7_ms2.csv el 28-May-2019 16:52:52
+Optimizando para Ms =10 L = 0.7 a = 1 a las 28-May-2019 16:52:52
+Se escribió el archivo Pareto2Fun_a0.2_to0.9_ms1.8.csv el 28-May-2019 16:53:00
+Optimizando para Ms =2 L = 0.9 a = 0.2 a las 28-May-2019 16:53:00
+Se escribió el archivo Pareto2Fun_a0.6_to0.9_ms1.4.csv el 28-May-2019 16:53:33
+Optimizando para Ms =1.6 L = 0.9 a = 0.6 a las 28-May-2019 16:53:33
+Se escribió el archivo Pareto2Fun_a0.4_to0.5_ms1.8.csv el 28-May-2019 16:53:34
+Optimizando para Ms =1.8 L = 1.1 a = 0.2 a las 28-May-2019 16:53:34
+Se escribió el archivo Pareto2Fun_a0.4_to0.7_ms1.6.csv el 28-May-2019 16:54:08
+Optimizando para Ms =1.8 L = 0.7 a = 0.4 a las 28-May-2019 16:54:08
+Se escribió el archivo Pareto2Fun_a0.2_to0.5_ms1.8.csv el 28-May-2019 16:54:41
+Optimizando para Ms =2 L = 0.5 a = 0.2 a las 28-May-2019 16:54:41
+Se escribió el archivo Pareto2Fun_a0.4_to0.5_ms2.csv el 28-May-2019 16:55:46
+Optimizando para Ms =10 L = 0.5 a = 0.4 a las 28-May-2019 16:55:46
+Se escribió el archivo Pareto2Fun_a0.4_to0.9_ms1.6.csv el 28-May-2019 16:55:48
+Optimizando para Ms =1.8 L = 0.9 a = 0.4 a las 28-May-2019 16:55:48
+Se escribió el archivo Pareto2Fun_a0.4_to0.3_ms1.4.csv el 28-May-2019 16:55:50
+Optimizando para Ms =1.6 L = 0.3 a = 0.4 a las 28-May-2019 16:55:50
+Se escribió el archivo Pareto2Fun_a0.2_to0.7_ms1.8.csv el 28-May-2019 16:56:08
+Optimizando para Ms =2 L = 0.7 a = 0.2 a las 28-May-2019 16:56:08
+Se escribió el archivo Pareto2Fun_a0.8_to0.5_ms1.8.csv el 28-May-2019 16:56:29
+Optimizando para Ms =2 L = 0.5 a = 0.8 a las 28-May-2019 16:56:29
+Se escribió el archivo Pareto2Fun_a1_to0.5_ms2.csv el 28-May-2019 16:56:56
+Optimizando para Ms =10 L = 0.5 a = 1 a las 28-May-2019 16:56:56
+Se escribió el archivo Pareto2Fun_a0_to0.5_ms1.4.csv el 28-May-2019 16:57:04
+Optimizando para Ms =1.6 L = 0.5 a = 0 a las 28-May-2019 16:57:04
+Se escribió el archivo Pareto2Fun_a0_to0.5_ms2.csv el 28-May-2019 16:57:05
+Optimizando para Ms =10 L = 0.5 a = 0 a las 28-May-2019 16:57:05
+Se escribió el archivo Pareto2Fun_a1_to0.9_ms1.6.csv el 28-May-2019 16:57:24
+Optimizando para Ms =1.8 L = 0.9 a = 1 a las 28-May-2019 16:57:24
+Se escribió el archivo Pareto2Fun_a0.8_to0.9_ms1.8.csv el 28-May-2019 16:57:31
+Optimizando para Ms =2 L = 0.9 a = 0.8 a las 28-May-2019 16:57:31
+Se escribió el archivo Pareto2Fun_a0.8_to0.3_ms10.csv el 28-May-2019 16:57:57
+Optimizando para Ms =1.4 L = 0.3 a = 0.6 a las 28-May-2019 16:57:57
+Se escribió el archivo Pareto2Fun_a0.8_to0.3_ms1.8.csv el 28-May-2019 16:58:04
+Optimizando para Ms =2 L = 0.3 a = 0.8 a las 28-May-2019 16:58:04
+Se escribió el archivo Pareto2Fun_a0.6_to0.7_ms1.6.csv el 28-May-2019 16:58:16
+Optimizando para Ms =1.4 L = 1.1 a = 0.2 a las 28-May-2019 16:58:16
+Se escribió el archivo Pareto2Fun_a0_to1.1_ms2.csv el 28-May-2019 16:58:35
+Optimizando para Ms =10 L = 1.1 a = 0 a las 28-May-2019 16:58:35
+Se escribió el archivo Pareto2Fun_a1_to0.5_ms1.6.csv el 28-May-2019 16:58:48
+Optimizando para Ms =1.8 L = 0.5 a = 1 a las 28-May-2019 16:58:48
+Se escribió el archivo Pareto2Fun_a0.6_to0.9_ms2.csv el 28-May-2019 16:58:51
+Optimizando para Ms =10 L = 0.9 a = 0.6 a las 28-May-2019 16:58:51
+Se escribió el archivo Pareto2Fun_a0_to0.9_ms1.4.csv el 28-May-2019 16:58:59
+Optimizando para Ms =1.6 L = 0.9 a = 0 a las 28-May-2019 16:59:00
+Se escribió el archivo Pareto2Fun_a0_to0.7_ms2.csv el 28-May-2019 16:59:05
+Optimizando para Ms =10 L = 0.7 a = 0 a las 28-May-2019 16:59:05
+Se escribió el archivo Pareto2Fun_a0_to1.1_ms1.4.csv el 28-May-2019 16:59:16
+Optimizando para Ms =1.6 L = 1.1 a = 0 a las 28-May-2019 16:59:16
+Se escribió el archivo Pareto2Fun_a0_to0.7_ms1.4.csv el 28-May-2019 17:00:20
+Optimizando para Ms =1.6 L = 0.7 a = 0 a las 28-May-2019 17:00:20
+Se escribió el archivo Pareto2Fun_a1_to0.7_ms1.6.csv el 28-May-2019 17:00:24
+Optimizando para Ms =1.8 L = 0.7 a = 1 a las 28-May-2019 17:00:24
+Se escribió el archivo Pareto2Fun_a0_to0.9_ms2.csv el 28-May-2019 17:00:29
+Optimizando para Ms =10 L = 0.9 a = 0 a las 28-May-2019 17:00:29
+Se escribió el archivo Pareto2Fun_a0.6_to0.5_ms2.csv el 28-May-2019 17:00:37
+Optimizando para Ms =10 L = 0.5 a = 0.6 a las 28-May-2019 17:00:37
+Se escribió el archivo Pareto2Fun_a0.6_to0.3_ms2.csv el 28-May-2019 17:00:51
+Optimizando para Ms =10 L = 0.3 a = 0.6 a las 28-May-2019 17:00:51
+Se escribió el archivo Pareto2Fun_a0.8_to0.7_ms2.csv el 28-May-2019 17:00:51
+Optimizando para Ms =1.6 L = 1.1 a = 0.4 a las 28-May-2019 17:00:51
+Se escribió el archivo Pareto2Fun_a1_to0.3_ms10.csv el 28-May-2019 17:02:32
+Optimizando para Ms =1.4 L = 0.3 a = 0.8 a las 28-May-2019 17:02:32
+Se escribió el archivo Pareto2Fun_a1_to0.3_ms1.6.csv el 28-May-2019 17:02:45
+Optimizando para Ms =1.8 L = 0.3 a = 1 a las 28-May-2019 17:02:45
+Se escribió el archivo Pareto2Fun_a0.6_to0.5_ms1.4.csv el 28-May-2019 17:03:04
+Optimizando para Ms =1.6 L = 0.5 a = 0.6 a las 28-May-2019 17:03:04
+Se escribió el archivo Pareto2Fun_a0.6_to0.7_ms2.csv el 28-May-2019 17:03:21
+Optimizando para Ms =10 L = 0.7 a = 0.6 a las 28-May-2019 17:03:21
+Se escribió el archivo Pareto2Fun_a0_to0.5_ms1.6.csv el 28-May-2019 17:04:07
+Optimizando para Ms =1.8 L = 1.3 a = 0.2 a las 28-May-2019 17:04:07
+Se escribió el archivo Pareto2Fun_a0.4_to0.3_ms2.csv el 28-May-2019 17:04:58
+Optimizando para Ms =10 L = 0.3 a = 0.4 a las 28-May-2019 17:04:58
+Se escribió el archivo Pareto2Fun_a1_to0.9_ms10.csv el 28-May-2019 17:05:15
+Optimizando para Ms =1.4 L = 0.9 a = 0.8 a las 28-May-2019 17:05:15
+Se escribió el archivo Pareto2Fun_a0.2_to1.1_ms1.8.csv el 28-May-2019 17:05:31
+Optimizando para Ms =2 L = 1.1 a = 0.2 a las 28-May-2019 17:05:31
+Se escribió el archivo Pareto2Fun_a0.4_to0.3_ms1.6.csv el 28-May-2019 17:05:48
+Optimizando para Ms =1.8 L = 0.3 a = 0.4 a las 28-May-2019 17:05:48
+Se escribió el archivo Pareto2Fun_a0.2_to0.9_ms2.csv el 28-May-2019 17:05:58
+Optimizando para Ms =2 L = 1.1 a = 0.4 a las 28-May-2019 17:05:58
+Se escribió el archivo Pareto2Fun_a0.6_to0.9_ms1.6.csv el 28-May-2019 17:06:21
+Optimizando para Ms =10 L = 1.1 a = 0.6 a las 28-May-2019 17:06:21
+Se escribió el archivo Pareto2Fun_a0.4_to0.7_ms1.8.csv el 28-May-2019 17:06:27
+Optimizando para Ms =1.4 L = 1.3 a = 0.6 a las 28-May-2019 17:06:27
+Se escribió el archivo Pareto2Fun_a0_to0.7_ms1.6.csv el 28-May-2019 17:06:31
+Optimizando para Ms =10 L = 1.3 a = 1 a las 28-May-2019 17:06:31
+Se escribió el archivo Pareto2Fun_a0.2_to0.5_ms2.csv el 28-May-2019 17:06:33
+Optimizando para Ms =2 L = 1.1 a = 0.8 a las 28-May-2019 17:06:33
+Se escribió el archivo Pareto2Fun_a0.4_to0.7_ms10.csv el 28-May-2019 17:06:34
+Optimizando para Ms =1.4 L = 0.7 a = 0.2 a las 28-May-2019 17:06:34
+Se escribió el archivo Pareto2Fun_a0.2_to1.1_ms1.4.csv el 28-May-2019 17:06:38
+Optimizando para Ms =1.6 L = 1.1 a = 0.2 a las 28-May-2019 17:06:38
+Se escribió el archivo Pareto2Fun_a1_to0.7_ms10.csv el 28-May-2019 17:07:11
+Optimizando para Ms =1.4 L = 0.7 a = 0.8 a las 28-May-2019 17:07:11
+Se escribió el archivo Pareto2Fun_a0.4_to0.9_ms1.8.csv el 28-May-2019 17:07:28
+Optimizando para Ms =1.4 L = 1.1 a = 1 a las 28-May-2019 17:07:28
+Se escribió el archivo Pareto2Fun_a0.4_to0.9_ms10.csv el 28-May-2019 17:07:44
+Optimizando para Ms =1.4 L = 0.9 a = 0.2 a las 28-May-2019 17:07:44
+Se escribió el archivo Pareto2Fun_a0.8_to0.3_ms2.csv el 28-May-2019 17:08:12
+Optimizando para Ms =2 L = 1.3 a = 0.8 a las 28-May-2019 17:08:12
+Se escribió el archivo Pareto2Fun_a0.6_to0.3_ms1.4.csv el 28-May-2019 17:09:22
+Optimizando para Ms =1.6 L = 0.3 a = 0.6 a las 28-May-2019 17:09:22
+Se escribió el archivo Pareto2Fun_a1_to0.9_ms1.8.csv el 28-May-2019 17:09:38
+Optimizando para Ms =1.8 L = 1.3 a = 0.6 a las 28-May-2019 17:09:38
+Se escribió el archivo Pareto2Fun_a0.8_to0.5_ms2.csv el 28-May-2019 17:09:44
+Optimizando para Ms =1.4 L = 1.3 a = 0.2 a las 28-May-2019 17:09:44
+Se escribió el archivo Pareto2Fun_a0_to1.1_ms1.6.csv el 28-May-2019 17:10:14
+Optimizando para Ms =2 L = 1.3 a = 0 a las 28-May-2019 17:10:14
+Se escribió el archivo Pareto2Fun_a1_to0.5_ms1.8.csv el 28-May-2019 17:10:21
+Optimizando para Ms =2 L = 1.3 a = 0.4 a las 28-May-2019 17:10:21
+Se escribió el archivo Pareto2Fun_a0.2_to0.7_ms2.csv el 28-May-2019 17:10:34
+Optimizando para Ms =1.8 L = 1.1 a = 0.6 a las 28-May-2019 17:10:34
+Se escribió el archivo Pareto2Fun_a0_to0.9_ms1.6.csv el 28-May-2019 17:10:47
+Optimizando para Ms =10 L = 1.3 a = 0.6 a las 28-May-2019 17:10:47
+Se escribió el archivo Pareto2Fun_a0.4_to1.1_ms1.6.csv el 28-May-2019 17:11:05
+Optimizando para Ms =1.8 L = 1.1 a = 0.4 a las 28-May-2019 17:11:05
+Se escribió el archivo Pareto2Fun_a0.8_to0.9_ms2.csv el 28-May-2019 17:11:15
+Optimizando para Ms =1.4 L = 1.1 a = 0.6 a las 28-May-2019 17:11:15
+Se escribió el archivo Pareto2Fun_a0.8_to1.1_ms2.csv el 28-May-2019 17:11:40
+Optimizando para Ms =10 L = 1.1 a = 0.8 a las 28-May-2019 17:11:40
+Se escribió el archivo Pareto2Fun_a0.4_to0.5_ms10.csv el 28-May-2019 17:11:51
+Optimizando para Ms =1.4 L = 0.5 a = 0.2 a las 28-May-2019 17:11:51
+Se escribió el archivo Pareto2Fun_a1_to0.5_ms10.csv el 28-May-2019 17:12:12
+Optimizando para Ms =1.4 L = 0.5 a = 0.8 a las 28-May-2019 17:12:12
+Se escribió el archivo Pareto2Fun_a0.8_to0.9_ms1.4.csv el 28-May-2019 17:12:22
+Optimizando para Ms =1.6 L = 1.5 a = 0 a las 28-May-2019 17:12:22
+Se escribió el archivo Pareto2Fun_a0_to1.1_ms10.csv el 28-May-2019 17:12:55
+Optimizando para Ms =1.6 L = 1.3 a = 0 a las 28-May-2019 17:12:55
+Se escribió el archivo Pareto2Fun_a0_to0.5_ms10.csv el 28-May-2019 17:12:57
+Optimizando para Ms =1.6 L = 1.1 a = 0.8 a las 28-May-2019 17:12:57
+Se escribió el archivo Pareto2Fun_a1_to0.7_ms1.8.csv el 28-May-2019 17:13:13
+Optimizando para Ms =1.4 L = 1.3 a = 1 a las 28-May-2019 17:13:13
+Se escribió el archivo Pareto2Fun_a0.2_to0.7_ms1.4.csv el 28-May-2019 17:13:24
+Optimizando para Ms =10 L = 1.5 a = 0.2 a las 28-May-2019 17:13:25
+Se escribió el archivo Pareto2Fun_a0.6_to0.9_ms10.csv el 28-May-2019 17:13:28
+Optimizando para Ms =1.8 L = 1.1 a = 1 a las 28-May-2019 17:13:28
+Se escribió el archivo Pareto2Fun_a0.8_to0.3_ms1.4.csv el 28-May-2019 17:13:46
+Optimizando para Ms =10 L = 1.5 a = 0.6 a las 28-May-2019 17:13:46
+Se escribió el archivo Pareto2Fun_a1_to0.3_ms1.8.csv el 28-May-2019 17:13:51
+Optimizando para Ms =1.4 L = 1.5 a = 0.2 a las 28-May-2019 17:13:51
+Se dio un error para Ms =1.4 L = 1.5 a = 0.2 a las 28-May-2019 17:13:58
+Optimizando para Ms =1.6 L = 1.5 a = 0.2 a las 28-May-2019 17:13:58
+Se escribió el archivo Pareto2Fun_a0_to0.7_ms10.csv el 28-May-2019 17:14:21
+Optimizando para Ms =10 L = 1.3 a = 0.2 a las 28-May-2019 17:14:21
+Se escribió el archivo Pareto2Fun_a0_to0.9_ms10.csv el 28-May-2019 17:14:46
+Optimizando para Ms =1.6 L = 1.3 a = 0.4 a las 28-May-2019 17:14:46
+Se escribió el archivo Pareto2Fun_a0.6_to1.3_ms1.4.csv el 28-May-2019 17:14:52
+Optimizando para Ms =1.6 L = 1.3 a = 0.6 a las 28-May-2019 17:14:52
+Se escribió el archivo Pareto2Fun_a0.6_to0.5_ms1.6.csv el 28-May-2019 17:15:07
+Optimizando para Ms =1.6 L = 1.3 a = 0.8 a las 28-May-2019 17:15:07
+Se escribió el archivo Pareto2Fun_a1_to1.1_ms1.4.csv el 28-May-2019 17:15:13
+Optimizando para Ms =1.6 L = 1.1 a = 1 a las 28-May-2019 17:15:13
+Se escribió el archivo Pareto2Fun_a0.6_to0.5_ms10.csv el 28-May-2019 17:15:49
+Optimizando para Ms =10 L = 1.1 a = 1 a las 28-May-2019 17:15:49
+Se escribió el archivo Pareto2Fun_a0.8_to0.7_ms1.4.csv el 28-May-2019 17:16:07
+Optimizando para Ms =2 L = 1.5 a = 0.4 a las 28-May-2019 17:16:07
+Se escribió el archivo Pareto2Fun_a0.2_to1.3_ms1.8.csv el 28-May-2019 17:16:26
+Optimizando para Ms =2 L = 1.3 a = 0.2 a las 28-May-2019 17:16:26
+Se escribió el archivo Pareto2Fun_a0.2_to0.9_ms1.4.csv el 28-May-2019 17:16:35
+Optimizando para Ms =2 L = 1.5 a = 0 a las 28-May-2019 17:16:35
+Se escribió el archivo Pareto2Fun_a0.2_to1.1_ms1.6.csv el 28-May-2019 17:16:42
+Optimizando para Ms =10 L = 1.5 a = 1 a las 28-May-2019 17:16:42
+Se escribió el archivo Pareto2Fun_a0.4_to0.3_ms1.8.csv el 28-May-2019 17:17:01
+Optimizando para Ms =2 L = 1.5 a = 0.8 a las 28-May-2019 17:17:01
+Se escribió el archivo Pareto2Fun_a0.6_to0.3_ms10.csv el 28-May-2019 17:17:12
+Optimizando para Ms =1.8 L = 1.5 a = 0.2 a las 28-May-2019 17:17:12
+Se escribió el archivo Pareto2Fun_a0.2_to0.5_ms1.4.csv el 28-May-2019 17:18:18
+Optimizando para Ms =1.8 L = 1.5 a = 0.6 a las 28-May-2019 17:18:18
+Se escribió el archivo Pareto2Fun_a0.2_to1.3_ms1.4.csv el 28-May-2019 17:18:47
+Optimizando para Ms =1.6 L = 1.3 a = 0.2 a las 28-May-2019 17:18:47
+Se escribió el archivo Pareto2Fun_a0.6_to1.1_ms1.4.csv el 28-May-2019 17:19:22
+Optimizando para Ms =1.6 L = 1.1 a = 0.6 a las 28-May-2019 17:19:22
+Se escribió el archivo Pareto2Fun_a0.6_to0.7_ms10.csv el 28-May-2019 17:19:22
+Optimizando para Ms =1.8 L = 1.3 a = 1 a las 28-May-2019 17:19:23
+Se escribió el archivo Pareto2Fun_a0.4_to1.1_ms2.csv el 28-May-2019 17:19:29
+Optimizando para Ms =10 L = 1.1 a = 0.4 a las 28-May-2019 17:19:29
+Se escribió el archivo Pareto2Fun_a0.2_to1.1_ms2.csv el 28-May-2019 17:19:30
+Optimizando para Ms =1.4 L = 1.5 a = 0.8 a las 28-May-2019 17:19:30
+Se escribió el archivo Pareto2Fun_a1_to1.3_ms1.4.csv el 28-May-2019 17:20:15
+Optimizando para Ms =1.6 L = 1.3 a = 1 a las 28-May-2019 17:20:15
+Se escribió el archivo Pareto2Fun_a0.6_to0.3_ms1.6.csv el 28-May-2019 17:20:18
+Optimizando para Ms =1.6 L = 1.5 a = 0.4 a las 28-May-2019 17:20:18
+Se escribió el archivo Pareto2Fun_a1_to1.3_ms10.csv el 28-May-2019 17:20:25
+Optimizando para Ms =1.4 L = 1.3 a = 0.8 a las 28-May-2019 17:20:25
+Se escribió el archivo Pareto2Fun_a0_to1.5_ms1.6.csv el 28-May-2019 17:20:33
+Optimizando para Ms =1.8 L = 1.5 a = 0 a las 28-May-2019 17:20:33
+Se escribió el archivo Pareto2Fun_a0.6_to1.1_ms10.csv el 28-May-2019 17:21:29
+Optimizando para Ms =1.4 L = 1.1 a = 0.4 a las 28-May-2019 17:21:29
+Se escribió el archivo Pareto2Fun_a0_to1.3_ms1.6.csv el 28-May-2019 17:21:41
+Optimizando para Ms =1.8 L = 1.3 a = 0 a las 28-May-2019 17:21:41
+Se escribió el archivo Pareto2Fun_a0.2_to1.5_ms1.6.csv el 28-May-2019 17:21:47
+Optimizando para Ms =1.6 L = 1.9 a = 0 a las 28-May-2019 17:21:47
+Se escribió el archivo Pareto2Fun_a0.4_to0.3_ms10.csv el 28-May-2019 17:21:58
+Optimizando para Ms =1.4 L = 0.3 a = 0.2 a las 28-May-2019 17:21:58
+Se escribió el archivo Pareto2Fun_a0.8_to1.3_ms2.csv el 28-May-2019 17:22:06
+Optimizando para Ms =10 L = 1.3 a = 0.8 a las 28-May-2019 17:22:06
+Se escribió el archivo Pareto2Fun_a0.6_to1.3_ms1.8.csv el 28-May-2019 17:22:12
+Optimizando para Ms =2 L = 1.3 a = 0.6 a las 28-May-2019 17:22:12
+Se escribió el archivo Pareto2Fun_a0.6_to1.1_ms1.8.csv el 28-May-2019 17:22:51
+Optimizando para Ms =2 L = 1.1 a = 0.6 a las 28-May-2019 17:22:51
+Se escribió el archivo Pareto2Fun_a0.4_to1.1_ms1.8.csv el 28-May-2019 17:23:05
+Optimizando para Ms =2 L = 1.5 a = 1 a las 28-May-2019 17:23:05
+Se escribió el archivo Pareto2Fun_a0.4_to1.3_ms1.6.csv el 28-May-2019 17:23:28
+Optimizando para Ms =1.8 L = 1.3 a = 0.4 a las 28-May-2019 17:23:28
+Se escribió el archivo Pareto2Fun_a0.6_to1.3_ms1.6.csv el 28-May-2019 17:24:09
+Optimizando para Ms =10 L = 1.7 a = 0 a las 28-May-2019 17:24:09
+Se escribió el archivo Pareto2Fun_a0.6_to1.3_ms10.csv el 28-May-2019 17:24:22
+Optimizando para Ms =1.4 L = 1.3 a = 0.4 a las 28-May-2019 17:24:22
+Se escribió el archivo Pareto2Fun_a0.4_to1.3_ms2.csv el 28-May-2019 17:24:57
+Optimizando para Ms =10 L = 1.3 a = 0.4 a las 28-May-2019 17:24:57
+Se escribió el archivo Pareto2Fun_a0_to1.3_ms2.csv el 28-May-2019 17:25:15
+Optimizando para Ms =10 L = 1.3 a = 0 a las 28-May-2019 17:25:15
+Se escribió el archivo Pareto2Fun_a1_to1.1_ms1.8.csv el 28-May-2019 17:25:17
+Optimizando para Ms =2 L = 1.1 a = 1 a las 28-May-2019 17:25:17
+Se escribió el archivo Pareto2Fun_a0.8_to1.1_ms1.6.csv el 28-May-2019 17:25:27
+Optimizando para Ms =1.8 L = 1.1 a = 0.8 a las 28-May-2019 17:25:27
+Se escribió el archivo Pareto2Fun_a0.8_to1.5_ms1.4.csv el 28-May-2019 17:25:31
+Optimizando para Ms =1.8 L = 1.9 a = 1 a las 28-May-2019 17:25:31
+Se escribió el archivo Pareto2Fun_a0.8_to1.1_ms10.csv el 28-May-2019 17:25:32
+Optimizando para Ms =1.8 L = 1.7 a = 0 a las 28-May-2019 17:25:32
+Se escribió el archivo Pareto2Fun_a0.8_to1.3_ms1.6.csv el 28-May-2019 17:26:23
+Optimizando para Ms =1.8 L = 1.3 a = 0.8 a las 28-May-2019 17:26:23
+Se escribió el archivo Pareto2Fun_a0.2_to1.3_ms1.6.csv el 28-May-2019 17:27:15
+Optimizando para Ms =1.8 L = 1.7 a = 0.2 a las 28-May-2019 17:27:15
+Se escribió el archivo Pareto2Fun_a0.8_to0.5_ms1.4.csv el 28-May-2019 17:27:16
+Optimizando para Ms =1.4 L = 1.5 a = 0.6 a las 28-May-2019 17:27:16
+Se escribió el archivo Pareto2Fun_a0.4_to1.1_ms1.4.csv el 28-May-2019 17:27:20
+Optimizando para Ms =1.4 L = 1.5 a = 1 a las 28-May-2019 17:27:21
+Se escribió el archivo Pareto2Fun_a1_to1.1_ms1.6.csv el 28-May-2019 17:27:28
+Optimizando para Ms =1.6 L = 1.7 a = 0 a las 28-May-2019 17:27:29
+Se escribió el archivo Pareto2Fun_a0.6_to1.5_ms10.csv el 28-May-2019 17:27:29
+Optimizando para Ms =1.4 L = 1.5 a = 0.4 a las 28-May-2019 17:27:29
+Se escribió el archivo Pareto2Fun_a0.2_to1.5_ms10.csv el 28-May-2019 17:28:17
+Optimizando para Ms =1.4 L = 1.5 a = 0 a las 28-May-2019 17:28:17
+Se escribió el archivo Pareto2Fun_a0.2_to0.3_ms1.4.csv el 28-May-2019 17:28:31
+Optimizando para Ms =1.6 L = 1.5 a = 0.8 a las 28-May-2019 17:28:31
+Se escribió el archivo Pareto2Fun_a0.4_to1.5_ms1.6.csv el 28-May-2019 17:28:52
+Optimizando para Ms =1.8 L = 1.5 a = 0.4 a las 28-May-2019 17:28:52
+Se escribió el archivo Pareto2Fun_a0.8_to1.3_ms1.4.csv el 28-May-2019 17:28:58
+Optimizando para Ms =2 L = 1.7 a = 0 a las 28-May-2019 17:28:58
+Se escribió el archivo Pareto2Fun_a0.2_to1.5_ms1.8.csv el 28-May-2019 17:29:08
+Optimizando para Ms =2 L = 1.5 a = 0.2 a las 28-May-2019 17:29:08
+Se escribió el archivo Pareto2Fun_a0_to1.9_ms1.6.csv el 28-May-2019 17:29:24
+Optimizando para Ms =1.8 L = 1.9 a = 0 a las 28-May-2019 17:29:24
+Se escribió el archivo Pareto2Fun_a1_to1.1_ms10.csv el 28-May-2019 17:29:36
+Optimizando para Ms =1.4 L = 1.1 a = 0.8 a las 28-May-2019 17:29:36
+Se escribió el archivo Pareto2Fun_a1_to1.5_ms10.csv el 28-May-2019 17:29:42
+Optimizando para Ms =1.8 L = 1.9 a = 0.6 a las 28-May-2019 17:29:42
+Se escribió el archivo Pareto2Fun_a0.2_to1.3_ms10.csv el 28-May-2019 17:29:57
+Optimizando para Ms =1.4 L = 1.3 a = 0 a las 28-May-2019 17:29:57
+Se escribió el archivo Pareto2Fun_a0.4_to1.5_ms2.csv el 28-May-2019 17:29:59
+Optimizando para Ms =10 L = 1.5 a = 0.4 a las 28-May-2019 17:29:59
+Se escribió el archivo Pareto2Fun_a0.8_to1.5_ms2.csv el 28-May-2019 17:30:03
+Optimizando para Ms =10 L = 1.5 a = 0.8 a las 28-May-2019 17:30:03
+Se escribió el archivo Pareto2Fun_a0.6_to1.5_ms1.8.csv el 28-May-2019 17:31:02
+Optimizando para Ms =2 L = 1.5 a = 0.6 a las 28-May-2019 17:31:02
+Se escribió el archivo Pareto2Fun_a1_to1.3_ms1.8.csv el 28-May-2019 17:31:22
+Optimizando para Ms =2 L = 1.3 a = 1 a las 28-May-2019 17:31:22
+Se escribió el archivo Pareto2Fun_a0.2_to1.3_ms2.csv el 28-May-2019 17:31:57
+Optimizando para Ms =1.8 L = 1.5 a = 1 a las 28-May-2019 17:31:57
+Se escribió el archivo Pareto2Fun_a0.6_to1.1_ms1.6.csv el 28-May-2019 17:32:13
+Optimizando para Ms =1.8 L = 1.7 a = 0.6 a las 28-May-2019 17:32:13
+Se escribió el archivo Pareto2Fun_a0_to1.5_ms2.csv el 28-May-2019 17:32:26
+Optimizando para Ms =10 L = 1.5 a = 0 a las 28-May-2019 17:32:26
+Se escribió el archivo Pareto2Fun_a0.4_to1.3_ms1.4.csv el 28-May-2019 17:32:26
+Optimizando para Ms =10 L = 1.7 a = 0.6 a las 28-May-2019 17:32:26
+Se escribió el archivo Pareto2Fun_a0_to1.5_ms1.8.csv el 28-May-2019 17:33:07
+Optimizando para Ms =1.4 L = 1.7 a = 0.6 a las 28-May-2019 17:33:07
+Se escribió el archivo Pareto2Fun_a0_to1.3_ms1.8.csv el 28-May-2019 17:33:11
+Optimizando para Ms =2 L = 1.7 a = 0.8 a las 28-May-2019 17:33:11
+Se escribió el archivo Pareto2Fun_a0.4_to1.1_ms10.csv el 28-May-2019 17:33:45
+Optimizando para Ms =1.6 L = 1.5 a = 1 a las 28-May-2019 17:33:45
+Se escribió el archivo Pareto2Fun_a1_to1.3_ms1.6.csv el 28-May-2019 17:34:04
+Optimizando para Ms =10 L = 1.7 a = 1 a las 28-May-2019 17:34:04
+Se escribió el archivo Pareto2Fun_a0_to1.7_ms1.6.csv el 28-May-2019 17:34:45
+Se escribió el archivo Pareto2Fun_a0.4_to1.3_ms1.8.csv el 28-May-2019 17:34:51
+Optimizando para Ms =1.8 L = 1.9 a = 0.2 a las 28-May-2019 17:34:51
+Se escribió el archivo Pareto2Fun_a0_to1.5_ms1.4.csv el 28-May-2019 17:34:58
+Optimizando para Ms =1.8 L = 1.7 a = 1 a las 28-May-2019 17:34:58
+Se escribió el archivo Pareto2Fun_a0.6_to1.3_ms2.csv el 28-May-2019 17:35:21
+Optimizando para Ms =10 L = 1.7 a = 0.2 a las 28-May-2019 17:35:21
+Se escribió el archivo Pareto2Fun_a1_to1.5_ms1.4.csv el 28-May-2019 17:35:38
+Se escribió el archivo Pareto2Fun_a1_to1.5_ms2.csv el 28-May-2019 17:36:18
+Se escribió el archivo Pareto2Fun_a0.4_to1.5_ms1.4.csv el 28-May-2019 17:36:22
+Optimizando para Ms =2 L = 1.9 a = 0 a las 28-May-2019 17:36:22
+Se escribió el archivo Pareto2Fun_a0.6_to1.1_ms2.csv el 28-May-2019 17:36:25
+Optimizando para Ms =1.6 L = 1.7 a = 0.4 a las 28-May-2019 17:36:25
+Se escribió el archivo Pareto2Fun_a0.8_to1.3_ms10.csv el 28-May-2019 17:36:31
+Optimizando para Ms =1.4 L = 1.7 a = 0 a las 28-May-2019 17:36:31
+Se escribió el archivo Pareto2Fun_a0_to1.3_ms1.4.csv el 28-May-2019 17:36:44
+Optimizando para Ms =10 L = 1.9 a = 0.2 a las 28-May-2019 17:36:44
+Se escribió el archivo Pareto2Fun_a0.8_to1.1_ms1.8.csv el 28-May-2019 17:37:08
+Optimizando para Ms =1.6 L = 1.7 a = 0.8 a las 28-May-2019 17:37:08
+Se escribió el archivo Pareto2Fun_a0.8_to1.1_ms1.4.csv el 28-May-2019 17:37:25
+Optimizando para Ms =2 L = 1.9 a = 0.4 a las 28-May-2019 17:37:26
+Se escribió el archivo Pareto2Fun_a1_to1.9_ms1.8.csv el 28-May-2019 17:37:34
+Optimizando para Ms =2 L = 1.9 a = 1 a las 28-May-2019 17:37:34
+Se escribió el archivo Pareto2Fun_a0.6_to1.5_ms1.4.csv el 28-May-2019 17:37:42
+Optimizando para Ms =1.6 L = 1.5 a = 0.6 a las 28-May-2019 17:37:42
+Se escribió el archivo Pareto2Fun_a1_to1.1_ms2.csv el 28-May-2019 17:37:50
+Optimizando para Ms =1.4 L = 1.7 a = 1 a las 28-May-2019 17:37:50
+Se escribió el archivo Pareto2Fun_a0.8_to1.5_ms1.6.csv el 28-May-2019 17:37:55
+Optimizando para Ms =1.8 L = 1.5 a = 0.8 a las 28-May-2019 17:37:55
+Se escribió el archivo Pareto2Fun_a0_to1.7_ms1.8.csv el 28-May-2019 17:38:01
+Se escribió el archivo Pareto2Fun_a0.8_to1.3_ms1.8.csv el 28-May-2019 17:38:07
+Optimizando para Ms =1.4 L = 1.9 a = 0.2 a las 28-May-2019 17:38:07
+Se escribió el archivo Pareto2Fun_a0_to1.7_ms10.csv el 28-May-2019 17:38:12
+Se dio un error para Ms =1.4 L = 1.9 a = 0.2 a las 28-May-2019 17:38:13
+Optimizando para Ms =1.6 L = 1.9 a = 0.2 a las 28-May-2019 17:38:13
+Se escribió el archivo Pareto2Fun_a0_to1.3_ms10.csv el 28-May-2019 17:39:31
+Optimizando para Ms =1.4 L = 1.7 a = 0.2 a las 28-May-2019 17:39:31
+Se escribió el archivo Pareto2Fun_a0.2_to1.7_ms1.8.csv el 28-May-2019 17:39:49
+Optimizando para Ms =2 L = 1.7 a = 0.2 a las 28-May-2019 17:39:49
+Se escribió el archivo Pareto2Fun_a0.4_to1.3_ms10.csv el 28-May-2019 17:40:25
+Optimizando para Ms =2 L = 1.7 a = 0.4 a las 28-May-2019 17:40:25
+Se escribió el archivo Pareto2Fun_a0.4_to1.5_ms1.8.csv el 28-May-2019 17:41:45
+Optimizando para Ms =1.4 L = 1.9 a = 1 a las 28-May-2019 17:41:45
+Se escribió el archivo Pareto2Fun_a0.6_to1.9_ms1.8.csv el 28-May-2019 17:42:04
+Optimizando para Ms =2 L = 1.9 a = 0.6 a las 28-May-2019 17:42:04
+Se escribió el archivo Pareto2Fun_a0_to1.9_ms1.8.csv el 28-May-2019 17:42:20
+Se escribió el archivo Pareto2Fun_a0.8_to1.5_ms10.csv el 28-May-2019 17:43:16
+Optimizando para Ms =1.4 L = 1.9 a = 0.6 a las 28-May-2019 17:43:17
+Se escribió el archivo Pareto2Fun_a0_to1.7_ms2.csv el 28-May-2019 17:43:37
+Se escribió el archivo Pareto2Fun_a0.4_to1.5_ms10.csv el 28-May-2019 17:43:45
+Optimizando para Ms =1.6 L = 1.9 a = 0.4 a las 28-May-2019 17:43:45
+Se escribió el archivo Pareto2Fun_a1_to1.5_ms1.8.csv el 28-May-2019 17:43:58
+Se escribió el archivo Pareto2Fun_a1_to1.5_ms1.6.csv el 28-May-2019 17:44:10
+Se escribió el archivo Pareto2Fun_a0.4_to1.7_ms1.6.csv el 28-May-2019 17:44:14
+Optimizando para Ms =1.8 L = 1.7 a = 0.4 a las 28-May-2019 17:44:14
+Se escribió el archivo Pareto2Fun_a0.6_to1.5_ms2.csv el 28-May-2019 17:44:20
+Optimizando para Ms =1.6 L = 1.9 a = 0.8 a las 28-May-2019 17:44:20
+Se escribió el archivo Pareto2Fun_a0.2_to1.5_ms2.csv el 28-May-2019 17:44:22
+Optimizando para Ms =2 L = 1.9 a = 0.8 a las 28-May-2019 17:44:22
+Se escribió el archivo Pareto2Fun_a1_to1.3_ms2.csv el 28-May-2019 17:44:29
+Optimizando para Ms =10 L = 1.9 a = 1 a las 28-May-2019 17:44:29
+Se escribió el archivo Pareto2Fun_a0.2_to1.9_ms1.6.csv el 28-May-2019 17:45:02
+Se escribió el archivo Pareto2Fun_a0.6_to1.7_ms1.8.csv el 28-May-2019 17:45:11
+Optimizando para Ms =2 L = 1.7 a = 0.6 a las 28-May-2019 17:45:11
+Se escribió el archivo Pareto2Fun_a0.8_to1.7_ms1.6.csv el 28-May-2019 17:45:20
+Optimizando para Ms =1.8 L = 1.7 a = 0.8 a las 28-May-2019 17:45:20
+Se escribió el archivo Pareto2Fun_a0.6_to1.7_ms10.csv el 28-May-2019 17:45:48
+Optimizando para Ms =1.4 L = 1.7 a = 0.4 a las 28-May-2019 17:45:48
+Se escribió el archivo Pareto2Fun_a0.6_to1.5_ms1.6.csv el 28-May-2019 17:46:16
+Se escribió el archivo Pareto2Fun_a0.2_to1.9_ms1.8.csv el 28-May-2019 17:46:26
+Optimizando para Ms =2 L = 1.9 a = 0.2 a las 28-May-2019 17:46:26
+Se escribió el archivo Pareto2Fun_a1_to1.7_ms1.8.csv el 28-May-2019 17:46:52
+Optimizando para Ms =2 L = 1.7 a = 1 a las 28-May-2019 17:46:52
+Se escribió el archivo Pareto2Fun_a0_to1.7_ms1.4.csv el 28-May-2019 17:46:57
+Se escribió el archivo Pareto2Fun_a0.8_to1.7_ms2.csv el 28-May-2019 17:46:57
+Optimizando para Ms =10 L = 1.7 a = 0.8 a las 28-May-2019 17:46:57
+Se escribió el archivo Pareto2Fun_a0.6_to1.7_ms1.4.csv el 28-May-2019 17:47:04
+Optimizando para Ms =1.6 L = 1.7 a = 0.6 a las 28-May-2019 17:47:04
+Se escribió el archivo Pareto2Fun_a1_to1.7_ms10.csv el 28-May-2019 17:47:45
+Optimizando para Ms =1.4 L = 1.7 a = 0.8 a las 28-May-2019 17:47:45
+Se escribió el archivo Pareto2Fun_a0_to1.5_ms10.csv el 28-May-2019 17:47:47
+Optimizando para Ms =10 L = 1.9 a = 0.6 a las 28-May-2019 17:47:47
+Se escribió el archivo Pareto2Fun_a1_to1.9_ms1.4.csv el 28-May-2019 17:48:23
+Optimizando para Ms =1.6 L = 1.9 a = 1 a las 28-May-2019 17:48:23
+Se escribió el archivo Pareto2Fun_a1_to1.7_ms1.4.csv el 28-May-2019 17:48:47
+Optimizando para Ms =1.6 L = 1.7 a = 1 a las 28-May-2019 17:48:47
+Se escribió el archivo Pareto2Fun_a0.2_to1.7_ms10.csv el 28-May-2019 17:49:38
+Se escribió el archivo Pareto2Fun_a0.2_to1.9_ms10.csv el 28-May-2019 17:49:51
+Optimizando para Ms =1.4 L = 1.9 a = 0 a las 28-May-2019 17:49:52
+Se dio un error para Ms =1.4 L = 1.9 a = 0 a las 28-May-2019 17:49:57
+Se escribió el archivo Pareto2Fun_a0_to1.9_ms2.csv el 28-May-2019 17:50:10
+Optimizando para Ms =10 L = 1.9 a = 0 a las 28-May-2019 17:50:10
+Se escribió el archivo Pareto2Fun_a0.2_to1.7_ms1.4.csv el 28-May-2019 17:50:12
+Optimizando para Ms =1.6 L = 1.7 a = 0.2 a las 28-May-2019 17:50:12
+Se escribió el archivo Pareto2Fun_a0.8_to1.5_ms1.8.csv el 28-May-2019 17:50:24
+Se escribió el archivo Pareto2Fun_a1_to1.9_ms2.csv el 28-May-2019 17:50:47
+Se escribió el archivo Pareto2Fun_a0.4_to1.9_ms1.6.csv el 28-May-2019 17:51:04
+Optimizando para Ms =1.8 L = 1.9 a = 0.4 a las 28-May-2019 17:51:04
+Se escribió el archivo Pareto2Fun_a0.4_to1.9_ms2.csv el 28-May-2019 17:51:28
+Optimizando para Ms =10 L = 1.9 a = 0.4 a las 28-May-2019 17:51:28
+Se escribió el archivo Pareto2Fun_a0.8_to1.9_ms1.6.csv el 28-May-2019 17:51:58
+Optimizando para Ms =1.8 L = 1.9 a = 0.8 a las 28-May-2019 17:51:58
+Se escribió el archivo Pareto2Fun_a0.6_to1.9_ms1.4.csv el 28-May-2019 17:54:01
+Optimizando para Ms =1.6 L = 1.9 a = 0.6 a las 28-May-2019 17:54:01
+Se escribió el archivo Pareto2Fun_a0.2_to1.7_ms2.csv el 28-May-2019 17:54:08
+Se escribió el archivo Pareto2Fun_a0.6_to1.7_ms1.6.csv el 28-May-2019 17:54:20
+Se escribió el archivo Pareto2Fun_a0.4_to1.7_ms2.csv el 28-May-2019 17:54:26
+Optimizando para Ms =10 L = 1.7 a = 0.4 a las 28-May-2019 17:54:26
+Se escribió el archivo Pareto2Fun_a0.6_to1.9_ms2.csv el 28-May-2019 17:55:20
+Se escribió el archivo Pareto2Fun_a0.8_to1.7_ms1.4.csv el 28-May-2019 17:55:31
+Se escribió el archivo Pareto2Fun_a1_to1.9_ms1.6.csv el 28-May-2019 17:56:09
+Se escribió el archivo Pareto2Fun_a0.4_to1.7_ms1.8.csv el 28-May-2019 17:56:14
+Se escribió el archivo Pareto2Fun_a0.4_to1.7_ms1.4.csv el 28-May-2019 17:57:02
+Se escribió el archivo Pareto2Fun_a0.2_to1.7_ms1.6.csv el 28-May-2019 17:57:02
+Se escribió el archivo Pareto2Fun_a0.8_to1.7_ms1.8.csv el 28-May-2019 17:57:02
+Se escribió el archivo Pareto2Fun_a1_to1.9_ms10.csv el 28-May-2019 17:57:03
+Optimizando para Ms =1.4 L = 1.9 a = 0.8 a las 28-May-2019 17:57:03
+Se escribió el archivo Pareto2Fun_a1_to1.7_ms1.6.csv el 28-May-2019 17:57:08
+Se escribió el archivo Pareto2Fun_a0.8_to1.9_ms2.csv el 28-May-2019 17:57:33
+Optimizando para Ms =10 L = 1.9 a = 0.8 a las 28-May-2019 17:57:33
+Se escribió el archivo Pareto2Fun_a0.6_to1.7_ms2.csv el 28-May-2019 17:58:22
+Se escribió el archivo Pareto2Fun_a0.2_to1.9_ms2.csv el 28-May-2019 17:58:39
+Se escribió el archivo Pareto2Fun_a0.8_to1.7_ms10.csv el 28-May-2019 17:59:10
+Se escribió el archivo Pareto2Fun_a1_to1.7_ms2.csv el 28-May-2019 17:59:22
+Se escribió el archivo Pareto2Fun_a0.6_to1.9_ms1.6.csv el 28-May-2019 18:00:36
+Se escribió el archivo Pareto2Fun_a0.6_to1.9_ms10.csv el 28-May-2019 18:01:07
+Optimizando para Ms =1.4 L = 1.9 a = 0.4 a las 28-May-2019 18:01:07
+Se escribió el archivo Pareto2Fun_a0.4_to1.9_ms1.8.csv el 28-May-2019 18:02:07
+Se escribió el archivo Pareto2Fun_a0_to1.9_ms10.csv el 28-May-2019 18:03:13
+Se escribió el archivo Pareto2Fun_a0.8_to1.9_ms1.8.csv el 28-May-2019 18:03:13
+Se escribió el archivo Pareto2Fun_a0.8_to1.9_ms1.4.csv el 28-May-2019 18:03:47
+Se escribió el archivo Pareto2Fun_a0.4_to1.9_ms10.csv el 28-May-2019 18:03:57
+Se escribió el archivo Pareto2Fun_a0.4_to1.7_ms10.csv el 28-May-2019 18:05:43
+Se escribió el archivo Pareto2Fun_a0.8_to1.9_ms10.csv el 28-May-2019 18:08:33
+Se escribió el archivo Pareto2Fun_a0.4_to1.9_ms1.4.csv el 28-May-2019 18:09:52
