@@ -111,4 +111,9 @@ parfor k=1:length(LMesh)
         continue
     end
 end
-disp(['El proceso finalizo el ',datestr(clock)])
+FileNameLog='ArchivoLog3Fun.txt';
+fid2=fopen(FileNameLog,'a');
+textoLog=['El proceso finalizo el ',datestr(clock)];
+fprintf(fid2,'%s\r\n',textoLog);
+fclose(fid2);
+disp(textoLog);
