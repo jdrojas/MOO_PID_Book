@@ -1,182 +1,206 @@
-\chapter{Multi-objective optimization methods}
+\chapter{Multi-objective optimization}
 \label{sec:Metodolgia}
 \begin{refsection}
-\section{Multi-objective optimization problem formulation}
+\section{Formalization of the multi-objective optimization problem}
 \label{sec:MOOPForm}
-
-A \gls{moop} arises when, in order to solve a given problem or design, it is necessary to optimize several cost functions at the same time. 
-
-In general, these cost functions depend on the same variables and usually are in conflict.  In addition, they may be independent of one another, that is, the value of the variables that optimize one of the function do not necessarily optimize the other cost functions.
-
-In those cases, given a set of cost functions:
-\begin{equation}
-\mathbf{F}(\xv)=\left[F_1(\xv), F_2(\xv), F_3(\xv), \ldots, F_k(\xv)\right]^T
-\label{eq:functions}
-\end{equation}
 %
-that depends on $n$ different variables $\xv=\left[x_1, x_2, \ldots, x_n \right]^T$, $x_i \in \mathbf{X}$, where $\mathbf{X}$ is the feasible decision space. The \gls{moop} may be formulated as follows \parencite{Marler2004}:%
-%
-\begin{subequations}%
-	\begin{align}%
-	&\min_\xv \mathbf{F}(\xv), \label{eq:Min01}\\ %
-	&\text{s.t.}\nonumber\\%
-	& \hspace{5mm} g_j(\xv) \leq 0, \qquad j=1,2,\ldots,m  \label{eq:Min02}\\ %
-	& \hspace{5mm} h_l(\xv) = 0, \qquad l=1,2,\ldots,e  \label{eq:Min03}%
-	\end{align}%
-	\label{eq:OptProb}%
-\end{subequations}%
-%
-where $g_j(\xv)$ is the $j$-th inequality constraint and $h_l(\xv)$ is the $l$-th equality constraint. 
-
-In general, it is not possible to find a set of variables values that minimizes all $F$ functions. In fact, the optimization problem in \eqref{eq:OptProb} have multiple equally optimal solutions in the sense of the Pareto optimality. According to \cite{Marler2004}:
-\begin{quote}
-	``A point $\xv^*\in \mathbf{X}$, is Pareto optimal iff there does not exist another point, $\xv \in \mathbf{X}$, such that $\mathbf{F}(\xv)\leq\mathbf{F}(\xv^*)$, and $F_i(\xv)<F_i(\xv^*)$ for at least one function''
-\end{quote}
-
-The concept of Pareto optimality is represented in %
-%
-\begin{figure}
-	\centering
-	\includesvg[width=0.8\columnwidth]{./figuras/planoFun01}
-	\caption{Function space}
-	\label{fig:planoFun01}
-\end{figure}
-%
-figure~\ref{fig:planoFun01} for a two-function multi-objective optimization. The gray area represents the feasible function space, given by the value of $F_1(\xv)$ and $F_2(\xv)$ for all $\xv \in \mathbf{X}$. From all those points, only the points in the curve from ``a'' to ``b'' (marked with a thicker dash line) are Pareto optimal because there is not another point in the feasible decision space with a lower value of $\mathbf{F}$, but there is at least one point that has a lower value for either $F_1$ or $F_2$. The curve from ``a'' to ``b'' is the Pareto front and contains all possible solutions to problem \eqref{eq:OptProb} that are Pareto optimal. These solutions are always in the edge of the feasible function space, closer to the utopia point (the ``u'' point in the figure). The utopia point is a point in the space where all the cost functions have their minimum value. As it can be seen from figure~\ref{fig:planoFun01}, this point is more likely to be outside of the feasible function space.
-
-Points ``a'' and ``b'' are called anchor points and represent the combination of decision variables that optimizes at least one of the functions. In this case, ``a'' is the point where function $F_1(\xv)$ has its minimum value whereas ``b'' the one in which $F_2(\xv)$ has its minimum value.
-
-Point ``N'' is called the pseudo-nadir point, and is defined as the point with the worst values of all the anchor points.
-%--------------------------------------------------------------------------
-%-------------------------------o-o-o--------------------------------------
-%--------------------------------------------------------------------------
+To do
+\subsection{Definition of the Pareto front}
+To do
+\subsection{Different approaches to obtain the Pareto front}
+To do
+%----------------------------------------------------
 \section{Scalarization algorithms to find the Pareto front}
-\label{sec:design-methodologies}
-
-In general, the algorithms to find the optimal value of a function are designed to be used in a single objective paradigm. In order to be able to use the same standard algorithms with a multi-objective problem, some scalarization method has to be employed.
-%
 \subsection{Weighted Sum}
 \label{sec:WS}
-%
-\gls{ws} methodology is a popular procedure to transform a \gls{moop} into a single objective problem by creating a new objective function that is the result of the aggregation of all the functions involved with certain weight for each one \parencite{Marler2004}. For example, if the two objectives to optimize are $f_{1}(\mathbf{x})$ and $f_{1}(\mathbf{x})$, the new function is given by:
-\begin{equation}
-F_{WS}(\mathbf{x}) = \alpha_{1WS} \hat{f}_{1}(\mathbf{x}) + \alpha_{2WS} \hat{f}_{2}(\mathbf{x}),
-\label{eq:JWS}
-\end{equation}
-with $\alpha_{1WS} + \alpha_{2WS}=1$, and $\hat{f}_{1}(\mathbf{x})$ and $\hat{f}_{2}(\mathbf{x})$ the normalized versions of $f_{1}(\mathbf{x})$ and $f_{2}(\mathbf{x})$, respectively. One possible normalization (see \cite{Marler2004}) is given by:
-\begin{equation}
-\hat{f}_{1}(\mathbf{x}) = \frac{f_{1}(\mathbf{x})-\min{\left( f_{1}(\mathbf{x})\right) }}{\max{(f_{1}(\mathbf{x}))}-\min{\left( f_{1}(\mathbf{x})\right) }}.
-\label{eq:NormalizedJ}
-\end{equation}
-
-With this normalization, the utopia point is moved to the origin and the maximum value of the new normalized function is 1.
-
-The optimization problem then is written as:
-\begin{equation}
-\begin{gathered}
-\min_{\mathbf{x}}{\; F_{WS}(\mathbf{x})}, \\
-\text{s.t.} \; h(\mathbf{x})=0, \\
-g(\mathbf{x}) \leq 0,
-\end{gathered}
-\label{eq:WSProblem}
-\end{equation}
-%
-where $h(\mathbf{x})$ and $g(\mathbf{x})$ are the equality and inequality constraints of the original problem.
-
-There are certain drawbacks with this approach. In first place, when \eqref{eq:JWS} is minimized for different values of $\alpha_{1WS}$ and $\alpha_{2WS}$ in order to obtain the Pareto front, an even distribution of the weights does not assure an even distribution of the points in the front. Also, with \gls{ws} it is not possible to obtain Pareto points in the non-convex region of the front, and therefore, not all the possible solutions can be found \parencite{Das1997}. %In order to tackle this issue, alternative problem formulation have been proposed in the literature in order to obtain the Pareto front \parencite{Marler2004}.
-%
-%
+To do
+%--------------------------------------------------
 \subsection{Normal Boundary Intersection}
 \label{sec:NBI}
-%
-The \gls{nbi} is a variation in the way that the \gls{moop} is posed as a single objective optimization problem, in order to obtained an even spaced Pareto front \parencite{Das1998}. In %
-%
-\begin{figure}%
-	\centering
-	\includesvg[pretex=\scriptsize, width=0.8\columnwidth]{./figuras/NBI}%
-	\caption{\gls{nbi} optimization method.}%
-	\label{fig:NBI}%
-\end{figure}
-%
-figure~\ref{fig:NBI}, a representation of the method is shown for two normalized objective functions. If the utopia plane (the plane that contains the anchor points, in the case of a bi-objective problem, the straight line that joints the anchor points) is parametrized by $\Phi\mathbf{\beta}$, where $\Phi(:,i)=\mathbf{F}(\mathbf{x}_i^*)-\mathbf{F}(\mathbf{x}^*)$, $\mathbf{F}(\mathbf{x}_i^*)$ is the value of the multi-objective function evaluated in the $i$th anchor point, $\mathbf{F}(\mathbf{x}^*)$ is the value of the function at the utopia point, and $\beta$ is chosen as:
-\begin{equation}
-\beta=
-\left[\begin{tabular}{c}
-$\alpha_{1NBI}$ \\ $\alpha_{2NBI}$
-\end{tabular}\right],
-\label{eq:Beta}
-\end{equation}
-with $\alpha_{1NBI}+\alpha_{2NBI}=1$.
-
-Then, the idea behind the \gls{nbi} method is to find the maximum distance from the utopia plane towards the utopia point (with direction $\hat{\mathbf{n}}$) that is normal (or pseudo normal as proposed in \parencite{Das1998}) to the utopia plane. In other words, the objective is to find the border of the feasible region that is closer to the utopia point, but, by varying the parameter $\beta$ in a systematic way, it is possible to obtain an even spaced realization of the Pareto front. 
-
-The problem then is posed as follows:%
-%
-\begin{equation}
-\begin{gathered}
-\max_{\xv,v}{\;v}, \\
-\text{s.t.} \ \Phi \boldsymbol{\beta} + v \hat{\mathbf{n}} = \mathbf{F}(\xv),\\
-h(\xv)=0, \\
-g(\xv) \leq 0.
-\end{gathered}
-\label{eq:NBIProblem}
-\end{equation}%
-
-In practice, the \gls{nbi} method adds an equality constraint to the problem in such a way that, by maximizing a new variable $v$ (which represents the distance from the utopia plane towards the utopia point), the border that is closer to the utopia point is found. Depending on the shape of the frontier, it is possible that the \gls{nbi} finds points that are not Pareto optimal but belong to the edge of the feasible space. These points can be useful to have a better idea of the convexity (or lack thereof) of the Pareto front.
-%
-%
+To do
+%--------------------------------------------------
 \subsection{Normalized Normal Constraint}
 \label{sec:NNC}
-The \gls{nnc} is presented in \cite{Messac2003} and is intended to improve the results of the \gls{nbi} by formulating the optimization problem only with inequality constraints and by filtering all the non-Pareto optimal points. The main idea of the methodology is presented in
-%
-\begin{figure}%
-	\centering
-	\includesvg[pretex=\scriptsize, width=0.8\columnwidth]{./figuras/NNC}%
-	\caption{NNC optimization method.}%
-	\label{fig:NNC}%
-\end{figure}
-%
-figure~\ref{fig:NNC}: the utopia plane is parameterized in a similar way as the \gls{nbi} but, instead of constraining the points to be within a line, the new constrained feasible region is constructed with the original feasible region and a line that is normal to the utopia plane. With this new feasible region it is only required to minimize one of the functions (e.g. $f_{1}$) in order to find the Pareto front.
-
-By varying the parameter $\bar{\mathbf{X}}_{pj}$ along the utopia plane, it is possible to find an even spaced front. $\bar{\mathbf{X}}_{pj}$ is computed as%
-%
-\begin{equation}
-\bar{\mathbf{X}}_{pj}= \alpha_{1NNC} \mathbf{\hat{F}}(\mathbf{x}_1^*)+\alpha_{2NNC} \mathbf{\hat{F}}(\mathbf{x}_2^*).
-\label{eq:Xpj}
-\end{equation}%
-%
-with $\alpha_{1NNC}+\alpha_{2NNC}=1$ and where $\mathbf{\hat{F}}(\mathbf{x}_1^*)$ is the first anchor point and $\mathbf{\hat{F}}(\mathbf{x}_2^*)$ is the second. The methodology can be extended to higher dimensions.
-
-The optimization problem can be written as follows:
-%
-\begin{equation}
-\begin{gathered}
-\min_{\mathbf{x}}{\; \hat{f}_{1}(\mathbf{x})}, \\
-\text{s.t.} \ \bar{\mathbf{N}}_1^T \left(\hat{\mathbf{F}}(\mathbf{x})-\bar{\mathbf{X}}_{pj}\right) \leq 0,\\
-h(\mathbf{x})=0, \\
-g(\mathbf{x}) \leq 0,
-\end{gathered}
-\label{eq:NNCProblem}
-\end{equation}
-%
-where $\bar{\mathbf{N}}_1$ is the vector that contains the direction of the utopia plane.
-%
+To do
 \subsection{Enhanced Normalized Normal Constraint}
 \label{sec:ENNC}
-The \gls{ennc} \parencite{Sanchis2008}, is a new perspective of the original \gls{nnc} method. Implicitly, the \gls{nnc} method supposes that in each anchor point, the other functions that are not optimal, have their worst value. For a two functions optimization, this is always the case; however for more than two functions this supposition is not true in general. The \gls{ennc} method redefines the anchor points in such a way that the supposition of the \gls{nnc} holds true, and then the same method may be used. Other advantage of the \gls{ennc} is that it is possible to expand the explored regions of the problem, given a better representation of the Pareto front.
-
-The new anchor points (called pseudo anchor points) are defined as:
-\begin{equation}
-F_i^{**} = \left[
-\begin{tabular}{cccccc}
-$f_1^N$ & $f_2^N$ & $\cdots$ & $f_i^{*}$ & $\cdots$ & $f_n^N$
-\end{tabular}
-\right],
-\label{eq:PseudoAnchor}
-\end{equation}
+To do
+%--------------------------------------------------
+\section{Solution selection from the Pareto front}
+\label{sec:Selection}
+%A \gls{moop} arises when, in order to solve a given problem or design, it is necessary to optimize several cost functions at the same time. 
 %
-where $f_i^N$ if the value of function $f_i$ at the pseudo nadir point. The effect of this new definition is to enlarge the utopia hyper plane and scaling the functions in such a way that the Pareto front is evenly obtained while the unexplored regions of the Pareto are reduced.
-
-The Pareto is then computed using the same methodology as in the \gls{nnc} case.
-\printbibliography
+%In general, these cost functions depend on the same variables and usually are in conflict.  In addition, they may be independent of one another, that is, the value of the variables that optimize one of the function do not necessarily optimize the other cost functions.
+%
+%In those cases, given a set of cost functions:
+%\begin{equation}
+%\mathbf{F}(\xv)=\left[F_1(\xv), F_2(\xv), F_3(\xv), \ldots, F_k(\xv)\right]^T
+%\label{eq:functions}
+%\end{equation}
+%%
+%that depends on $n$ different variables $\xv=\left[x_1, x_2, \ldots, x_n \right]^T$, $x_i \in \mathbf{X}$, where $\mathbf{X}$ is the feasible decision space. The \gls{moop} may be formulated as follows \parencite{Marler2004}:%
+%%
+%\begin{subequations}%
+%	\begin{align}%
+%	&\min_\xv \mathbf{F}(\xv), \label{eq:Min01}\\ %
+%	&\text{s.t.}\nonumber\\%
+%	& \hspace{5mm} g_j(\xv) \leq 0, \qquad j=1,2,\ldots,m  \label{eq:Min02}\\ %
+%	& \hspace{5mm} h_l(\xv) = 0, \qquad l=1,2,\ldots,e  \label{eq:Min03}%
+%	\end{align}%
+%	\label{eq:OptProb}%
+%\end{subequations}%
+%%
+%where $g_j(\xv)$ is the $j$-th inequality constraint and $h_l(\xv)$ is the $l$-th equality constraint. 
+%
+%In general, it is not possible to find a set of variables values that minimizes all $F$ functions. In fact, the optimization problem in \eqref{eq:OptProb} have multiple equally optimal solutions in the sense of the Pareto optimality. According to \cite{Marler2004}:
+%\begin{quote}
+%	``A point $\xv^*\in \mathbf{X}$, is Pareto optimal iff there does not exist another point, $\xv \in \mathbf{X}$, such that $\mathbf{F}(\xv)\leq\mathbf{F}(\xv^*)$, and $F_i(\xv)<F_i(\xv^*)$ for at least one function''
+%\end{quote}
+%
+%The concept of Pareto optimality is represented in %
+%%
+%\begin{figure}
+%	\centering
+%	\includesvg[width=0.8\columnwidth]{./figuras/planoFun01}
+%	\caption{Function space}
+%	\label{fig:planoFun01}
+%\end{figure}
+%%
+%figure~\ref{fig:planoFun01} for a two-function multi-objective optimization. The gray area represents the feasible function space, given by the value of $F_1(\xv)$ and $F_2(\xv)$ for all $\xv \in \mathbf{X}$. From all those points, only the points in the curve from ``a'' to ``b'' (marked with a thicker dash line) are Pareto optimal because there is not another point in the feasible decision space with a lower value of $\mathbf{F}$, but there is at least one point that has a lower value for either $F_1$ or $F_2$. The curve from ``a'' to ``b'' is the Pareto front and contains all possible solutions to problem \eqref{eq:OptProb} that are Pareto optimal. These solutions are always in the edge of the feasible function space, closer to the utopia point (the ``u'' point in the figure). The utopia point is a point in the space where all the cost functions have their minimum value. As it can be seen from figure~\ref{fig:planoFun01}, this point is more likely to be outside of the feasible function space.
+%
+%Points ``a'' and ``b'' are called anchor points and represent the combination of decision variables that optimizes at least one of the functions. In this case, ``a'' is the point where function $F_1(\xv)$ has its minimum value whereas ``b'' the one in which $F_2(\xv)$ has its minimum value.
+%
+%Point ``N'' is called the pseudo-nadir point, and is defined as the point with the worst values of all the anchor points.
+%%--------------------------------------------------------------------------
+%%-------------------------------o-o-o--------------------------------------
+%%--------------------------------------------------------------------------
+%\section{Scalarization algorithms to find the Pareto front}
+%\label{sec:design-methodologies}
+%
+%In general, the algorithms to find the optimal value of a function are designed to be used in a single objective paradigm. In order to be able to use the same standard algorithms with a multi-objective problem, some scalarization method has to be employed.
+%%
+%\subsection{Weighted Sum}
+%\label{sec:WS}
+%%
+%\gls{ws} methodology is a popular procedure to transform a \gls{moop} into a single objective problem by creating a new objective function that is the result of the aggregation of all the functions involved with certain weight for each one \parencite{Marler2004}. For example, if the two objectives to optimize are $f_{1}(\mathbf{x})$ and $f_{1}(\mathbf{x})$, the new function is given by:
+%\begin{equation}
+%F_{WS}(\mathbf{x}) = \alpha_{1WS} \hat{f}_{1}(\mathbf{x}) + \alpha_{2WS} \hat{f}_{2}(\mathbf{x}),
+%\label{eq:JWS}
+%\end{equation}
+%with $\alpha_{1WS} + \alpha_{2WS}=1$, and $\hat{f}_{1}(\mathbf{x})$ and $\hat{f}_{2}(\mathbf{x})$ the normalized versions of $f_{1}(\mathbf{x})$ and $f_{2}(\mathbf{x})$, respectively. One possible normalization (see \cite{Marler2004}) is given by:
+%\begin{equation}
+%\hat{f}_{1}(\mathbf{x}) = \frac{f_{1}(\mathbf{x})-\min{\left( f_{1}(\mathbf{x})\right) }}{\max{(f_{1}(\mathbf{x}))}-\min{\left( f_{1}(\mathbf{x})\right) }}.
+%\label{eq:NormalizedJ}
+%\end{equation}
+%
+%With this normalization, the utopia point is moved to the origin and the maximum value of the new normalized function is 1.
+%
+%The optimization problem then is written as:
+%\begin{equation}
+%\begin{gathered}
+%\min_{\mathbf{x}}{\; F_{WS}(\mathbf{x})}, \\
+%\text{s.t.} \; h(\mathbf{x})=0, \\
+%g(\mathbf{x}) \leq 0,
+%\end{gathered}
+%\label{eq:WSProblem}
+%\end{equation}
+%%
+%where $h(\mathbf{x})$ and $g(\mathbf{x})$ are the equality and inequality constraints of the original problem.
+%
+%There are certain drawbacks with this approach. In first place, when \eqref{eq:JWS} is minimized for different values of $\alpha_{1WS}$ and $\alpha_{2WS}$ in order to obtain the Pareto front, an even distribution of the weights does not assure an even distribution of the points in the front. Also, with \gls{ws} it is not possible to obtain Pareto points in the non-convex region of the front, and therefore, not all the possible solutions can be found \parencite{Das1997}. %In order to tackle this issue, alternative problem formulation have been proposed in the literature in order to obtain the Pareto front \parencite{Marler2004}.
+%%
+%%
+%\subsection{Normal Boundary Intersection}
+%\label{sec:NBI}
+%%
+%The \gls{nbi} is a variation in the way that the \gls{moop} is posed as a single objective optimization problem, in order to obtained an even spaced Pareto front \parencite{Das1998}. In %
+%%
+%\begin{figure}%
+%	\centering
+%	\includesvg[pretex=\scriptsize, width=0.8\columnwidth]{./figuras/NBI}%
+%	\caption{\gls{nbi} optimization method.}%
+%	\label{fig:NBI}%
+%\end{figure}
+%%
+%figure~\ref{fig:NBI}, a representation of the method is shown for two normalized objective functions. If the utopia plane (the plane that contains the anchor points, in the case of a bi-objective problem, the straight line that joints the anchor points) is parametrized by $\Phi\mathbf{\beta}$, where $\Phi(:,i)=\mathbf{F}(\mathbf{x}_i^*)-\mathbf{F}(\mathbf{x}^*)$, $\mathbf{F}(\mathbf{x}_i^*)$ is the value of the multi-objective function evaluated in the $i$th anchor point, $\mathbf{F}(\mathbf{x}^*)$ is the value of the function at the utopia point, and $\beta$ is chosen as:
+%\begin{equation}
+%\beta=
+%\left[\begin{tabular}{c}
+%$\alpha_{1NBI}$ \\ $\alpha_{2NBI}$
+%\end{tabular}\right],
+%\label{eq:Beta}
+%\end{equation}
+%with $\alpha_{1NBI}+\alpha_{2NBI}=1$.
+%
+%Then, the idea behind the \gls{nbi} method is to find the maximum distance from the utopia plane towards the utopia point (with direction $\hat{\mathbf{n}}$) that is normal (or pseudo normal as proposed in \parencite{Das1998}) to the utopia plane. In other words, the objective is to find the border of the feasible region that is closer to the utopia point, but, by varying the parameter $\beta$ in a systematic way, it is possible to obtain an even spaced realization of the Pareto front. 
+%
+%The problem then is posed as follows:%
+%%
+%\begin{equation}
+%\begin{gathered}
+%\max_{\xv,v}{\;v}, \\
+%\text{s.t.} \ \Phi \boldsymbol{\beta} + v \hat{\mathbf{n}} = \mathbf{F}(\xv),\\
+%h(\xv)=0, \\
+%g(\xv) \leq 0.
+%\end{gathered}
+%\label{eq:NBIProblem}
+%\end{equation}%
+%
+%In practice, the \gls{nbi} method adds an equality constraint to the problem in such a way that, by maximizing a new variable $v$ (which represents the distance from the utopia plane towards the utopia point), the border that is closer to the utopia point is found. Depending on the shape of the frontier, it is possible that the \gls{nbi} finds points that are not Pareto optimal but belong to the edge of the feasible space. These points can be useful to have a better idea of the convexity (or lack thereof) of the Pareto front.
+%%
+%%
+%\subsection{Normalized Normal Constraint}
+%\label{sec:NNC}
+%The \gls{nnc} is presented in \cite{Messac2003} and is intended to improve the results of the \gls{nbi} by formulating the optimization problem only with inequality constraints and by filtering all the non-Pareto optimal points. The main idea of the methodology is presented in
+%%
+%\begin{figure}%
+%	\centering
+%	\includesvg[pretex=\scriptsize, width=0.8\columnwidth]{./figuras/NNC}%
+%	\caption{NNC optimization method.}%
+%	\label{fig:NNC}%
+%\end{figure}
+%%
+%figure~\ref{fig:NNC}: the utopia plane is parameterized in a similar way as the \gls{nbi} but, instead of constraining the points to be within a line, the new constrained feasible region is constructed with the original feasible region and a line that is normal to the utopia plane. With this new feasible region it is only required to minimize one of the functions (e.g. $f_{1}$) in order to find the Pareto front.
+%
+%By varying the parameter $\bar{\mathbf{X}}_{pj}$ along the utopia plane, it is possible to find an even spaced front. $\bar{\mathbf{X}}_{pj}$ is computed as%
+%%
+%\begin{equation}
+%\bar{\mathbf{X}}_{pj}= \alpha_{1NNC} \mathbf{\hat{F}}(\mathbf{x}_1^*)+\alpha_{2NNC} \mathbf{\hat{F}}(\mathbf{x}_2^*).
+%\label{eq:Xpj}
+%\end{equation}%
+%%
+%with $\alpha_{1NNC}+\alpha_{2NNC}=1$ and where $\mathbf{\hat{F}}(\mathbf{x}_1^*)$ is the first anchor point and $\mathbf{\hat{F}}(\mathbf{x}_2^*)$ is the second. The methodology can be extended to higher dimensions.
+%
+%The optimization problem can be written as follows:
+%%
+%\begin{equation}
+%\begin{gathered}
+%\min_{\mathbf{x}}{\; \hat{f}_{1}(\mathbf{x})}, \\
+%\text{s.t.} \ \bar{\mathbf{N}}_1^T \left(\hat{\mathbf{F}}(\mathbf{x})-\bar{\mathbf{X}}_{pj}\right) \leq 0,\\
+%h(\mathbf{x})=0, \\
+%g(\mathbf{x}) \leq 0,
+%\end{gathered}
+%\label{eq:NNCProblem}
+%\end{equation}
+%%
+%where $\bar{\mathbf{N}}_1$ is the vector that contains the direction of the utopia plane.
+%%
+%\subsection{Enhanced Normalized Normal Constraint}
+%\label{sec:ENNC}
+%The \gls{ennc} \parencite{Sanchis2008}, is a new perspective of the original \gls{nnc} method. Implicitly, the \gls{nnc} method supposes that in each anchor point, the other functions that are not optimal, have their worst value. For a two functions optimization, this is always the case; however for more than two functions this supposition is not true in general. The \gls{ennc} method redefines the anchor points in such a way that the supposition of the \gls{nnc} holds true, and then the same method may be used. Other advantage of the \gls{ennc} is that it is possible to expand the explored regions of the problem, given a better representation of the Pareto front.
+%
+%The new anchor points (called pseudo anchor points) are defined as:
+%\begin{equation}
+%F_i^{**} = \left[
+%\begin{tabular}{cccccc}
+%$f_1^N$ & $f_2^N$ & $\cdots$ & $f_i^{*}$ & $\cdots$ & $f_n^N$
+%\end{tabular}
+%\right],
+%\label{eq:PseudoAnchor}
+%\end{equation}
+%%
+%where $f_i^N$ if the value of function $f_i$ at the pseudo nadir point. The effect of this new definition is to enlarge the utopia hyper plane and scaling the functions in such a way that the Pareto front is evenly obtained while the unexplored regions of the Pareto are reduced.
+%
+%The Pareto is then computed using the same methodology as in the \gls{nnc} case.
+%\printbibliography
 \end{refsection}
