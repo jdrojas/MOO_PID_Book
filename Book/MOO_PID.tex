@@ -31,10 +31,11 @@
 \pgfplotsset{compat=1.13}%\pgfplotsset{compat=1.14}
 \pgfkeys{/pgf/number format/.cd,1000 sep={\,}}
 %----- Bibliografia ------------
-\usepackage[style=mexican]{csquotes}
-\usepackage[backend=biber, style=authoryear]{biblatex}% biber
-\addbibresource{ReferenciasMulti.bib}
-\usepackage{emptypage}
+%\usepackage[style=mexican]{csquotes}
+%\usepackage[backend=biber, style=authoryear]{biblatex}% biber
+%\addbibresource{ReferenciasMulti.bib}
+%\usepackage{emptypage}
+\usepackage{cite}
 %% ********* Table layout **************
 \usepackage{booktabs}
 \usepackage{multirow}
@@ -96,6 +97,7 @@
 %\textit{Writing in process}
 %\input{./mainmatter/MOOIndResults.tex}
 \input{./mainmatter/MOOIndPIDControl.tex}
+\input{./mainmatter/MOOIndPIDControlConsideration.tex}
 \input{./mainmatter/MOOIndPIDControlDesign.tex}
 \input{./mainmatter/MOOIndMetodos.tex}
 \input{./mainmatter/MOOIndPIDMOOP.tex}
@@ -104,7 +106,8 @@
 \input{./backmatter/glossary}
 %\include{solutions}
 %\printindex
-
+\bibliographystyle{spmpsci}
+\bibliography{ReferenciasMulti}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
