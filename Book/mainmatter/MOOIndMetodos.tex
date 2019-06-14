@@ -1,6 +1,6 @@
 \chapter{Multi-objective optimization}
 \label{sec:Metodolgia}
-\begin{refsection}
+%\begin{refsection}
 \section{Formalization of the multi-objective optimization problem}
 \label{sec:MOOPForm}
 %
@@ -14,6 +14,32 @@ To do
 \subsection{Weighted Sum}
 \label{sec:WS}
 To do
+\gls{ws} methodology is a popular procedure to transform a \gls{moop} into a single objective problem by creating a new objective function that is the result of the aggregation of all the functions involved with certain weight for each one \cite{Marler2004}. For example, if the two objectives to optimize are $f_{1}(\mathbf{x})$ and $f_{1}(\mathbf{x})$, the new function is given by:
+\begin{equation}
+F_{WS}(\mathbf{x}) = \alpha_{1WS} \hat{f}_{1}(\mathbf{x}) + \alpha_{2WS} \hat{f}_{2}(\mathbf{x}),
+\label{eq:JWS}
+\end{equation}
+with $\alpha_{1WS} + \alpha_{2WS}=1$, and $\hat{f}_{1}(\mathbf{x})$ and $\hat{f}_{2}(\mathbf{x})$ the normalized versions of $f_{1}(\mathbf{x})$ and $f_{2}(\mathbf{x})$, respectively. One possible normalization (see \cite{Marler2004}) is given by:
+\begin{equation}
+\hat{f}_{1}(\mathbf{x}) = \frac{f_{1}(\mathbf{x})-\min{\left( f_{1}(\mathbf{x})\right) }}{\max{(f_{1}(\mathbf{x}))}-\min{\left( f_{1}(\mathbf{x})\right) }}.
+\label{eq:NormalizedJ}
+\end{equation}
+
+With this normalization, the utopia point is moved to the origin and the maximum value of the new normalized function is 1.
+
+The optimization problem then is written as:
+\begin{equation}
+\begin{gathered}
+\min_{\mathbf{x}}{\; F_{WS}(\mathbf{x})}, \\
+\text{s.t.} \; h(\mathbf{x})=0, \\
+g(\mathbf{x}) \leq 0,
+\end{gathered}
+\label{eq:WSProblem}
+\end{equation}
+%
+where $h(\mathbf{x})$ and $g(\mathbf{x})$ are the equality and inequality constraints of the original problem.
+
+There are certain drawbacks with this approach. In first place, when \eqref{eq:JWS} is minimized for different values of $\alpha_{1WS}$ and $\alpha_{2WS}$ in order to obtain the Pareto front, an even distribution of the weights does not assure an even distribution of the points in the front. Also, with \gls{ws} it is not possible to obtain Pareto points in the non-convex region of the front, and therefore, not all the possible solutions can be found \cite{Das1997}. %In order to tackle this issue, alternative problem formulation have been proposed in the literature in order to obtain the Pareto front \parencite{Marler2004}.
 %--------------------------------------------------
 \subsection{Normal Boundary Intersection}
 \label{sec:NBI}
@@ -203,4 +229,4 @@ To do
 %
 %The Pareto is then computed using the same methodology as in the \gls{nnc} case.
 %\printbibliography
-\end{refsection}
+%\end{refsection}
