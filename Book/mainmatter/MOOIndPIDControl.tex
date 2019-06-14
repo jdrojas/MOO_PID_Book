@@ -9,7 +9,44 @@ Please use the 'starred' version of the new Springer \texttt{abstract} command f
 \section{Control System Design Scenario}
 \label{sec:1}
 
-\cite{Haegglund2012}
+A natural way to adjust or correct the behaviour over time of a dynamic system output, the controlled variable, is by using an actuating input computed on the basis of the comparison of the actual output with its desired value: the feedback error. This is, by means of closed-loop control. To compute the control action information about the feedback error evolution is required. Normally its current value, its past evolution, and a prediction of its future behaviour are used. The way we use this information to deliver the control action constitutes the control algorithm.\\
+
+The feedback control structure has been used for a long time, but if we constraint ourselves to the industrial process control area, the proportional (present) integral (past) derivative (future) (PID) control algorithm age starts in the 40's  with the PID controller and this will be the concern of this text.  A control algorithm has a number of control parameters, which must be ?tuned? (adjusted) to have acceptable performance. Often the tuning is done on a simulation model before implementing the control strategy on the actual process. In this text ww will concentrate on the determination of the controller tuning, in fact, PID tuning, by means of optimisation methods. Specifically, optimisation methods that deal with multiple objectives at the same time. However, prior to this task, we should define the control scenario where the design will take place.\\
+
+Consider the general two-degree-of-freedom closed-loop control system depicted in figure~\ref{fig:bdg} where $P(s)$ and $\{C_r(s), C_y(s)\}$ are the controlled process model and the controller transfer functions, respectively.  In this system, $r(s)$ is the set-point, $u(s)$ the controller output signal, $d(s)$ the disturbance, $y(s)$ the process controlled variable, and $n(s)$ the measurement noise. It is assumed that the disturbance enter at the process input (load-disturbance).
+
+\begin{figure}[tb]
+\centering
+	\includegraphics[width=0.80\linewidth]{../figuras/mrt_bdgen} 
+\caption{Two-Degree-of-freedom closed-loop control system.} \label{fig:bdg}
+\end{figure}
+
+
+The closed-loop control system output $y(s)$ as a function of its inputs $r(s)$, $d(s)$, and $n(s)$ is
+
+\begin{equation}
+	y(s) = M_{yr}(s) r(s) + M_{yd}(s) d(s) + M_{yn}(s) n(s), \label{eq:yt}
+\end{equation}
+
+\noindent where
+\begin{equation}
+	M_{yr}(s) \doteq \frac{C_r(s)P(s)}{1+C_y(s)P(s)}, \label{eq:myr}
+\end{equation}
+
+\noindent is the servo-control closed-loop transfer function, 
+\begin{equation}
+	M_{yd}(s) \doteq \frac{P(s)}{1+C_y(s)P(s)}, \label{eq:myd}
+\end{equation}
+
+\noindent the regulatory control closed-loop transfer function, and
+\begin{equation}
+	M_{yn}(s) \doteq \frac{-C_y(s)P(s)}{1+C_y(s)P(s)}, \label{eq:myn}
+\end{equation}
+
+\noindent the measurement noise sensitivity function.\\
+
+The regulatory control main objective is \emph{load-disturbance rejection}; this is, to return the controlled variable to its set-point in the event a disturbance enters to the control system.  For the servo-control, it is intended to \emph{follow a changing set-point}; this its, to bring the controlled variable to its new desired value. Controller tuning for above operations must take also into account to not amplified the measurement noise, if any.\\
+
 
 
 \section{Industrial Process Characteristics}
@@ -56,7 +93,7 @@ u(s)=K_p \left ( 1+\frac{1}{T_is}+{T_ds} \right )  e(s)
 \label{eq:ideal}
 \end{equation}
 
-This form is usually referred to as the \emph{ideal} PID. The three-term functionalities are highlighted by the following.
+This form is usually referred to as the \emph{ideal} PID, where the derivative term is based on the \emph{ideal} computation of the error derivative. The three-term functionalities are highlighted by the following.
 
 \subsubsection*{Proportional term}
 
@@ -71,7 +108,7 @@ The P action depends only on the instantaneous value of the error and is nonzero
 
 \subsubsection*{Integral term}
 
-Integral (or reset) action produces a controller output that is proportional to the accumulated error. The control law in this case is given by
+Integral, I, (or reset) action produces a controller output that is proportional to the accumulated error. The control law in this case is given by
 
 \[u_I( t ) = \frac{K_p}{T_i}\int_0^t e(\tau)\md \tau \]
 
@@ -79,7 +116,7 @@ Integral (or reset) action produces a controller output that is proportional to 
 
 \subsubsection*{Derivative term}
 
-The final mode is the derivative  action. Here the control is proportional to the rate of change of the error signal. It follows that whenever the error signal is constant, the derivative signal contributes zero. The control law in this case is given by
+The third mode is the derivative, D,  action. Here the control is proportional to the rate of change of the error signal. It follows that whenever the error signal is constant, the derivative signal contributes zero. The control law in this case is given by
 
 \[u_D(t) = K_pT_d \frac{\md}{\md t}e(t)\]
 
@@ -90,24 +127,24 @@ Another issue is that the D part of the PID controller in the ideal form \eqref{
 
 \[U_D(s)= K_p\frac{T_ds}{\alpha T_d s+1} E(s)\]
 
-This is often referred to as using a real derivator. In this way, $\alpha$ becomes another parameter of the PID that has to be selected. It is worth noting that a small values for $\alpha$ makes the implementation of the D action similar to a true derivative but it also increases the high frequency gain, thus increasing noise sensitivity.
+\noindent this is often referred to as using a real derivator. In this way, $\alpha$ becomes another parameter of the PID that has to be selected. It is worth noting that a small values for $\alpha$ makes the implementation of the D action similar to a true derivative but it also increases the high frequency gain, thus increasing noise sensitivity.
 
 Taking into account this modification for the ideal derivative term, the PID controller can be expressed in the $s$-domain with the following overall transfer function:
 
 \begin{equation}
 u(s)=K_p \left ( 1+\frac{1}{T_is}+\frac{T_ds}{\alpha T_d s+1} \right )  e(s)
+\label{eq:standard}
 \end{equation}
 
 \subsection{PID Controller formulations}
 \label{sec:3.1}
-The PID algorithm as presented is usually referred as the standard one. However, the combinations of the three basic control actions may come in other different formulations. In fact, usually, the control algorithm implementation is manufacturer dependent and not all of its variations are available in the same controller. Even more, the controllers manufacturers use different names for the same PID algorithm~\cite{gerry1987} WEE.  The diversity of the PID control algorithms is evident in~\cite{odwyer2006} WEE.  In addition, it might be the case that a tuning rule of interest had been obtained using a control algorithm different from the one implemented in the controller to tune. In this case, as it is not guaranteed that the equivalent controller exists, controller parameters conversion relations are required, that will also indicate if the pursued equivalent controller exists. In what follows, the basic PID controller formulations are presented by using a different notation for the parameters in each one of them. This will allow later on the definition of transformation equations for computing the parameters for one formulation from another one.
+The PID algorithm as presented in \eqref{eq:standard} is usually referred as the standard one. However, the combinations of the three basic control actions may come in other different formulations. In fact, usually, the control algorithm implementation is manufacturer dependent and not all of its variations are available in the same controller. Even more, the controllers manufacturers use different names for the same PID algorithm~\cite{gerry1987}.  The diversity of the PID control algorithms is evident in~\cite{odwyer2006}.  In addition, it might be the case that a tuning rule of interest had been obtained using a control algorithm different from the one implemented in the controller to tune. In this case, as it is not guaranteed that the equivalent controller exists, controller parameters conversion relations are required, that will also indicate if the pursued equivalent controller exists. In what follows, the basic PID controller formulations are presented by using a different notation for the parameters in each one of them. This will allow later on the definition of transformation equations for computing the parameters for one formulation from another one.
 
 \begin{figure}[tb]
 \centering
 \includegraphics[width=\linewidth]{../figuras/pid2} 
 \caption{Two-degree-of-freedom Standard PID controller.} \label{fig:pid}
 \end{figure}
-
 
 
 \begin{itemize}
@@ -135,7 +172,7 @@ K_i=\frac{K_p}{T_i} \hspace{2cm}  K_d=K_pT_d
 	u(s) = K'_p \left( \frac{T'_i+1}{T'_i s}\right) \left(\frac{T'_d s + 1}{\alpha' T'_d s +1}\right)e(s)
 \end{equation}
 
-In this case, parameters are denoted with a prime in order to distinguish them from the standard form ones. As a first difference with the previous formulations, it can be observed that with the series form we can not have complex conjugate zeros. If, for simplicity, we assume the ideal case, $\alpha=\alpha'=0$, a series PID controller equivalent to a Standard one would exists only for $T_i \ge 4 T_d$ (this ensures the Standard PID does not have complex conjugate zeros).
+In this case, parameters are denoted with a prime in order to distinguish them from the standard form ones. As a first difference with the previous formulations, it can be observed that with the series form we can not have complex conjugate zeros. If, for simplicity, we assume the ideal case, $\alpha=\alpha'=0$, a series PID controller equivalent to a Standard one would exist only for $T_i \ge 4 T_d$ (this ensures the Standard PID does not have complex conjugate zeros).
 
 \item \emph{Filtered ideal PID form}: This formulation arises also as an alternative to the mentioned implementation problems with the ideal derivative. In this case, the overall control variable is filtered:
 
@@ -145,7 +182,6 @@ In this case, parameters are denoted with a prime in order to distinguish them f
 
 In this case, parameters are denoted with a star in order to distinguish them from the standard and series form ones. Notice that the controller variable filter introduces the filter time constant $T_f$ as an additional controller parameter. This fact will make the relationship of this controller formulation parameters with the previous ones not so straightforward. It will be presented later on on a more general framework. 
 \end{itemize}
-
 
 
 \subsection{Reference Processing and 2-DoF PID}
@@ -173,8 +209,21 @@ By choosing $\beta < 1$, the control signal instantaneous change can be scaled d
 
 When the \emph{set-point weighting} factor is considered into the PID controller implementation, the resulting controller is said to have two-degrees-of-freedom (2-DoF) as a different processing of the reference and feedback signal is allowed. In such case, the 2-DoF versions of the previously presented PID controller formulations, also considering the avoiding of the derivative kick, results as:
 
+\begin{align}
+    u(s)= K_p \left \{ \left(\beta + \frac{1}{T_i s}\right) r(s) - \left(1 + \frac{1}{T_i s} + \frac{T_d s}{\alpha T_d s+1}\right) y(s) \right \} \label{eq:103}
+\end{align}
+
+\noindent or in the compact form  as:
+
+\begin{equation}
+    u(s)=C_r(s) r(s) - C_y(s) y(s) \label{eq:104}
+\end{equation}
+
+\noindent where $C_r(s)$ is the \emph{set-point controller} transfer function, and $C_y(s)$ is the \emph{feedback controller} transfer function. \\
+
+
 \subsection{2-DoF PID Controller Algorithms Conversion}
-As it can be observed from the presented PID formulations, whereas the reference controller aspect $C_r(s)$ takes the same form in all formulations, it is the feedback part $C_y(s)$  that prevents a direct translation of the controller parameters from one formulation to another. This is important because some of the existing tuning rules have been conceived for a specific PID formulation. Due to the possibility that the PID algorithm of the controller to tune be different to the one considered by the tuning rule to use, it is necessary to have conversion relations to obtain ``equivalent'' parameters between two or more of them~\cite{alfaroetfa2012-2} WEE. In what follows, we present conversion formulae to get the controller parameters for one specific PID formulation starting from the parameters got for another different one. In order to be as general as possible, the conversion formulae is presented for the more generic 2-DoF PID controller formulations just presented above.
+As it can be observed from the presented PID formulations, whereas the reference controller aspect $C_r(s)$ takes the same form in all formulations, it is the feedback part $C_y(s)$  that prevents a direct translation of the controller parameters from one formulation to another. This is important because some of the existing tuning rules have been conceived for a specific PID formulation. Due to the possibility that the PID algorithm of the controller to tune be different to the one considered by the tuning rule to use, it is necessary to have conversion relations to obtain ``equivalent'' parameters between two or more of them~\cite{alfaroetfa2012-2}. In what follows, we present conversion formulae to get the controller parameters for one specific PID formulation starting from the parameters got for another different one. In order to be as general as possible, the conversion formulae is presented for the more generic 2-DoF PID controller formulations just presented above.
 
 
 \section{Normalised Representations}
@@ -204,4 +253,18 @@ The over-damped second-order plus dead-time (SOPDT) \eqref{eq:sopdtn} model has 
 
 \subsection{Controller Normalisation}
 \label{sec:3.3}
+
+Regarding the controller, to consider the control retransfer function alone does not make sense. It has to be considered in conjunction with the process model transfer function to be controlled. Therefore, according to the normalisation of the process model, the controlled transfer function has also to be scaled. This will define the normalised controller parameters. Next we consider the normalization of the \emph{Standard 2DoF PID controller} $PID_2$ from where the normalized parameters of other 2DoF PID control algorithms can be found.
+
+For example, the output equation of the normalized version of the \emph{Standard 2DoF PID controller} $PID_2$ \eqref{eq:102}, with the $\hat s \doteq T s$ transformation, is given by
+\begin{equation}
+	u(\hat s) = \kappa_p \left\{\beta r(\hat s)-y(\hat s) + \frac{1}{\tau_i \hat s} \left[r(\hat s)-y(\hat s)\right] - \left(\frac{\tau_d \hat s}{\alpha \tau_d \hat s+1}\right) y(\hat s)\right\},
+\end{equation}
+
+\noindent with parameters $\hat{\theta}_c = \left\{\kappa_p, \tau_i, \tau_d, \alpha, \beta \right\}$. Therefore,  for \emph{over-damped first-} and \emph{second-order plus dead-time},  models, using the corresponding model parameters the associated $PID_2$ controllers parameters can be expressed in normalised form as follows:
+
+\begin{equation}
+	\kappa_p \doteq K K_p, \ \ \tau_i \doteq \frac{T_i}{T}, \ \ \tau_d \doteq \frac{T_d}{T}, \ \ \tau_f \doteq \frac{T_f}{T}, \label{eq:npara}
+\end{equation}
+
 
