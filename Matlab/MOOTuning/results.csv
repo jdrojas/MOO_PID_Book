@@ -1,0 +1,16 @@
+Characteristic,Value
+Plant parameters,Value
+K,1
+T,0.98903
+a,0.49466
+L,0.24436
+Desirable characteristics,Value
+Jdi,0.6
+Jdo,0.5
+Jr,0
+Ms,2.0
+Controller parameters,Value
+Kp,3.9792
+Ti,1.9492
+Td,0.2904
+B,0.9049
