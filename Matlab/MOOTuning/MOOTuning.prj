@@ -1,0 +1,93 @@
+<deployment-project plugin="plugin.apptool" plugin-version="1.0">
+  <configuration build-checksum="2846858917" file="/home/david/Dropbox/UCR/investigacion/ControlIndmo/Ejecucion/InterfazMATLAB/ProgramaMOOTuning/MOOTuning.prj" location="/home/david/Dropbox/UCR/investigacion/ControlIndmo/Ejecucion/InterfazMATLAB/ProgramaMOOTuning" name="MOOTuning" target="target.mlapps" target-name="Package App">
+    <param.appname>MOOTuning</param.appname>
+    <param.authnamewatermark>Jose David Rojas</param.authnamewatermark>
+    <param.email>jose.rojas_f@ucr.ac.cr</param.email>
+    <param.company>Universidad de Costa Rica</param.company>
+    <param.icon>${PROJECT_ROOT}/MOOTuning_resources/icon_24.png</param.icon>
+    <param.icons>
+      <file>${PROJECT_ROOT}/MOOTuning_resources/icon_48.png</file>
+      <file>${PROJECT_ROOT}/MOOTuning_resources/icon_24.png</file>
+      <file>${PROJECT_ROOT}/MOOTuning_resources/icon_16.png</file>
+    </param.icons>
+    <param.summary>Robust Multiobjective Tuning ffor Industrial PID Controllers</param.summary>
+    <param.description>Robust Multiobjective Tuning ffor Industrial PID Controllers. It takes into account three different sources of disturbance (input disturbance, output disturbance and reference change)</param.description>
+    <param.screenshot />
+    <param.version>1.0</param.version>
+    <param.products.name>
+      <item>MATLAB</item>
+      <item>Control System Toolbox</item>
+      <item>Optimization Toolbox</item>
+    </param.products.name>
+    <param.products.id>
+      <item>1</item>
+      <item>3</item>
+      <item>6</item>
+    </param.products.id>
+    <param.products.version>
+      <item>9.2</item>
+      <item>10.2</item>
+      <item>7.6</item>
+    </param.products.version>
+    <param.platforms>
+      <item>glnxa64</item>
+      <item>win64</item>
+    </param.platforms>
+    <param.output>/home/david/Dropbox/UCR/investigacion/ControlIndmo/Ejecucion/InterfazMATLAB/ProgramaMOOTuning</param.output>
+    <param.guid>f6748ecb-2503-45e7-931d-a174c452bcf7</param.guid>
+    <unset>
+      <param.screenshot />
+      <param.version />
+      <param.output />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}/MOOTuning.m</file>
+    </fileset.main>
+    <fileset.depfun>
+      <file>${PROJECT_ROOT}/IdentFun.m</file>
+      <file>${PROJECT_ROOT}/MOOTuning.fig</file>
+      <file>${PROJECT_ROOT}/MsCalc.m</file>
+      <file>${PROJECT_ROOT}/MsCalc2.m</file>
+      <file>${PROJECT_ROOT}/SOPTDPIDSimu.m</file>
+      <file>${PROJECT_ROOT}/SOPTDPIDSimu.mexa64</file>
+      <file>${PROJECT_ROOT}/buscar.m</file>
+      <file>${PROJECT_ROOT}/cerlab_logo.png</file>
+      <file>${PROJECT_ROOT}/equation.png</file>
+      <file>${PROJECT_ROOT}/help_button.png</file>
+      <file>${PROJECT_ROOT}/help_file.pdf</file>
+      <file>${PROJECT_ROOT}/interpolarControl.m</file>
+      <file>${PROJECT_ROOT}/ploter.m</file>
+      <file>${PROJECT_ROOT}/seleccionar.m</file>
+    </fileset.depfun>
+    <fileset.resources>
+      <file>${PROJECT_ROOT}/Ms1.6</file>
+      <file>${PROJECT_ROOT}/Ms1.8</file>
+      <file>${PROJECT_ROOT}/Ms2</file>
+      <file>${PROJECT_ROOT}/SOPTDPIDSimu.mexw64</file>
+    </fileset.resources>
+    <fileset.package />
+    <build-deliverables>
+      <file location="/home/david/Dropbox/UCR/investigacion/ControlIndmo/Ejecucion/InterfazMATLAB" name="ProgramaMOOTuning" optional="false">/home/david/Dropbox/UCR/investigacion/ControlIndmo/Ejecucion/InterfazMATLAB/ProgramaMOOTuning</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>/usr/local/MATLAB/R2017a</root>
+      <toolboxes />
+    </matlab>
+    <platform>
+      <unix>true</unix>
+      <mac>false</mac>
+      <windows>false</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>true</linux>
+      <solaris>false</solaris>
+      <osver>4.8.0-58-generic</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>glnxa64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>

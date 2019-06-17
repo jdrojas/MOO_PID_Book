@@ -1,0 +1,13 @@
+function Ms=MsCalc2(ParamPlant,ParamContr)
+K=ParamPlant(1);
+T=ParamPlant(2);
+L=ParamPlant(3);
+a=ParamPlant(4);
+Kp=ParamContr(1);
+Ti=ParamContr(2);
+Td=ParamContr(3);
+alpha=ParamContr(4);
+P=tf(K,conv([T,1],[a*T,1]));
+P.iodelay=L;
+C=tf(Kp*[(1+alpha)*Ti*Td,(Ti+alpha*Td),1],[alpha*Ti*Td,Ti,0]);
+Ms=MsCalc(pade(P,5),C);
