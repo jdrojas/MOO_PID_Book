@@ -243,3 +243,22 @@ The over-damped second-order plus dead-time (SOPDT) \eqref{eq:sopdtn} model has 
 \subsection{Controller Normalisation}
 \label{sec:3.3}
 
+Regarding the controller, to consider the control retransfer function alone does not make sense. It has to be considered in conjunction with the process model transfer function to be controlled. Therefore, according to the normalisation of the process model, the controlled transfer function has also to be scaled. This will define the normalised controller parameters. Next we consider the normalization of the \emph{Standard 2DoF PID controller} $PID_2$ from where the normalized parameters of other 2DoF PID control algorithms can be found.
+
+For example, the output equation of the normalized version of the \emph{Standard 2DoF PID controller} $PID_2$ \eqref{eq:102}, with the $\hat s \doteq T s$ transformation, is given by
+\begin{equation}
+	u(\hat s) = \kappa_p \left\{\beta r(\hat s)-y(\hat s) + \frac{1}{\tau_i \hat s} \left[r(\hat s)-y(\hat s)\right] - \left(\frac{\tau_d \hat s}{\alpha \tau_d \hat s+1}\right) y(\hat s)\right\},
+\end{equation}
+
+\noindent with parameters $\hat{\theta}_c = \left\{\kappa_p, \tau_i, \tau_d, \alpha, \beta \right\}$. Therefore,  for \emph{over-damped first-} and \emph{second-order plus dead-time},  models, using the corresponding model parameters the associated $PID_2$ controllers parameters can be expressed in normalised form as follows:
+
+\begin{equation}
+	\kappa_p \doteq K K_p, \ \ \tau_i \doteq \frac{T_i}{T}, \ \ \tau_d \doteq \frac{T_d}{T} \label{eq:npara}
+\end{equation}
+
+In case the controller is implemented as a \emph{PID Parallel controller} the corresponding normalized parameters are:
+\begin{equation}
+	\kappa_p \doteq K K_p, \ \ \kappa_i \doteq K K_i T, \ \ \kappa_d \doteq \frac{K K_d}{T}.	
+\end{equation}
+
+
