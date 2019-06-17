@@ -9,7 +9,45 @@ Please use the 'starred' version of the new Springer \texttt{abstract} command f
 \section{Control System Design Scenario}
 \label{sec:1}
 
-\cite{Haegglund2012}
+A natural way to adjust or correct the behaviour over time of a dynamic system output, the controlled variable, is by using an actuating input computed on the basis of the comparison of the actual output with its desired value: the feedback error. This is, by means of closed-loop control. To compute the control action information about the feedback error evolution is required. Normally its current value, its past evolution, and a prediction of its future behaviour are used. The way we use this information to deliver the control action constitutes the control algorithm.\\
+
+The feedback control structure has been used for a long time, but if we constraint ourselves to the industrial process control area, the proportional (present) integral (past) derivative (future) (PID) control algorithm age starts in the 40's  with the PID controller and this will be the concern of this text.  A control algorithm has a number of control parameters, which must be ?tuned? (adjusted) to have acceptable performance. Often the tuning is done on a simulation model before implementing the control strategy on the actual process. In this text ww will concentrate on the determination of the controller tuning, in fact, PID tuning, by means of optimisation methods. Specifically, optimisation methods that deal with multiple objectives at the same time. However, prior to this task, we should define the control scenario where the design will take place.\\
+
+Consider the general two-degree-of-freedom closed-loop control system depicted in figure~\ref{fig:bdg} where $P(s)$ and $\{C_r(s), C_y(s)\}$ are the controlled process model and the controller transfer functions, respectively.  In this system, $r(s)$ is the set-point, $u(s)$ the controller output signal, $d(s)$ the disturbance, $y(s)$ the process controlled variable, and $n(s)$ the measurement noise. It is assumed that the disturbance enter at the process input (load-disturbance).
+
+\begin{figure}[tb]
+\centering
+	\includegraphics[width=0.80\linewidth]{../figuras/mrt_bdgen} 
+\caption{Two-Degree-of-freedom closed-loop control system.} \label{fig:bdg}
+\end{figure}
+
+
+The closed-loop control system output $y(s)$ as a function of its inputs $r(s)$, $d(s)$, and $n(s)$ is
+
+\begin{equation}
+	y(s) = M_{yr}(s) r(s) + M_{yd}(s) d(s) + M_{yn}(s) n(s), \label{eq:yt}
+\end{equation}
+
+\noindent where
+\begin{equation}
+	M_{yr}(s) \doteq \frac{C_r(s)P(s)}{1+C_y(s)P(s)}, \label{eq:myr}
+\end{equation}
+
+\noindent is the servo-control closed-loop transfer function, 
+\begin{equation}
+	M_{yd}(s) \doteq \frac{P(s)}{1+C_y(s)P(s)}, \label{eq:myd}
+\end{equation}
+
+\noindent the regulatory control closed-loop transfer function, and
+\begin{equation}
+	M_{yn}(s) \doteq \frac{-C_y(s)P(s)}{1+C_y(s)P(s)}, \label{eq:myn}
+\end{equation}
+
+\noindent the measurement noise sensitivity function.\\
+
+The regulatory control main objective is \emph{load-disturbance rejection}; this is, to return the controlled variable to its set-point in the event a disturbance enters to the control system.  For the servo-control, it is intended to \emph{follow a changing set-point}; this its, to bring the controlled variable to its new desired value. Controller tuning for above operations must take also into account to not amplified the measurement noise, if any.\\
+
+
 
 
 \section{Industrial Process Characteristics}
