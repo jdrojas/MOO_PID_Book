@@ -88,6 +88,8 @@ acs-*.bib
 # listings
 *.lol
 
+# Mac weird files
+*.DS_Store
 # makeidx
 *.idx
 *.ilg
