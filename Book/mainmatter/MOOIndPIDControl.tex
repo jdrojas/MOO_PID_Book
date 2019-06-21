@@ -1,15 +1,105 @@
 \chapter{Industrial PID Control}
 \label{chap:IndustrialPID}
-\abstract*{Each chapter should be preceded by an abstract (10--15 lines long) that summarizes the content. The abstract will appear \textit{online} at \url{www.SpringerLink.com} and be available with unrestricted access. This allows unregistered users to read the abstract as a teaser for the complete chapter. As a general rule the abstracts will not appear in the printed version of your book unless it is the style of your particular book or that of the series to which your book belongs.
-Please use the 'starred' version of the new Springer \texttt{abstract} command for typesetting the text of the online abstracts (cf. source file of this chapter template \texttt{abstract}) and include them with the source files of your manuscript. Use the plain \texttt{abstract} command if the abstract is also to appear in the printed version of the book.}
+\abstract*{abstract (10--15 lines long)}
 
-\abstract{Each chapter should be preceded by an abstract (10--15 lines long) that summarizes the content. The abstract will appear \textit{online} at \url{www.SpringerLink.com} and be available with unrestricted access. This allows unregistered users to read the abstract as a teaser for the complete chapter. As a general rule the abstracts will not appear in the printed version of your book unless it is the style of your particular book or that of the series to which your book belongs.\newline\indent
-Please use the 'starred' version of the new Springer \texttt{abstract} command for typesetting the text of the online abstracts (cf. source file of this chapter template \texttt{abstract}) and include them with the source files of your manuscript. Use the plain \texttt{abstract} command if the abstract is also to appear in the printed version of the book.}
+\abstract{abstract (10--15 lines long)}
 
 \section{Control System Design Scenario}
 \label{sec:1}
 
-\cite{Haegglund2012}
+Control systems are used to maintain process conditions at their desired values by manipulating certain process variables to adjust the variables of interest. A common example of a control system from everyday life is the cruise control on an automobile. The purpose of a cruise control is to maintain the speed of the vehicle (the controlled variable) at the desired value (the set point) despite variations in terrain, hills, etc. (disturbances) by adjusting the throttle, or the fuel flow to the engine (the manipulated variable). Another example is the home thermostat. This control system is designed to maintain the temperature in the home at a comfortable value by manipulating the fuel flow or electrical input to the furnace. The furnace control system must deal with a variety of disturbances to maintain temperature in the house, such as heat losses, doors being opened and hope- fully closed, and leaky inefficient windows. The furnace must also be able to respond to a request to raise the desired temperature if necessary. For example, we might desire to raise the temperature by 5?? degrees and we would like the system to respond smoothly and efficiently. From these examples, we can deduce that there are several common attributes of control systems:
+\begin{itemize}
+\item The ability to maintain the process variable at its desired value in spite of disturbances that might be experienced (this is termed disturbance rejection)
+\item The ability to move the process variable from one setting to a new desired setting (this is termed set point tracking)
+\end{itemize}
+
+A natural way to adjust or correct the behaviour over time of a dynamic system output, the controlled variable, is by using an actuating input computed on the basis of the comparison of the actual output with its desired value: the feedback error. This is, by means of closed-loop control. To compute the control action information about the feedback error evolution is required. Normally its current value, its past evolution, and a prediction of its future behaviour are used. The way we use this information to deliver the control action constitutes the control algorithm. Conceptually we can view the control systems in the general manner shown in figure (\ref{Ch2fig:FeedbackControlSystem}).
+
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=0.9\linewidth]{../figuras/Ch2FeedbackControlSystem}
+\caption{Feedback Control System} \label{Ch2fig:FeedbackControlSystem}
+\end{figure}
+
+As a detailed  practical example, consider the isothermal Continuous Stirred Tank Reactor (CSTR), as the one in figure (\ref{Ch2fig:CSTR}), where the isothermal series/ parallel Van de Vusse reaction \cite{arrietaETFA2008}, \cite{VandeVusse2} ISA-d takes place. The reaction can be described by the following scheme
+
+\begin{align}
+    A \overset{k_1}{\longrightarrow} B \overset{k_2}{\longrightarrow}C\\
+    2 A \overset{k_3}{\longrightarrow} D \nonumber
+\end{align}
+
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=0.5\linewidth]{../figuras/Ch2Reactor}
+\caption{Isothermal Continuous Stirred Tank Reactor (CSTR)} 
+\label{Ch2fig:CSTR}
+\end{figure}
+
+Doing a mass balance, the system can be described by the following model
+
+\begin{align}
+    \frac{dC_A(t)}{dt} & = \frac{F_r(t)}{V} \left[C_{Ai}-C_A(t)\right] - k_1 C_A(t) - k_3 C^2_A(t) \nonumber \\
+    \frac{dC_B(t)}{dt} & = -\frac{F_r(t)}{V} C_B(t)+ k_1 C_A(t) - k_2 C_B(t)
+    \label{Ch2eq:system3}
+\end{align}
+
+\noindent where $F_r$ is the feed flow rate of product $A$, $V$ is the reactor volume which is kept constant during the operation, $C_A$ and $C_B$ are the reactant concentrations in the reactor, and $k_i$ ($i=1,2,3$) are the reaction rate constants for the three reactions.\\
+
+\textcolor{red}{\bf EXPLICAR VARIABLES, CONTROLADA, PERTURBACIONES, MANIPULADA, ETC}
+
+In figure (\ref{Ch2fig:CSTRFigureOpenLoop}) we can observe how the reactor output concentration reacts to changes in each one of its two inputs: The inlet flow rate, $F_r$ and concentration $C_A$. Whereas the first one can be manipulated the second one is considered now know as supplied externally. Therefore, $F_r$ is considered as the manipulated variable and will be the one used to operate and control the reactor. On the other hand, changes in $C_A$ will be seen as disturbances and the controller should be able to counteract such changes and prevent them to generate changes in the output concentration $C_B$. 
+
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=1\linewidth]{../figuras/Ch2FigureOpenLoop}
+\caption{CSTR Open loop Output to change sin inlet flow and concentration} 
+\label{Ch2fig:CSTRFigureOpenLoop}
+\end{figure}
+
+
+The feedback control structure has been used for a long time, but if we constraint ourselves to the industrial process control area, the proportional (present) integral (past) derivative (future) (PID) control algorithm age starts in the 40's  with the PID controller and this will be the concern of this text.  A control algorithm has a number of control parameters, which must be \emph{tuned} (adjusted) to have acceptable performance. Often the tuning is done on a simulation model before implementing the control strategy on the actual process. In this text ww will concentrate on the determination of the controller tuning, in fact, PID tuning, by means of optimisation methods. Specifically, optimisation methods that deal with multiple objectives at the same time. However, prior to this task, we should define the control scenario where the design will take place.\\
+
+Consider the general two-degree-of-freedom closed-loop control system depicted in figure~\ref{Ch2fig:DoFControlSystem} where $P(s)$ and $\{C_r(s), C_y(s)\}$ are the controlled process model and the controller transfer functions, respectively.  In this system, $r(s)$ is the set-point, $u(s)$ the controller output signal, $d(s)$ the disturbance, $y(s)$ the process controlled variable, and $n(s)$ the measurement noise. It is assumed that the disturbance enter at the process input (load-disturbance).
+
+\begin{figure}[tb]
+\centering
+	\includegraphics[width=0.5\linewidth]{../figuras/Ch2DoFControlSystem} 
+\caption{Two-Degree-of-freedom closed-loop control system.} 
+\label{Ch2fig:DoFControlSystem}
+\end{figure}
+
+
+The closed-loop control system output $y(s)$ as a function of its inputs $r(s)$, $d(s)$, and $n(s)$ is
+
+\begin{equation}
+	y(s) = M_{yr}(s) r(s) + M_{yd}(s) d(s) + M_{yn}(s) n(s), \label{Ch2eq:yt}
+\end{equation}
+
+\noindent where
+\begin{equation}
+	M_{yr}(s) \doteq \frac{C_r(s)P(s)}{1+C_y(s)P(s)}, \label{Ch2eq:myr}
+\end{equation}
+
+\noindent is the servo-control closed-loop transfer function, 
+\begin{equation}
+	M_{yd}(s) \doteq \frac{P(s)}{1+C_y(s)P(s)}, \label{Ch2eq:myd}
+\end{equation}
+
+\noindent the regulatory control closed-loop transfer function, and
+\begin{equation}
+	M_{yn}(s) \doteq \frac{-C_y(s)P(s)}{1+C_y(s)P(s)}, \label{Ch2eq:myn}
+\end{equation}
+
+\noindent the measurement noise sensitivity function.\\
+
+The regulatory control main objective is \emph{load-disturbance rejection}; this is, to return the controlled variable to its set-point in the event a disturbance enters to the control system.  For the servo-control, it is intended to \emph{follow a changing set-point}; this its, to bring the controlled variable to its new desired value. Controller tuning for above operations must take also into account to not amplified the measurement noise, if any.  In figure (\ref{Ch2fig:CSTRFigureClosedLoop}) we can see the CSRT example presented above, where a controller, is accomplishing the task of, first, tracking a set-point step change of, followed by a disturbance attenuation  of two changes. One  in the concentration, $C_{Ai}$, of $A$ in the feed flow and finally a change in the supplied flow rate.
+
+\begin{figure}[htb!]
+\centering
+\includegraphics[width=1\linewidth]{../figuras/Ch2FigureClosedLoop}
+\caption{CSTR Open loop Output to change sin inlet flow and concentration} 
+\label{Ch2fig:CSTRFigureClosedLoop}
+\end{figure}
 
 
 \section{Industrial Process Characteristics}
@@ -30,10 +120,11 @@ A complete and illustrative source of modelling for process control, illustratin
 The simple structure of the PID controller calls for simple process descriptions, this fact motivates the use of first or second order models. On that respect, the controlled process model in the control design scenario considered in this book will be the one aimed at representing the self-regulating non-oscilating (overdamped) step responses. The overdamped controlled processes will be represented by a linear model given by the transfer function
 
 \begin{equation}
-    P(s) = \frac{K_p e^{-Ls}}{(Ts+1)(aTs+1)}, \ \tau_o = L/T \label{eq:113}
+    P(s) = \frac{K_p e^{-Ls}}{(Ts+1)(aTs+1)}, \ \tau_o = L/T 
+    \label{Ch2eq:SOPTD}
 \end{equation}
 
-\noindent where $K_p$ is the model gain, $T$ its main time constant, $a$ the ratio of its two time constants ($0 \leq a \leq 1.0$), $L$ its dead-time, and $\tau_o$ the model \emph{normalized dead-time} ($0.1 \leq \tau_o \leq 2.0$). Model transfer function \eqref{eq:113} allows to represent First-Order-Plus-Dead-Time (FOPDT) processes, with $a=0$, over damped Second-Order-Plus-Dead-Time (SOPDT) processes, with $0 < a < 1$, and Dual-Pole-Plus-Dead-Time (DPPDT) processes, the $a=1$ case.\\
+\noindent where $K_p$ is the model gain, $T$ its main time constant, $a$ the ratio of its two time constants ($0 \leq a \leq 1.0$), $L$ its dead-time, and $\tau_o$ the model \emph{normalized dead-time} ($0.1 \leq \tau_o \leq 2.0$). Model transfer function \eqref{Ch2eq:SOPTD} allows to represent First-Order-Plus-Dead-Time (FOPDT) processes, with $a=0$, over damped Second-Order-Plus-Dead-Time (SOPDT) processes, with $0 < a < 1$, and Dual-Pole-Plus-Dead-Time (DPPDT) processes, the $a=1$ case.\\
 
 In the great majority of cases, a process description is obtained by performing an experiment on the process. In most cases, a step response will be used. They are also easy to apply. It suffices to switch the regulator to manual, wait until a reasonably steady state is reached, then change the control variable suddenly by an amount sufficient to make the response obtained easily distinguishable from noise. In addition, step tests permit the process to be maintained under reasonable control without perturbing it excessively or leading it to the stability boundary, as required e.g. by the closed loop Ziegler-Nichols method \cite{astromhagglund2006}. From this point of view, to maintain the need for plant experimentation to a minimum is a key point when considering the industrial application of a technique. The parameters of the controlled process model \eqref{eq:113}, $\overline{\theta}_p = \left\{K_p, T, a, L, \tau_o \right\}$, may be identified from the process reaction curve by using, for example, the method presented in \cite{alfaro2006-1}. 
 
@@ -53,7 +144,7 @@ u(t)=u_P(t)+u_I(t)+u_D(t)= K_p \left ( e(t)+\frac{1}{T_i}\int_0^t e(\tau)\md \ta
 
 \begin{equation}
 u(s)=K_p \left ( 1+\frac{1}{T_is}+{T_ds} \right )  e(s)
-\label{eq:ideal}
+\label{Ch2eq:PID_ideal}
 \end{equation}
 
 This form is usually referred to as the \emph{ideal} PID. The three-term functionalities are highlighted by the following.
@@ -104,8 +195,9 @@ The PID algorithm as presented is usually referred as the standard one. However,
 
 \begin{figure}[tb]
 \centering
-\includegraphics[width=\linewidth]{../figuras/pid2} 
-\caption{Two-degree-of-freedom Standard PID controller.} \label{fig:pid}
+\includegraphics[width=\linewidth]{../figuras/Ch2PID_Schema} 
+\caption{Two-degree-of-freedom Standard PID controller.} 
+\label{Ch2fig:PID_Schema}
 \end{figure}
 
 
@@ -185,23 +277,45 @@ The design approach that is to be presented in the following chapters is applied
 \subsection{Process Model Normalisation}
 \label{sec:3.2}
 
-The \emph{over-damped} controlled process (first- and second-order) are represented by a linear model given by the transfer function
+The \emph{over-damped} controlled process (first- and second-order) are represented by a linear model given by the transfer function presented in (\ref{Ch2eq:SOPTD})
+
 \begin{equation}
-	P(s) = \frac{K \me^{-L s}}{(T s+1)(a T s+1)}, \ \ \theta_p=\left\{K, T, a, L \right\}, \label{eq:sopdt} 
+	P(s) = \frac{K \me^{-L s}}{(T s+1)(a T s+1)}, \ \ \theta_p=\left\{K, T, a, L \right\}, 
 \end{equation}
 
 \noindent where $K$ is the model gain, $T$ the main time constant, $a$ the ratio of the two time constants ($0 \leq a \leq 1.0$), and $L$ the dead-time.\\
 
-Using the controlled process model gain $K$, and time constant $T$, as well as the transformation $\hat s \doteq T s$, the controlled process \eqref{eq:sopdt} can be expressed in normalised form as follows:
+Using the controlled process model gain $K$, and time constant $T$, as well as the transformation $\hat s \doteq T s$, the controlled process \eqref{Ch2eq:SOPTD} can be expressed in normalised form as follows:
 \begin{equation}
-	\hat P(\hat s) = \frac{\me^{-\tau_L \hat s}}{(\hat s +1)(a \hat s +1)}, \ \ \tau_L \doteq \frac{L}{T}, \label{eq:sopdtn}
+	\hat P(\hat s) = \frac{\me^{-\tau_L \hat s}}{(\hat s +1)(a \hat s +1)}, \ \ \tau_L \doteq \frac{L}{T}, 
+	\label{Ch2eq:SOPTD_n}
 \end{equation}
 
 \noindent where $\tau_L$ is the normalised (dimensionless) dead-time.\\
 
-The over-damped second-order plus dead-time (SOPDT) \eqref{eq:sopdtn} model has two normalised parameters, $\hat{\theta}_p = \{a, \tau_L\}$.  For the particular case of the first-order plus dead-time (FOPDT) model ($a=0$) it has only one, $\hat{\theta}_p = \tau_L$. Using the same procedure normalised models are obtained for the other processes.\\
+The over-damped second-order plus dead-time (SOPDT) \eqref{Ch2eq:SOPTD_n} model has two normalised parameters, $\hat{\theta}_p = \{a, \tau_L\}$.  For the particular case of the first-order plus dead-time (FOPDT) model ($a=0$) it has only one, $\hat{\theta}_p = \tau_L$. Using the same procedure normalised models are obtained for the other processes.\\
 
 
 \subsection{Controller Normalisation}
 \label{sec:3.3}
+
+Regarding the controller, to consider the control retransfer function alone does not make sense. It has to be considered in conjunction with the process model transfer function to be controlled. Therefore, according to the normalisation of the process model, the controlled transfer function has also to be scaled. This will define the normalised controller parameters. Next we consider the normalization of the \emph{Standard 2DoF PID controller} $PID_2$ from where the normalized parameters of other 2DoF PID control algorithms can be found.
+
+For example, the output equation of the normalized version of the \emph{Standard 2DoF PID controller} $PID_2$ \eqref{eq:102}, with the $\hat s \doteq T s$ transformation, is given by
+\begin{equation}
+	u(\hat s) = \kappa_p \left\{\beta r(\hat s)-y(\hat s) + \frac{1}{\tau_i \hat s} \left[r(\hat s)-y(\hat s)\right] - \left(\frac{\tau_d \hat s}{\alpha \tau_d \hat s+1}\right) y(\hat s)\right\},
+\end{equation}
+
+\noindent with parameters $\hat{\theta}_c = \left\{\kappa_p, \tau_i, \tau_d, \alpha, \beta \right\}$. Therefore,  for \emph{over-damped first-} and \emph{second-order plus dead-time},  models, using the corresponding model parameters the associated $PID_2$ controllers parameters can be expressed in normalised form as follows:
+
+\begin{equation}
+	\kappa_p \doteq K K_p, \ \ \tau_i \doteq \frac{T_i}{T}, \ \ \tau_d \doteq \frac{T_d}{T} 
+	\label{Ch2eq:PIDNormalized}
+\end{equation}
+
+In case the controller is implemented as a \emph{PID Parallel controller} the corresponding normalized parameters are:
+\begin{equation}
+	\kappa_p \doteq K K_p, \ \ \kappa_i \doteq K K_i T, \ \ \kappa_d \doteq \frac{K K_d}{T}.	
+\end{equation}
+
 
