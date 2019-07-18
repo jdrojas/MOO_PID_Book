@@ -38,8 +38,8 @@ The concept of Pareto optimality is represented in %
 %
 \begin{figure}
 	\centering
-	\includesvg[width=0.8\columnwidth]{./figuras/planoFun01}
-	\caption{Function space}
+	\includesvg[width=0.8\columnwidth]{planoFun01}
+	\caption{All possible solutions and the Pareto front in the function space.}
 	\label{fig:planoFun01}
 \end{figure}
 %
@@ -52,46 +52,26 @@ Point ``N'' is called the pseudo-nadir point, and is defined as the point with t
 To do
 %----------------------------------------------------
 \section{Scalarization algorithms to find the Pareto front}
-\subsection{Weighted Sum}
-\label{sec:WS}
-To do
-\gls{ws} methodology is a popular procedure to transform a \gls{moop} into a single objective problem by creating a new objective function that is the result of the aggregation of all the functions involved with certain weight for each one \cite{Marler2004}. For example, if the two objectives to optimize are $f_{1}(\mathbf{x})$ and $f_{1}(\mathbf{x})$, the new function is given by:
-\begin{equation}
-F_{WS}(\mathbf{x}) = \alpha_{1WS} \hat{f}_{1}(\mathbf{x}) + \alpha_{2WS} \hat{f}_{2}(\mathbf{x}),
-\label{eq:JWS}
-\end{equation}
-with $\alpha_{1WS} + \alpha_{2WS}=1$, and $\hat{f}_{1}(\mathbf{x})$ and $\hat{f}_{2}(\mathbf{x})$ the normalized versions of $f_{1}(\mathbf{x})$ and $f_{2}(\mathbf{x})$, respectively. One possible normalization (see \cite{Marler2004}) is given by:
-\begin{equation}
-\hat{f}_{1}(\mathbf{x}) = \frac{f_{1}(\mathbf{x})-\min{\left( f_{1}(\mathbf{x})\right) }}{\max{(f_{1}(\mathbf{x}))}-\min{\left( f_{1}(\mathbf{x})\right) }}.
-\label{eq:NormalizedJ}
-\end{equation}
-
-With this normalization, the utopia point is moved to the origin and the maximum value of the new normalized function is 1.
-
-The optimization problem then is written as:
-\begin{equation}
-\begin{gathered}
-\min_{\mathbf{x}}{\; F_{WS}(\mathbf{x})}, \\
-\text{s.t.} \; h(\mathbf{x})=0, \\
-g(\mathbf{x}) \leq 0,
-\end{gathered}
-\label{eq:WSProblem}
-\end{equation}
-%
-where $h(\mathbf{x})$ and $g(\mathbf{x})$ are the equality and inequality constraints of the original problem.
-
-There are certain drawbacks with this approach. In first place, when \eqref{eq:JWS} is minimized for different values of $\alpha_{1WS}$ and $\alpha_{2WS}$ in order to obtain the Pareto front, an even distribution of the weights does not assure an even distribution of the points in the front. Also, with \gls{ws} it is not possible to obtain Pareto points in the non-convex region of the front, and therefore, not all the possible solutions can be found \cite{Das1997}. %In order to tackle this issue, alternative problem formulation have been proposed in the literature in order to obtain the Pareto front \cite{Marler2004}.
-%--------------------------------------------------
-
-\section{Scalarization algorithms to find the Pareto front}
 \label{sec:design-methodologies}
 
 In general, the algorithms to find the optimal value of a function are designed to be used in a single objective paradigm. In order to be able to use the same standard algorithms with a multi-objective problem, some scalarization method has to be employed.
 %
 \subsection{Weighted Sum}
 \label{sec:WS}
+\gls{ws} methodology is a popular procedure to transform a \gls{moop} into a single objective problem by creating a new objective function that is the result of the aggregation of all the functions involved with certain weight for each one \cite{Marler2004}:
 %
-\gls{ws} methodology is a popular procedure to transform a \gls{moop} into a single objective problem by creating a new objective function that is the result of the aggregation of all the functions involved with certain weight for each one \cite{Marler2004}. For example, if the two objectives to optimize are $f_{1}(\mathbf{x})$ and $f_{1}(\mathbf{x})$, the new function is given by:
+\begin{equation}
+F_{WS}(\mathbf{x}) = \sum_{i=1}^{k}\alpha_{i} {f}_{i}(\mathbf{x}),
+\label{eq:JWSOriginal}
+\end{equation}
+%
+where $\alpha_i$ is the weight of associated with function $f_i$. The idea behind the utility function $F_{WS}$ is to be able to take into account all individual cost functions at the same time. It is known that when minimizing \eqref{eq:JWSOriginal}, the solution belongs to the Pareto front. Therefore, it is of great importance to select the values of the weights that better reflect the desire of the decision-maker.
+
+The weights have two different roles that are entangled, in one hand the weights can be used to represent the importance of one function over the others (the bigger the weight, the higher the importance) and in the other hand the weights ca be used to equalize the relative values of the functions (one function may yield higher values that shadows the others).
+
+However, choosing the values of the weight can be difficult. In \cite{Marler2010} it is shown that the weight can be interpreted as a first order approximation of a preference function, and therefore, cannot fully take into account the desires of the decision-maker.
+
+Lets take a two function \gls{moop} as an example. If the Pareto front wants to be computed, one may try to first normalized the function:
 \begin{equation}
 F_{WS}(\mathbf{x}) = \alpha_{1WS} \hat{f}_{1}(\mathbf{x}) + \alpha_{2WS} \hat{f}_{2}(\mathbf{x}),
 \label{eq:JWS}
@@ -114,9 +94,8 @@ g(\mathbf{x}) \leq 0,
 \label{eq:WSProblem}
 \end{equation}
 %
-where $h(\mathbf{x})$ and $g(\mathbf{x})$ are the equality and inequality constraints of the original problem.
-
-There are certain drawbacks with this approach. In first place, when \eqref{eq:JWS} is minimized for different values of $\alpha_{1WS}$ and $\alpha_{2WS}$ in order to obtain the Pareto front, an even distribution of the weights does not assure an even distribution of the points in the front. Also, with \gls{ws} it is not possible to obtain Pareto points in the non-convex region of the front, and therefore, not all the possible solutions can be found \cite{Das1997}. %In order to tackle this issue, alternative problem formulation have been proposed in the literature in order to obtain the Pareto front \cite{Marler2004}.
+where $h(\mathbf{x})$ and $g(\mathbf{x})$ are the equality and inequality constraints of the original problem. To find the Pareto front, the problem in \eqref{eq:WSProblem} is solve varying the weights. However, it is known that the \gls{ws} method is not appropriate to find the Pareto front. In first place, when \eqref{eq:JWS} is minimized for different values of $\alpha_{1WS}$ and $\alpha_{2WS}$ in order to obtain the Pareto front, an even distribution of the weights does not assure an even distribution of the points in the front. Also, with \gls{ws} it is not possible to obtain Pareto points in the non-convex region of the front, and therefore, not all the possible solutions can be found \cite{Das1997}. In order to tackle this issue, alternative problem formulation have been proposed in the literature in order to obtain the Pareto front which are presented next.
+%--------------------------------------------------
 %--------------------------------------------------
 \subsection{Normal Boundary Intersection}
 \label{sec:NBI}
@@ -214,9 +193,6 @@ The Pareto is then computed using the same methodology as in the \gls{nnc} case.
 %%--------------------------------------------------------------------------
 %%-------------------------------o-o-o--------------------------------------
 %%--------------------------------------------------------------------------
-
-%%
-%%
 
 %%
 %\subsection{Enhanced Normalized Normal Constraint}
