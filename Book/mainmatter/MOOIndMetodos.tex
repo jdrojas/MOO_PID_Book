@@ -100,16 +100,16 @@ where $h(\mathbf{x})$ and $g(\mathbf{x})$ are the equality and inequality constr
 \subsection{Normal Boundary Intersection}
 \label{sec:NBI}
 %
-The \gls{nbi} is a variation in the way that the \gls{moop} is posed as a single objective optimization problem, in order to obtained an even spaced Pareto front \cite{Das1998}. In %
+The \gls{nbi} is a variation in the way that the \gls{moop} is posed as a single objective optimization problem, in order to obtain an even spaced Pareto front \cite{Das1998}. In %
 %
 \begin{figure}%
 	\centering
-	\includesvg[pretex=\scriptsize, width=0.8\columnwidth]{./figuras/NBI}%
+	\includegraphics[width=0.8\columnwidth]{Ch5NBI}%
 	\caption{\gls{nbi} optimization method.}%
 	\label{fig:NBI}%
 \end{figure}
 %
-figure~\ref{fig:NBI}, a representation of the method is shown for two normalized objective functions. If the utopia plane (the plane that contains the anchor points, in the case of a bi-objective problem, the straight line that joints the anchor points) is parameterized by $\Phi\mathbf{\beta}$, where $\Phi(:,i)=\mathbf{F}(\mathbf{x}_i^*)-\mathbf{F}(\mathbf{x}^*)$, $\mathbf{F}(\mathbf{x}_i^*)$ is the value of the multi-objective function evaluated in the $i$th anchor point, $\mathbf{F}(\mathbf{x}^*)$ is the value of the function at the utopia point, and $\beta$ is chosen as:
+figure~\ref{fig:NBI}, a representation of the method is shown for two normalized objective functions. If the utopia plane (the plane that contains the anchor points, in the case of a bi-objective problem, the straight line that joins the anchor points) is parameterized by $\Phi\mathbf{\beta}$, where $\Phi(:,i)=\mathbf{F}(\mathbf{x}_i^*)-\mathbf{F}(\mathbf{x}^*)$, $\mathbf{F}(\mathbf{x}_i^*)$ is the value of the multi-objective function evaluated in the $i$th anchor point, $\mathbf{F}(\mathbf{x}^*)$ is the value of the function at the utopia point, and $\beta$ is chosen as:
 \begin{equation}
 \beta=
 \left[\begin{tabular}{c}
@@ -119,7 +119,7 @@ $\alpha_{1NBI}$ \\ $\alpha_{2NBI}$
 \end{equation}
 with $\alpha_{1NBI}+\alpha_{2NBI}=1$.
 
-Then, the idea behind the \gls{nbi} method is to find the maximum distance from the utopia plane towards the utopia point (with direction $\hat{\mathbf{n}}$) that is normal (or pseudo normal as proposed in \cite{Das1998}) to the utopia plane. In other words, the objective is to find the border of the feasible region that is closer to the utopia point, but, by varying the parameter $\beta$ in a systematic way, it is possible to obtain an even spaced realization of the Pareto front. 
+The central idea behind the \gls{nbi} method is to find the maximum distance from the utopia plane towards the utopia point (with direction $\hat{\mathbf{n}}$) that is normal (or quasi normal as proposed in \cite{Das1998}) to the utopia plane. In other words, this method finds the border of the feasible region that is closer to the utopia point (farther from the utopia plane). This problem is considered a subproblem, because with one given $\beta$,only one point of the Pareto front is found but, by varying this parameter $\beta$ evenly, it is possible to obtain an even spaced realization of the front.
 
 The problem then is posed as follows:%
 %
@@ -133,7 +133,8 @@ g(\xv) \leq 0.
 \label{eq:NBIProblem}
 \end{equation}%
 
-In practice, the \gls{nbi} method adds an equality constraint to the problem in such a way that, by maximizing a new variable $v$ (which represents the distance from the utopia plane towards the utopia point), the border that is closer to the utopia point is found. Depending on the shape of the frontier, it is possible that the \gls{nbi} finds points that are not Pareto optimal but belong to the edge of the feasible space. These points can be useful to have a better idea of the convexity (or lack thereof) of the Pareto front.
+The \gls{nbi} method converts the original problem by adding an equality constraint. By maximizing the new variable $v$ (which represents the distance from the utopia plane towards the utopia point), the front that is closer to the utopia point is found.
+
 %--------------------------------------------------
 \subsection{Normalized Normal Constraint}
 \label{sec:NNC}
