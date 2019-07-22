@@ -133,8 +133,9 @@ g(\xv) \leq 0.
 \label{eq:NBIProblem}
 \end{equation}%
 
-The \gls{nbi} method converts the original problem by adding an equality constraint. By maximizing the new variable $v$ (which represents the distance from the utopia plane towards the utopia point), the front that is closer to the utopia point is found.
+The \gls{nbi} method converts the original problem by adding an equality constraint. By maximizing the new variable $v$ (which represents the distance from the utopia plane towards the utopia point), the front that is closer to the utopia point is found. An alternative formulation of \eqref{eq:NBIProblem} was proposed in \cite{Shukla2007} to ensure that only the points that really belongs to the Pareto front are found.
 
+This method has been widely used in several areas. In \cite{Stehr2003} was used to analyze the compromise between gain and phase margin when designing analog circuits. In \cite{Rojas2015b} a comparison between several scalarization methods, including \gls{nbi}, was presented for a \gls{foptd} plant where different disturbance sources are considered. In \cite{Ierapetritou2007a} the \gls{nbi} is used to optimize the scheduling of a chemical process with uncertainty.
 %--------------------------------------------------
 \subsection{Normalized Normal Constraint}
 \label{sec:NNC}
@@ -171,6 +172,7 @@ g(\mathbf{x}) \leq 0,
 \end{equation}
 %
 where $\bar{\mathbf{N}}_1$ is the vector that contains the direction of the utopia plane.
+
 \subsection{Enhanced Normalized Normal Constraint}
 \label{sec:ENNC}
 The \gls{ennc} \cite{Sanchis2008}, is a new perspective of the original \gls{nnc} method. Implicitly, the \gls{nnc} method supposes that in each anchor point, the other functions that are not optimal, have their worst value. For a two functions optimization, this is always the case; however for more than two functions this supposition is not true in general. The \gls{ennc} method redefines the anchor points in such a way that the supposition of the \gls{nnc} holds true, and then the same method may be used. Other advantage of the \gls{ennc} is that it is possible to expand the explored regions of the problem, given a better representation of the Pareto front.
