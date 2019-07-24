@@ -36,7 +36,7 @@ In general, it is not possible to find a set of variables values that minimizes 
 
 The concept of Pareto optimality is represented in %
 %
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\includesvg[width=0.8\columnwidth]{planoFun01}
 	\caption{All possible solutions and the Pareto front in the function space.}
@@ -102,9 +102,9 @@ where $h(\mathbf{x})$ and $g(\mathbf{x})$ are the equality and inequality constr
 %
 The \gls{nbi} is a variation in the way that the \gls{moop} is posed as a single objective optimization problem, in order to obtain an even spaced Pareto front \cite{Das1998}. In %
 %
-\begin{figure}%
+\begin{figure}[b]%
 	\centering
-	\includegraphics[width=0.8\columnwidth]{Ch5NBI}%
+	\includegraphics[width=0.6\columnwidth]{Ch5NBI}%
 	\caption{\gls{nbi} optimization method.}%
 	\label{fig:NBI}%
 \end{figure}
@@ -135,13 +135,13 @@ g(\xv) \leq 0.
 
 The \gls{nbi} method converts the original problem by adding an equality constraint. By maximizing the new variable $v$ (which represents the distance from the utopia plane towards the utopia point), the front that is closer to the utopia point is found. An alternative formulation of \eqref{eq:NBIProblem} was proposed in \cite{Shukla2007} to ensure that only the points that really belongs to the Pareto front are found.
 
-This method has been widely used in several areas. In \cite{Stehr2003} was used to analyze the compromise between gain and phase margin when designing analog circuits. In \cite{Rojas2015b} a comparison between several scalarization methods, including \gls{nbi}, was presented for a \gls{foptd} plant where different disturbance sources are considered. In \cite{Ierapetritou2007a} the \gls{nbi} is used to optimize the scheduling of a chemical process with uncertainty. In \cite{Vahidinasab2010} \gls{nbi} is applied to develop optimal bidding strategies for the participants of oligopolistic energy markets; the social welfare and the emissions are considered as the cost functions and the constraints take into account the characteristics of the generators and the power flow of the system.
+This method has been widely used in several areas. In \cite{Stehr2003} was used to analyze the compromise between gain and phase margin when designing analog circuits. In \cite{Sendin2004}, the \gls{nbi} was considered in the design of nonlinear bioprocesses. In \cite{Ierapetritou2007a} the \gls{nbi} is used to optimize the scheduling of a chemical process with uncertainty. In \cite{Vahidinasab2010} \gls{nbi} is applied to develop optimal bidding strategies for the participants of oligopolistic energy markets; the social welfare and the emissions are considered as the cost functions and the constraints take into account the characteristics of the generators and the power flow of the system. In \cite{Ganesan2013}, \gls{nbi} is used in conjunction with a meta-heuristic algorithm to generate optimal solution options to the green sand mould system problem. In \cite{Brito2014} the method is used coupled with mean-squared error functions in a robust parameter design of the surface roughness in end milling process. In \cite{Rubio-Largo2014} the method is adapted to solve a traffic grooming problem in the telecommunication field. In \cite{Rojas2015b} a comparison between several scalarization methods, including \gls{nbi}, was presented for a \gls{foptd} plant where different disturbance sources are considered. In \cite{Naves2017} \gls{nbi} is used for the optimization of methyl orange treatment with ozone. 
 %--------------------------------------------------
 \subsection{Normalized Normal Constraint}
 \label{sec:NNC}
 The \gls{nnc} is presented in \cite{Messac2003} and is intended to improve the results of the \gls{nbi} by formulating the optimization problem only with inequality constraints and by filtering all the non-Pareto optimal points. The main idea of the methodology is presented in
 %
-\begin{figure}%
+\begin{figure}[b]%
 	\centering
 	\includesvg[pretex=\scriptsize, width=0.8\columnwidth]{./figuras/NNC}%
 	\caption{NNC optimization method.}%

@@ -53,4 +53,157 @@ To do
 To do
 \subsection{PID tuning problem formulation for integral cost functions}
 \label{sec:CostProbPID}
-To do
+A feedback control system like the one shown in %
+\begin{figure}[tb]
+	\centering
+	\includesvg[width=0.8\columnwidth]{Ch4bloques}%pretex=\scriptsize,
+	\caption{Feedback control loop.}% 
+	\label{fig:bloques}%
+\end{figure}
+%
+Figure~\ref{fig:bloques}, also called closed-loop control system, is designed to keep certain relationship between the process output $y(s)$ and the reference input $r(s)$. For such task, the difference between those signal is used to compute the control signal $u(s)$ needed in order to achieve $y(s)=r(s)$. 
+
+In Figure.~\ref{fig:bloques}, $C(s,\bm{\theta})$ is the \gls{2dof} \gls{pid} controller with parameters:
+\begin{equation*}
+\bm{\theta}=\left[	\begin{tabular}{cccc} \gls{kp} & \gls{ti} & \gls{td} & \gls{beta}	\end{tabular}\right]^T
+\end{equation*}
+%
+with \gls{kp} the proportional gain, \gls{ti} the integral time constant, \gls{td} is the derivative time constant, \gls{beta} the weight on the reference signal. \gls{plan} represents the controlled process, modeled as a \gls{soptd} plant, with a transfer function of the form:
+\begin{equation}  %inclusión de ecuaciones
+P(s) =  \frac{K e^{-Ls}}{(T s+1)(a T s+1)},
+\label{eq:plantaX}
+\end{equation}
+%
+where \gls{k}, \gls{l} and \gls{t}, correspond to the static gain, the time delay and main time constant respectively. The other pole of the system is represented with a time constant that is fraction of $T$, therefore $0 \leq a \leq 1$. \gls{di} represent the input disturbance while \gls{do} is the output disturbance.
+
+%El diagrama de bloques de un controlador PI de dos grados de libertad se muestra en la Figura \ref{fig:controlador}. 
+%
+The relationship between the control signal, the reference and the process output is given by:
+%
+\begin{equation}  %inclusión de ecuaciones
+\gls{u} = \gls{contr} \gls{r} - \gls{conty} \gls{y},
+\label{us}
+\end{equation}
+%
+where the part applied to the reference signal is given by:
+%
+\begin{equation}  %inclusión de ecuaciones
+\gls{contr}=  \gls{kp}\left({\gls{beta} + \frac{1}{\gls{ti} s}+ \gls{gamma} \frac{\gls{td} s}{\gls{alpha} \gls{td} s +1}}\right),
+\label{eq:cr}
+\end{equation}
+%
+and the part applied to the process output is:
+%
+\begin{equation}  %inclusión de ecuaciones
+\gls{conty}=  \gls{kp}\left({1 + \frac{1}{\gls{ti} s}+\frac{\gls{td} s}{\gls{alpha} \gls{td} s +1} }\right).
+\label{eq:cy}
+\end{equation}
+
+It is common to set $\gls{alpha}=0.1$ and $\gls{gamma}=0$. For this reason, the controller parameter vector is give as $\gls{theta}=[\begin{tabular}{cccc} \gls{kp} & \gls{ti} & \gls{td} &\gls{beta} \end{tabular}]^T$. A detailed depiction of the controller transfer function is presented in 
+\begin{figure}[tb]
+	\centering
+	\includesvg[width=0.6\columnwidth]{Ch4controlador}
+	\caption{Representation of the \gls{2dof} controller.}
+	\label{fig:Ch4controlador}
+\end{figure}
+%
+Figure~\ref{fig:Ch4controlador}.
+
+To simplify the analysis, the model of the controlled process is normalized:
+%
+\begin{equation*}
+\hat{s}= Ts, \ \tau_0=  \displaystyle\frac{L}{T}, \ \tau_i=  \displaystyle\frac{T_i}{T}, \ \tau_d = \frac{T_d}{T}, \ \kappa_p= K_p K.
+\end{equation*}  %inclusión de ecuaciones
+
+Then the normalized parameters of the controller become $\bm{\theta}=\left[\kappa, \tau_i, \tau_d, \beta\right]^T$.
+%
+and the response of the controlled system is computed as: 
+%%
+\begin{equation} 
+ y(\hat{s})= y_r(\hat{s}) + y_{di}(\hat{s}) + y_{do}(\hat{s}),
+\label{ys}
+\end{equation}
+%
+where $y_r(\hat{s})$, is the output response to a change in the setpoint $r(\hat{s})$, $y_{di}(\hat{s})$ is the response to a change in the input disturbance signal $d_i(s)$ and $y_{do}(\hat{s})$ is the response to a change in the ouput disturbace signal $d_o(s)$. From Figure~\ref{fig:bloques} and Figure~\ref{fig:Ch4controlador}, these signals can be computed as:
+%
+\begin{align*}
+ y_r(\hat{s}) &= \frac{P(\hat{s}) C_r(\hat{s},\bm{\theta}) }{1 + P(\hat{s}) C_y(\hat{s},\bm{\theta})} r(\hat{s})\\
+y_{di}(\hat{s}) &=  \frac{C_r(\hat{s},\bm{\theta})}{1 + P(\hat{s}) C_y(\hat{s},\bm{\theta})} d_i(\hat{s}) \\%
+y_{do}(\hat{s}) &= \frac{1}{1 + P(\hat{s}) C_y(\hat{s},\bm{\theta})} {d_o(\hat{s})}
+\label{ytot}
+\end{align*}
+
+%Dada \eqref{ys}, la respuesta de salida del lazo cerrado ante un cambio en el valor deseado puede ser ajustada a través del controlador de valor deseado $C_r(\hat{s},\theta)$, independientemente de cambios en la perturbación de entrada o en la de salida. Los parámetros de $C_r(\hat{s},\theta)$ y $C_y(\hat{s},\theta)$ son los mismos con un grado de libertad \cite{apuntescontrol}.
+
+Robustness is an indication of the relative stability of the controlled system and it measure the ability of the controller to keep the closed loop stable despite the variation in the process dynamics. A metric of the degree of relative stability is the maximum sensitivity \gls{ms} given by:
+%
+\begin{equation}  %inclusión de ecuaciones
+\gls{ms}=  \max_\omega \left\{ \frac{1}{\left |{1 + C_y(j\omega ) P(j\omega )}\right |}\right\} 
+\label{Ms}
+\end{equation}
+
+The recommended value range is  $1.2\leq \gls{ms} \leq 2.0$.
+
+As it is widely established, the controller tuning can be solved as a multi-objective optimization problem~\cite{Gambier2007}. One common indicator of performance, is the \gls{iae} given by:
+%
+\begin{equation}  %inclusión de ecuaciones
+J(\bm{\theta})=\int_0^\infty \left |{e(t,\bm{\theta})}\right | dt.
+\label{IAE}
+\end{equation}
+
+The error signal $e(t, \bm{\theta})$ it is calculated using:
+%
+\begin{equation}  %inclusión de ecuaciones
+e(t,\bm{\theta})=r(t)-y(t,\bm{\theta}).
+\label{error}
+\end{equation}
+
+When \eqref{IAE} is computed for a step change in the reference signal, the cost function becomes $J_r(\bm{\theta})$; for an input disturbance response, the function is defined as $J_{di}(\bm{\theta})$ and finally, for an output disturbance response, the cost function is named as $J_{do}(\bm{\theta})$.
+
+When the output of the plant is disturbed only by the step change in $d_i(s)$, the error signal then becomes:
+\begin{equation}  %inclusión de ecuaciones
+e_d(t)=-y_{di}(t)
+\label{per}.
+\end{equation}
+
+And then, the cost function $J_{di}(\bm{\theta})$ is computed as:
+\begin{equation}  %inclusión de ecuaciones
+J_{di}(\bm{\theta})= \int_0^\infty  \left |-{y_{di}(t,\bm{\theta})}\right | dt,
+\label{perin}
+\end{equation}
+
+On the other hand, if the disturbance comes only from a step signal in $d_o(s)$, the cost function that has to be computed is $J_{do}(\bm{\theta})$ as:
+%
+\begin{equation}  %inclusión de ecuaciones
+J_{do}(\bm{\theta})= \int_0^\infty  \left |-{y_{do}(t,\bm{\theta})}\right | dt.
+\label{perout}
+\end{equation}	
+%
+
+Finally, if the setpoint is the only source of disturbance for the plant, the corresponding cost function $J_r(\bm{\theta})$ is computed as:
+\begin{equation}  %inclusión de ecuaciones
+J_r(\bm{\theta})=\int_0^\infty \left |r(t)-y_r(t,\bm{\theta})\right | dt.
+\label{eq:Jr}
+\end{equation}
+%
+
+In general, it is not possible to optimize $\bm{\theta}$ for those three functions at the same time. Such impossible point where all the cost functions are optimal is called Utopia point, but optimizing one of them always produce a degradation in the other remaining functions. All the solutions that are closest to the utopia point, create the Pareto frontier which, if all cost functions are considered equal, are equally optimal. 
+
+The problem of minimizing $J_r(\bm{\theta})$, $J_{di}(\bm{\theta})$ and $J_{do}(\bm{\theta})$ at the same time can be posed as a \gls{moo} problem. In addition, since in an industrial environment the robustness is very important, the obtained parameters are constrained to always satisfy  $\gls{ms} \leq M_{s,max}$, where $M_{s,max}$ is the allowed limit of the maximum sensitivity. The combined cost function (vector of cost functions) then becomes:
+%
+\begin{equation}  %inclusión de ecuaciones
+\textbf{J}(\bm{\theta})=\left[J_{di}(\bm{\theta}), J_{do}(\bm{\theta}), J_{r}(\bm{\theta})\right]^T,
+\label{eq:Jtotal}
+\end{equation}
+%
+and solved by finding all possible optimal solutions of:
+%
+\begin{equation}  %inclusión de ecuaciones
+\begin{gathered}
+\textbf{J}(\bm{\theta}^*) = \min_{\bm{\theta}} \textbf{J}(\bm{\theta}),\\
+\text{s.t.} \quad  M_s \leq M_{s,max}
+\end{gathered}
+\label{probmoo}
+\end{equation}
+
+\textbf{To do: Expand more this part}
