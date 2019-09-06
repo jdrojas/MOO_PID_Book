@@ -41,13 +41,6 @@ title = {{PID control in terms of robustness/performance and servo/regulator tra
 volume = {23},
 year = {2013}
 }
-@misc{VictorA,
-address = {Costa Rica},
-author = {Alfaro, V M},
-howpublished = {Ingenier{\'{i}}a: Revista de la Universidad de Costa Rica},
-title = {{M{\'{e}}todos de sintonizaci{\'{o}}n de controladores PID que operan como reguladores}},
-year = {2002}
-}
 @article{alfaro2006-1,
 annote = {(in Spanish) Available at http://revista-ciencia-tecnologia.ucr.ac.cr/index.php/ciencia-tecnologia/article/view/35.},
 author = {Alfaro, V M},
@@ -56,6 +49,13 @@ pages = {197--216},
 title = {{Low-Order Models Identification from the Process Reaction Curve}},
 volume = {24(2)},
 year = {2006}
+}
+@misc{VictorA,
+address = {Costa Rica},
+author = {Alfaro, V M},
+howpublished = {Ingenier{\'{i}}a: Revista de la Universidad de Costa Rica},
+title = {{M{\'{e}}todos de sintonizaci{\'{o}}n de controladores PID que operan como reguladores}},
+year = {2002}
 }
 @inproceedings{alfaroetfa2012-2,
 annote = {September 17-21, Krak�w, Poland},
@@ -169,7 +169,7 @@ title = {{Simple Servo/Regulation Proportional-Integral-Derivative (PID) Tuning 
 volume = {51},
 year = {2012}
 }
-@inproceedings{arrietaETFA2008,
+@conference{arrietaETFA2008,
 author = {Arrieta, O and Vilanova, R and Alfaro, V M and Moreno, R},
 booktitle = {13th IEEE International Conference on Emerging Technologies and Factory Automation (ETFA08), September 15-18, Hamburg-Germany},
 title = {{Considerations on PID Controller Operation: Application to a Continuous Stirred Tank Reactor}},
@@ -207,6 +207,13 @@ title = {{Automatic Tuning of Simple Regulators with Specification on Phase and 
 volume = {20(5)},
 year = {1984}
 }
+@book{astromhagglund2006,
+address = {Research Triangle Park, NC 27709, USA},
+author = {{\AA}str{\"{o}}m, K J and H{\"{a}}gglund, T},
+publisher = {ISA - The Instrumentation, Systems, and Automation Society},
+title = {{Advanced PID Control}},
+year = {2006}
+}
 @book{astromhagglund1995,
 author = {{\AA}str{\"{o}}m, K J and H{\"{a}}gglund, T},
 publisher = {Instrument Society of America, Research Triangle Park, NC 27709, USA},
@@ -219,13 +226,6 @@ author = {{\AA}str{\"{o}}m, K J and H{\"{a}}gglund, T},
 booktitle = {Proceedings IFAC Workshop Digital Control: Past, Present and Future of PID Control},
 title = {{Benchmark Systems for PID Control}},
 year = {2000}
-}
-@book{astromhagglund2006,
-address = {Research Triangle Park, NC 27709, USA},
-author = {{\AA}str{\"{o}}m, K J and H{\"{a}}gglund, T},
-publisher = {ISA - The Instrumentation, Systems, and Automation Society},
-title = {{Advanced PID Control}},
-year = {2006}
 }
 @book{Astrom1995,
 author = {{\AA}str{\"{o}}m, Karl Johan and H{\"{a}}gglund, Tore},
@@ -257,6 +257,22 @@ pages = {2795--2812},
 title = {{Tabu search algorithm based PID controller tuning for desired system specifications}},
 volume = {348},
 year = {2011}
+}
+@article{Benki2018,
+abstract = {In this paper, we study a multicriteria shape design of a highly nonlinear mechanical 2D structure, namely the shape optimization of the aerosol can bottom. In fact, it is made depending on two criteria, the dome growth DG and the dome reversal pressure DRP, that define the resistance of the bottom against the internal pressure. This two criteria are known to be conflicting; therefore, a multicriteria optimization problem is formulated to represent the trade-offs among the design parameters. Due to the expensive time-consuming cost to solve this kind of optimization problems (e.g., capturing the Pareto front), the use of a surrogate model (e.g., metamodel) cheap to evaluate is mandatory. For this reason, we have developed an algorithm which is a coupling between the normalized normal constraint method (NNCM) and the radial basis function metamodel (RBF). The NNCM-RBF coupling was tested for several academic test cases and for our industrial problem and the obtained results clearly show the efficiency of our coupling to solve all the problems treated with a remarkable gain in the computational time.},
+author = {Benki, Aalae and Habbal, Abderrahmane and Mathis, Gael},
+doi = {10.1016/J.AEJ.2017.03.036},
+file = {::},
+issn = {1110-0168},
+journal = {Alexandria Engineering Journal},
+month = {sep},
+number = {3},
+pages = {1905--1915},
+publisher = {Elsevier},
+title = {{A metamodel-based multicriteria shape optimization process for an aerosol can}},
+url = {https://www.sciencedirect.com/science/article/pii/S1110016817301291},
+volume = {57},
+year = {2018}
 }
 @inproceedings{Bevrani2005,
 abstract = {In many real world control problems, we have to follow several control objectives, simultaneously. At the same time, it is usually desirable to meet all specified goals using the controllers with simple structures such as proportional-integral (PI) and proportional-integral-derivative (PID) which are useful in industry applications. Since, practically these controllers are commonly tuned based on classical or trial-and-error approaches, they are incapable of obtaining good dynamical performance to capture all design objectives and specification. With regard to above problem, this paper addresses a new method to design of multi-objective PI/PID controller. For this purpose, first the multi-objective control design is reduced to an H2/H infin; static output feedback control synthesis, and then the control parameters are easily carried out using an iterative linear matrix inequalities (ILMI) algorithm. As a numerical example, the proposed method is applied to a multi-area power system to design a set of PI-based robust load frequency controllers.},
@@ -384,6 +400,17 @@ title = {{Designing and Tuning Digital Controllers}},
 volume = {41},
 year = {1968}
 }
+@article{Das1998,
+author = {Das, Indraneel and Dennis, John E},
+doi = {10.1137/S1052623496307510},
+file = {:home/david/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Das, Dennis - 1998 - Normal-Boundary Intersection A New Method for Generating the {\{}Pareto{\}} Surface in Nonlinear Multicriteria Optimizati.pdf:pdf},
+journal = {SIAM Journal on Optimization},
+number = {3},
+pages = {631--657},
+title = {{Normal-Boundary Intersection: A New Method for Generating the {\{}Pareto{\}} Surface in Nonlinear Multicriteria Optimization Problems}},
+volume = {8},
+year = {1998}
+}
 @article{Das1997,
 abstract = {A standard technique for generating the Pareto set in multicriteria
 optimization problems is to minimize (convex) weighted sums of the
@@ -402,17 +429,6 @@ publisher = {Springer Berlin / Heidelberg},
 title = {{A closer look at drawbacks of minimizing weighted sums of objectives for {\{}Pareto{\}} set generation in multicriteria optimization problems}},
 volume = {14},
 year = {1997}
-}
-@article{Das1998,
-author = {Das, Indraneel and Dennis, John E},
-doi = {10.1137/S1052623496307510},
-file = {::},
-journal = {SIAM Journal on Optimization},
-number = {3},
-pages = {631--657},
-title = {{Normal-Boundary Intersection: A New Method for Generating the {\{}Pareto{\}} Surface in Nonlinear Multicriteria Optimization Problems}},
-volume = {8},
-year = {1998}
 }
 @article{Deb2000,
 author = {Deb, Kalyanmoy},
@@ -490,6 +506,17 @@ title = {{An overview of evolutionary algorithms in multiobjective optimization}
 volume = {3},
 year = {1995}
 }
+@inproceedings{Gambier2009,
+abstract = {Parametric optimization techniques is an established practice for designing controllers. It was used, for example, to obtain the parameters of PI and PID controllers in several works. An important criticism to this technique is the dependence of the design from a parametric model of the plant, which have to be very accurate. In the current work, the problem of designing a continuous-time PID controller based on parametric optimization under parameter uncertainty is treated by using multi-objective optimization. The parameter uncertainty is given in the form of interval polynomials, where a nominal model is not necessary for the design. The optimization process is carried out by means of the normal boundary intersection technique (NBI) method, which yields a regular Pareto front with an acceptable computational burden. A simulation example shows satisfactory results obtained by the proposed method.},
+address = {Hong Kong, China},
+author = {Gambier, A},
+booktitle = {Asian Control Conference, 2009. ASCC 2009. 7th},
+file = {:home/david/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Gambier - 2009 - Optimal {\{}PID{\}} controller design using multiobjective {\{}Normal Boundary Intersection{\}} technique.pdf:pdf},
+keywords = {PI controller,interval polynomial,multiobjective n},
+pages = {1369--1374},
+title = {{Optimal PID controller design using multiobjective Normal Boundary Intersection technique}},
+year = {2009}
+}
 @inproceedings{Gambier2008,
 abstract = {The design of sophisticated control systems have led in the past ten years to the necessity of satisfying more than one design criterion. Thus, it is natural to think that those criteria can be met in an optimal manner. If several criteria have simultaneously to be optimized, one is in presence of a multi-objective optimization problem. In this paper, many efforts to design the most popular control strategies, i.e. PID and MPC, by using multi-objective optimization techniques are reviewed. Both control strategies have dissimilar optimization characteristics and therefore, they can be considered as representative of two different multi-objective optimization problems, which are described including definitions, possible solutions, algorithms and available software implementations.},
 author = {Gambier, A},
@@ -500,17 +527,6 @@ keywords = {PID control,model predictive control,multi-objecti},
 pages = {4727--4732},
 title = {{MPC and PID control based on Multi-Objective Optimization}},
 year = {2008}
-}
-@inproceedings{Gambier2009,
-abstract = {Parametric optimization techniques is an established practice for designing controllers. It was used, for example, to obtain the parameters of PI and PID controllers in several works. An important criticism to this technique is the dependence of the design from a parametric model of the plant, which have to be very accurate. In the current work, the problem of designing a continuous-time PID controller based on parametric optimization under parameter uncertainty is treated by using multi-objective optimization. The parameter uncertainty is given in the form of interval polynomials, where a nominal model is not necessary for the design. The optimization process is carried out by means of the normal boundary intersection technique (NBI) method, which yields a regular Pareto front with an acceptable computational burden. A simulation example shows satisfactory results obtained by the proposed method.},
-address = {Hong Kong, China},
-author = {Gambier, A},
-booktitle = {Asian Control Conference, 2009. ASCC 2009. 7th},
-file = {::},
-keywords = {PI controller,interval polynomial,multiobjective n},
-pages = {1369--1374},
-title = {{Optimal PID controller design using multiobjective Normal Boundary Intersection technique}},
-year = {2009}
 }
 @inproceedings{Gambier2007,
 author = {Gambier, A and Badreddin, E},
@@ -535,7 +551,7 @@ abstract = {In multi-objective engineering optimization, it is very rare that th
 author = {Ganesan, T and Elamvazuthi, I and Vasant, P},
 booktitle = {Control System, Computing and Engineering (ICCSCE), 2011 IEEE International Conference on},
 doi = {10.1109/ICCSCE.2011.6190501},
-file = {::},
+file = {:home/david/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Ganesan, Elamvazuthi, Vasant - 2011 - Evolutionary normal-boundary intersection ({\{}ENBI{\}}) method for multi-objective optimization of gree.pdf:pdf},
 keywords = {Pareto frontier,evolutionary normal-boundary inter},
 pages = {86--91},
 title = {{Evolutionary normal-boundary intersection (ENBI) method for multi-objective optimization of green sand mould system}},
@@ -562,6 +578,21 @@ author = {Garpinger, Olof and H{\"{a}}gglund, Tore and {\AA}str{\"{o}}m, Karl Jo
 booktitle = {Proceedings of the IFAC Conference on Advances in PID Control},
 title = {{Criteria and Trade-offs in PID Design}},
 year = {2012}
+}
+@article{Gaudencio2019,
+abstract = {This work presents the turning process of AISI H13 hardened steel with the PCBN 7025 tool, considering six output variables: tool life, machining total cost, surface roughness, machining force, sound pressure level, and specific cutting energy. Several problems are encountered in engineering processes that have adverse effects on the reliability of complex engineering systems. Hence, the aim of this work is to optimize the hardened steel turning process by applying mathematical methods to reduce dimensionality and eliminate the correlation between the multiple responses. The resultant latent response surfaces and their respective targets constitute the normalized multivariate mean square error (MMSE) function that is minimized by the normal boundary intersection (NBI) method. Furthermore, a fuzzy algorithm is applied to identify the best solution from several feasible solutions of the Pareto frontier that is compared with the performances of normalized normal constraint, arc homotopy length, global criterion method, and desirability method. The results show that NBI-MMSE has a higher performance than the other methods. In addition, NBI-MMSE is tested with benchmark functions to evaluate its effectiveness and robustness. Therefore, NBI-MMSE identifies the dynamics of the turning process of AISI H13 steel by revealing the optimal solutions for the input process parameters.},
+author = {Gaud{\^{e}}ncio, Juliana Helena Daroz and Corr{\^{e}}a, Jo{\~{a}}o {\'{E}}derson and Paes, Vin{\'{i}}cius de Carvalho and Campos, Paulo Henrique da Silva and Turrioni, Jo{\~{a}}o Batista and de Paiva, Anderson Paulo},
+doi = {10.1016/J.ASOC.2019.105586},
+file = {::},
+issn = {1568-4946},
+journal = {Applied Soft Computing},
+month = {sep},
+pages = {105586},
+publisher = {Elsevier},
+title = {{Hybrid multiobjective optimization algorithm based on multivariate mean square error and fuzzy decision maker}},
+url = {https://www.sciencedirect.com/science/article/pii/S1568494619303667},
+volume = {82},
+year = {2019}
 }
 @article{gerry1987,
 author = {Gerry, J P},
@@ -641,6 +672,36 @@ title = {{Tuning PID Controllers Based on Gain and Phase Margin Specifications}}
 volume = {31(3)},
 year = {1995}
 }
+@article{Hosseini2016a,
+abstract = {Transmission congestion management plays a key role in deregulated energy markets. To correctly model and solve this problem, power system voltage and transient stability limits should be considered to avoid obtaining a vulnerable power system with low stability margins. Congestion management is modeled as a multi-objective optimization problem in this paper. The proposed scheme includes the cost of congestion management, voltage stability margin and transient stability margin as its multiple competing objectives. Moreover, a new effective Multi-objective Mathematical Programming (MMP) solution approach based on normalized normal constraint (NNC) method is presented to solve the multi-objective optimization problem of the congestion management, which can generate a well-distributed and efficient Pareto frontier. The proposed congestion management model and MMP solution approach are implemented on the New-England's test system and the obtained results are compared with the results of several other congestion management methods. These comparisons verify the superiority of the proposed approach.},
+author = {Hosseini, Seyyed Ahmad and Amjady, Nima and Shafie-khah, Miadreza and Catal{\~{a}}o, Jo{\~{a}}o P.S.},
+doi = {10.1016/J.APENERGY.2015.12.101},
+file = {::},
+issn = {0306-2619},
+journal = {Applied Energy},
+month = {mar},
+pages = {462--471},
+publisher = {Elsevier},
+title = {{A new multi-objective solution approach to solve transmission congestion management problem of energy markets}},
+url = {https://www.sciencedirect.com/science/article/pii/S0306261915016748},
+volume = {165},
+year = {2016}
+}
+@article{Hosseini2016,
+abstract = {Transmission congestion management plays a key role in deregulated energy markets. To correctly model and solve this problem, power system voltage and transient stability limits should be considered to avoid obtaining a vulnerable power system with low stability margins. Congestion management is modeled as a multi-objective optimization problem in this paper. The proposed scheme includes the cost of congestion management, voltage stability margin and transient stability margin as its multiple competing objectives. Moreover, a new effective Multi-objective Mathematical Programming (MMP) solution approach based on normalized normal constraint (NNC) method is presented to solve the multi-objective optimization problem of the congestion management, which can generate a well-distributed and efficient Pareto frontier. The proposed congestion management model and MMP solution approach are implemented on the New-England's test system and the obtained results are compared with the results of several other congestion management methods. These comparisons verify the superiority of the proposed approach.},
+author = {Hosseini, Seyyed Ahmad and Amjady, Nima and Shafie-khah, Miadreza and Catal{\~{a}}o, Jo{\~{a}}o P.S.},
+doi = {10.1016/j.apenergy.2015.12.101},
+file = {:home/david/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Hosseini et al. - 2016 - A new multi-objective solution approach to solve transmission congestion management problem of energy markets.pdf:pdf},
+issn = {03062619},
+journal = {Applied Energy},
+keywords = {Deregulated energy market,Multi-objective mathematical programming,Transmission congestion management,Voltage and transient stability},
+pages = {462--471},
+publisher = {Elsevier Ltd},
+title = {{A new multi-objective solution approach to solve transmission congestion management problem of energy markets}},
+url = {http://dx.doi.org/10.1016/j.apenergy.2015.12.101},
+volume = {165},
+year = {2016}
+}
 @article{Huang2008,
 abstract = {Controller design using the multiobjective optimization method is
 considered, in which the objectives and constraints for designing
@@ -690,7 +751,7 @@ International Symposium on Advanced Control of Chemical
 Processes (ADCHEM)},
 author = {Ierapetritou, Marianthi G. and Jia, Zhenya},
 doi = {10.1016/j.conengprac.2006.10.009},
-file = {::},
+file = {:home/david/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Ierapetritou, Jia - 2007 - Short-term scheduling of chemical process including uncertainty.pdf:pdf},
 issn = {09670661},
 journal = {Control Engineering Practice},
 keywords = {Parametric MILP,Robust optimization,Scheduling,Uncertainty},
@@ -724,7 +785,7 @@ through three case studies and the special characteristics of the
 scheduling problems are discussed.},
 author = {Jia, Zhenya and Ierapetritou, Marianthi G},
 doi = {10.1016/j.compchemeng.2006.07.001},
-file = {::},
+file = {:home/david/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Jia, Ierapetritou - 2007 - Generate Pareto optimal solutions of scheduling problems using normal boundary intersection technique.pdf:pdf},
 issn = {0098-1354},
 journal = {Computers {\&} Chemical Engineering},
 keywords = {Multiobjective optimization,Robustness,Scheduling,Uncertainty},
@@ -733,6 +794,15 @@ pages = {268--280},
 title = {{Generate Pareto optimal solutions of scheduling problems using normal boundary intersection technique}},
 volume = {31},
 year = {2007}
+}
+@incollection{Joss2016,
+author = {Joss, Lisa and Capra, Federico and Gazzani, Matteo and Mazzotti, Marco and Martelli, Emanuele},
+doi = {10.1016/B978-0-444-63428-3.50249-6},
+file = {::},
+pages = {1467--1472},
+title = {{MO-MCS: An Efficient Multi-objective Optimization Algorithm for the Optimization of Temperature/Pressure Swing Adsorption Cycles}},
+url = {https://linkinghub.elsevier.com/retrieve/pii/B9780444634283502496},
+year = {2016}
 }
 @inproceedings{Karimi1988,
 abstract = {A description is given of the use of simulated annealing to optimize
@@ -887,6 +957,21 @@ url = {http://pubs.acs.org/doi/abs/10.1021/ie000400v},
 volume = {40},
 year = {2001}
 }
+@article{Liu2019,
+abstract = {This paper considers optimal control of glycerol producing 1,3-propanediol (1,3-PD) in batch process with uncertain time-delay and kinetic parameters. Based on a dynamic system with uncertain time-delay and kinetic parameters describing the batch process, we propose a robust bi-objective optimal control model, in which 1,3-PD productivity and glycerol consumption rate, and their semi-relative sensitivities with respect to the uncertain parameters are all involved in the vector objective. The control variables in this problem are the initial concentrations of biomass and glycerol and the terminal time of the process. Then, by introducing auxiliary time-delay systems and performing a time-scaling transformation, we transform the robust bi-objective optimal control problem into an equivalent bi-objective optimal control problem in standard form. Furthermore, we convert the equivalent optimal control problem into a sequence of solvable single-objective optimal control problems by using the normalized normal constraint method together with the constraint transcription technique. To solve each of the resulting optimal control problems, we develop a novel gradient-based solution method. Finally, numerical results are provided to verify the effectiveness of the proposed solution approach.},
+author = {Liu, Chongyang and Gong, Zhaohua and {Joseph Lee}, Heung Wing and Teo, Kok Lay},
+doi = {10.1016/J.JPROCONT.2018.10.001},
+file = {::},
+issn = {0959-1524},
+journal = {Journal of Process Control},
+month = {jun},
+pages = {170--182},
+publisher = {Elsevier},
+title = {{Robust bi-objective optimal control of 1,3-propanediol microbial batch production process}},
+url = {https://www.sciencedirect.com/science/article/pii/S0959152418303706},
+volume = {78},
+year = {2019}
+}
 @article{Liu2001,
 abstract = {Three optimal-tuning PID controller design schemes are presented for industrial control systems in this paper. They are time-domain optimal-tuning PID control, frequency-domain optimal-tuning PID control and multiobjective optimal-tuning PID control. These schemes can provide optimal PID parameters so that the desired system specifications are satisfied even in case where the system dynamics are time variant or the system operating points change. They are applied to three industrial systems, a hydraulic position control system, a rotary hydraulic speed control system and a gasifier, respectively.},
 annote = {PID Control},
@@ -906,7 +991,7 @@ year = {2001}
 @article{Logist2009,
 author = {Logist, F and Erdeghem, P M M Van and Impe, J F Van},
 doi = {10.1016/j.ces.2009.01.054},
-file = {::},
+file = {:home/david/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Logist, Erdeghem, Impe - 2009 - Efficient deterministic multiple objective optimal control of (bio)chemical processes.pdf:pdf},
 issn = {0009-2509},
 journal = {Chemical Engineering Science},
 keywords = {Bioreactors,Chemical reactors,Control,Deterministic optimisation routines,Dynamic optimisation,Multiple objectives},
@@ -939,7 +1024,7 @@ case study with conflicting conversion, heat recovery and installation
 costs.},
 author = {Logist, F and Sager, S and Kirches, C and Impe, J F Van},
 doi = {10.1016/j.jprocont.2010.04.009},
-file = {::},
+file = {:home/david/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Logist et al. - 2010 - Efficient multiple objective optimal control of dynamic systems with integer controls.pdf:pdf},
 issn = {0959-1524},
 journal = {Journal of Process Control},
 keywords = {Automotive control,Dynamic optimization,Mixed-integer optimization,Multiobjective optimization,Optimal control,Process control},
@@ -973,6 +1058,22 @@ url = {http://www.sciencedirect.com/science/article/pii/S0098135411003231},
 volume = {37},
 year = {2012}
 }
+@article{Logist2009a,
+abstract = {In practical optimal control problems multiple and conflicting objectives are often present, giving rise to a set of Pareto optimal solutions. Although combining the different objectives into a convex weighted sum and varying the weights is the most common approach to generate the Pareto front (when deterministic optimisation routines are exploited), it suffers from several intrinsic drawbacks. A uniform variation of the weights does not necessarily lead to an even spread on the Pareto front, and points in non-convex parts of the Pareto front cannot be obtained [Das, I., Dennis, J.E., 1997. A closer look at drawbacks of minimizing weighted sums of objectives for Pareto set generation in multicriteria optimization problems. Structural Optimization 14, 63–69]. Therefore, this paper investigates alternative approaches based on novel methods as normal boundary intersection [Das, I., Dennis, J.E., 1998. Normal-boundary intersection: a new method for generating the Pareto surface in nonlinear multicriteria optimization problems. SIAM Journal on Optimization 8, 631–657] and normalised normal constraint [Messac, A., Ismail-Yahaya, A., Mattson, C.A., 2003. The normalized normal constraint method for generating the Pareto frontier. Structural and Multidisciplinary Optimization 25, 86–98] to mitigate these drawbacks. The resulting multiple objective optimal control procedures are successfully used in (i) the design of a chemical reactor with conflicting conversion and energy costs, and (ii) the control of a bioreactor with a conflict between yield and productivity.},
+author = {Logist, F. and {Van Erdeghem}, P.M.M. and {Van Impe}, J.F.},
+doi = {10.1016/J.CES.2009.01.054},
+file = {::},
+issn = {0009-2509},
+journal = {Chemical Engineering Science},
+month = {jun},
+number = {11},
+pages = {2527--2538},
+publisher = {Pergamon},
+title = {{Efficient deterministic multiple objective optimal control of (bio)chemical processes}},
+url = {https://www.sciencedirect.com/science/article/pii/S0009250909000840},
+volume = {64},
+year = {2009}
+}
 @article{Logist2010a,
 author = {Logist, Filip and Houska, Boris and Diehl, Moritz and {Van Impe}, Jan},
 doi = {10.1007/s00158-010-0506-x},
@@ -987,6 +1088,24 @@ url = {http://dx.doi.org/10.1007/s00158-010-0506-x},
 volume = {42},
 year = {2010}
 }
+@article{Logist2011,
+abstract = {ABSTRACT
+Many practical optimal control problems (e.g., (Nonlinear) Model Predictive Control ((N)MPC)) involve multiple and conflicting objectives. Most often, this multi-objective nature is tackled by combining all individual objectives into a global weighted sum. However, selecting appropriate weights is a non-trivial task, especially when no price information is available and/or the different objectives are incommensurable. This paper introduces a strategy that exploits recent scalarisation based multi-objective optimisation methods to generate the set of Pareto optimal solutions from which the decision maker can pick a solution according to his/her preferences. This selected solution can explicitly be linked to a set of weights in a weighted sum approach via analytical relations. These weights can then, e.g., be used for the repeated optimisations in online (N)MPC applications. The proposed selection procedure based on the explicit relations is illustrated for the offline optimal control of a nonlinear jacketed tubular reactor with three conflicting objectives: conversion, net heat transfer and reactor length.},
+author = {Logist, Filip and Vallerio, Mattia and {Van Impe}, Jan},
+doi = {10.3182/20110828-6-IT-1002.03101},
+file = {::},
+isbn = {9783902661937},
+issn = {1474-6670},
+journal = {IFAC Proceedings Volumes},
+month = {jan},
+number = {1},
+pages = {12325--12330},
+publisher = {Elsevier},
+title = {{Explicit weight selection procedure for optimal control problems with weighted objectives}},
+url = {https://www.sciencedirect.com/science/article/pii/S1474667016455989},
+volume = {44},
+year = {2011}
+}
 @article{Logist2012a,
 author = {Logist, Filip and {Van Impe}, Jan},
 doi = {10.1007/s00158-011-0698-8},
@@ -1000,6 +1119,19 @@ title = {{Novel insights for multi-objective optimisation in engineering using N
 url = {http://dx.doi.org/10.1007/s00158-011-0698-8},
 volume = {45},
 year = {2012}
+}
+@article{Logist2009b,
+author = {Logist, Filip and {Van Impe}, Jan F.},
+doi = {10.3182/20090506-3-SF-4003.00054},
+file = {::},
+issn = {14746670},
+journal = {IFAC Proceedings Volumes},
+number = {2},
+pages = {295--300},
+title = {{Multiple Objective Optimisation of Cyclic Chemical Systems with Distributed Parameters}},
+url = {https://linkinghub.elsevier.com/retrieve/pii/S1474667015367173},
+volume = {42},
+year = {2009}
 }
 @article{lopez1967,
 author = {L{\'{o}}pez, A M and Miller, J A and Smith, C L and Murrill, P W},
@@ -1052,7 +1184,7 @@ that is provided in the problem, the user's preferences, the solution
 requirements, and the availability of software.},
 author = {Marler, R T and J.S., Arora},
 doi = {10.1007/s00158-003-0368-6},
-file = {::},
+file = {:home/david/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Marler, J.S. - 2004 - Survey of multi-objective optimization methods for engineering.pdf:pdf},
 issn = {1615-147X},
 journal = {Structural and Multidisciplinary Optimization},
 number = {6},
@@ -1066,7 +1198,7 @@ year = {2004}
 abstract = {As a common concept in multi-objective opti- mization, minimizing a weighted sum constitutes an inde- pendent method as well as a component of other methods. Consequently, insight into characteristics of the weighted summethod has far reaching implications.However, despite the many published applications for this method and the lit- erature addressing its pitfalls with respect to depicting the Pareto optimal set, there is little comprehensive discussion concerning the conceptual significance of the weights and techniques for maximizing the effectiveness of the method with respect to a priori articulation of preferences. Thus, in this paper, we investigate the fundamental significance of the weights in terms of preferences, the Pareto optimal set, and objective-function values.We determine the factors that dictate which solution point results from a particular set of weights. Fundamental deficiencies are identified in terms of a priori articulation of preferences, and guidelines are provided to help avoid blind use of the method.},
 author = {Marler, R. Timothy and Arora, Jasbir S.},
 doi = {10.1007/s00158-009-0460-7},
-file = {::},
+file = {:home/david/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Marler, Arora - 2010 - The weighted sum method for multi-objective optimization new insights.pdf:pdf},
 issn = {1615-147X},
 journal = {Structural and Multidisciplinary Optimization},
 keywords = {Multi-objective optimization,Preferences,Weighted sum},
@@ -1085,6 +1217,38 @@ isbn = {0070393621},
 publisher = {McGraw-Hill Science/Engineering/Math},
 title = {{Process Control Designing Processes and Control Systems for Dynamic Performance}},
 year = {2015}
+}
+@article{Martinez2009a,
+abstract = {This paper presents the resolution of multiobjective optimization problems as a tool in engineering design. In the literature, the solutions of this problems are based on the Pareto frontier construction. Therefore, substantial efforts have been made in recent years to develop methods for the construction of Pareto frontiers that guarantee uniform distribution and exclude the non-Pareto and local Pareto points. The normalized normal constraint is a recent contribution that generates a well-distributed Pareto frontier. Nevertheless, these methods are susceptible of improvement or modifications to obtain the same level of results more efficiently. This paper proposes a modification of the original normalized normal constraint method using a genetic algorithms in the optimization task. The results presented in this paper show a suitable behavior for the genetic algorithms method compared to classical Gauss–Newton optimization methods which are used by the original normalized normal constraint method.},
+author = {Mart{\'{i}}nez, M. and Garc{\'{i}}a-Nieto, S. and Sanchis, J. and Blasco, X.},
+doi = {10.1016/J.ADVENGSOFT.2008.04.004},
+file = {::},
+issn = {0965-9978},
+journal = {Advances in Engineering Software},
+month = {apr},
+number = {4},
+pages = {260--267},
+publisher = {Elsevier},
+title = {{Genetic algorithms optimization for normalized normal constraint method under Pareto construction}},
+url = {https://www.sciencedirect.com/science/article/pii/S0965997808000835},
+volume = {40},
+year = {2009}
+}
+@article{Martinez2009,
+abstract = {This paper presents the resolution of multiobjective optimization problems as a tool in engineering design. In the literature, the solutions of this problems are based on the Pareto frontier construction. Therefore, substantial efforts have been made in recent years to develop methods for the construction of Pareto frontiers that guarantee uniform distribution and exclude the non-Pareto and local Pareto points. The normalized normal constraint is a recent contribution that generates a well-distributed Pareto frontier. Nevertheless, these methods are susceptible of improvement or modifications to obtain the same level of results more efficiently. This paper proposes a modification of the original normalized normal constraint method using a genetic algorithms in the optimization task. The results presented in this paper show a suitable behavior for the genetic algorithms method compared to classical Gauss-Newton optimization methods which are used by the original normalized normal constraint method. {\textcopyright} 2008 Elsevier Ltd. All rights reserved.},
+author = {Mart{\'{i}}nez, M. and Garc{\'{i}}a-Nieto, S. and Sanchis, J. and Blasco, X.},
+doi = {10.1016/j.advengsoft.2008.04.004},
+file = {::},
+issn = {09659978},
+journal = {Advances in Engineering Software},
+keywords = {Engineering,Genetic algorithms,Multiobjective optimization,Non-linear optimization,Pareto frontier},
+number = {4},
+pages = {260--267},
+publisher = {Elsevier Ltd},
+title = {{Genetic algorithms optimization for normalized normal constraint method under Pareto construction}},
+url = {http://dx.doi.org/10.1016/j.advengsoft.2008.04.004},
+volume = {40},
+year = {2009}
 }
 @article{Mattson2003,
 author = {Mattson, Chistopher A and Messac, Achille},
@@ -1170,6 +1334,38 @@ title = {{Aggregate Objective Functions and Pareto Frontiers: Required Relations
 volume = {1},
 year = {2000}
 }
+@article{Mittal2017a,
+abstract = {Wind energy is one of the most progressive types of renewable energies deployed using wind turbines, which convert wind power into electrical energy. Various methodologies and layouts have been proposed to determine the optimal layout (numbers and locations) of wind turbines inside a wind farm to extract maximum energy. However, limited availability of land area has resulted in the construction of these wind farms near to human habitats causing a negative impact on human health. Compared to other factors, noise has become an immense concern for wind farm designers, as it needs to be constrained within the mandatory limits. Using a well-established wake model and ISO-9613-2 noise calculation, this study performs a wind farm layout optimization (WFLO) based on a multi-objective trade-off between minimization of noise propagation and maximization of energy generation. A novel hybrid methodology is proposed as a combination of proposed probabilistic variable decomposed multi-objective evolutionary algorithm (VdRBNSGA-II) and a newly developed gradient-based non-dominated normalized normal constraint (nD-NNC) method. As opposed to previous works, generated non-dominated front provides various alternative energy-noise solutions along with an additional information on turbine layouts, which allows a decision maker to select among different competing solutions based on the existing noise and other regulations.},
+author = {Mittal, Prateek and Mitra, Kishalay},
+doi = {10.1016/J.IFACOL.2017.08.027},
+file = {::},
+issn = {2405-8963},
+journal = {IFAC-PapersOnLine},
+month = {jul},
+number = {1},
+pages = {159--164},
+publisher = {Elsevier},
+title = {{Decomposition based multi-objective optimization to simultaneously determine the number and the optimum locations of wind turbines in a wind farm}},
+url = {https://www.sciencedirect.com/science/article/pii/S2405896317300393},
+volume = {50},
+year = {2017}
+}
+@article{Mittal2017,
+abstract = {Wind energy is one of the most progressive types of renewable energies deployed using wind turbines, which convert wind power into electrical energy. Various methodologies and layouts have been proposed to determine the optimal layout (numbers and locations) of wind turbines inside a wind farm to extract maximum energy. However, limited availability of land area has resulted in the construction of these wind farms near to human habitats causing a negative impact on human health. Compared to other factors, noise has become an immense concern for wind farm designers, as it needs to be constrained within the mandatory limits. Using a well-established wake model and ISO-9613-2 noise calculation, this study performs a wind farm layout optimization (WFLO) based on a multi-objective trade-off between minimization of noise propagation and maximization of energy generation. A novel hybrid methodology is proposed as a combination of proposed probabilistic variable decomposed multi-objective evolutionary algorithm (VdRBNSGA-II) and a newly developed gradient-based non-dominated normalized normal constraint (nD-NNC) method. As opposed to previous works, generated non-dominated front provides various alternative energy-noise solutions along with an additional information on turbine layouts, which allows a decision maker to select among different competing solutions based on the existing noise and other regulations.},
+author = {Mittal, Prateek and Mitra, Kishalay},
+doi = {10.1016/j.ifacol.2017.08.027},
+file = {:home/david/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Mittal, Mitra - 2017 - Decomposition based multi-objective optimization to simultaneously determine the number and the optimum locations.pdf:pdf},
+issn = {24058963},
+journal = {IFAC-PapersOnLine},
+keywords = {Wind farm layout optimization (WFLO),acoustic modeling,decomposition approach,gradient based approach,non-dominated sorting genetic algorithm (NSGA-II),wake propagation},
+number = {1},
+pages = {159--164},
+publisher = {Elsevier B.V.},
+title = {{Decomposition based multi-objective optimization to simultaneously determine the number and the optimum locations of wind turbines in a wind farm}},
+url = {https://doi.org/10.1016/j.ifacol.2017.08.027},
+volume = {50},
+year = {2017}
+}
 @article{Monje2008,
 abstract = {This paper deals with the design of fractional order PI $\lambda$ D $\mu$ controllers,
 in which the orders of the integral and derivative parts, $\lambda$ and $\mu$
@@ -1201,7 +1397,7 @@ year = {2008}
 abstract = {{\textcopyright} 2018, Springer International Publishing AG, part of Springer Nature. Amoxicillin is a useful antibiotic to combat bacterial infections. However, this drug can cause serious problems when discarded in waterways due to its great bioaccumulation potential. This compound can be treated via advanced oxidation processes (AOPs), which are capable of converting amoxicillin into carbon dioxide and water. In this context, the use of ozone as an oxidizer has excelled in amoxicillin degradation. This paper aims at treating a synthetic solution of amoxicillin (0.1 g L −1 ) in a reactor with ozone bubbling. A Design of Experiment (DoE) with a response surface known as Central Composite Design (CCD) was used to optimize the treatment process. In addition, a Normal Boundary Intersection (NBI) method was used in the construction of a Pareto boundary chart. Results after 1-h treatment showed a reduction of 53{\%} of the initial organic matter from a designed model using factors, such as pH, ozone generator power, and O 3 flow. A model was built from the CCD with score of 0.9929. Thus, the model was able to represent the real scenario with confidence.},
 author = {Moura, Deberton and Barcelos, Vithor and Samanamud, Gisella Rossana Lamas and Fran{\c{c}}a, Alexandre Boscaro and Lofrano, Renata and Loures, Carla Cristina Almeida and Naves, Luzia Lima Rezende and Amaral, Mateus Souza and Naves, Fabiano Luiz},
 doi = {10.1007/s10661-018-6523-8},
-file = {:home/david/Descargas/Moura2018{\_}Article{\_}NormalBoundaryIntersectionAppl.pdf:pdf},
+file = {::},
 issn = {15732959},
 journal = {Environmental Monitoring and Assessment},
 keywords = {Advanced oxidation process,Drugs,Ozonation,Pareto frontier},
@@ -1279,6 +1475,64 @@ title = {{Chaotic multi-objective optimization based design of fractional order 
 volume = {43},
 year = {2012}
 }
+@article{Pereira2019a,
+abstract = {Helical milling is a hole-making process which has been applied in hardened materials. Due to the difficulties on achieving high-quality boreholes in these materials, the influence of noise factors, and multi-quality performance outcomes, this work aims the multi-objective robust design of hole quality on AISI H13 hardened steel. Experiments were carried out through a central composite design considering process and noise factors. The process factors were the axial and tangential feed per tooth of the helix, and the cutting velocity. The noise factors considered were the tool overhang length, the material hardness and the borehole height of measurement. Response models were obtained through response surface methodology for roughness and roundness outcomes. The models presented good explanation of data variability and good prediction capability. Mean and variance models were derived through robust parameter design for all responses. Similarity analysis through cluster analysis was performed, and average surface roughness and total roundness were selected to multi-objective optimization. Mean square error optimization was performed to achieve bias and variance minimization. Multi-objective optimization through normalized normal constraint was performed to achieve a robust Pareto set for the hole quality outcomes. The normalized normal constraint optimization results outperformed the results of other methods in terms of evenness of the Pareto solutions and number of Pareto optimal solutions. The most compromise solution was selected considering the lowest Euclidian distance to the utopia point in the normalized space. Individual and moving range control charts were used to confirm the robustness achievement with regard to noise factors in the most compromise Pareto optimal solution. The methodology applied for robust modelling and optimization of helical milling of AISI H13 hardened steel was confirmed and may be applied to other manufacturing processes.},
+author = {Pereira, Robson Bruno Dutra and da Silva, Laila Alves and Lauro, Carlos Henrique and Brand{\~{a}}o, Lincoln Cardoso and Ferreira, Jo{\~{a}}o Roberto and Davim, J. Paulo},
+doi = {10.1016/J.ASOC.2018.11.040},
+file = {::},
+issn = {1568-4946},
+journal = {Applied Soft Computing},
+month = {feb},
+pages = {652--685},
+publisher = {Elsevier},
+title = {{Multi-objective robust design of helical milling hole quality on AISI H13 hardened steel by normalized normal constraint coupled with robust parameter design}},
+url = {https://www.sciencedirect.com/science/article/pii/S1568494618306720},
+volume = {75},
+year = {2019}
+}
+@article{Pereira2019,
+abstract = {Helical milling is a hole-making process which has been applied in hardened materials. Due to the difficulties on achieving high-quality boreholes in these materials, the influence of noise factors, and multi-quality performance outcomes, this work aims the multi-objective robust design of hole quality on AISI H13 hardened steel. Experiments were carried out through a central composite design considering process and noise factors. The process factors were the axial and tangential feed per tooth of the helix, and the cutting velocity. The noise factors considered were the tool overhang length, the material hardness and the borehole height of measurement. Response models were obtained through response surface methodology for roughness and roundness outcomes. The models presented good explanation of data variability and good prediction capability. Mean and variance models were derived through robust parameter design for all responses. Similarity analysis through cluster analysis was performed, and average surface roughness and total roundness were selected to multi-objective optimization. Mean square error optimization was performed to achieve bias and variance minimization. Multi-objective optimization through normalized normal constraint was performed to achieve a robust Pareto set for the hole quality outcomes. The normalized normal constraint optimization results outperformed the results of other methods in terms of evenness of the Pareto solutions and number of Pareto optimal solutions. The most compromise solution was selected considering the lowest Euclidian distance to the utopia point in the normalized space. Individual and moving range control charts were used to confirm the robustness achievement with regard to noise factors in the most compromise Pareto optimal solution. The methodology applied for robust modelling and optimization of helical milling of AISI H13 hardened steel was confirmed and may be applied to other manufacturing processes.},
+author = {Pereira, Robson Bruno Dutra and da Silva, Laila Alves and Lauro, Carlos Henrique and Brand{\~{a}}o, Lincoln Cardoso and Ferreira, Jo{\~{a}}o Roberto and Davim, J. Paulo},
+doi = {10.1016/j.asoc.2018.11.040},
+file = {::},
+issn = {15684946},
+journal = {Applied Soft Computing Journal},
+keywords = {AISI H13 hardened steel,Helical milling,Multi-objective robust optimization,Normalized normal constraint method,Robust parameter design},
+pages = {652--685},
+publisher = {Elsevier B.V.},
+title = {{Multi-objective robust design of helical milling hole quality on AISI H13 hardened steel by normalized normal constraint coupled with robust parameter design}},
+url = {https://doi.org/10.1016/j.asoc.2018.11.040},
+volume = {75},
+year = {2019}
+}
+@article{Pereira2017a,
+abstract = {Helical milling is an eco-friendly hole-making process considering energy economy, tool inventory reduction, tool life cycle increase, set-up and non-productive times reduction due to tools changes and better borehole quality. In order to achieve the best results in terms of the sustainable manufacturing aspects energy, quality, and productivity, the present paper proposes to optimize the multi-objective helical milling process of the aluminum alloy Al 7075. With consideration to sustainable objectives, the axial cutting force component, related to energy consumption, the total roundness, related to borehole geometrical quality, and the material removal rate, related to productivity, were taken into account. The process factors axial and tangential feed per tooth and cutting velocity were selected, besides the noise factor tool overhang length, allowing to optimize bias and variance of cutting force and roundness together with the deterministic response material removal rate. In order to achieve a complete exploitation of the Pareto frontier, the new multi-objective optimization method augmented-enhanced normalized normal constraint method was proposed. It was obtained a set of Pareto optimal solutions for the mean square error of the axial cutting force, mean square error of the total roundness, and material removal rate, achieving the trade-off among energy, quality, and productivity. Therefore, different optimization scenarios were obtained, allowing to the experimenter the possibility of choice, guaranteeing a sustainable hole-making process. Furthermore, besides allowing the possibility of choosing different solutions, the TOPSIS decision-making approach was performed so that the best compromise solution was found among the Pareto optimal solutions. The helical milling of the aluminum alloy Al 7075 is presented as a green machining process.},
+author = {Pereira, Robson Bruno Dutra and Leite, Rodrigo Reis and Alvim, Aline Cunha and de Paiva, Anderson Paulo and Ferreira, Jo{\~{a}}o Roberto and Davim, J. Paulo},
+doi = {10.1016/J.JCLEPRO.2017.03.121},
+file = {::},
+issn = {0959-6526},
+journal = {Journal of Cleaner Production},
+month = {may},
+pages = {474--496},
+publisher = {Elsevier},
+title = {{Multi-objective robust optimization of the sustainable helical milling process of the aluminum alloy Al 7075 using the augmented-enhanced normalized normal constraint method}},
+url = {https://www.sciencedirect.com/science/article/pii/S0959652617305656},
+volume = {152},
+year = {2017}
+}
+@article{Pereira2017,
+abstract = {Helical milling is an eco-friendly hole-making process considering energy economy, tool inventory reduction, tool life cycle increase, set-up and non-productive times reduction due to tools changes and better borehole quality. In order to achieve the best results in terms of the sustainable manufacturing aspects energy, quality, and productivity, the present paper proposes to optimize the multi-objective helical milling process of the aluminum alloy Al 7075. With consideration to sustainable objectives, the axial cutting force component, related to energy consumption, the total roundness, related to borehole geometrical quality, and the material removal rate, related to productivity, were taken into account. The process factors axial and tangential feed per tooth and cutting velocity were selected, besides the noise factor tool overhang length, allowing to optimize bias and variance of cutting force and roundness together with the deterministic response material removal rate. In order to achieve a complete exploitation of the Pareto frontier, the new multi-objective optimization method augmented-enhanced normalized normal constraint method was proposed. It was obtained a set of Pareto optimal solutions for the mean square error of the axial cutting force, mean square error of the total roundness, and material removal rate, achieving the trade-off among energy, quality, and productivity. Therefore, different optimization scenarios were obtained, allowing to the experimenter the possibility of choice, guaranteeing a sustainable hole-making process. Furthermore, besides allowing the possibility of choosing different solutions, the TOPSIS decision-making approach was performed so that the best compromise solution was found among the Pareto optimal solutions. The helical milling of the aluminum alloy Al 7075 is presented as a green machining process.},
+author = {Pereira, Robson Bruno Dutra and Leite, Rodrigo Reis and Alvim, Aline Cunha and de Paiva, Anderson Paulo and Ferreira, Jo{\~{a}}o Roberto and Davim, J. Paulo},
+doi = {10.1016/j.jclepro.2017.03.121},
+file = {::},
+issn = {09596526},
+journal = {Journal of Cleaner Production},
+keywords = {Augmented-enhanced normalized normal constraint,Helical milling,Mean square error,Multi-objective robust optimization,Sustainable manufacturing},
+pages = {474--496},
+title = {{Multi-objective robust optimization of the sustainable helical milling process of the aluminum alloy Al 7075 using the augmented-enhanced normalized normal constraint method}},
+volume = {152},
+year = {2017}
+}
 @inproceedings{Pisoni2009,
 abstract = {In this paper we present a Sysquake interactive software tool for the analysis and the design of fractional order proportional-integral-derivative (PID) controllers. In particular, the tool allows to analyze the effect of changing user-chosen parameters both in the time and frequency domain. In the time domain, set-point and load disturbance step responses of the control system are shown, as well as the effect of measurement noise. In the frequency domain, the Bode diagrams of all the most important closed-loop transfer functions are plotted. It is believed that this kind of computer aided control system design tools are essential in allowing a widespread use of fractional PID controllers in industry.},
 author = {Pisoni, E and Visioli, A and Dormido, S},
@@ -1340,6 +1594,19 @@ pages = {80--87},
 title = {{Optimizaci{\'{o}}n evolutiva multi-objetivo y selecci{\'{o}}n multi-criterio para la ingenier{\'{i}}a de control}},
 year = {2012}
 }
+@article{Reynoso-Meza2014,
+author = {Reynoso-Meza, Gilberto and S{\'{a}}nchez, Helem Sabina and Blasco, Xavier and Vilanova, Ramon},
+doi = {10.3182/20140824-6-ZA-1003.00898},
+file = {::},
+issn = {14746670},
+journal = {IFAC Proceedings Volumes},
+number = {3},
+pages = {10263--10268},
+title = {{Reliability based multiobjective optimization design procedure for PI controller tuning.}},
+url = {https://linkinghub.elsevier.com/retrieve/pii/S1474667016432428},
+volume = {47},
+year = {2014}
+}
 @article{Reynoso-Meza2012c,
 author = {Reynoso-Meza, Gilberto and Sanchis, Javier and Blasco, Xavier and Herrero, Juan M},
 doi = {10.1016/j.eswa.2012.01.111},
@@ -1373,7 +1640,7 @@ year = {2013}
 author = {Rojas, Jose D. and Valverde-Mendez, Diana and Alfaro, Victor M. and Arrieta, Orlando and Vilanova, Ramon},
 booktitle = {2015 IEEE 20th Conference on Emerging Technologies {\&} Factory Automation (ETFA)},
 doi = {10.1109/ETFA.2015.7301410},
-file = {::},
+file = {:home/david/Descargas/07301410.pdf:pdf},
 isbn = {978-1-4673-7929-8},
 month = {sep},
 pages = {1--8},
@@ -1388,7 +1655,7 @@ the Pareto surface for power system multi-objective optimization
 problems.},
 author = {Roman, C and Rosehart, W},
 doi = {10.1109/TPWRS.2006.873010},
-file = {::},
+file = {:home/david/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Roman, Rosehart - 2006 - Evenly distributed pareto points in multi-objective optimal power flow.pdf:pdf},
 issn = {0885-8950},
 journal = {Power Systems, IEEE Transactions on},
 keywords = {distributed Pareto points,multiobjective optimal},
@@ -1444,6 +1711,30 @@ title = {{A multiobjective evolutionary algorithm based on decomposition with no
 url = {https://www.sciencedirect.com/science/article/pii/S0020025514007932 https://linkinghub.elsevier.com/retrieve/pii/S0020025514007932},
 volume = {289},
 year = {2014}
+}
+@article{Sanchez2017a,
+abstract = {In this paper a set of optimally balanced tuning rules for fractional-order proportional-integral-derivative controllers is proposed. The control problem of minimizing at once the integrated absolute error for both the set-point and the load disturbance responses is addressed. The control problem is stated as a multi-objective optimization problem where a first-order-plus-dead-time process model subject to a robustness, maximum sensitivity based, constraint has been considered. A set of Pareto optimal solutions is obtained for different normalized dead times and then the optimal balance between the competing objectives is obtained by choosing the Nash solution among the Pareto-optimal ones. A curve fitting procedure has then been applied in order to generate suitable tuning rules. Several simulation results show the effectiveness of the proposed approach.},
+author = {S{\'{a}}nchez, Helem Sabina and Padula, Fabrizio and Visioli, Antonio and Vilanova, Ramon},
+doi = {10.1016/j.isatra.2016.09.021},
+file = {:home/david/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/S{\'{a}}nchez et al. - 2017 - Tuning rules for robust FOPID controllers based on multi-objective optimization with FOPDT models.pdf:pdf},
+issn = {00190578},
+journal = {ISA Transactions},
+keywords = {Balanced tuning,Fractional-order PID controllers,Multi-objective optimization,Nash solution},
+title = {{Tuning rules for robust FOPID controllers based on multi-objective optimization with FOPDT models}},
+year = {2017}
+}
+@article{Sanchez2017,
+abstract = {In this paper, we propose tuning rules for one degree-of-freedom proportional-integral-derivative controllers, by considering important aspects such as the trade-off in the performance in the servo and regulation operation modes and the control system robustness by constraining the maximum sensitivity peak. The different conflicting objectives are dealt with by using a multi-objective optimization algorithm to generate the trade-off optimal solutions. In this context, a simple tuning rule is determined by using the Nash solutions as a multi-criteria decision making technique. The Nash criteria is shown to provide convenient trade-off solutions for the controller tuning problem. Illustrative simulation examples show the effectiveness of the method.},
+author = {S{\'{a}}nchez, Helem Sabina and Visioli, Antonio and Vilanova, Ramon},
+doi = {10.1016/j.jfranklin.2017.03.012},
+file = {::},
+issn = {00160032},
+journal = {Journal of the Franklin Institute},
+number = {10},
+pages = {3945--3970},
+title = {{Optimal Nash tuning rules for robust PID controllers}},
+volume = {354},
+year = {2017}
 }
 @article{Sanchis2008,
 author = {Sanchis, J and Mart{\'{i}}nez, M and Blasco, X and Salcedo, J V},
@@ -1567,7 +1858,7 @@ poner referencia en el libro},
 author = {Shukla, Pradyumn Kumar},
 doi = {10.1007/978-3-540-72584-8\_40},
 editor = {Shi, Yong and van Albada, Geert and Dongarra, Jack and Sloot, Peter},
-file = {::},
+file = {:home/david/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Shukla - 2007 - On the Normal Boundary Intersection Method for Generation of Efficient Front.pdf:pdf},
 isbn = {978-3-540-72583-1},
 journal = {Computational Science - ICCS 2007},
 keywords = {computationally efficient algorithm,efficient front generation,multi-objective optimization},
@@ -1590,7 +1881,6 @@ year = {2012}
 abstract = {The issue of environmental emissions has forced the power systems to use cleaner energy sources such as renewable and hydroelectric technologies. However, during recent decades due to the limitations on the available water in many regions, the optimal water reservoir usage has been highlighted. In this regard, this paper proposes a multi-objective model for short-term hydrothermal scheduling problem in the presence of the pumped-storage technology. It is noted that the framework well models the cascaded configuration of hydro reservoirs. Besides, in order to more accurately model the mentioned problem, a Mixed-Integer Non-Linear Programming (MINLP) optimization framework is presented. In this respect, the valve-loading effects occurred in thermal power generation technologies have been taken into account which turns the existing convex optimization problem into a non-convex one. In order to solve the mentioned problem, the Normal Boundary Intersection (NBI) method has been used while the VIKOR decision maker is employed to choose the most compromise solution amongst the Pareto optimal solutions obtained by NBI method. Finally, the efficiency of the proposed model has been verified through implementing four case studies and comparing the obtained results with those obtained by different methods.},
 author = {Simab, Mohsen and Javadi, Mohammad Sadegh and Nezhad, Ali Esmaeel},
 doi = {10.1016/j.energy.2017.09.144},
-file = {:home/david/Descargas/1-s2.0-S0360544217316651-main.pdf:pdf},
 issn = {03605442},
 journal = {Energy},
 keywords = {Hydro-thermal generation scheduling,Normal boundary intersection,Pumped-storage units,VIKOR},
@@ -1632,7 +1922,7 @@ address = {New York, New York, USA},
 author = {Stehr, Guido and Graeb, Helmut and Antreich, Kurt},
 booktitle = {Proceedings of the 40th conference on Design automation - DAC '03},
 doi = {10.1109/DAC.2003.1219159},
-file = {::},
+file = {:home/david/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Stehr, Antreich - Unknown - By Normal-Boundary Intersection.pdf:pdf},
 isbn = {1581136889},
 keywords = {Pareto optimality,Pareto surface,analog circuit,analog circuits,normal-boundary intersection,pareto optimality,performance space exploration,topology selec-,trade-off analysis},
 pages = {958},
@@ -1640,6 +1930,31 @@ publisher = {ACM Press},
 title = {{Performance trade-off analysis of analog circuits by normal-boundary intersection}},
 url = {http://portal.acm.org/citation.cfm?doid=775832.776073},
 year = {2003}
+}
+@article{Tan2018a,
+abstract = {Building on a recently developed optimization method based on an interface-enriched generalized finite element method, multiple objective functions are considered for the optimization of 2D networks of microchannels embedded in battery-cooling panels. The objective functions considered in this study are a differentiable alternative to the maximum temperature (the p-mean of the temperature), the pressure drop and the variance of the temperature. The $\epsilon$-constraint method and the normalized normal constraint method are used to generate the pressure-temperature Pareto optimal front of the multi-objective optimization problem. The effects of different operating constraints/conditions such as localization of heat sources, prescribed pump power and imposed flow rate on the optimal designs are investigated. In addition to the topology of the embedded network, the cross sections of the microchannels are also introduced as design parameters to further improve the pressure drop of the designs. The resulting variable-cross-section optimized design is validated with experiment.},
+author = {Tan, Marcus Hwai Yik and Najafi, Ahmad R. and Pety, Stephen J. and White, Scott R. and Geubelle, Philippe H.},
+doi = {10.1016/j.applthermaleng.2018.02.028},
+file = {:home/david/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Tan et al. - 2018 - Multi-objective design of microvascular panels for battery cooling applications.pdf:pdf},
+issn = {13594311},
+journal = {Applied Thermal Engineering},
+keywords = {Battery cooling,Interface-enriched generalized finite element meth,Microchannel network,Microvascular composites,Multi-objective,Optimization},
+title = {{Multi-objective design of microvascular panels for battery cooling applications}},
+year = {2018}
+}
+@article{Tan2018,
+abstract = {Building on a recently developed optimization method based on an interface-enriched generalized finite element method, multiple objective functions are considered for the optimization of 2D networks of microchannels embedded in battery-cooling panels. The objective functions considered in this study are a differentiable alternative to the maximum temperature (the p-mean of the temperature), the pressure drop and the variance of the temperature. The $\epsilon$-constraint method and the normalized normal constraint method are used to generate the pressure-temperature Pareto optimal front of the multi-objective optimization problem. The effects of different operating constraints/conditions such as localization of heat sources, prescribed pump power and imposed flow rate on the optimal designs are investigated. In addition to the topology of the embedded network, the cross sections of the microchannels are also introduced as design parameters to further improve the pressure drop of the designs. The resulting variable-cross-section optimized design is validated with experiment.},
+author = {Tan, Marcus Hwai Yik and Najafi, Ahmad R. and Pety, Stephen J. and White, Scott R. and Geubelle, Philippe H.},
+doi = {10.1016/j.applthermaleng.2018.02.028},
+file = {::},
+issn = {13594311},
+journal = {Applied Thermal Engineering},
+keywords = {Battery cooling,Interface-enriched generalized finite element meth,Microchannel network,Microvascular composites,Multi-objective,Optimization},
+number = {September 2017},
+pages = {145--157},
+title = {{Multi-objective design of microvascular panels for battery cooling applications}},
+volume = {135},
+year = {2018}
 }
 @inproceedings{Tavakoli2005,
 abstract = {This paper presents an efficient numerical method to obtain optimal
@@ -1657,6 +1972,23 @@ keywords = {optimal PI tuning;optimal load disturbance rejecti},
 pages = {1015--1020},
 title = {{Robust PI Controller for Load Disturbance Rejection and Setpoint Regulation}},
 year = {2005}
+}
+@book{Telen2012,
+abstract = {ABSTRACT
+Optimal Experiment Design (OED) is an indispensable tool in order to reduce the amount of labour and cost intensive experiments in the modelling phase. The unknown parameters are often non-linearly present in the dynamic process models. This means that the Fisher Information Matrix also depends on the current guess for the parameters. In the early stage of the modelling phase these estimates are often highly uncertain. So designing an optimal experiment without taking this uncertainty into account is troublesome. In order to obtain an informative experiment, a robust optimisation approach is necessary. In recent work a formulation using an implicit weighted sum approach is proposed where the objective function is split in a nominal optimal experiment design part and a robust counterpart. This weighted sum has well known drawbacks in a Multi-Objective Optimisation approach. In this work these objectives are studied using advanced methods like the Normal Boundary Intersection and the Normalised Normal Constraint. In this way, the experimenter gets an overview of the different experiments possible. Furthermore, in past work the necessary third order derivatives are approximated using a finite different approach. The results in this work are obtained using exact third order and fourth order derivatives by exploiting the symbolic and automatic derivation methods implemented in the ACADO-toolkit.},
+author = {Telen, Dries and Logist, Filip and Derlinden, Eva Van and Impe, Jan F. Van},
+booktitle = {IFAC Proceedings Volumes},
+doi = {10.3182/20120215-3-at-3016.00122},
+file = {::},
+issn = {14746670},
+keywords = {(Bio)Chemical Processes,Multi-objective Optimisation,Optimal Experiment Design,Parameter Estimation,Robustness,bio,chemical processes,estimation,multi-objective optimisation,optimal experiment design,parameter,robustness},
+number = {2},
+pages = {689--694},
+publisher = {IFAC},
+title = {{Robust Optimal Experiment Design: A Multi-Objective Approach}},
+url = {http://dx.doi.org/10.3182/20120215-3-AT-3016.00122},
+volume = {45},
+year = {2012}
 }
 @inproceedings{Tijani2011,
 abstract = {The conflict between the transient performance of the link position and tip vibration in a flexible link system has made the control of such system a challenging task. The system is required to obtain a fast transient position response together with minimal tip vibration. This can be viewed like many other real-life control problems as a multi-objectives optimization problem in which an optimal compromise between the design objectives is required. PID controller is noted with historical simplicity in terms of design and implementation when compares to other linear time invariant (LTI) control techniques. However, the shortcoming of PID lies in the tuning of the controller gains for a given problem. To overcome this, a Multiobjective Differential Evolution (MODE)-based PID controller is reported in this study for controlling a flexible link system. The gains of the PID controller are tuned using a developed MATLAB-based MODE to obtain pareto-solutions for both link position and tip vibration. The performance of the selected best PID controller from MODE-based design is benchmarked with the LQR controller provided by the manufacturer (QUANSER) of the laboratory scale flexible link plant. Though, the LQR shows better transient performance in the position responses, the developed MODE-PID gave better tip response performances as indicated in both the simulation and experimental responses obtained.},
@@ -1728,7 +2060,7 @@ to develop successful bidding strategies in those energy markets
 that minimize generation cost and emission of pollutants simultaneously.},
 author = {Vahidinasab, V and Jadid, S},
 doi = {10.1016/j.enconman.2009.12.019},
-file = {::},
+file = {:home/david/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Vahidinasab, Jadid - 2010 - Normal boundary intersection method for suppliers' strategic bidding in electricity markets An environmental.pdf:pdf},
 issn = {0196-8904},
 journal = {Energy Conversion and Management},
 keywords = {Electricity market,Multiobjective optimization,Normal boundary intersection,Strategic bidding},
@@ -1737,6 +2069,19 @@ pages = {1111--1119},
 title = {{Normal boundary intersection method for suppliers' strategic bidding in electricity markets: An environmental/economic approach}},
 volume = {51},
 year = {2010}
+}
+@article{Vallerio2015,
+author = {Vallerio, Mattia and Vercammen, Dominique and {Van Impe}, Jan and Logist, Filip},
+doi = {10.1016/j.compchemeng.2015.07.004},
+file = {::},
+issn = {00981354},
+journal = {Computers {\&} Chemical Engineering},
+month = {nov},
+pages = {186--201},
+title = {{Interactive NBI and (E)NNC methods for the progressive exploration of the criteria space in multi-objective optimization and optimal control}},
+url = {https://linkinghub.elsevier.com/retrieve/pii/S0098135415002355},
+volume = {82},
+year = {2015}
 }
 @inproceedings{VanSickel2008,
 abstract = {This paper examines the Pareto front of a simple fossil fuel power
@@ -1776,7 +2121,7 @@ with a small oil-fired power plant model and a large-scale coal-fired
 power plant model.},
 author = {{Van Sickel}, Joel H. and Lee, Kwang Y.},
 doi = {10.1109/PES.2010.5589806},
-file = {::},
+file = {:home/david/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Van Sickel, Lee - 2010 - Pareto optimization with reverse normal-boundary intersection for power plant models.pdf:pdf},
 isbn = {9781424483570},
 issn = {1944-9925},
 journal = {IEEE PES General Meeting, PES 2010},
@@ -1867,6 +2212,21 @@ title = {{Automatic controller tuning via unfalsified control}},
 url = {http://www.sciencedirect.com/science/article/pii/S0959152412001898},
 volume = {22},
 year = {2012}
+}
+@article{Yuan2019,
+abstract = {With the increasing applications of wind energy {\&} power technologies, the stochastic fluctuation and reverse peak load regulation characteristic of wind power brings great challenges to unit commitment of power systems. It is difficult to meet the demand of the peak load regulation with the wind power integration for the existing robust unit commitment models when only considering the cost. In order to solve this problem, an additional objective function of the ability of peak load regulation is constructed for unit commitment solutions. As a result, a novel multi-objective robust unit commitment model considering both the cost and peak load regulation is proposed. Moreover, probabilistic scenario analysis is applied to constraint the model of the fluctuant wind power, and temporal correlation of wind powers is also considered to further improve the economy in the long run. In order to deal with multi-objective problem for the robust optimization solutions, the above-mentioned problem is decomposed into two stages, i.e., a main problem and a subproblem. The main problem is to determine unit commitment and the subproblem is a "min–max optimization" one to obtain the unit outputs. Finally, the simulation analysis based on IEEE118 node system verified the robustness and the validity of the proposed model.},
+author = {Yuan, Shuang and Dai, Chaohua and Guo, Ai and Chen, Weirong},
+doi = {10.1016/J.EPSR.2018.12.032},
+file = {::},
+issn = {0378-7796},
+journal = {Electric Power Systems Research},
+month = {apr},
+pages = {115--123},
+publisher = {Elsevier},
+title = {{A novel multi-objective robust optimization model for unit commitment considering peak load regulation ability and temporal correlation of wind powers}},
+url = {https://www.sciencedirect.com/science/article/pii/S0378779618304292},
+volume = {169},
+year = {2019}
 }
 @inproceedings{Zangeneh2007,
 abstract = {Distributed generation (DG) and its planning are increasingly becoming more important in the power system for its advantages. This paper presents a distributed generation planning strategy based on multi-objective optimization approach. The main goal of this paper is to generate Pareto set of location and size of new DG units by minimizing different cost functions and considering the technical aspects as constraints. This Pareto set will help planners of the distribution system to make a better decision. The objectives of proposed method are cost of investment and operation, cost of energy purchased, cost of energy losses and cost of energy not supplied which are considered in this paper. Several case studies are presented in this paper to assess the ability of the proposed method for generating Pareto set. A trade off analysis is also occurred between different parameters to assess the sensitivity of planning result into varying of parameters.},
