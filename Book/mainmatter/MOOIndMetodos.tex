@@ -171,7 +171,9 @@ g(\mathbf{x}) \leq 0,
 \label{eq:NNCProblem}
 \end{equation}
 %
-where $\bar{\mathbf{N}}_1$ is the vector that contains the direction of the utopia plane.
+where $\bar{\mathbf{N}}_1$ is the vector that contains the direction of the utopia plane. In some cases, the optimization may yield points that do not belong to the Pareto front. In \cite{Messac2003}, the authors propose to use a filter algorithm to eliminate those points.
+
+This method has been used in several cases. Also in \cite{Hosseini2016a} the method was implemented to optimally solve the transmission congestion management taking into account the cost of congestion management, voltage stability margin, and transient stability margin. In \cite{Sanchez2017a}, the \gls{nnc} was considered to find optimally balanced tuning rules for fractional-order proportional-integral-derivative controllers for \gls{foptd} process models subject to a robustness constraint. In \cite{Benki2018}, the \gls{nnc} was implemented in the design of an aerosol can, tanking into account both the dome growth and the dome reversal pressure DRP. In \cite{Tan2018a}, the \gls{nnc} was applied in the design of microvascular panels for battery cooling applications.
 
 \subsection{Enhanced Normalized Normal Constraint}
 \label{sec:ENNC}
