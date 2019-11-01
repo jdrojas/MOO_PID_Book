@@ -200,18 +200,40 @@ The Pareto is then computed using the same methodology as in the \gls{nnc} case.
 %%--------------------------------------------------------------------------
 The optimizations techniques presented in Section~\ref{sec:design-methodologies} are very well suited to find the Pareto Front of a multiobjective optimization problem. However, in the end, it is necessary to decide which of the multiple equally optimal points is the one that is going to be selected as the final solution.
 
-By definition, all points in the Pareto Front are equally optimal, therefore, once the Pareto is found, it may be useful to accomplished some tasks:
+Consider the general Pareto Front presented in 
+\begin{figure}[b]
+	\centering
+	\includegraphics[]{Ch5GeneralPareto}
+	\caption{General Pareto Front with one solution selected.}
+	\label{fig:Ch5GeneralPareto}
+\end{figure}
+%
+Figure~\ref{fig:Ch5GeneralPareto}. Once the Pareto is computed, it is certainly very useful to plot it to see how the cost functions $f_1(\mathbf{x})$ and $f_2(\mathbf{x})$ vary with the change in the decision variables $\mathbf{x}$. In this figure, the arbitrary solution $p_1$ is pointed out. By definition, all points in the Pareto Front are equally optimal, therefore, what makes $p_1$ any special from other points? More important, how any of the Pareto points can be selected from any other?
+
+One may then conclude that obtaining the Pareto front is half the solution to the \gls{moop}. The final task to fully solve the problem is to be able to select one of the (maybe infinite) possible points of the Pareto. With a front like the one presented in Figure~\ref{fig:Ch5GeneralPareto}, it may be easy to explore all possible solutions, but with more than three objective functions, it is impossible to directly plot the front. And even with three objectives, the visualization of the results may be cumbersome.
+
+Even more, the plot of Figure~\ref{fig:Ch5GeneralPareto} contains the solutions viewed from the function space, but what is really necessary is to know the value of the decision variables. But each of every point in the Pareto is associated with a $n$-size vector representing one of the optimal solutions. Once again, plotting the Pareto is not enough to help the decision maker to solve the problem.
+
+For these reasons, once the Pareto is found, it may be useful to accomplished some tasks to help the decision maker:
 \begin{itemize}
 	\item  Visualize the Pareto to understand the relation between the cost functions and the decision variables.
 	\item Use the Pareto as data for the construction of a decision tool
-	\item Introduce a final restriction in order to use the Pareto Front as the basis of the decision.
+	\item Use the Pareto as the
 \end{itemize}
 In the following, these three tasks are going to be explored.
 %
 \subsection{Visualization of the Pareto Front}
+\label{sec:ParetoVisualization}
+%
+\textbf{To do}
+\subsection{The Pareto Front as data}
+\label{sec:ParetoData}
+%
+\textit{\textbf{To do}}
 
-
-
+\subsection{The Pareto Front as the basis for a decision tool}
+\label{sec:ParetoDecision}
+\textbf{To do}
 
 
 
