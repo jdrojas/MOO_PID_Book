@@ -334,43 +334,39 @@ Where $K=1$, $T=1$~s, $L=1.5$~s and $a = 0.5$. Table \ref{T:comparison} compares
 From Table~\ref{T:comparison}, can be seen that the results obtained from the  tuning rule are close to those obtained directly from the Pareto. Plots for each method were drawn as shown in Fig.~\ref{F:firstsim}.
 %%%ESTA FIGURA HAY QUE CENTRARLA MEJOR
 %
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{servo2.png}
-	\caption{Servo response for the Pareto results and tuning results.}
+	\caption{Servo response for the Pareto results found with the \gls{nnc} method and the tuning results.}
 	\label{F:firstsim}
 \end{figure}
 %
-The step response of the control signal is presented in Fig.~\ref{F:u1}.
+The step response of the control signal is shown in Figure~\ref{F:u1} while the comparison for an input-disturbance is presented in Figure~\ref{F:di1} and for the output disturbance is in Figure~\ref{F:do1}. 
 %
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{u2.png}
-	\caption{Control action response for ENCC results and regressions, for a reference step change.}
+	\caption{Comparison of the control action  signal for a setpoint step change using the data from the Pareto found with the \gls{ennc} method and the tuning rule.}
 	\label{F:u1}
 \end{figure}
-
----- Voy por acá ---------------
-The comparison for an input-disturbance is presented in Fig.~\ref{F:di1}. The error between the tuning rule and the Pareto results has an \gls{iae} of $0.08$, showing that the polynomial equations are able to encapsulate the optimal tuning of the parameters. In Fig.~\ref{F:do1}, the response to the output disturbance is presented and, as it can be seen, the match is good as well, with an \gls{iae} value of $0.12$.
 %
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{di2.png}
-	\caption{Step input disturbance response for ENNC results and regressions results.}
+	\caption{Step input disturbance response for tuning from Pareto (ENNC method) and regressions results.}
 	\label{F:di1}
 \end{figure}
 %
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.8\columnwidth]{do2.png}
 	\caption{Step output disturbance response for ENNC results and regressions results.}
 	\label{F:do1}
 \end{figure}
 %
+The figures show the \gls{iae} between both signals as a measure of how good the tuning rule approximates the optimization. As it can be seen, the responses are almost identical, showing that this methodology is feasible.
 
-From this example, it is clear that the obtained polynomial equations effectively reproduce the behavior of the parameters found from the ENNC optimization.
-
-The method is also tested for the extreme case scenarios for $\tau_0$ ($\tau_0=1$ and $\tau_0=2$), as given by the models:
+The tuning rule is also used for the extreme cases of $\tau_0$, that is, $\tau_0=1$ and $\tau_0=2$, using the following models:
 %
 \begin{equation}
 P_F(\hat{s}) = \frac{e^{-\hat{s}}}{(\hat{s}+1)(0.5\hat{s}+1)},
@@ -382,32 +378,53 @@ P_S(\hat{s}) = \frac{e^{-2\hat{s}}}{(\hat{s}+1)(0.5\hat{s}+1)},
 \label{E:p3}
 \end{equation}
 %
-where $P_F(\hat{s})$ and $P_S(\hat{s})$ stand for the fastest and slowest time-delayed dominant test-bench plants, respectively.
+where $P_F(\hat{s})$ and $P_S(\hat{s})$ stand for the minimum and maximum  dead time considered in this study, respectively.
 
-For each of these plants, it was established that $\delta = 0.5$ and $\gamma = 0.5$, which is an intermediate case for degradation for both $\delta$ and $\gamma$ in the Pareto front. Results for $J_r$ for $P_F$ and $P_S$ are shown in Table \ref{T:T2}.
-
-\begin{table}
+The allowed degradation was set to $\delta = 0.5$ and $\gamma = 0.5$. As before, one would expect to have the best servo response that complies with the allowed degradation. The comparison between the Pareto optimizations and the tuning rule for $P_F$ and $P_S$ are shown in Table~\ref{T:T2} and Table~\ref{T:T3} respectively.
+%
+\begin{table}[tb]
 	\centering
-	\caption{Results for $J_{di}$, $J_{do}$ and $J_{r}$, using $\delta = 0.5$ and $\gamma = 0.5$.}
+	\caption{Results for $J_{di}$, $J_{do}$ and $J_{r}$, using $\delta = 0.5$ and $\gamma = 0.5$ for $P_F(s)$.}
 	\label{T:T2}
-	\begin{tabular}{@{}K{0.25\columnwidth} K{0.25\columnwidth} K{0.25\columnwidth}@{}}
+	\begin{tabular}{@{}K{0.2\columnwidth} K{0.2\columnwidth} K{0.2\columnwidth} K{0.2\columnwidth}@{}}
 		\toprule
-		$\bm{\theta}$ and IAE & For $P_F(s)$ & For $P_S(s)$\\
+		$\bm{\theta}$ and IAE & From tuning rule & From Pareto & Difference (\%)\\
 		\midrule
-		$\kappa_p$	& $1.150$ 	& $0.742$ \\
-		$\tau_i$ 	& $1.987$ s & $2.345$ s \\
-		$\tau_d$ 	& $0.425$ s & $0.629$ s \\
-		$\beta$ 	& $0.887$ 	& $0.919$ \\
-		$J_r$ 		& $1.955$ 	& $3.360$ \\
-		$J_{di}$ 	& $1.729$ 	& $3.162$ \\
-		$J_{do}$ 	& $1.874$ 	& $3.237$ \\
-		$M_s$		& $2.024$	& $1.976$ \\
+		$\kappa_p$	& $1.150$ 	& $1.120$ & $2.67$\\
+		$\tau_i$ 	& $1.987$ s & $1.900$ s & $4.58$\\
+		$\tau_d$ 	& $0.425$ s & $0.495$ s & $-14.14$\\
+		$\beta$ 	& $0.887$ 	& $0.889$ & $-0.23$\\
+		$J_r$ 		& $1.955$ 	& $2.1446$ & $8.84$\\
+		$J_{di}$ 	& $1.729$ 	& $1.6947$ & $2.02$\\
+		$J_{do}$ 	& $1.874$ 	& $1.803$ & $3.94$\\
+		$M_s$		& $2.024$	& $2.013$ & $0.55$\\
 		\bottomrule
 	\end{tabular}
 \end{table} 
 %
+\begin{table}[tb]
+	\centering
+	\caption{Results for $J_{di}$, $J_{do}$ and $J_{r}$, using $\delta = 0.5$ and $\gamma = 0.5$ for $P_S(s)$.}
+	\label{T:T3}
+	\begin{tabular}{@{}K{0.2\columnwidth} K{0.2\columnwidth} K{0.2\columnwidth} K{0.2\columnwidth}@{}}
+		\toprule
+		$\bm{\theta}$ and IAE & From tuning rule & From Pareto & Difference (\%)\\
+		\midrule
+		$\kappa_p$	& $0.742$	& $0.744$	& $-0.270$\\
+		$\tau_i$ 	& $2.345$ s	& $2.264$	& $3.578$\\
+		$\tau_d$ 	& $0.629$ s	& $0.712$	& $11.657$\\
+		$\beta$ 	& $0.919$	& $0.927$	& $-0.863$\\
+		$J_r$ 		& $3.360$	& $3.662$	& $-8.247$\\
+		$J_{di}$ 	& $3.162$	& $3.065$	& $3.165$\\
+		$J_{do}$ 	& $3.237$	& $3.158$	& $2.502$\\
+		$M_s$		& $1.976$	& $2.000$	& $-0.012$\\
+		\bottomrule
+	\end{tabular}
+\end{table}
 
-From these examples, it is clear that the proposed methodology is able to produce Pareto-optimal controllers, for a large set of plants. The obtained dynamical response can be easily changed by the control engineer and, if the selection of $\delta$ and $\gamma$ is appropriate, the controller parameters are likely to produce a closed-loop system with a maximum sensitivity such that $M_s \leq 2$. The principal characteristic of the proposed methodology, is its ability to let the user select the dynamical behavior, taking into account multiple sources of disturbances, unlike other \gls{pid} tuning rules.
+It is clear that the tuning rule is able to produce near Pareto-optimal controllers (in both cases, the maximum error is in $\tau_d$).
+
+One of the interesting features is that the decision maker is able to choose the final solution by given a suitable value to $\delta$ and $\gamma$ as he or she considers appropriate. Since the data used to find the tuning rule had the constraint to have a maximum sensitivity of $M_s =2.0$ it is expected to have a stable closed-loop. Another interesting characteristic of this tuning rule is its ability to select the appropriate parameters taking into account three different sources of disturbances, unlike other \gls{pid} tuning rules.
 
 \subsection{Comparative of proposed tuning rule against uSORT2 tuning rule}
 %
