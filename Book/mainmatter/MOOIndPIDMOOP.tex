@@ -426,85 +426,24 @@ It is clear that the tuning rule is able to produce near Pareto-optimal controll
 
 One of the interesting features is that the decision maker is able to choose the final solution by given a suitable value to $\delta$ and $\gamma$ as he or she considers appropriate. Since the data used to find the tuning rule had the constraint to have a maximum sensitivity of $M_s =2.0$ it is expected to have a stable closed-loop. Another interesting characteristic of this tuning rule is its ability to select the appropriate parameters taking into account three different sources of disturbances, unlike other \gls{pid} tuning rules.
 
-\subsection{Comparative of proposed tuning rule against uSORT2 tuning rule}
-%
-Servo and disturbance responses were obtained for the test-bench plant in \eqref{E:P1}, by using the proposed tuning rule, and then, by using the uSORT2 tuning method for \gls{2dof} \gls{pid} controllers. The objective is to compare both rules to see which one is more flexible in terms of robustness and performance. The uSORT2 method was selected for comparison given that it minimizes $J_{di}$ and find a sub-optimal solution for $J_r$ while keeping $M_s=2$.
-%
-%Three cases were considered, one in which $\delta$ and $\gamma$ were maximum as in the comparison made in Table~\ref{T:T4}, and the others were when $\delta$ and $\gamma$ have their minimum achievable value for the obtained Pareto front as in Table~\ref{T:T5} and Table~\ref{T:T6}.
+From Table~\ref{T:T2} and \ref{T:T3} it can be deduced that the tuning rule finds a controller that has a better servo response than using the data directly, but compromising the response to the input and output disturbance rejection.
 
-Two cases were considered, one in which $\delta$ and $\gamma$ were maximum as in the comparison made in Table~\ref{T:T4}, and the others were when $\delta$ and $\gamma$ have their minimum achievable value for the obtained Pareto front as in Table~\ref{T:T5}.
-%%
-\begin{table}
-	\centering
-	\caption{Result comparative of the proposed tuning rule vs. uSORT2 tuning rule, using $\delta = 1$ and $\gamma = 1$.}
-	\label{T:T4}
-	\begin{tabular}{@{}K{0.25\columnwidth} K{0.25\columnwidth} K{0.25\columnwidth}@{}}
-		\midrule
-		$\bm{\theta}$ and IAEs & Proposed tuning rule & uSORT2 tuning rule \\
-		\midrule
-		$\kappa_p$ & 0.793 & 0.814 \\
-		$\tau_i$ & 2.113 s & 1.676 s \\
-		$\tau_d$ & 0.720 s & 0.775 s \\
-		$\beta$ & 1.000 & 0.788 \\
-		$J_r$ & 2.691 & 2.692 \\
-		$J_{di}$ & 2.673 & 2.290 \\
-		$J_{do}$ & 2.691 & 2.451 \\
-		$M_{s}$ & 1.945 & 2.007 \\
-		\bottomrule
-	\end{tabular}
-\end{table} 
-%
-\begin{table}
-	\centering
-	\caption{Result comparative of the proposed tuning rule vs. uSORT2 tuning rule, using $\delta = 0.302$ and $\gamma = 0$.}
-	\label{T:T5}
-	\begin{tabular}{@{}K{0.25\columnwidth} K{0.25\columnwidth} K{0.25\columnwidth}@{}}
-		\midrule
-		$\bm{\theta}$ parameters and IAEs & Proposed tuning rule & uSORT2 tuning rule \\
-		\midrule
-		$\kappa_p$ & 0.820 & 0.814 \\
-		$\tau_i$ & 1.808 s & 1.676 s \\
-		$\tau_d$ &  0.670 s & 0.775 s \\
-		$\beta$ & 0.8261 & 0.788 \\
-		$J_r$ & 2.653 & 2.692 \\
-		$J_{di}$ & 2.307 & 2.290 \\
-		$J_{do}$ & 2.431 & 2.451 \\
-		$M_{s}$ & 1.935 & 2.007 \\
-		\bottomrule
-	\end{tabular}
-\end{table}
-%%
-%\begin{table}
-%\centering
-%\caption{Result comparative of the proposed tuning rule vs. uSORT2 tuning rule, using $\delta = 0$ and $\gamma = 0.208$.}
-%\label{T:T6}
-%\begin{tabular}{@{}K{0.25\columnwidth} K{0.25\columnwidth} K{0.25\columnwidth}@{}}
-%\midrule
-%$\bm{\theta}$ parameters and IAEs & Proposed tuning rule & uSORT2 tuning rule \\
-%\midrule
-%$\kappa_p$ & 0.855 & 0.814 \\
-%$\tau_i$ & 1.762 s & 1.676 s \\
-%$\tau_d$ &  0.604 s & 0.775 s \\
-%$\beta$ & 0.763 & 0.788 \\
-%$J_r$ & 2.573 & 2.692 \\
-%$J_{di}$ & 2.143 & 2.290 \\
-%$J_{do}$ & 2.484 & 2.451 \\
-%$M_{s}$ & 1.980 & 2.007 \\
-%\bottomrule
-%\end{tabular}
-%\end{table}
-%%
-%%
-\begin{figure}
-	\centering
-	\includegraphics[width=0.8\columnwidth]{./uSORT2.png}
-	\caption{Servo input response for both proposed rule and uSORT2 rule.}
-	\label{F:uSort}
-\end{figure}
-%%
-%From the results obtained in Tables \ref{T:T4}, \ref{T:T5} and \ref{T:T6},
-It is clear that for the two different variations of $\delta$ and $\gamma$, the minimum \gls{iae} for servo response was obtained according to the Pareto front. Also it is important to note that, for the proposed tuning rule, although variations of $\delta$ and $\gamma$ were performed, the maximum sensitivity remained under the value of $M_s \leq 2.0$. This means that given any two inputs within the established Pareto front, the proposed tuning rule gives the optimized value for $J_r$ and it manages to maintain the controller robustness. On the other hand, the uSORT2 tuning rule only focuses on the latter. %For the three given cases in tables \ref{T:T4}, \ref{T:T5} and \ref{T:T6}, the proposed tuning rule proves to be versatile not only in terms of robustness, but also in terms of performance choice.
-The uSORT2 methodology provides excellent results, but it is focused on optimizing $J_{di}$. The proposed methodology, although more complex in its equations, gives the control engineers, the freedom to mold the dynamic response to their needs. As an example, the servo response of the controlled system with the proposed methodology and the uSORT is presented in Fig.~\ref{F:uSort}
+\subsection{Comments on creating tuning rules from Pareto fronts}
+\label{sec:TuningRules}
+With the example presented above, it was clear that it is feasible to find tuning rules from Pareto fronts. However, there are several points that need to be addressed:
+\begin{itemize}
+	\item The tuning rule was intended to be as simple as possible. However, it needed 126 coefficients to find the four parameters of the controller. Compared with other tuning rules \cite{odwyer2006}, this tuning rule is complex.
+	%
+	\item The idea of the degradation factor is interesting and directly related to the Pareto front, however, is not as intuitive as setting something more measurable, as the time constant of the closed-loop system for example.
+	%
+	\item The tuning rule is restricted to values of $1 \leq \tau_0 2$. The data for other values of $\tau_0$ exist, in fact, the reader can download the complete set of data from the companion software for this book. However, the complexity of the data made unfeasible to find a good simple tuning rule for all possible values of $\tau_0$.
+	%
+	\item The tuning rule is also restricted to PID controllers. But it is very common to use PI controllers in the industry. However, it is not possible to just discard the derivative time from the obtained tuning.
+	%
+	\item The data obtained from the optimizations has the contraint to have certain Maximum Sensitivity $M_s$. However, the presented rule takes into account only the value of $M_s = 2$. In order to have tuning rules for other values of $M_s$, possibly another set of 126 coefficients needs to be found for each desired value, which requires a lot of effort that may be not worth it.
+\end{itemize}
+
+All these points raise an important question, is it useful to find tuning rules that becomes too cumbersome for setting a PID controller?
 %
 \section{Database approach for the final tuning}
 \label{sec:DatabaseMOOP}
