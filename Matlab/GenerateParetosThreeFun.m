@@ -15,8 +15,8 @@ algorithm='interior-point'; %'interior-point' 'active-set'
 %--------------------------Set of plants-----------------------------------
 % This is the set of plants. Since the plants are normalized, the only
 % values that change are the normalized delay and the value of a
-Lv=0.1:0.2:2;
-av=0:0.2:1;
+Lv=0.1:0.1:2;
+av=0:0.1:1;
 % These are the values of Ms that are going to be tested
 Msv=[10,2,1.8,1.6,1.4];%[2,1.8,1.6,1.4];
 [LMesh,aMesh,MsMesh] = meshLaMs(Lv,av,Msv);
@@ -27,7 +27,7 @@ T=1; % normalized lag time
 alpha=0.1; % constant for the derivative
 gamma=0.0;
 %--------------------------------o-----------------------------------------
-% Creación del archivo de logs
+% Creaciï¿½n del archivo de logs
 FileNameLog='ArchivoLog3Fun.txt';
 fid2=fopen(FileNameLog,'a');
 textoLog=['El proceso inicio el ',datestr(clock)];
@@ -66,7 +66,7 @@ parfor k=1:length(LMesh)
         %
         % Guardar resultados
         FileName=['Pareto3Fun_a',num2str(a),'_to',num2str(L),'_ms',num2str(Ms),'.csv'];
-        Header='a,t0,Kp,Ti,Td,beta,Jdi,Jr,JdiNorm,JrNorm,Ms';
+        Header='a,t0,Kp,Ti,Td,beta,Jdi,Jdo,Jr,JdiNorm,JdoNorm,JrNorm,Ms';
         fid=fopen(FileName,'w');
         fprintf(fid,'%s\r\n',Header);
         fclose(fid);
@@ -97,7 +97,7 @@ parfor k=1:length(LMesh)
         dlmwrite(FileName,[a*ones(n,1),L/T*ones(n,1),ParetoVar,ParetoFun,ParetoFunNorm,Msvec],'delimiter',',','-append');
         FileNameLog='ArchivoLog3Fun.txt';
         fid2=fopen(FileNameLog,'a');
-        textoLog=['Se escribió el archivo ', FileName, ' el ',datestr(clock)];
+        textoLog=['Se escribio el archivo ', FileName, ' el ',datestr(clock)];
         fprintf(fid2,'%s\r\n',textoLog);
         fclose(fid2);
         disp(textoLog)
