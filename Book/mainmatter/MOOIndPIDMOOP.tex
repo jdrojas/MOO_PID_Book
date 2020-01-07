@@ -443,7 +443,9 @@ With the example presented above, it was clear that it is feasible to find tunin
 	\item The data obtained from the optimizations has the contraint to have certain Maximum Sensitivity $M_s$. However, the presented rule takes into account only the value of $M_s = 2$. In order to have tuning rules for other values of $M_s$, possibly another set of 126 coefficients needs to be found for each desired value, which requires a lot of effort that may be not worth it.
 \end{itemize}
 
-All these points raise an important question, is it useful to find tuning rules that becomes too cumbersome for setting a PID controller?
+All these points raise an important question, is it useful to find tuning rules that becomes too cumbersome for setting a PID controller? The literature about PID tuning (see \cite{ODwyer2000} for a list of PID tuning rules) generally shows simple tuning rules that need only a few decision parameters (for example \cite{Skogestad2003}) or even no decision parameters, since they minimize a single cost function (as in the MoReRT tuning rule \cite{Alfaro2016}), and therefore, only one tuning is possible. However, using the multiobjective approach presented here, the relationships between the controller gains, the tuning parameters and the model parameters become so complex, that a simple tuning rule that compasses all cases is impossible to find.
+
+In these case, a more direct approach may be more suitable for the task of finding the best controller tuning. It is true that the Pareto front is not the final solution for the tuning problem, however only a selection is needed to ultimately find the desired solution. Therefore, a \textit{database} approach may be more sensible to the task at hand. This option is explored in the next section.
 %
 \section{Database approach for the final tuning}
 \label{sec:DatabaseMOOP}
