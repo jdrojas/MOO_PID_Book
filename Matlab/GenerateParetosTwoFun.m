@@ -28,7 +28,7 @@ alpha=0.1; % constant for the derivative
 gamma=0.0;
 %--------------------------------o-----------------------------------------
 % Creaci�n del archivo de logs
-FileNameLog='ArchivoLog.txt';
+FileNameLog='ArchivoLog2Fun.txt';
 fid2=fopen(FileNameLog,'a');
 textoLog=['El proceso inicio el ',datestr(clock)];
 fprintf(fid2,'%s\r\n',textoLog);

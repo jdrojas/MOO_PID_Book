@@ -598,3 +598,4 @@ Se escribió el archivo Pareto2Fun_a0.4_to1.9_ms10.csv el 28-May-2019 18:03:57
 Se escribió el archivo Pareto2Fun_a0.4_to1.7_ms10.csv el 28-May-2019 18:05:43
 Se escribió el archivo Pareto2Fun_a0.8_to1.9_ms10.csv el 28-May-2019 18:08:33
 Se escribió el archivo Pareto2Fun_a0.4_to1.9_ms1.4.csv el 28-May-2019 18:09:52
+El proceso inicio el 06-Jan-2020 11:22:51
