@@ -450,5 +450,26 @@ In these case, a more direct approach may be more suitable for the task of findi
 \section{Database approach for the final tuning}
 \label{sec:DatabaseMOOP}
 %
+The information of the Pareto front is very valuable, each point represents an optimal controller tuning that also complies with the robustness criterion. However, without any guidance about how to choose the final tuning, the data becomes useless. The idea of using the Pareto as the basis for a tuning rule was explored in Section~\ref{sec:TuningRulesMOOP} for two degrees of freedom PID controllers taking into account three different sources of disturbances and a robustness constraint for a \gls{soptd} plant. However it was found that a simple rule is very difficult to find, given the complexity of the relationship between the different parameters. For simpler cases, it may be possible to find suitable tuning rules (as in \cite{ContrerasLeiva2015a}) but for a more realistic case, the final tuning becomes cumbersome.
 
+In this scenario, the other approach to take advantage of the information in the Pareto is to actually use the data directly. Visualize the Pareto is also a difficult task, specially for more than two cost functions. Therefore, the approach that is presented here is to use a \gls{cad} that let the user to select the desired closed-loop performance according to their needs without the need to plot the front.
+
+The proposed \gls{cad} tool that accompanies this book is named MOOTuning, and is available as a \matlab{} app. An screenshot of the tool is presented in 
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{Ch6MOOTuningParts}
+	\caption{Interface of MOOTuning for PID parameter selection.}
+	\label{fig:Ch6MOOTuningParts}
+\end{figure}
+Figure~\ref{fig:Ch6MOOTuningParts}. It has three main components:
+\begin{enumerate}
+	\item Plant parameters input section
+	\item Results section
+	\item Tuning section
+\end{enumerate}
 %
+The plant parameters input section is used to enter the parameters of the model of the plant. The expected model is an \gls{soptd}, but the value of $a$ can be set to zero, given the option to have also a \gls{foptd} model. However, it is necessary to have a normalized delay time larger than $0.1$. The tool warns the user when an invalid value is entered (as a negative time constant for example). When any of these parameters are changed, the step response plot at the bottom is automatically updated.
+
+The second section shows the user the results of the selected tuning. The main component is a figure where the closed-loop response is plotted for the selected sources of disturbance: \textit{Servo response} is the closed-loop response to a setpoint step change, \textit{Input disturbance regulation response} plots the closed-loop response to a step change at the input of the plant and \textit{Output disturbance regulation response} plots the closed-loop response to  step change at the output of the plant. The control effort can be plotted as well in the same graph.
+
+At the bottom of the second section, the results of the controller parameters, the value of the cost function and the value of the maximum sensitivity are presented with the given tuning. These are updated everytime the user makes a change in the third section of the tool.
