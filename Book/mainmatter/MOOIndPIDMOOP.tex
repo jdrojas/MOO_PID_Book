@@ -472,4 +472,25 @@ The plant parameters input section is used to enter the parameters of the model 
 
 The second section shows the user the results of the selected tuning. The main component is a figure where the closed-loop response is plotted for the selected sources of disturbance: \textit{Servo response} is the closed-loop response to a setpoint step change, \textit{Input disturbance regulation response} plots the closed-loop response to a step change at the input of the plant and \textit{Output disturbance regulation response} plots the closed-loop response to  step change at the output of the plant. The control effort can be plotted as well in the same graph.
 
-At the bottom of the second section, the results of the controller parameters, the value of the cost function and the value of the maximum sensitivity are presented with the given tuning. These are updated everytime the user makes a change in the third section of the tool.
+At the bottom of the second section, the results of the controller parameters, the value of the cost function and the value of the maximum sensitivity are presented with the given tuning. These are updated every time the user makes a change in the third section of the tool.
+
+The last section of the tool is the Tuning section. Here, the user is presented with a series of ``decision choices'' that defines which of the points of the front is selected as the final tuning. The sliders at the top represents the \textit{allowed degradation} of the function with respect to the optimal point. A value of zero means that the lowest value of the cost function is desired, while a value of 1 represents that the function can have any value (even its maximum value).
+
+The tool select the function with the lowest allowed degradation as the main cost function. Then, it searches for a set of parameters that comply with all the degradation limits set by the user, that also has the lowest possible value of the main function. As it can be seen, this tool let the user select the desired value from the Pareto, without the need to plot the front.
+
+The user has also the ability to select if all the cost function need to be used for the tuning, or if only the input disturbance and the setpoint change are considered. Finally, the user can select different values of Maximum Sensitivity, to set the robustness of the closed-loop system. The \textit{Export Tuning} button let the user to copy the values of the tuning and export them as an structure to the \matlab{} workspace.
+
+Of course, it may be possible that the user selects a set of values for $J_{di}$, $J_{do}$ and $J_r$ that do not correspond to a Pareto point. In that case, the tool shows a window indicating that the current selection is not feasible. This window is shown in %
+%
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{Ch6MOOTuning}
+	\caption{Error raised if the desired point lies outside the Pareto front.}
+	\label{fig:Ch6MOOTuning}
+\end{figure}
+%
+Figure~\ref{fig:Ch6MOOTuning}. The user than can relax the allowed degradation of the cost function to be able to find the appropriate tuning. The figures can be saved using the standard \matlab{} methods.
+
+\subsection{Example using MOOTuning}
+\label{sec:MOOTuningExample}
+To do.
