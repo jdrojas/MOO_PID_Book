@@ -4,7 +4,7 @@
 %-----------------------------
 \section{Solution of the multi-objective optimization tuning}
 \label{sec:SolMOOP}
-When solving the \gls{moop} presented in \eqref{eq:probmoo} for different normalized plants, one is able to find a family of Pareto fronts. The script used to find these fronts can be found in the companion software for this book\footnote{the script is named \texttt{GenerateParetosThreeFun.m}}.
+When solving the \gls{moop} presented in \eqref{eq:probmoo} for different normalized plants, one is able to find a family of Pareto fronts.
 
 Defining the normalized variable $\hat{s}=T s$, the time delay for the normalized plant, $\tau_0$, becomes:
 \begin{equation}
@@ -38,6 +38,20 @@ The steps that are required to find the front for each Pareto is presented in Al
 %
 
 The Pareto front was found for each normalized plant with approximately 1000 points for each front. Using the steps of Algorithm~\ref{alg:GenerateParetos3}, a total of 220 different normalized plants were considered. Also, five different values of desired maximum $M_s$ were considered. Therefore a total of 1100 different cases were computed. For each case, a Pareto was found using the ENNC method with approximately 500 points for each front. Notice that each of these points represents a different tuning (and since the optimization was done for \gls{2dof} controllers, each point has a different value for $\kappa_p$, $\tau_i$, $\tau_d$ and $\beta$), the total possible Pareto optimal \gls{pid} controllers found, reaches approximately 500 000 different controllers for all the totality of the plants and $M_s$. All these controller tunings, can also be found in the companion software of this book as comma separated values files.
+
+In regard of the robustness constraint, it has to be noticed that the constraint is of a inequality kind, that is:
+\begin{equation*}
+	M_s(\theta, \gls{plan}) \leq \gls{ms}\mbox{}_{max},
+\end{equation*} 
+in this particular case, the maximum sensitivity is set as $2.0$, $1.8$, $1.6$ or $1.4$. A maximum sensitivity of $M_s = 10.0$ was used as a way to relax the constraint is such a manner that practically the optimization was done without constraints but the same script was used for the computation.
+
+The function to compute the Pareto front with the \gls{ennc} method transform the multiobjective cost function into a single function using the scalarization method presented in Section~\ref{sec:ENNC}. The function uses a standard optimization procedure\footnote{The function \texttt{fmincon} of the \matlab{} optimization toolbox was applied} to find each of the points of the pareto. The ENNC function was based on the work of \cite{Houska2011} and \cite{Logist2012} and the Pareto filter used was \cite{Cao2020}.
+
+Finding all this data is time consuming. It would be impractical to find the Pareto front everytime it is needed, therefore, the best practice is to find the complete set of Pareto fronts once and save the results for later use.
+
+However, there are two possible ways to use the data. In one hand, the data can be used to find a tuning rule that is as simple as possible that approximates the results of the optimizations. The other option is to create a software tool capable to access the files and interpolate the final tuning. In both cases, a way to incorporate the user preferences need to be addressed. Because, as stated in Section~\ref{sec:Selection}, finding the Pareto fronts is not the end of the optimization problem because a final single solution needs to be selected.
+
+In the following, these two possible routes are considered with two examples on how it may be done. First, an example on how to find a possible tuning rule using the data for dead-time dominated processes is presented. The obtained results are good, however, given the complexity of the data, the tuning rule turned out not to be as simple as desired. Later, a \gls{cad} program is presented that is capable of finding a controller tuning based on the idea of ``Maximum allowed degradation'' of the cost function. In short, this tool let the user to navigate into the Pareto front, without the need to visualize the Pareto, at the same time that let the use to select the final tuning.
 
 \section{Viability for tuning rules}
 \label{sec:TuningRulesMOOP}
@@ -98,14 +112,14 @@ The coefficients $p_{ij}$, where $i=\{0,1,2,3\}$ and $j=\{0,1,2,3,4,5\}$, depend
 %
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.5\textwidth]{Tdfit2.png}
+	\includegraphics[width=0.8\textwidth]{Tdfit2.png}
 	\caption{Second order fit for $\tau_d$ when $a=0.1$ and $\tau_0=1$}
 	\label{F:cftoolTd}
 \end{figure}
 %
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.5\textwidth]{betafit2.png}
+	\includegraphics[width=0.8\textwidth]{betafit2.png}
 	\caption{First order fit for $\beta$ when $a=0.1$ and $\tau_0=1$}
 	\label{F:cftoolbeta}
 \end{figure}
@@ -116,7 +130,7 @@ Going back to the $p_{ij}$, it has to be notice that the value of these paramete
 %
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.5\textwidth]{./a00fit2.png}
+	\includegraphics[width=0.8\textwidth]{./a00fit2.png}
 	\caption{Second order fit for $p_{00}$ in $\kappa_p$}
 	\label{F:coeff}
 \end{figure}
