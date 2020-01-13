@@ -4,7 +4,7 @@
 %-----------------------------
 \section{Solution of the multi-objective optimization tuning}
 \label{sec:SolMOOP}
-When solving the \gls{moop} presented in \eqref{eq:probmoo} for different normalized plants, one is able to find a family of Pareto fronts. The script used to find these fronts can be found in the companion software for this book\footnote{\textbf{PONER EL NOMBRE DEL SCRIPT}}.
+When solving the \gls{moop} presented in \eqref{eq:probmoo} for different normalized plants, one is able to find a family of Pareto fronts. The script used to find these fronts can be found in the companion software for this book\footnote{the script is named \texttt{GenerateParetosThreeFun.m}}.
 
 Defining the normalized variable $\hat{s}=T s$, the time delay for the normalized plant, $\tau_0$, becomes:
 \begin{equation}
@@ -12,11 +12,32 @@ Defining the normalized variable $\hat{s}=T s$, the time delay for the normalize
 \label{eq:tauNorm}
 \end{equation}
 %
+Then, one is able to find the corresponding Pareto front for the normalized plant, that represents many combinations of lag time and dead time. The gain of the plant is considered to be included in the controller gain for the sake of the normalization.
 
-Then, one is able to find the corresponding Pareto front for the normalized plant, that represents many combinations of lag time and dead time.
+The steps that are required to find the front for each Pareto is presented in Algorithm~\ref{alg:GenerateParetos3}.
+%
+\begin{algorithm}[tb]
+	\begin{algorithmic}
+		\State $M_{svec} \gets [10,2,1.8,1.6,1.4]$
+		\State $\tau_{0vec} \gets (0.1:0.1:2)$
+		\State $a_{vec} \gets (0:0.1:1)$
+		\ForAll{permutations of $M_s \in M_{svec}$, $\tau_0 \in \tau_{0vec}$ and $a \in a_{vec}$}
+			\State Define the plant \gls{plan} with $\tau_{0}$ and $a$
+			\State Find initial tuning  using Usort2 method
+			\State Create cost function $J(\theta) = [J_{di}(\theta, \gls{plan}, t),J_{do}(\theta, \gls{plan}, t),J_{r}(\theta, \gls{plan}, t) ]$
+			\State Create constraint function $MCalc(\theta, \gls{plan}) \leq M_s$
+			\State Apply ENNC method to find the Pareto front
+			\State Apply Pareto filter
+			\State Compute actual $M_s$ for each controller
+			\State Save to file
+		\EndFor
+	\end{algorithmic}
+\caption{Script for finding all Pareto fronts.}
+\label{alg:GenerateParetos3}
+\end{algorithm}
 %
 
-The Pareto front was found for each normalized plant with approximately 1000 points for each front. Notices that each of these points represents a different tuning (and since the optimization was done for \gls{2dof} controllers, each point has a different value for $\kappa_p$, $\tau_i$, $\tau_d$ and $\beta$), the total possible Pareto optimal \gls{pid} controllers found, reaches approximately 100 000 different controllers for all the totality of the plants. All these controller tunings, can also be found in the companion software of this book as comma separated values.
+The Pareto front was found for each normalized plant with approximately 1000 points for each front. Using the steps of Algorithm~\ref{alg:GenerateParetos3}, a total of 220 different normalized plants were considered. Also, five different values of desired maximum $M_s$ were considered. Therefore a total of 1100 different cases were computed. For each case, a Pareto was found using the ENNC method with approximately 500 points for each front. Notice that each of these points represents a different tuning (and since the optimization was done for \gls{2dof} controllers, each point has a different value for $\kappa_p$, $\tau_i$, $\tau_d$ and $\beta$), the total possible Pareto optimal \gls{pid} controllers found, reaches approximately 500 000 different controllers for all the totality of the plants and $M_s$. All these controller tunings, can also be found in the companion software of this book as comma separated values files.
 
 \section{Viability for tuning rules}
 \label{sec:TuningRulesMOOP}
