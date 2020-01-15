@@ -55,9 +55,122 @@ In the following, these two possible routes are considered with two examples on 
 
 \section{Viability for tuning rules}
 \label{sec:TuningRulesMOOP}
-In this section, an example of how to use the gathered data from the Pareto front is presented in order to find a tuning rule. The results that are presented here where first documented in \cite{Moya2017}.
+In this section, two examples on how to use the gathered data from the Pareto front is presented in order to find a tuning rule.
 
-For this particular example, the variable $a$ takes values from $0$ to $1$ in $0.1$ steps and $\tau_0$ takes values from $1$ to $2$ in $0.1$ steps and $M_{s,max}=2$. However, the complete set of data also has values for $\tau_0 < 1$.
+The first example use a reduced set of data where only $J_{di}$ and $J_{do}$ cost functions are considered and a \gls{pi} controller is tuned. The decision variable is the allowed degradation of the $J_{di}$ cost function. These results were first documented in \cite{ContrerasLeiva2015a}. 
+
+The second example shows the results of a \gls{pid} controller tuning that takes into account all three proposed sources of disturbances ($J_{di}$, $J_{do}$ and $J_r$) for plants that are delay dominant. These results where first documented in \cite{Moya2017}.
+
+\subsection{Tuning of a PI controller with two cost functions}
+\label{sec:PI2FunMonica}
+In this case, the Pareto front was conformed just by the cost functions $J_{di}$ and $J_{do}$ and with a simple first order model given by:
+\begin{equation}
+	P(s) = \frac{K e^{-Ls}}{Ts+1}.
+\end{equation}
+
+However, only PI controllers where considered. The set of data is not equal to the presented in Section~\ref{sec:SolMOOP}, instead, this data was found using the LCR scalarization \cite{Rojas2015b}, but the idea behind the tuning is the same.
+
+In this case, only the feedback controller $C_y(s,\bm{\theta})$ of Figure~\ref{fig:Ch4controlador} is considered. After analyzing the data, it was found that one possible function that represents the variation of $\kappa_p$ with respect to the degradation variable $\alpha$ is given by:
+\begin{equation}  %inclusión de ecuaciones
+\kappa_p = a(\alpha) +b(\alpha)\tau_0^{c(\alpha)},
+\label{ec:KpMonica}
+\end{equation}
+%
+where the parameters are given by:
+\begin{align*}
+%
+a(\alpha) &=  a_1 \alpha + a_2 \alpha^2,\\%
+%\label{ec:a}\\
+%
+b(\alpha) &=  b_0  + b_1 \alpha,\\%
+%\label{ec:b}\\
+%
+c(\alpha) &=  c_0  + c_1 \alpha^2.%
+%\label{ec:c}
+\end{align*}
+
+For the case of the integral time, the proposed rule is given by:
+\begin{equation}  %inclusión de ecuaciones
+\tau_i = d(\alpha) +e(\alpha)\tau_0^{f(\alpha)},	\label{ec:TiMonica}\\
+\end{equation}
+%
+where the parameters can be computed as:
+\begin{align*}  %inclusión de ecuaciones
+d(\alpha) &= d_0 + d_1 \alpha + d_2 \alpha^2,\\
+%\label{ec:d}\\
+%
+e(\alpha) &= e_0 + e_1 \alpha,\\
+%\label{ec:e}\\
+%
+f(\alpha) &= f_0 + f_2 \alpha^2.\\
+%\label{ec:f}
+\end{align*}
+
+As it can be seen, to compute $\kappa_p$ and $\tau_i$, it is necessary to know 13 different constants. These constants are found using a curve fitting procedure that depends on the normalized dead-time and the maximum sensitivity required. The values found for these constant are presented in 
+\begin{table}[tb]
+	\caption{Constants associated with $\kappa_p$ in \eqref{ec:KpMonica}.} 
+	\centering
+	\begin{tabular}{@{}*{4}{m{2cm}}@{}}
+		\toprule
+		& $M_s\leq2$          & $M_s\leq1.8$   & $M_s\leq1.6$ \\
+		\midrule
+		\multicolumn{4}{c}{$0.1\leq\tau_0\leq0.5$}\\
+		\midrule
+		$a_1$  & $0.2887   $ 	  & $0.18960 $	   & $0.08484 $ \\
+		$a_2$  & $-0.8579	$ 	  & $-0.3039 $	   & $-0.1811 $ \\
+		$b_0$  & $0.6053	$     & $0.5356	 $	   & $0.4500  $ \\
+		$b_1$  & $0.3205	$     & $0.1592  $	   & $0.1161  $ \\
+		$c_0$  & $-0.9917	$ 	  & $-0.9928 $	   & $-0.9897 $ \\
+		$c_1$  & $0.1341 	$  	  & $0.04427 $	   & $0.03272 $ \\
+		\midrule
+		\multicolumn{4}{c}{$0.6\leq\tau_0\leq2.0$}\\
+		\midrule
+		$a_1$  & $0.08305  $	& $0.001233 $	 & $0.003224$ \\
+		$a_2$  & $-0.05774	$ 	& $-0.02813 $	 & $-0.01945$ \\
+		$b_0$  & $0.8470	$ 	& $0.6964	$	 & $0.53560 $ \\
+		$b_1$  & $-0.06829 $	& $0.07708 	$	 & $0.05128 $ \\
+		$c_0$  & $-0.6934	$	& $-0.6921	$	 & $-0.7940 $ \\
+		$c_1$  & $0 	    $   & $0 	    $    & $0       $ \\		
+		\bottomrule
+	\end{tabular}
+	\label{tab:01Monica}
+\end{table}
+%
+\begin{table}[tb]
+	\caption{Constants associated with $\tau_i$ in \eqref{ec:TiMonica}.} 
+	\centering
+	\begin{tabular}{@{}*{4}{m{2cm}}@{}}
+		\toprule
+		&$M_s\leq2$     & $M_s\leq1.8$   & $M_s\leq1.6$ \\
+		\midrule 
+		\multicolumn{4}{c}{$0.1\leq\tau_0\leq0.4$}\\
+		\midrule
+		$d_0$  &$ 0  	   $    & $0 	    $    & $0       $\\
+		$d_1$  &$ 1.3840  $    & $0.9996	$	 & $0.9685  $ \\
+		$d_2$  &$ -0.4286 $	& $-0.07516 $	 & $-0.05125$ \\
+		$e_0$  &$ 1.4440  $    & $1.3590 	$	 & $1.3110  $ \\
+		$e_1$  &$ -1.179  $	& $-1.0500 	$	 & $-1.0970 $ \\
+		$f_0$  &$ 0.6197  $    & $0.5474	$	 & $0.4775  $ \\
+		$f_2$  &$ 0 	   $    & $0 	    $    & $0       $ \\
+		\midrule
+		\multicolumn{4}{c}{$0.5\leq\tau_0\leq2.0$}\\
+		\midrule
+		$d_0$  & $0.4483$ 	 	  & $0.5623$    &$0.6746 $ \\
+		$d_1$  & $0.5070$ 	 	  & $0.3530$    &$0.3607 $ \\
+		$d_2$  & $0 	$ 	      & $0 	   $    &$0      $ \\
+		$e_0$  & $0.8717$		  & $0.6029$	&$0.3793 $ \\
+		$e_1$  & $-0.418$	 	  & $-0.1828$	&$-0.2590$ \\
+		$f_0$  & $0.6532$		  & $0.7480$	&$0.7055 $ \\
+		$f_2$  & $0.2085$         & $0.0114$    &$0.4632 $ \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:02Monica}
+\end{table}
+Table~\ref{tab:01Monica} for the constants associated with $\kappa_p$ and in Table~\ref{tab:02Monica} for the constants associated with $\tau_i$. It is important to note that, in order to found these equations, a series of curve fitting procedures were required. This is not a trivial task and even for a simple model like the one used in this example and a reduced controller, the quantity of computation needed is very high.
+
+\subsection{Tuning for a Three-objective PID controller}
+\label{sec:Tuning3PID}
+For this, the variable $a$ takes values from $0$ to $1$ in $0.1$ steps and $\tau_0$ takes values from $1$ to $2$ in $0.1$ steps. However, for this next example, the maximum sensitivity is constraint to $M_{s,max}=2$.
 
 The methodology after finding the data is to perform a curve fitting procedure to find equations useful to compute the value of $\kappa_p$, $\tau_i$, $\tau_d$ and $beta$ as a function of $a$ and $\tau_0$ and a factor of degradation of the cost functions.
 
@@ -335,7 +448,7 @@ Another two hundred and twenty regressions were made for all $p_{ij}$. The resul
 	\end{tabular}
 \end{table}
 %
-\subsection{Comparison of regression against Pareto data}
+\subsubsection{Comparison of regression against Pareto data}
 %
 To compare the results from the tuning rule, some simulations were done to compare the original data against the results. The plant model is: 
 
