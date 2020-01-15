@@ -47,6 +47,9 @@ in this particular case, the maximum sensitivity is set as $2.0$, $1.8$, $1.6$ o
 
 The function to compute the Pareto front with the \gls{ennc} method transform the multiobjective cost function into a single function using the scalarization method presented in Section~\ref{sec:ENNC}. The function uses a standard optimization procedure\footnote{The function \texttt{fmincon} of the \matlab{} optimization toolbox was applied} to find each of the points of the pareto. The ENNC function was based on the work of \cite{Houska2011} and \cite{Logist2012} and the Pareto filter used was \cite{Cao2020}.
 
+\textbf{Implementation of the Jdi Jr and Jdo, TO DO!}
+
+
 Finding all this data is time consuming. It would be impractical to find the Pareto front everytime it is needed, therefore, the best practice is to find the complete set of Pareto fronts once and save the results for later use.
 
 However, there are two possible ways to use the data. In one hand, the data can be used to find a tuning rule that is as simple as possible that approximates the results of the optimizations. The other option is to create a software tool capable to access the files and interpolate the final tuning. In both cases, a way to incorporate the user preferences need to be addressed. Because, as stated in Section~\ref{sec:Selection}, finding the Pareto fronts is not the end of the optimization problem because a final single solution needs to be selected.
@@ -168,6 +171,72 @@ As it can be seen, to compute $\kappa_p$ and $\tau_i$, it is necessary to know 1
 \end{table}
 Table~\ref{tab:01Monica} for the constants associated with $\kappa_p$ and in Table~\ref{tab:02Monica} for the constants associated with $\tau_i$. It is important to note that, in order to found these equations, a series of curve fitting procedures were required. This is not a trivial task and even for a simple model like the one used in this example and a reduced controller, the quantity of computation needed is very high.
 
+This is an example on how the Pareto front can be used as the basis to create tools that permit to extract the results without using the Pareto directly. Of course, the functions that are proposed need to follow closely the results obtained with the optimizations. In 
+%
+\begin{table}
+\caption{Approximation indexes for $\kappa_p$ in \eqref{ec:KpMonica}.}
+	\centering
+		\begin{tabular}{@{}*{3}{p{1.2cm}}@{}}
+		\toprule
+		 $M_s$     & $\tau_0$            & R-squared \\
+    	\midrule
+        $2.0$      & $\tau_0\leq0.5$   &$0.9982$	\\
+        	       & $\tau_0\geq0.6$   &$0.9929$    \\
+        $1.8$      & $\tau_0\leq0.5$   &$0.9994$	\\
+	    	       & $\tau_0\geq0.6$   &$0.9945$    \\
+	    $1.6$      & $\tau_0\leq0.5$   &$0.9996$	\\ 
+	         	   & $\tau_0\geq0.6$   &$0.9971$	\\	
+	   \bottomrule
+	\end{tabular}
+	\label{tab:cftoolkpMonica}
+\end{table}
+%
+\begin{table}
+\caption{Approximation indexes for $\tau_i$ in \eqref{ec:TiMonica}.}
+	\centering
+		\begin{tabular}{@{}*{3}{p{1.2cm}}@{}}
+		\toprule
+		$M_s$		& $\tau_0$		& R-squared\\
+  		\midrule
+       $2.0$      & $\tau_0\leq0.4$      & $0.9925$ \\
+       			  & $\tau_0\geq0.5$      & $0.9947$ \\
+        $1.8$     & $\tau_0\leq0.4$      & $0.9978$	\\
+                  & $\tau_0\geq0.5$      & $0.9986$ \\
+        $1.6$     & $\tau_0\leq0.4$      & $0.9960$	\\
+                  & $\tau_0\geq0.5$      & $0.9936$	\\	
+		\bottomrule
+	\end{tabular}
+	\label{tab:cftoolTiMonica}
+\end{table}
+%
+Table~\ref{tab:cftoolkpMonica} the mean R-squared value is presented for the case of the regression on the $\kappa_p$ variable and for the case of $\tau_i$ in Table~\ref{tab:cftoolTiMonica}. As it can be seen, the selected function and parameters fit the data well, which should give the user confidence that using \eqref{ec:KpMonica} and \eqref{ec:TiMonica} will most likely give a Pareto optimal results.
+
+The proposed tuning rule is comparable to other optimal tuning rules as in \cite{Murril1967} and  \cite{Alfaro2012a}, because in all cases, an integral cost function is optimized. In the case of the Murrill tuning \cite{Murril1967}, the \gls{iae} is minimized for disturbance rejection, while in the case of the Usort method \cite{Alfaro2012a}, the disturbance rejection response is also minimized, but the maximum sensitivity is taken into account as a measure of robustness.
+
+For these two methods, only the input disturbace is taken into account, while in the proposed method of this example, the user can vary the response between being optimal to the input disturbance or optimal to the output disturbance, given more flexibility to the tuning. A controller was tuned with these three methods and compared in Table~\ref{tab:desemJdiMonica}
+%
+\begin{table}
+	\caption{Comparison of the performance of the closed-loop $J_{di}$.}
+	\centering
+	\begin{tabular}{@{}*{4}{p{2cm}}@{}}
+		\toprule
+		$\tau_0$   & Tuning        &IAE        & $M_s$ 	 \\
+		\midrule
+		$0.1$      & Usort        &$0.0615$  &$2,0016$  \\
+		$   $      & Murrill  &$0.0425$  &$3,8956$  \\
+		$   $      & Proposed tuning            &$0.1081$  &$2,0399$  \\	
+		$0.5$      & Usort        &$0.7388$  &$2,0099$  \\				
+		$   $      & Murrill  &$0.6186$  &$2,9757$  \\
+		$   $      & Proposed tuning           &$0.8330$  &$1.7757$  \\
+		$1.0$      & Usort        &$1.6760$  &$2,0047$  \\				
+		$   $      & Murrill  &$1.6710$  &$2,1831$  \\
+		$   $      & Proposed tuning            &$1.5730$  &$2,0366$  \\		
+		\bottomrule				
+	\end{tabular}
+	\label{tab:desemJdiMonica}
+\end{table}
+\textbf{Comentar esta tabla!!! To do!!}
+%
 \subsection{Tuning for a Three-objective PID controller}
 \label{sec:Tuning3PID}
 For this, the variable $a$ takes values from $0$ to $1$ in $0.1$ steps and $\tau_0$ takes values from $1$ to $2$ in $0.1$ steps. However, for this next example, the maximum sensitivity is constraint to $M_{s,max}=2$.
