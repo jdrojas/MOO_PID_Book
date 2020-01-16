@@ -45,12 +45,13 @@ In regard of the robustness constraint, it has to be noticed that the constraint
 \end{equation*} 
 in this particular case, the maximum sensitivity is set as $2.0$, $1.8$, $1.6$ or $1.4$. A maximum sensitivity of $M_s = 10.0$ was used as a way to relax the constraint is such a manner that practically the optimization was done without constraints but the same script was used for the computation.
 
-The function to compute the Pareto front with the \gls{ennc} method transform the multiobjective cost function into a single function using the scalarization method presented in Section~\ref{sec:ENNC}. The function uses a standard optimization procedure\footnote{The function \texttt{fmincon} of the \matlab{} optimization toolbox was applied} to find each of the points of the pareto. The ENNC function was based on the work of \cite{Houska2011} and \cite{Logist2012} and the Pareto filter used was \cite{Cao2020}.
+The function to compute the Pareto front with the \gls{ennc} method transform the multiobjective cost function into a single function using the scalarization method presented in Section~\ref{sec:ENNC}. The function uses a standard optimization procedure\footnote{The function \texttt{fmincon} of the \matlab{} optimization toolbox was applied} to find each of the points of the pareto. The ENNC function was based on the work of \cite{Houska2011} and \cite{Logist2012}, the Pareto filter used was \cite{Cao2020}.
 
-\textbf{Implementation of the Jdi Jr and Jdo, TO DO!}
+A very important part of the computation is the implementation of the cost function. It is desirable to have a convex function to minimize, since a global minimum is most likely to be found and in general, the minimization algorithms perform better. However, when using the \gls{iae}, the resulting cost function is not convex. In fact, the implementation of the cost function implies to perform a simulation to compute the \gls{iae}.
 
+\textbf{To enhance}
 
-Finding all this data is time consuming. It would be impractical to find the Pareto front everytime it is needed, therefore, the best practice is to find the complete set of Pareto fronts once and save the results for later use.
+Finding all this data is time-consuming. It would be impractical to find the Pareto front every time it is needed, therefore, the best practice is to find the complete set of Pareto fronts once and save the results for later use.
 
 However, there are two possible ways to use the data. In one hand, the data can be used to find a tuning rule that is as simple as possible that approximates the results of the optimizations. The other option is to create a software tool capable to access the files and interpolate the final tuning. In both cases, a way to incorporate the user preferences need to be addressed. Because, as stated in Section~\ref{sec:Selection}, finding the Pareto fronts is not the end of the optimization problem because a final single solution needs to be selected.
 
@@ -213,7 +214,7 @@ Table~\ref{tab:cftoolkpMonica} the mean R-squared value is presented for the cas
 
 The proposed tuning rule is comparable to other optimal tuning rules as in \cite{Murril1967} and  \cite{Alfaro2012a}, because in all cases, an integral cost function is optimized. In the case of the Murrill tuning \cite{Murril1967}, the \gls{iae} is minimized for disturbance rejection, while in the case of the Usort method \cite{Alfaro2012a}, the disturbance rejection response is also minimized, but the maximum sensitivity is taken into account as a measure of robustness.
 
-For these two methods, only the input disturbace is taken into account, while in the proposed method of this example, the user can vary the response between being optimal to the input disturbance or optimal to the output disturbance, given more flexibility to the tuning. A controller was tuned with these three methods and compared in Table~\ref{tab:desemJdiMonica}
+For these two methods, only the input disturbace is taken into account, while in the proposed method of this example, the user can vary the response between being optimal to the input disturbance or optimal to the output disturbance, given more flexibility to the tuning. A controller was tuned with these three methods and compared in Table~\ref{tab:desemJdiMonica}.
 %
 \begin{table}
 	\caption{Comparison of the performance of the closed-loop $J_{di}$.}
@@ -222,20 +223,21 @@ For these two methods, only the input disturbace is taken into account, while in
 		\toprule
 		$\tau_0$   & Tuning        &IAE        & $M_s$ 	 \\
 		\midrule
-		$0.1$      & Usort        &$0.0615$  &$2,0016$  \\
-		$   $      & Murrill  &$0.0425$  &$3,8956$  \\
-		$   $      & Proposed tuning            &$0.1081$  &$2,0399$  \\	
-		$0.5$      & Usort        &$0.7388$  &$2,0099$  \\				
-		$   $      & Murrill  &$0.6186$  &$2,9757$  \\
+		$0.1$      & Usort        &$0.0615$  &$2.0016$  \\
+		$   $      & Murrill  &$0.0425$  &$3.8956$  \\
+		$   $      & Proposed tuning            &$0.1081$  &$2.0399$  \\	
+		$0.5$      & Usort        &$0.7388$  &$2.0099$  \\				
+		$   $      & Murrill  &$0.6186$  &$2.9757$  \\
 		$   $      & Proposed tuning           &$0.8330$  &$1.7757$  \\
 		$1.0$      & Usort        &$1.6760$  &$2,0047$  \\				
-		$   $      & Murrill  &$1.6710$  &$2,1831$  \\
-		$   $      & Proposed tuning            &$1.5730$  &$2,0366$  \\		
+		$   $      & Murrill  &$1.6710$  &$2.1831$  \\
+		$   $      & Proposed tuning            &$1.5730$  &$2.0366$  \\		
 		\bottomrule				
 	\end{tabular}
 	\label{tab:desemJdiMonica}
 \end{table}
-\textbf{Comentar esta tabla!!! To do!!}
+%
+As it can be from this table, for $\tau_0 = 0.1$ and $\tau_0 = 0.5$, Murril presents the best performance, but in both cases, the value of $M_s$ is rather high, which is undesirable for real control loops. The method presented here gives results very similar to the ones obtained with Usort, which is expected, since both methods minimize an integral cost function with $M_s$ as the robustness constraint. The advantage of the method shown in this example is that the user has an extra variable to fine tune the response.
 %
 \subsection{Tuning for a Three-objective PID controller}
 \label{sec:Tuning3PID}
@@ -711,3 +713,12 @@ Figure~\ref{fig:Ch6MOOTuning}. The user than can relax the allowed degradation o
 \subsection{Example using MOOTuning}
 \label{sec:MOOTuningExample}
 To do.
+
+\section{Matlab code}
+\label{sec:MatlabBode}
+\subsection{Script for the generation of the Pareto Fronts: GenerateParetosThreeFun}
+\lstinputlisting[style=Matlab-editor]{./codigo/GenerateParetosThreeFun.m}
+\subsubsection{Function used to avoid nested loops: MeshLaMs}
+\lstinputlisting[style=Matlab-editor]{./codigo/MeshLaMs.m}
+\subsubsection{Function to compute Ms: MsCalc}
+\lstinputlisting[style=Matlab-editor]{./codigo/MsCalc.m}
