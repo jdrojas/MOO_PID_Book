@@ -3,16 +3,15 @@
 % results.
 clear; clc;
 %
-%---------------------Optimization parameters------------------------------
+%---------------------Optimization parameters--------------
 Fnum 	= 3; % number of functions: Jdi and Jr
 nvars   = 4; % number of variables: Kp,Ti,Td,beta
 %VLD : see below
 VUB     = [10 10 10 1]; % variables upper bound
 npoints = 70; % Number of points. For 3 functions, the number of point are larger than npoints with npoints=65 it produces 2145 points given or take
 algorithm='interior-point'; 
-%--------------------------------o-----------------------------------------
-%
-%--------------------------Set of plants-----------------------------------
+%----------------------------
+%--------------------------Set of plants--------------------------
 % This is the set of plants. Since the plants are normalized, the only
 % values that change are the normalized delay and the value of a
 Lv=0.1:0.1:2;
@@ -20,13 +19,13 @@ av=0:0.1:1;
 % These are the values of Ms that are going to be tested
 Msv=[10,2,1.8,1.6,1.4];
 [LMesh,aMesh,MsMesh] = meshLaMs(Lv,av,Msv); % this function is used to avoid nested loops. Instead a parfor is used to compute the results in paralell
-%--------------------------------o-----------------------------------------
+%--------------------------------o-----------------
 %
 K=1; % normalized gain
 T=1; % normalized lag time
 alpha=0.1; % constant for the derivative
 gamma=0.0;
-%--------------------------------o-----------------------------------------
+%--------------------------------o------------------
 % Creation of logfiles
 FileNameLog='ArchiveLog3Fun.txt';
 fid2=fopen(FileNameLog,'a');
@@ -46,7 +45,7 @@ parfor k=1:length(LMesh) % replace the "parfor" with a "for" if the paralel tool
         fprintf(fid2,'%s\r\n',textoLog);
         fclose(fid2);
         disp(textoLog);
-        %--------------------------------------------------------------
+        %------------------------------
         % The initial point is computed using the usort2 algorithm
         if Ms>2
             [Kp,Ti,Td,beta]=usort2(K,T,L,a,2);%initial controller
@@ -70,10 +69,10 @@ parfor k=1:length(LMesh) % replace the "parfor" with a "for" if the paralel tool
         fid=fopen(FileName,'w');
         fprintf(fid,'%s\r\n',Header);
         fclose(fid);
-        %--------------------------------------------------------------------------
+        %----------------------------
         % Optimization with ENNC
         [Pareto_Fmat, Pareto_Xmat,Exit] = ENNC(X0,nvars,Fnum,VLB,VUB,npoints,algorithm,Fmhandle,Conhandle);
-        %--------------------------------------------------------------------------
+        %----------------------------
         % Filtering the results to eliminate non-pareto Points
         x = paretoset(Pareto_Fmat'); %position of the pareto points
         ParetoFun = Pareto_Fmat(:,x).';
