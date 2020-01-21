@@ -1,6 +1,6 @@
 % This script computes all data point for several plants and several
 % robusteness values. The final product is a set of .csv files with the
-% results. At the end, this script is for crunching numbers.
+% results.
 clear; clc;
 %
 %---------------------Optimization parameters------------------------------
@@ -8,8 +8,8 @@ Fnum 	= 3; % number of functions: Jdi and Jr
 nvars   = 4; % number of variables: Kp,Ti,Td,beta
 %VLD : see below
 VUB     = [10 10 10 1]; % variables upper bound
-npoints = 70; % Number of points. For 3 functions, the number of point are larger than npoints con 65 hace 2145 puntos mas o menos
-algorithm='interior-point'; %'interior-point' 'active-set'
+npoints = 70; % Number of points. For 3 functions, the number of point are larger than npoints with npoints=65 it produces 2145 points given or take
+algorithm='interior-point'; 
 %--------------------------------o-----------------------------------------
 %
 %--------------------------Set of plants-----------------------------------
@@ -18,8 +18,8 @@ algorithm='interior-point'; %'interior-point' 'active-set'
 Lv=0.1:0.1:2;
 av=0:0.1:1;
 % These are the values of Ms that are going to be tested
-Msv=[10,2,1.8,1.6,1.4];%[2,1.8,1.6,1.4];
-[LMesh,aMesh,MsMesh] = meshLaMs(Lv,av,Msv);
+Msv=[10,2,1.8,1.6,1.4];
+[LMesh,aMesh,MsMesh] = meshLaMs(Lv,av,Msv); % this function is used to avoid nested loops. Instead a parfor is used to compute the results in paralell
 %--------------------------------o-----------------------------------------
 %
 K=1; % normalized gain
@@ -27,22 +27,22 @@ T=1; % normalized lag time
 alpha=0.1; % constant for the derivative
 gamma=0.0;
 %--------------------------------o-----------------------------------------
-% Creaci�n del archivo de logs
-FileNameLog='ArchivoLog3Fun.txt';
+% Creation of logfiles
+FileNameLog='ArchiveLog3Fun.txt';
 fid2=fopen(FileNameLog,'a');
-textoLog=['El proceso inicio el ',datestr(clock)];
+textoLog=['The process started at ',datestr(clock)];
 fprintf(fid2,'%s\r\n',textoLog);
 fclose(fid2);
-disp(['El proceso inicio el ',datestr(clock)])
-parfor k=1:length(LMesh)
-    try
+disp(['The process started at ',datestr(clock)])
+parfor k=1:length(LMesh) % replace the "parfor" with a "for" if the paralel toolboox is not installed
+    try % if there is an error, it does not stop the simulations, but is recorded in the log file
         Ms=MsMesh(k);
         L=LMesh(k);
         a=aMesh(k);
         ParamPlant=[K;T;L;a];
-        FileNameLog='ArchivoLog3Fun.txt';
+        FileNameLog='ArchiveLog3Fun.txt';
         fid2=fopen(FileNameLog,'a');
-        textoLog=['Optimizando para Ms =', num2str(Ms),' L = ', num2str(L),' a = ', num2str(a),' a las ',datestr(clock)];
+        textoLog=['Optimizing for Ms =', num2str(Ms),' L = ', num2str(L),' a = ', num2str(a),' a las ',datestr(clock)];
         fprintf(fid2,'%s\r\n',textoLog);
         fclose(fid2);
         disp(textoLog);
@@ -64,7 +64,7 @@ parfor k=1:length(LMesh)
             ];% The multidimentional cost function
         Conhandle = @(x) MsConstraint(x,ParamPlant,Ms); %Robustness constraint
         %
-        % Guardar resultados
+        % Save results
         FileName=['Pareto3Fun_a',num2str(a),'_to',num2str(L),'_ms',num2str(Ms),'.csv'];
         Header='a,t0,Kp,Ti,Td,beta,Jdi,Jdo,Jr,JdiNorm,JdoNorm,JrNorm,Ms';
         fid=fopen(FileName,'w');
@@ -95,25 +95,25 @@ parfor k=1:length(LMesh)
         FunMin = repmat(min(ParetoFun),[n,1]);
         ParetoFunNorm = (ParetoFun-FunMin)./(FunMax-FunMin);
         dlmwrite(FileName,[a*ones(n,1),L/T*ones(n,1),ParetoVar,ParetoFun,ParetoFunNorm,Msvec],'delimiter',',','-append');
-        FileNameLog='ArchivoLog3Fun.txt';
+        FileNameLog='ArchiveLog3Fun.txt';
         fid2=fopen(FileNameLog,'a');
-        textoLog=['Se escribio el archivo ', FileName, ' el ',datestr(clock)];
+        textoLog=['Write in the file ', FileName, ' at ',datestr(clock)];
         fprintf(fid2,'%s\r\n',textoLog);
         fclose(fid2);
         disp(textoLog)
     catch
-        FileNameLog='ArchivoLog3Fun.txt';
+        FileNameLog='ArchiveLog3Fun.txt';
         fid2=fopen(FileNameLog,'a');
-        textoLog=['Se dio un error para Ms =', num2str(Ms),' L = ', num2str(L),' a = ', num2str(a),' a las ',datestr(clock)];
+        textoLog=['Error for Ms =', num2str(Ms),' L = ', num2str(L),' a = ', num2str(a),' at ',datestr(clock)];
         fprintf(fid2,'%s\r\n',textoLog);
         fclose(fid2);
         disp(textoLog)
         continue
     end
 end
-FileNameLog='ArchivoLog3Fun.txt';
+FileNameLog='ArchiveLog3Fun.txt';
 fid2=fopen(FileNameLog,'a');
-textoLog=['El proceso finalizo el ',datestr(clock)];
+textoLog=['The process finished at ',datestr(clock)];
 fprintf(fid2,'%s\r\n',textoLog);
 fclose(fid2);
 disp(textoLog);

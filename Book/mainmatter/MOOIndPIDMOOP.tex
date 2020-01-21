@@ -1,10 +1,10 @@
-\chapter{PID tuning as a multi-objective optimization method}
+\chapter{PID tuning as a multi-objective optimization problem}
 \label{chap:PIDMOOP}
 
 %-----------------------------
 \section{Solution of the multi-objective optimization tuning}
 \label{sec:SolMOOP}
-When solving the \gls{moop} presented in \eqref{eq:probmoo} for different normalized plants, one is able to find a family of Pareto fronts. The script used to find these fronts can be found in the companion software for this book\footnote{\textbf{PONER EL NOMBRE DEL SCRIPT}}.
+When solving the \gls{moop} presented in \eqref{eq:probmoo} for different normalized plants, one is able to find a family of Pareto fronts.
 
 Defining the normalized variable $\hat{s}=T s$, the time delay for the normalized plant, $\tau_0$, becomes:
 \begin{equation}
@@ -12,17 +12,238 @@ Defining the normalized variable $\hat{s}=T s$, the time delay for the normalize
 \label{eq:tauNorm}
 \end{equation}
 %
+Then, one is able to find the corresponding Pareto front for the normalized plant, that represents many combinations of lag time and dead time. The gain of the plant is considered to be included in the controller gain for the sake of the normalization.
 
-Then, one is able to find the corresponding Pareto front for the normalized plant, that represents many combinations of lag time and dead time.
+The steps that are required to find the front for each Pareto is presented in Algorithm~\ref{alg:GenerateParetos3}.
+%
+\begin{algorithm}[tb]
+	\begin{algorithmic}
+		\State $M_{svec} \gets [10,2,1.8,1.6,1.4]$
+		\State $\tau_{0vec} \gets (0.1:0.1:2)$
+		\State $a_{vec} \gets (0:0.1:1)$
+		\ForAll{permutations of $M_s \in M_{svec}$, $\tau_0 \in \tau_{0vec}$ and $a \in a_{vec}$}
+			\State Define the plant \gls{plan} with $\tau_{0}$ and $a$
+			\State Find initial tuning  using Usort2 method
+			\State Create cost function $J(\theta) = [J_{di}(\theta, \gls{plan}, t),J_{do}(\theta, \gls{plan}, t),J_{r}(\theta, \gls{plan}, t) ]$
+			\State Create constraint function $MCalc(\theta, \gls{plan}) \leq M_s$
+			\State Apply ENNC method to find the Pareto front
+			\State Apply Pareto filter
+			\State Compute actual $M_s$ for each controller
+			\State Save to file
+		\EndFor
+	\end{algorithmic}
+\caption{Script for finding all Pareto fronts.}
+\label{alg:GenerateParetos3}
+\end{algorithm}
 %
 
-The Pareto front was found for each normalized plant with approximately 1000 points for each front. Notices that each of these points represents a different tuning (and since the optimization was done for \gls{2dof} controllers, each point has a different value for $\kappa_p$, $\tau_i$, $\tau_d$ and $\beta$), the total possible Pareto optimal \gls{pid} controllers found, reaches approximately 100 000 different controllers for all the totality of the plants. All these controller tunings, can also be found in the companion software of this book as comma separated values.
+The Pareto front was found for each normalized plant with approximately 1000 points for each front. Using the steps of Algorithm~\ref{alg:GenerateParetos3}, a total of 220 different normalized plants were considered. Also, five different values of desired maximum $M_s$ were considered. Therefore a total of 1100 different cases were computed. For each case, a Pareto was found using the ENNC method with approximately 500 points for each front. Notice that each of these points represents a different tuning (and since the optimization was done for \gls{2dof} controllers, each point has a different value for $\kappa_p$, $\tau_i$, $\tau_d$ and $\beta$), the total possible Pareto optimal \gls{pid} controllers found, reaches approximately 500 000 different controllers for all the totality of the plants and $M_s$. All these controller tunings, can also be found in the companion software of this book as comma separated values files.
+
+In regard of the robustness constraint, it has to be noticed that the constraint is of a inequality kind, that is:
+\begin{equation*}
+	M_s(\theta, \gls{plan}) \leq \gls{ms}\mbox{}_{max},
+\end{equation*} 
+in this particular case, the maximum sensitivity is set as $2.0$, $1.8$, $1.6$ or $1.4$. A maximum sensitivity of $M_s = 10.0$ was used as a way to relax the constraint is such a manner that practically the optimization was done without constraints but the same script was used for the computation.
+
+The function to compute the Pareto front with the \gls{ennc} method transform the multiobjective cost function into a single function using the scalarization method presented in Section~\ref{sec:ENNC}. The function uses a standard optimization procedure\footnote{The function \texttt{fmincon} of the \matlab{} optimization toolbox was applied} to find each of the points of the pareto. The ENNC function was based on the work of \cite{Houska2011} and \cite{Logist2012}, the Pareto filter used was \cite{Cao2020}.
+
+A very important part of the computation is the implementation of the cost function. It is desirable to have a convex function to minimize, since a global minimum is most likely to be found. However, when using the \gls{iae} as a measure of the performance off the closed-loop response, the resulting cost function is not convex. In fact, the implementation of the cost function implies to do a simulation of the dynamic model and compute the integral of the absolute value of the error.
+
+It is common to implement this cost function using Simulink, and in general it is a straightforward way to compute the cost function. However, it implies to load all the power of Simulink with features that may be not be used to compute the \gls{iae}. Consider now that to compute one single point of the Pareto, it implies to use an optimization method with dozens of iterations and possibly hundreds of calls to the cost functions. And each of these call functions implies to call Simulink. Remember that, to solve the problem presented in this section, it is expected to find around 1000 points for each of the 1100 different cases. Potentially, to find all the Paretos that are intended, it may be needed millions of calls to the Simulink implementation of the cost function. With this panorama, it is practically mandatory to find a faster implementation of the cost function.
+
+In order to solve the problem in \eqref{eq:probmoo} the computation of the \gls{iae} was implemented with a hybrid approach between \matlab{} and the C language. The idea is to avoid the call to Simulink. Instead, the differential equations of the closed-loop response were solved using an implementation of the fourth order Runge-Kutta numerical method. The simulation was implemented in C with the interface API provided by \matlab{}. Using the \texttt{mex} instruction, the function is compiled and then called all the times needed. It was found that using this approach, the simulation time was reduced $97.7\%$ while the average error with respect to the simulation in Simulink was $9.118\times10^{-8}$. The code can be found in Section~\ref{sec:MatlabBode}. The \gls{iae} is computed later in a MATLAB function with the results of the simulation. In all cases, a step input was used for all the sources of disturbance. These functions are also presented in Section~\ref{sec:MatlabBode} and can be downloaded with the companion software.
+
+Finding all this data is time-consuming, even with the C implementation. It would be impractical to find the Pareto front every time it is needed, therefore, the best practice is to find the complete set of Pareto fronts once and save the results for later use.
+
+However, there are two possible ways to use the data. In one hand, the data can be used to find a tuning rule that is as simple as possible that approximates the results of the optimizations. The other option is to create a software tool capable to access the files and interpolate the final tuning. In both cases, a way to incorporate the user preferences need to be addressed. Because, as stated in Section~\ref{sec:Selection}, finding the Pareto fronts is not the end of the optimization problem because a final single solution needs to be selected.
+
+In the following, these two possible routes are considered with two examples on how it may be done. First, an example on how to find a possible tuning rule using the data for dead-time dominated processes is presented. The obtained results are good, however, given the complexity of the data, the tuning rule turned out not to be as simple as desired. Later, a \gls{cad} program is presented that is capable of finding a controller tuning based on the idea of ``Maximum allowed degradation'' of the cost function. In short, this tool let the user to navigate into the Pareto front, without the need to visualize the Pareto, at the same time that let the use to select the final tuning.
 
 \section{Viability for tuning rules}
 \label{sec:TuningRulesMOOP}
-In this section, an example of how to use the gathered data from the Pareto front is presented in order to find a tuning rule. The results that are presented here where first documented in \cite{Moya2017}.
+In this section, two examples on how to use the gathered data from the Pareto front is presented in order to find a tuning rule.
 
-For this particular example, the variable $a$ takes values from $0$ to $1$ in $0.1$ steps and $\tau_0$ takes values from $1$ to $2$ in $0.1$ steps and $M_{s,max}=2$. However, the complete set of data also has values for $\tau_0 < 1$.
+The first example use a reduced set of data where only $J_{di}$ and $J_{do}$ cost functions are considered and a \gls{pi} controller is tuned. The decision variable is the allowed degradation of the $J_{di}$ cost function. These results were first documented in \cite{ContrerasLeiva2015a}. 
+
+The second example shows the results of a \gls{pid} controller tuning that takes into account all three proposed sources of disturbances ($J_{di}$, $J_{do}$ and $J_r$) for plants that are delay dominant. These results where first documented in \cite{Moya2017}.
+
+\subsection{Tuning of a PI controller with two cost functions}
+\label{sec:PI2FunMonica}
+In this case, the Pareto front was conformed just by the cost functions $J_{di}$ and $J_{do}$ and with a simple first order model given by:
+\begin{equation}
+	P(s) = \frac{K e^{-Ls}}{Ts+1}.
+\end{equation}
+
+However, only PI controllers where considered. The set of data is not equal to the presented in Section~\ref{sec:SolMOOP}, instead, this data was found using the LCR scalarization \cite{Rojas2015b}, but the idea behind the tuning is the same.
+
+In this case, only the feedback controller $C_y(s,\bm{\theta})$ of Figure~\ref{fig:Ch4controlador} is considered. After analyzing the data, it was found that one possible function that represents the variation of $\kappa_p$ with respect to the degradation variable $\alpha$ is given by:
+\begin{equation}  %inclusión de ecuaciones
+\kappa_p = a(\alpha) +b(\alpha)\tau_0^{c(\alpha)},
+\label{ec:KpMonica}
+\end{equation}
+%
+where the parameters are given by:
+\begin{align*}
+%
+a(\alpha) &=  a_1 \alpha + a_2 \alpha^2,\\%
+%\label{ec:a}\\
+%
+b(\alpha) &=  b_0  + b_1 \alpha,\\%
+%\label{ec:b}\\
+%
+c(\alpha) &=  c_0  + c_1 \alpha^2.%
+%\label{ec:c}
+\end{align*}
+
+For the case of the integral time, the proposed rule is given by:
+\begin{equation}  %inclusión de ecuaciones
+\tau_i = d(\alpha) +e(\alpha)\tau_0^{f(\alpha)},	\label{ec:TiMonica}\\
+\end{equation}
+%
+where the parameters can be computed as:
+\begin{align*}  %inclusión de ecuaciones
+d(\alpha) &= d_0 + d_1 \alpha + d_2 \alpha^2,\\
+%\label{ec:d}\\
+%
+e(\alpha) &= e_0 + e_1 \alpha,\\
+%\label{ec:e}\\
+%
+f(\alpha) &= f_0 + f_2 \alpha^2.\\
+%\label{ec:f}
+\end{align*}
+
+As it can be seen, to compute $\kappa_p$ and $\tau_i$, it is necessary to know 13 different constants. These constants are found using a curve fitting procedure that depends on the normalized dead-time and the maximum sensitivity required. The values found for these constant are presented in 
+\begin{table}[tb]
+	\caption{Constants associated with $\kappa_p$ in \eqref{ec:KpMonica}.} 
+	\centering
+	\begin{tabular}{@{}*{4}{m{2cm}}@{}}
+		\toprule
+		& $M_s\leq2$          & $M_s\leq1.8$   & $M_s\leq1.6$ \\
+		\midrule
+		\multicolumn{4}{c}{$0.1\leq\tau_0\leq0.5$}\\
+		\midrule
+		$a_1$  & $0.2887   $ 	  & $0.18960 $	   & $0.08484 $ \\
+		$a_2$  & $-0.8579	$ 	  & $-0.3039 $	   & $-0.1811 $ \\
+		$b_0$  & $0.6053	$     & $0.5356	 $	   & $0.4500  $ \\
+		$b_1$  & $0.3205	$     & $0.1592  $	   & $0.1161  $ \\
+		$c_0$  & $-0.9917	$ 	  & $-0.9928 $	   & $-0.9897 $ \\
+		$c_1$  & $0.1341 	$  	  & $0.04427 $	   & $0.03272 $ \\
+		\midrule
+		\multicolumn{4}{c}{$0.6\leq\tau_0\leq2.0$}\\
+		\midrule
+		$a_1$  & $0.08305  $	& $0.001233 $	 & $0.003224$ \\
+		$a_2$  & $-0.05774	$ 	& $-0.02813 $	 & $-0.01945$ \\
+		$b_0$  & $0.8470	$ 	& $0.6964	$	 & $0.53560 $ \\
+		$b_1$  & $-0.06829 $	& $0.07708 	$	 & $0.05128 $ \\
+		$c_0$  & $-0.6934	$	& $-0.6921	$	 & $-0.7940 $ \\
+		$c_1$  & $0 	    $   & $0 	    $    & $0       $ \\		
+		\bottomrule
+	\end{tabular}
+	\label{tab:01Monica}
+\end{table}
+%
+\begin{table}[tb]
+	\caption{Constants associated with $\tau_i$ in \eqref{ec:TiMonica}.} 
+	\centering
+	\begin{tabular}{@{}*{4}{m{2cm}}@{}}
+		\toprule
+		&$M_s\leq2$     & $M_s\leq1.8$   & $M_s\leq1.6$ \\
+		\midrule 
+		\multicolumn{4}{c}{$0.1\leq\tau_0\leq0.4$}\\
+		\midrule
+		$d_0$  &$ 0  	   $    & $0 	    $    & $0       $\\
+		$d_1$  &$ 1.3840  $    & $0.9996	$	 & $0.9685  $ \\
+		$d_2$  &$ -0.4286 $	& $-0.07516 $	 & $-0.05125$ \\
+		$e_0$  &$ 1.4440  $    & $1.3590 	$	 & $1.3110  $ \\
+		$e_1$  &$ -1.179  $	& $-1.0500 	$	 & $-1.0970 $ \\
+		$f_0$  &$ 0.6197  $    & $0.5474	$	 & $0.4775  $ \\
+		$f_2$  &$ 0 	   $    & $0 	    $    & $0       $ \\
+		\midrule
+		\multicolumn{4}{c}{$0.5\leq\tau_0\leq2.0$}\\
+		\midrule
+		$d_0$  & $0.4483$ 	 	  & $0.5623$    &$0.6746 $ \\
+		$d_1$  & $0.5070$ 	 	  & $0.3530$    &$0.3607 $ \\
+		$d_2$  & $0 	$ 	      & $0 	   $    &$0      $ \\
+		$e_0$  & $0.8717$		  & $0.6029$	&$0.3793 $ \\
+		$e_1$  & $-0.418$	 	  & $-0.1828$	&$-0.2590$ \\
+		$f_0$  & $0.6532$		  & $0.7480$	&$0.7055 $ \\
+		$f_2$  & $0.2085$         & $0.0114$    &$0.4632 $ \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:02Monica}
+\end{table}
+Table~\ref{tab:01Monica} for the constants associated with $\kappa_p$ and in Table~\ref{tab:02Monica} for the constants associated with $\tau_i$. It is important to note that, in order to found these equations, a series of curve fitting procedures were required. This is not a trivial task and even for a simple model like the one used in this example and a reduced controller, the quantity of computation needed is very high.
+
+This is an example on how the Pareto front can be used as the basis to create tools that permit to extract the results without using the Pareto directly. Of course, the functions that are proposed need to follow closely the results obtained with the optimizations. In 
+%
+\begin{table}
+\caption{Approximation indexes for $\kappa_p$ in \eqref{ec:KpMonica}.}
+	\centering
+		\begin{tabular}{@{}*{3}{p{1.2cm}}@{}}
+		\toprule
+		 $M_s$     & $\tau_0$            & R-squared \\
+    	\midrule
+        $2.0$      & $\tau_0\leq0.5$   &$0.9982$	\\
+        	       & $\tau_0\geq0.6$   &$0.9929$    \\
+        $1.8$      & $\tau_0\leq0.5$   &$0.9994$	\\
+	    	       & $\tau_0\geq0.6$   &$0.9945$    \\
+	    $1.6$      & $\tau_0\leq0.5$   &$0.9996$	\\ 
+	         	   & $\tau_0\geq0.6$   &$0.9971$	\\	
+	   \bottomrule
+	\end{tabular}
+	\label{tab:cftoolkpMonica}
+\end{table}
+%
+\begin{table}
+\caption{Approximation indexes for $\tau_i$ in \eqref{ec:TiMonica}.}
+	\centering
+		\begin{tabular}{@{}*{3}{p{1.2cm}}@{}}
+		\toprule
+		$M_s$		& $\tau_0$		& R-squared\\
+  		\midrule
+       $2.0$      & $\tau_0\leq0.4$      & $0.9925$ \\
+       			  & $\tau_0\geq0.5$      & $0.9947$ \\
+        $1.8$     & $\tau_0\leq0.4$      & $0.9978$	\\
+                  & $\tau_0\geq0.5$      & $0.9986$ \\
+        $1.6$     & $\tau_0\leq0.4$      & $0.9960$	\\
+                  & $\tau_0\geq0.5$      & $0.9936$	\\	
+		\bottomrule
+	\end{tabular}
+	\label{tab:cftoolTiMonica}
+\end{table}
+%
+Table~\ref{tab:cftoolkpMonica} the mean R-squared value is presented for the case of the regression on the $\kappa_p$ variable and for the case of $\tau_i$ in Table~\ref{tab:cftoolTiMonica}. As it can be seen, the selected function and parameters fit the data well, which should give the user confidence that using \eqref{ec:KpMonica} and \eqref{ec:TiMonica} will most likely give a Pareto optimal results.
+
+The proposed tuning rule is comparable to other optimal tuning rules as in \cite{Murril1967} and  \cite{Alfaro2012a}, because in all cases, an integral cost function is optimized. In the case of the Murrill tuning \cite{Murril1967}, the \gls{iae} is minimized for disturbance rejection, while in the case of the Usort method \cite{Alfaro2012a}, the disturbance rejection response is also minimized, but the maximum sensitivity is taken into account as a measure of robustness.
+
+For these two methods, only the input disturbace is taken into account, while in the proposed method of this example, the user can vary the response between being optimal to the input disturbance or optimal to the output disturbance, given more flexibility to the tuning. A controller was tuned with these three methods and compared in Table~\ref{tab:desemJdiMonica}.
+%
+\begin{table}
+	\caption{Comparison of the performance of the closed-loop $J_{di}$.}
+	\centering
+	\begin{tabular}{@{}*{4}{p{2cm}}@{}}
+		\toprule
+		$\tau_0$   & Tuning        &IAE        & $M_s$ 	 \\
+		\midrule
+		$0.1$      & Usort        &$0.0615$  &$2.0016$  \\
+		$   $      & Murrill  &$0.0425$  &$3.8956$  \\
+		$   $      & Proposed tuning            &$0.1081$  &$2.0399$  \\	
+		$0.5$      & Usort        &$0.7388$  &$2.0099$  \\				
+		$   $      & Murrill  &$0.6186$  &$2.9757$  \\
+		$   $      & Proposed tuning           &$0.8330$  &$1.7757$  \\
+		$1.0$      & Usort        &$1.6760$  &$2,0047$  \\				
+		$   $      & Murrill  &$1.6710$  &$2.1831$  \\
+		$   $      & Proposed tuning            &$1.5730$  &$2.0366$  \\		
+		\bottomrule				
+	\end{tabular}
+	\label{tab:desemJdiMonica}
+\end{table}
+%
+As it can be from this table, for $\tau_0 = 0.1$ and $\tau_0 = 0.5$, Murril presents the best performance, but in both cases, the value of $M_s$ is rather high, which is undesirable for real control loops. The method presented here gives results very similar to the ones obtained with Usort, which is expected, since both methods minimize an integral cost function with $M_s$ as the robustness constraint. The advantage of the method shown in this example is that the user has an extra variable to fine tune the response.
+%
+\subsection{Tuning for a Three-objective PID controller}
+\label{sec:Tuning3PID}
+For this, the variable $a$ takes values from $0$ to $1$ in $0.1$ steps and $\tau_0$ takes values from $1$ to $2$ in $0.1$ steps. However, for this next example, the maximum sensitivity is constraint to $M_{s,max}=2$.
 
 The methodology after finding the data is to perform a curve fitting procedure to find equations useful to compute the value of $\kappa_p$, $\tau_i$, $\tau_d$ and $beta$ as a function of $a$ and $\tau_0$ and a factor of degradation of the cost functions.
 
@@ -77,14 +298,14 @@ The coefficients $p_{ij}$, where $i=\{0,1,2,3\}$ and $j=\{0,1,2,3,4,5\}$, depend
 %
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.5\textwidth]{Tdfit2.png}
+	\includegraphics[width=0.8\textwidth]{Tdfit2.png}
 	\caption{Second order fit for $\tau_d$ when $a=0.1$ and $\tau_0=1$}
 	\label{F:cftoolTd}
 \end{figure}
 %
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.5\textwidth]{betafit2.png}
+	\includegraphics[width=0.8\textwidth]{betafit2.png}
 	\caption{First order fit for $\beta$ when $a=0.1$ and $\tau_0=1$}
 	\label{F:cftoolbeta}
 \end{figure}
@@ -95,7 +316,7 @@ Going back to the $p_{ij}$, it has to be notice that the value of these paramete
 %
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.5\textwidth]{./a00fit2.png}
+	\includegraphics[width=0.8\textwidth]{./a00fit2.png}
 	\caption{Second order fit for $p_{00}$ in $\kappa_p$}
 	\label{F:coeff}
 \end{figure}
@@ -300,7 +521,7 @@ Another two hundred and twenty regressions were made for all $p_{ij}$. The resul
 	\end{tabular}
 \end{table}
 %
-\subsection{Comparison of regression against Pareto data}
+\subsubsection{Comparison of regression against Pareto data}
 %
 To compare the results from the tuning rule, some simulations were done to compare the original data against the results. The plant model is: 
 
@@ -449,5 +670,67 @@ In these case, a more direct approach may be more suitable for the task of findi
 %
 \section{Database approach for the final tuning}
 \label{sec:DatabaseMOOP}
-To do
 %
+The information of the Pareto front is very valuable, each point represents an optimal controller tuning that also complies with the robustness criterion. However, without any guidance about how to choose the final tuning, the data becomes useless. The idea of using the Pareto as the basis for a tuning rule was explored in Section~\ref{sec:TuningRulesMOOP} for two degrees of freedom PID controllers taking into account three different sources of disturbances and a robustness constraint for a \gls{soptd} plant. However it was found that a simple rule is very difficult to find, given the complexity of the relationship between the different parameters. For simpler cases, it may be possible to find suitable tuning rules (as in \cite{ContrerasLeiva2015a}) but for a more realistic case, the final tuning becomes cumbersome.
+
+In this scenario, the other approach to take advantage of the information in the Pareto is to actually use the data directly. Visualize the Pareto is also a difficult task, specially for more than two cost functions. Therefore, the approach that is presented here is to use a \gls{cad} that let the user to select the desired closed-loop performance according to their needs without the need to plot the front.
+
+The proposed \gls{cad} tool that accompanies this book is named MOOTuning, and is available as a \matlab{} app. An screenshot of the tool is presented in 
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{Ch6MOOTuningParts}
+	\caption{Interface of MOOTuning for PID parameter selection.}
+	\label{fig:Ch6MOOTuningParts}
+\end{figure}
+Figure~\ref{fig:Ch6MOOTuningParts}. It has three main components:
+\begin{enumerate}
+	\item Plant parameters input section
+	\item Results section
+	\item Tuning section
+\end{enumerate}
+%
+The plant parameters input section is used to enter the parameters of the model of the plant. The expected model is an \gls{soptd}, but the value of $a$ can be set to zero, given the option to have also a \gls{foptd} model. However, it is necessary to have a normalized delay time larger than $0.1$. The tool warns the user when an invalid value is entered (as a negative time constant for example). When any of these parameters are changed, the step response plot at the bottom is automatically updated.
+
+The second section shows the user the results of the selected tuning. The main component is a figure where the closed-loop response is plotted for the selected sources of disturbance: \textit{Servo response} is the closed-loop response to a setpoint step change, \textit{Input disturbance regulation response} plots the closed-loop response to a step change at the input of the plant and \textit{Output disturbance regulation response} plots the closed-loop response to  step change at the output of the plant. The control effort can be plotted as well in the same graph.
+
+At the bottom of the second section, the results of the controller parameters, the value of the cost function and the value of the maximum sensitivity are presented with the given tuning. These are updated every time the user makes a change in the third section of the tool.
+
+The last section of the tool is the Tuning section. Here, the user is presented with a series of ``decision choices'' that defines which of the points of the front is selected as the final tuning. The sliders at the top represents the \textit{allowed degradation} of the function with respect to the optimal point. A value of zero means that the lowest value of the cost function is desired, while a value of 1 represents that the function can have any value (even its maximum value).
+
+The tool select the function with the lowest allowed degradation as the main cost function. Then, it searches for a set of parameters that comply with all the degradation limits set by the user, that also has the lowest possible value of the main function. As it can be seen, this tool let the user select the desired value from the Pareto, without the need to plot the front.
+
+The user has also the ability to select if all the cost function need to be used for the tuning, or if only the input disturbance and the setpoint change are considered. Finally, the user can select different values of Maximum Sensitivity, to set the robustness of the closed-loop system. The \textit{Export Tuning} button let the user to copy the values of the tuning and export them as an structure to the \matlab{} workspace.
+
+Of course, it may be possible that the user selects a set of values for $J_{di}$, $J_{do}$ and $J_r$ that do not correspond to a Pareto point. In that case, the tool shows a window indicating that the current selection is not feasible. This window is shown in %
+%
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{Ch6MOOTuning}
+	\caption{Error raised if the desired point lies outside the Pareto front.}
+	\label{fig:Ch6MOOTuning}
+\end{figure}
+%
+Figure~\ref{fig:Ch6MOOTuning}. The user than can relax the allowed degradation of the cost function to be able to find the appropriate tuning. The figures can be saved using the standard \matlab{} methods.
+
+\subsection{Example using MOOTuning}
+\label{sec:MOOTuningExample}
+To do.
+
+\section{Matlab code}
+\label{sec:MatlabBode}
+\subsection{Script for the generation of the Pareto Fronts: GenerateParetosThreeFun}
+\lstinputlisting[style=Matlab-editor, breaklines=true]{./codigo/GenerateParetosThreeFun.m}
+\subsubsection{Function used to avoid nested loops: MeshLaMs}
+This function allows to compute all cases without using nested loops. It was necessary in order to use the parallel computing toolbox to accelerate the computation of all the data.
+\lstinputlisting[style=Matlab-editor, breaklines=true]{./codigo/MeshLaMs.m}
+\subsubsection{Function to compute Ms: MsCalc}
+\lstinputlisting[style=Matlab-editor, breaklines=true]{./codigo/MsCalc.m}
+\subsubsection{Functions that implements the cost functions}
+\textbf{C function for the simulation}
+\lstinputlisting[language=C, breaklines=true, postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}]{./codigo/SOPTDPIDSimu.c}\mbox{}\\
+\textbf{Implementation of the Jdi function}
+\lstinputlisting[style=Matlab-editor, breaklines=true]{./codigo/Jdi.m}\mbox{}\\
+\textbf{Implementation of the Jdo function}
+\lstinputlisting[style=Matlab-editor, breaklines=true]{./codigo/Jdo.m}\mbox{}\\
+\textbf{Implementation of the Jr function}
+\lstinputlisting[style=Matlab-editor, breaklines=true]{./codigo/Jr.m}
