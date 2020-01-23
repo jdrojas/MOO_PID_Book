@@ -1,0 +1,76 @@
+<deployment-project plugin="plugin.apptool" plugin-version="1.0">
+  <configuration file="/home/david/Documentos/UCR/02_Investigacion/01_ProyectosOficiales/MOO_PID_Book/Matlab/MOOTuningv2/untitled1.prj" location="/home/david/Documentos/UCR/02_Investigacion/01_ProyectosOficiales/MOO_PID_Book/Matlab/MOOTuningv2" name="untitled1" target="target.mlapps" target-name="Package App">
+    <param.appname>untitled1</param.appname>
+    <param.authnamewatermark />
+    <param.email />
+    <param.company />
+    <param.icon />
+    <param.icons />
+    <param.summary />
+    <param.description />
+    <param.screenshot />
+    <param.version>1.0</param.version>
+    <param.products.name />
+    <param.products.id />
+    <param.products.version />
+    <param.platforms />
+    <param.output>${PROJECT_ROOT}</param.output>
+    <param.guid>5924066d-7253-424b-8535-b4807b357b0b</param.guid>
+    <unset>
+      <param.authnamewatermark />
+      <param.email />
+      <param.company />
+      <param.icon />
+      <param.icons />
+      <param.summary />
+      <param.description />
+      <param.screenshot />
+      <param.version />
+      <param.products.name />
+      <param.products.id />
+      <param.products.version />
+      <param.platforms />
+      <param.output />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}/MOOTuning.m</file>
+    </fileset.main>
+    <fileset.depfun>
+      <file>/home/david/Dropbox/UCR/02_Investigacion/01_ProyectosOficiales/MOO_PID_Book/Matlab/MOOTuningv2/MsCalc.m</file>
+      <file>/home/david/Dropbox/UCR/02_Investigacion/01_ProyectosOficiales/MOO_PID_Book/Matlab/MOOTuningv2/MsCalc2.m</file>
+      <file>/home/david/Dropbox/UCR/02_Investigacion/01_ProyectosOficiales/MOO_PID_Book/Matlab/MOOTuningv2/equation.png</file>
+    </fileset.depfun>
+    <fileset.resources />
+    <fileset.package />
+    <build-deliverables>
+      <file location="/home/david/Documentos/UCR/02_Investigacion/01_ProyectosOficiales/MOO_PID_Book/Matlab" name="MOOTuningv2" optional="false">/home/david/Documentos/UCR/02_Investigacion/01_ProyectosOficiales/MOO_PID_Book/Matlab/MOOTuningv2</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>/usr/local/MATLAB/R2019b</root>
+      <toolboxes>
+        <toolbox name="matlabcoder" />
+      </toolboxes>
+      <toolbox>
+        <matlabcoder>
+          <enabled>true</enabled>
+        </matlabcoder>
+      </toolbox>
+    </matlab>
+    <platform>
+      <unix>true</unix>
+      <mac>false</mac>
+      <windows>false</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>true</linux>
+      <solaris>false</solaris>
+      <osver>5.3.0-26-generic</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>glnxa64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>
