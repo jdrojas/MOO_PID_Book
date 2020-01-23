@@ -16,7 +16,7 @@ algorithm='interior-point';
 % This is the set of plants. Since the plants are normalized, the only
 % values that change are the normalized delay and the value of a
 %Lv=0.1:0.1:2;
-av=0:0.1:1;
+%av=0:0.1:1; 
 % These are the values of Ms that are going to be tested
 %Msv=[10,2,1.8,1.6,1.4];
 %[LMesh,aMesh,MsMesh] = meshLaMs(Lv,av,Msv); % this function is used to avoid nested loops. Instead a parfor is used to compute the results in paralell

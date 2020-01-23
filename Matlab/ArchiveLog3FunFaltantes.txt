@@ -1,0 +1,26 @@
+The process started at 22-Jan-2020 15:23:12
+Optimizing for Ms =2 L = 1.9 a = 0.3 a las 22-Jan-2020 15:23:13
+Optimizing for Ms =2 L = 1.9 a = 0.4 a las 22-Jan-2020 15:23:13
+Optimizing for Ms =10 L = 1.9 a = 0.3 a las 22-Jan-2020 15:23:13
+Optimizing for Ms =1.8 L = 1.9 a = 0.4 a las 22-Jan-2020 15:23:13
+Write in the file A_Pareto3Fun_a0.4_to1.9_ms1.8.csv at 22-Jan-2020 20:02:05
+Optimizing for Ms =10 L = 2 a = 0 a las 22-Jan-2020 20:02:05
+Write in the file A_Pareto3Fun_a0.3_to1.9_ms2.csv at 22-Jan-2020 20:08:47
+Optimizing for Ms =2 L = 2 a = 0.6 a las 22-Jan-2020 20:08:47
+Write in the file A_Pareto3Fun_a0.4_to1.9_ms2.csv at 22-Jan-2020 20:12:23
+Optimizing for Ms =10 L = 2 a = 0.9 a las 22-Jan-2020 20:12:23
+Write in the file A_Pareto3Fun_a0.3_to1.9_ms10.csv at 22-Jan-2020 20:35:40
+Optimizing for Ms =1.8 L = 2 a = 0.9 a las 22-Jan-2020 20:35:40
+Write in the file A_Pareto3Fun_a0.6_to2_ms2.csv at 23-Jan-2020 01:00:50
+Optimizing for Ms =10 L = 2 a = 1 a las 23-Jan-2020 01:00:50
+Write in the file A_Pareto3Fun_a0.9_to2_ms1.8.csv at 23-Jan-2020 01:01:10
+Optimizing for Ms =1.6 L = 2 a = 1 a las 23-Jan-2020 01:01:10
+Write in the file A_Pareto3Fun_a0.9_to2_ms10.csv at 23-Jan-2020 01:08:37
+Optimizing for Ms =2 L = 2 a = 1 a las 23-Jan-2020 01:08:37
+Write in the file A_Pareto3Fun_a0_to2_ms10.csv at 23-Jan-2020 01:35:08
+Optimizing for Ms =2 L = 1.9 a = 1 a las 23-Jan-2020 01:35:08
+Write in the file A_Pareto3Fun_a1_to2_ms1.6.csv at 23-Jan-2020 03:59:37
+Write in the file A_Pareto3Fun_a1_to2_ms2.csv at 23-Jan-2020 05:44:14
+Write in the file A_Pareto3Fun_a1_to2_ms10.csv at 23-Jan-2020 05:49:16
+Write in the file A_Pareto3Fun_a1_to1.9_ms2.csv at 23-Jan-2020 06:04:24
+The process finished at 23-Jan-2020 06:04:24
