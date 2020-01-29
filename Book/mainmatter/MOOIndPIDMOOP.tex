@@ -678,7 +678,7 @@ In this scenario, the other approach to take advantage of the information in the
 The proposed \gls{cad} tool that accompanies this book is named MOOTuning, and is available as a \matlab{} app. An screenshot of the tool is presented in 
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.8\columnwidth]{Ch6MOOTuningParts}
+	\includegraphics[width=\columnwidth]{Ch6MOOTuningParts}
 	\caption{Interface of MOOTuning for PID parameter selection.}
 	\label{fig:Ch6MOOTuningParts}
 \end{figure}
@@ -705,17 +705,86 @@ Of course, it may be possible that the user selects a set of values for $J_{di}$
 %
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.8\columnwidth]{Ch6MOOTuning}
+	\includegraphics[width=\columnwidth]{Ch6MOOTuningError}
 	\caption{Error raised if the desired point lies outside the Pareto front.}
-	\label{fig:Ch6MOOTuning}
+	\label{fig:Ch6MOOTuningError}
 \end{figure}
 %
-Figure~\ref{fig:Ch6MOOTuning}. The user than can relax the allowed degradation of the cost function to be able to find the appropriate tuning. The figures can be saved using the standard \matlab{} methods.
+Figure~\ref{fig:Ch6MOOTuningError}. The user then needs to relax the allowed degradation of the cost function (i.e. increase the allowed degradation of one of the functions) to be able to find the appropriate tuning. Once the user is satisfied with the design, the tuning can be exported to the \matlab{} workspace and the figure can be saved using the standard \matlab{} methods\footnote{The tool was created using \matlab{} 20019b, earlier versions may not work as expected.}.
 
 \subsection{Example using MOOTuning}
 \label{sec:MOOTuningExample}
-To do.
+In the following, a typical workflow example is presented using the proposed tool. Suppose that the model of the plant to be controlled is given by:
+\begin{equation}
+	H(s) = \frac{0.6 e^{-5s}}{(10 s + 1)(2 s +1)}.
+	\label{eq:ModeloEjemploMOO}
+\end{equation}
 
+From this transfer functions, it can be seen that the parameters are given by $k=0.6$, $T=10$, $L=5$ and $a = 0.2$. The first step then consists of introducing these parameters into the tool, as shown in %
+\begin{figure}[tb]
+	\centering
+	\includegraphics[scale=0.5]{Ch6MOOTuningExample01}
+	\caption{Input of the parameters of the model into MOOTuning.}
+	\label{fig:Ch6MOOTuningExample01}
+\end{figure}
+%
+Figure~\ref{fig:Ch6MOOTuningExample01}. Everytime a parameter is introduced, the tool updates the step response of at the bottom of the screen. In this case, it can be seen that the plant takes approximately $\SI{50}{\second}$ to reach steady state. It has to be noticed that the tuning of the controller is not going to be updated until the allowed degradation of any functions is changed.
+
+For this particular example, only two cost functions are going to be considered ($J_{di}$ and $J_r$) with the option of $M_z > 2.0$. Originally, the allowed degradation is one for both functions, which means that the response presented has the lowest \gls{iae} for servo response without any restriction on the input disturbance response. With this caracterization, the initial closed loop response is as presented in
+%
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.5\columnwidth]{Ch6MOOTuningExample02}
+	\caption{Initial closed-loop response.}
+	\label{fig:Ch6MOOTuningExample02}
+\end{figure}
+%
+Figure~\ref{fig:Ch6MOOTuningExample02}. The response to an input disturbance and to a change in the setpoint is presented in the Tool. However, it can be seen that \SI{100}{\second} are not enough to see the complete response. With a \SI{200}{\second} time window, the closed-loop response is given as presented in %
+\begin{figure}
+	\centering
+	\includegraphics[width=\columnwidth]{Ch6MOOTuningExample03}
+	\caption{Closed-loop response with a \SI{200}{\second} time window.}
+	\label{fig:Ch6MOOTuningExample03}
+\end{figure}
+%
+Figure~\ref{fig:Ch6MOOTuningExample03}. As it can be seen the, disturbance rejection response is rather slow, and the servo response is appropriate. However, it is possible to find a compromise between both. Assume that a degradation of 20\% in the servo response cab be tolerated. The tool can help to answer which is the best disturbance rejection response that can be achieved with this constraint. After trying different values, it was found that the best disturbance rejection response that can be achieved that, at the same time, has a servo response with a degradation no greater than 20\% from its optimal value, has an allowed degradation of $32.6\%$ for $J_{di}$.%
+%
+\begin{table}[tb]
+	\centering
+	\begin{tabular}{cccc}
+		\toprule
+		Case & $J_{di}$ & $J_{r}$ & $M_s$\\
+		\midrule
+		Original Setting & $5.77$ & $10.56$ & $2.05$\\
+		$J_r$ with allowed 20\% degradation & $3.81$ ($-34.0\%$) & $11.10$ ($5.11\%$) & $2.44$\\
+		\bottomrule
+	\end{tabular}
+	\caption{Comparison between the original setting for the closed-loop response and the degraded $J_r$ tuning.}
+	\label{tab:ExampleMOOTuning}
+\end{table}
+
+In Table~\ref{tab:ExampleMOOTuning} the comparison between the original and the final settings are presented. As it can be seen, the tool let the user to find an optimal controller that complies with the maximum allowed degradation for both functions at the same time. In fact, it was possible to find a degradation that reduces the $J{di}$ \gls{iae} by $34\%$ while worsening the $J_r$ only by $5.11\%$. However, it has to be noticed that the robustness value was also increased, which means that the new tuning is less robust than the original.
+
+If it is necessary to maintain the same degree of robustness, the tool allows the user to set the robustness for three different levels ($2.0$, $1.8$ and $1.6$). With the $M_s$ constraint set to $2.0$, the same exercise was performed: the best $J_{di}$ cost function was found while keeping the $J_r$ allowed degradation under $20\%$ and the $M_s$ value near $2.0$. The results are given in %
+%
+\begin{table}[tb]
+	\centering
+	\begin{tabular}{cccc}
+		\toprule
+		Case & $J_{di}$ & $J_{r}$ & $M_s$\\
+		\midrule
+		Original Setting & $5.65$ & $10.62$ & $2.00$\\
+		$J_r$ with allowed 20\% degradation & $4.68$ ($-17.17\%$) & $10.99$ ($3.37\%$) & $2.01$\\
+		\bottomrule
+	\end{tabular}
+	\caption{Comparison between the original setting for the closed-loop response and the degraded $J_r$ tuning with an extra constraint of $M_s = 2.0$.}
+	\label{tab:ExampleMOOTuning02}
+\end{table}
+%
+Table~\ref{tab:ExampleMOOTuning02}. With the extra constraint of keeping the same robustness value, it is necessary to allow a $48.1\%$ degradation on $J_{di}$. It is not possible to find a better response, because it would yield outside the feasible region. Also, it is possible to improve the $J_{di}$ response by $17.17\%$ (compared with the $34\%$ obtained above).
+
+This example shows the usefulness of the tool to explore the Pareto, without the need to plot the Fronts and without optimizing every time a change is made in the allowed degradation parameters. Of course, this is possible thanks to the fact that all the Paretos were obtained beforehand and that they are available as a series of files included in the tool.
+ 
 \section{Matlab code}
 \label{sec:MatlabBode}
 \subsection{Script for the generation of the Pareto Fronts: GenerateParetosThreeFun}
