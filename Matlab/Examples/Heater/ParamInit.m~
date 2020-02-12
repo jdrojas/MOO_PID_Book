@@ -29,16 +29,16 @@ U = 440; %overall heat-transfer coefficient, U = 440 Js −1 m −2◦ C −1 ,
 Wc = 0.02; % : heating jacket wide, W c = 0.02 m,
 Vc = Hc*pi*((D+2*Wc)^2 - D^2)/4 + Wc*pi*(D + 2*Wc)^2/4; % heat jacket volume,
 % Initial conditions of the states for the operating point
-T0  = 38;%30.345;%
+T0  = 30.345;%38;
 H0 = 0.7;
-Tca0 = 214.03;%110.1;%
+Tca0 = 110.1;%214.03;
 YL0 = 87.5;
-YT0 = 76;%60.7;%
+YT0 = 60.7;%76;
 XL0 = 0.7172;
-XT0 = 0.344;
+XT0 = 0.85;
 % Inputs and disturbances for the operating point
 UL0 = 71.72;
-UT0 = 34.40;%85.0;%
+UT0 = 34.4;%34.40;
 Tin = 24.0; % fluid inlet temperature, 22 ◦ C ≤ T i ≤ 26 ◦ C, temperature T i n = 24 ◦ C,
 Tci = 320.0; %heating fluid inlet temperature, T ci = 320 ◦ C,
 Qin = 7e-4; % tank inlet fluid flow rate, 6 × 10 −4 m 3 s −1 ≤ Q i ≤ 7.5 × 10 −4 m 3 s −1 ,

@@ -47,6 +47,9 @@ figure~\ref{fig:LitaPareto}. In this case, the Pareto front is fairly convex.
 \section{Continuous stirred tank heater}
 \label{sec:CSTH}
 %
+\subsection{Description of the process}
+\label{sec:Description}
+%
 The control of a \gls{csth} is a common task in industrial processes. In this section, the control of the temperature of the \gls{csth} will be solved as a \gls{moop} using a \gls{2dof} \gls{pid} controller. The diagram of the process is presented in %
 \begin{figure}[b]
 	\centering
@@ -54,7 +57,7 @@ The control of a \gls{csth} is a common task in industrial processes. In this se
 	\caption{Simplified diagram of a continuous stirred-tank heater to be controlled.}
 	\label{fig:Ch7CSTR}
 \end{figure}
-Figure~\ref{fig:Ch7CSTR}. A heat exchanger is installed inside the tank to heat the fluid. The flow rate inside the heat exchanger is controlled with a valve with input variable $U_T$ and the liquid inside the heat exchanger enters with temperature $T_{ci}$ and leaves with temperature $T_{co}$. The volume inside the tank is variable, the input flow rate is $Q_i$ with temperature $T_i$. The output flow rate is $Q$ with temperature $T$. The output flow rate is controlled with a valve with input variable $U_L$. The tank is covered with a jacket that prevents any heat loss to the atmosphere.
+Figure~\ref{fig:Ch7CSTR}. A heat exchanger is installed inside the tank to heat the fluid. The flow rate inside the heat exchanger is controlled with a valve with input variable $U_T$ and the liquid inside the heat exchanger enters with temperature $T_{ci}$ and leaves with temperature $T_{co}$, the average temperature inide the heat exchanger is $T_{ca}$. The volume inside the tank is variable, the input flow rate is $Q_i$ with temperature $T_i$. The output flow rate is $Q$ with temperature $T$. The output flow rate is controlled with a valve with input variable $U_L$. The tank is covered with a jacket that prevents any heat loss to the atmosphere.
 
 According to \cite{Alfaro2016}, a possible model for this process is given by the following set of algebraic-differential equations:
 \begin{itemize}
@@ -70,14 +73,14 @@ According to \cite{Alfaro2016}, a possible model for this process is given by th
 			where $C_p$ is the heat capacity of the fluid and $W(t)$ is the rate of heat transfer from the heat exchanger to the tank. $W(t)$ can be modeled as:
 	\item Heat exchanger energy balance:
 			\begin{equation*}
-				\rho_c C_{pc} V_c \frac{T_{co}}{dt} = \rho_c C_{pc} Q_c(t)\left( T_{ci}-T_{co}\right) - W(t),
+				\rho_c C_{pc} V_c \frac{T_{ca}(t)}{dt} = \rho_c C_{pc} Q_c(t)\left( T_{ci}(t)-T_{co}(t)\right) - W(t),
 			\end{equation*}
 			where $\rho_c$ is the density of the fluid inside the heat exchanger, $C_{pc}$ is the heat capacity of the fluid inside the heat exchanger and $V_c$ is the volume of the heat exchanger.
 	\item Heat transfer between the heat exchanger and the fluid in the tank:
 			\begin{equation*}
 				W(t) = U A_c \left( T_{ca}(t) - T(t)\right), 
 			\end{equation*}
-			where $U$ is overall heat-transfer coefficient, $A_c$ is the area of the heat exchanger, $T_{ca}$ is the average temperature inside the heat exchanger given by:
+			where $U$ is overall heat-transfer coefficient, $A_c$ is the area of the heat exchanger, $T_{ca}(t)$ is the average temperature inside the heat exchanger which is related to $T_{co}(t)$ and $T_{ci}(t)$ as:
 			\begin{equation*}
 				T_{ca}(t) = \frac{T_{ci}(t) + T_{co}(t)}{2}
 			\end{equation*}
@@ -115,4 +118,48 @@ Also, in \cite{Alfaro2016}, the transmitters and the valves are modeled as:
 		where $T_{vT}$ is the temperature control valve time constant, $K_{xT}$ the temperature control valve stem constant, $K_{vT}$ is the temperature control valve constant $P_{cp}$ is the heating fluid pump discharge pressure, $P_{cr}$ is heating fluid system return pressure and $X_T(t)$ is the temperature control valve stem normalized travel.
 \end{itemize}
 
-Taking this model in consideration, it can be said that, from the point of view of the controller, the controlled variables are give by the signals $Y_L(t)$ (which represents the level) and $Y_T(t)$ (which represents the temperature of the fluid of the tank). The manipulated variables are given by $U_L(t)$ (which directly affects $Q$) and $U_T(t)$ (that directly affects $Q_{c}$). $Q_i(t)$, $T_i$ and $T_{ci}$ are considered as disturbances. The state variables of the system are given by $H(t)$, $T_T(t)$, $T_{co}$, $Y_L(t)$, $Y_T$, $X_L(t)$ and $X_T(t)$, therefore, this model comprises a seventh order non-linear system for a two-input two-output industrial process.
+Taking this model in consideration, it can be said that, from the point of view of the controller, the controlled variables are give by the signals $Y_L(t)$ (which represents the level) and $Y_T(t)$ (which represents the temperature of the fluid of the tank). The manipulated variables are given by $U_L(t)$ (which directly affects $Q$) and $U_T(t)$ (that directly affects $Q_{c}$). $Q_i(t)$, $T_i$ and $T_{ci}$ are considered as disturbances. The state variables of the system are given by $H(t)$, $T_T(t)$, $T_{co}$, $Y_L(t)$, $Y_T$, $X_L(t)$ and $X_T(t)$, therefore, this model comprises a seventh order non-linear system for a two-input two-output industrial process. The parameters of the model can be found in 
+\begin{table}
+	\centering
+	\caption{Parameters for the CSTH process}
+	\label{tab:ParametersCSTH}
+	\begin{tabular}{ccc}
+		\toprule
+		\textbf{Symbol} & \textbf{Value} & \textbf{Description}\\
+		\midrule
+		\multicolumn{3}{c}{\textbf{\textit{Tank parameters}}}\\
+		\midrule
+		$\rho$ 		& \SI{1200}{\kilogram\per\meter\cubed} 			& tank fluid density\\
+		$A$			& \SI{0.0707}{\square\meter}					& tank inside section area\\
+		$C_p$		& \SI{4190}{\joule\per\kilogram\per\celsius}	& tank fluid heat capacity\\
+		$g$			& \SI{9.8}{\meter\per\square\second}			& gravity acceleration\\
+		$K_T$		& \SI{2}{\%\per\celsius}						& temperature transmitter gain\\
+		$K_{vL}$	& \num{1.25e-5}									& level control valve constant\\
+		$K_{vT}$	& \num{3e-6}									& temperature control valve constant\\
+		$K_{xL}$	& \SI{0.01}{\per\%}								& level control valve stem constant\\
+		$Q_i$		& \SI{7e-4}{\cubic\meter\per\second}			& normal tank inlet fluid flow rate\\
+		$T_i$		& \SI{24}{\celsius}								& fluid inlet temperature\\
+		$T_L$		& \SI{2}{\second}								& level transmitter time constant\\
+		$T_T$		& \SI{15}{\second}								& temperature transmitter time constant\\
+		$T_{vL}$	& \SI{3}{\second}								& level control valve time constant\\
+		$T_{vT}$	& \SI{5}{\second}								& temperature control valve time constant\\
+		\midrule
+		\multicolumn{3}{c}{\textbf{\textit{Heat exchanger parameters}}}\\
+		\midrule
+		$\rho_c$ 	& \SI{800}{\kilogram\per\meter\cubed} 			& heating fluid density\\
+		$A_c$		& \SI{0.6362}{\square\meter}					& heat exchanger transfer area\\
+		$C_{pc}$	& \SI{2400}{\joule\per\kilogram\per\celsius}	& heating fluid heat capacity\\
+		$K_L$		& \SI{125}{\%\per\meter}						& level transmitter gain\\
+		$K_{xT}$	& \SI{0.01}{\per\%}								& temperature control valve stem constant\\
+		$P_{cp}$	& \SI{4.14e5}{\pascal}							& heating fluid pump discharge pressure\\
+		$P_{cr}$	& \SI{1.38e5}{\pascal}							& heating fluid system return pressure\\
+		$R_c$		& \SI{5.5e10}{\pascal\per(\cubic\meter\per\second)^2}	& heating system pipe nominal flow resistance\\
+		$R_{vT}$	& \num{50}										& temperature control valve rangeability\\
+		$T_{ci}$	& \SI{320}{\celsius}							& heating fluid inlet temperature\\
+		$U$			& \SI{440}{\joule\per\second\per\square\meter\per\celsius}	& overall heat-transfer coefficient\\
+		$V_c$		& \SI{0.0139}{\cubic\meter}						& heat exchanger volume\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+%
+Table~\ref{tab:ParametersCSTH}\footnote{This model was implemented in Simulink and can be found with the companion software}.
