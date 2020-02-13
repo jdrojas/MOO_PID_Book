@@ -162,4 +162,23 @@ Taking this model in consideration, it can be said that, from the point of view 
 	\end{tabular}
 \end{table}
 %
-Table~\ref{tab:ParametersCSTH}\footnote{This model was implemented in Simulink and can be found with the companion software}.
+Table~\ref{tab:ParametersCSTH}. This model was implemented in Simulink and can be found with the companion software. In %
+%
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=\columnwidth]{Ch7Implementation}
+	\caption{Simulink implementation of the model of the heater.}
+	\label{fig:Ch7Implementation}
+\end{figure}
+%
+Figure~\ref{fig:Ch7Implementation}. Each equation of the model was implemented in a subsystem for clarity. For example in %
+\begin{figure}
+	\centering
+	\includegraphics[width=\columnwidth]{Ch7HeatExhangerEq}
+	\caption{Example of the implementation of the heat exchanger energy balance.}
+	\label{fig:Ch7HeatExhangerEq}
+\end{figure}
+%
+Figure~\ref{fig:Ch7HeatExhangerEq} the Simulink implementation of the heat exchanger energy balance is presented. The result of this submodel is the computation of the state variable $T_{ca}$, which represents the average temperature of the heating fluid. As it can be seen, the parameters of the model are not hard-coded in the Simulink blocks, instead a parameter initialization script is call before the simulation starts. If the user desires to change any value of the parameters, it can be done globally in the script and then automatically call during the simulation. 
+
+In order to find a PID controller using the MOOTuning app, it is necessary to find a linear model of the plant in the operation point. An identification procedure was performed with a change of 10\% in the 
