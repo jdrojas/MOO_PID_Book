@@ -179,6 +179,67 @@ Figure~\ref{fig:Ch7Implementation}. Each equation of the model was implemented i
 	\label{fig:Ch7HeatExhangerEq}
 \end{figure}
 %
-Figure~\ref{fig:Ch7HeatExhangerEq} the Simulink implementation of the heat exchanger energy balance is presented. The result of this submodel is the computation of the state variable $T_{ca}$, which represents the average temperature of the heating fluid. As it can be seen, the parameters of the model are not hard-coded in the Simulink blocks, instead a parameter initialization script is call before the simulation starts. If the user desires to change any value of the parameters, it can be done globally in the script and then automatically call during the simulation. 
+Figure~\ref{fig:Ch7HeatExhangerEq} the Simulink implementation of the heat exchanger energy balance is presented. The result of this submodel is the computation of the state variable $T_{ca}$, which represents the average temperature of the heating fluid. As it can be seen, the parameters of the model are not hard-coded in the Simulink blocks, instead a parameter initialization script is call before the simulation starts. If the user desires to change any value of the parameters, it can be done globally in the script and then automatically called during the simulation.
 
-In order to find a PID controller using the MOOTuning app, it is necessary to find a linear model of the plant in the operation point. An identification procedure was performed with a change of 10\% in the 
+\subsection{Simplified linear model}
+\label{sec:SimpLinMod}
+In order to find a PID controller using the MOOTuning app, it is necessary to find a linear model of the plant in the operation point. An identification procedure was performed with a change of 10\% in the value of $U_T$ to find the transfer function between $Y_T$ and $U_T$. The response to this change is depicted in %
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.8\columnwidth]{Ch7CSTHResp}
+	\caption{Response of the process to a change of 10\% in the $U_T(t)$ input.}
+	\label{fig:Ch7CSTHResp}
+\end{figure}
+%
+Figure~\ref{fig:Ch7CSTHResp}. As it can be seen, the response is overdamped and takes approximately \SI{500}{\second} to reach a new steady state. A change in 10\% on the input signal produces a variation of approximately $3.5\%$ in the output signal. It has to be noticed that the presented signals are normalized between 0 and 100\% representing the full spam of the transmitter and actuators.
+
+In order to find the model, the process was supposed to have two poles, no zeros and a pure time-delay (also known as dead-time). Of course, if a linearization procedure were performed using the nonlinear model, a seventh order model would be obtained. However, for PID tuning, a first or second order model is usually expected to tune the controller.
+
+Considering the experiment performed with the data as depicted in Figure~\ref{fig:Ch7CSTHResp}, the resulting simplified model is given by:
+%
+\begin{equation}
+\frac{Y_T(s)}{U_T(s)} = \frac{0.3658 e^{-24.736 s}}{(52.861 s+1)(52.805 s +1)}.
+\label{eq:TFCSTH}
+\end{equation}
+
+From this transfer function, it can be deduced that the gain is equal to $K = 0.3658$, the main time constant is given by $T = 52.861$, the ratio between the two time constant is given by $a = 0.9989$ and the dead-time is given by $L = 24.736$, therefore the normalized dead-time is given by $\tau = 0.4679$.
+
+To test the validity of this simplified model, the response of the transfer function is compared against the response of the non-linear model. It was found that the transfer function response is very similar to the response of the non-linear model, as can be seen in %
+%
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=\columnwidth]{Ch7CSTHComp}
+	\caption{Comparison between the linear and no linear models for the CSTH.}
+	\label{fig:Ch7CSTHComp}
+\end{figure}
+%
+Figure~\ref{fig:Ch7CSTHComp}. It is clear that the non-linear model is a good representation of the dynamical response of the process. This is the first step in order to find a suitable PID controller to control the plant. In \cite{Alfaro2016} the level of the tank is also controlled, however the dynamic of the level is simpler (its model can be approximated with a first order model without delay) and in this particular example, only the temperature is going to be controlled, while the level is considered to be constant.
+%
+\subsection{PID control of the CSTH}
+\label{sec:PIDCSTH}
+In this section, the process will be controlled using a \gls{pid} controller with different tuning methods and compared with the \gls{moo} framework used in the book.
+
+Three different tuning rules were considered: the SIMC method~\cite{Skogestad2003}, the method by Rovira~\cite{Rovira1969a} and the method by Murril~\cite{Murril1967}. The equations were implemented as presented in \cite{odwyer2006}. For the case of the Rovira and Murril method, the model in \eqref{eq:TFCSTH} was reduced to a first order model using the Half-Rule in \cite{Skogestad2003}:
+\begin{equation}
+\frac{Y_T(s)}{U_T(s)} = \frac{0.3658 e^{-24.7360 s}}{79.2635 s +1}.
+\label{eq:TFCSTHFirstOrder}
+\end{equation}
+
+On %
+\begin{table}[tb]
+	\centering
+	\caption{Comparison of different PID tunings for the CSTH process.}
+	\setlength{\tabcolsep}{8pt}
+	\begin{tabular}{ccccccc}
+		\toprule
+		Tuning 	& $K_p$ 	& $T_i$		& $T_d$		& $\beta$	& $J_{r}$	& $J_{di}$\\
+		\midrule
+		SIMC	& $5.84$	& $105.67$	& $26.42$	& $1$			& $55.14$	& $18.10$\\
+		Murril	& $5.87$	& $65.017$	& $23.21$	& $1$			& $82.51$	& $15.34$\\
+		Rovira	& $4.34$	& $120.805$	& $18.48$	& $1$			& $76.00$	& $27.79$\\
+		\bottomrule
+	\end{tabular}
+	\label{tab:CompPIDCSTH}
+\end{table}
+%
+Table~\ref{tab:CompPIDCSTH}, the resulting tuning is presented with the associated values of $J_{di}$ and $J_r$. The Murril and Rovira methods presented in the table were selected because they are intended to minimize the \gls{iae}. The SIMC method was selected because it presents a good compromise between performance, robustness and easiness of the tuning rule. In all cases, the PID tuning is for a one degree of freedom controller (that is  the reason why $\beta$ is equal to one).
