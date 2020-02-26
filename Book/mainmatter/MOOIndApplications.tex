@@ -6,7 +6,108 @@ La idea acá es comparar algunos métodos y ver cómo terminan puestos en el Par
 %
 \section{High order benchmark plant}
 \label{sec:Bechmark}
-To do
+In order to test the capabilities of a 2DoF-PID controller optimized using the ENNC method, a benchmark process presented in \cite{Astroem2000} is used for comparison. It is a fourth order plant given by:
+\begin{equation}
+P(s) = \frac{1}{\prod_{n=0}^{n=3}(0.5^n s+1)}.
+\label{eq:benchmarkTF}
+\end{equation}
+
+A low order model can be found in order to design a suitable PID controller for the full order plant. When a unit step change is performed on the plant, the low order model can be given by:
+%
+\begin{equation}
+F(s)=\frac{e^{-0.297s}}{(0.9477s+1)(0.6346s+1)}
+\label{eq:BenchTFfit}
+\end{equation}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%BUSCAR EL CONTROLADOR ENNC PARA ESTA PLANTA Y COMPARARLA CON OTROS MÉTODOS DE CONTROL.
+In Figure~\ref{fig:paretomodelo}, the Pareto frontier obtained for the model \eqref{eq:BenchTFfit} is presented, the curve was obtained with the ENNC optimization of the cost functions $J_r$ y $J_{di}$, and the optimal parameters of PID controller with two degrees of freedom were obtained.  
+%
+\begin{figure}%
+	\centering
+	\includegraphics[width=0.9\columnwidth]{paretomodelo}%
+	\caption{The Pareto frontier for the benchmark process}%
+	\label{fig:paretomodelo}%
+\end{figure}
+
+It is interesting to note that, in order to improve the response of the $J_{di}$ cost function, the $J_{r}$ value has to be augmented (worsening the regulator response), however the degradation is not as much as the improvement in the $J_{r}$ function. This is a clear example of one of the many advantages of using a multi-objective framework for controller tuning.
+
+The optimal parameters for the 2Dof-PID controller, for optimum tuning in disturbance rejection ($J_{di}$) and optimal servo control ($J_r$), are presented in in Table \ref{tab:parametroscontrolador}, along with two other tunings: the ART$_2$ method \cite{Vilanova2011} and the uSORT$_2$ \cite{usort}, to compare the performance of the closed loop control. It is important to clarify that these two tuning are just the extreme points of the Pareto front, thanks to the ENNC method, the control engineer is able to select any closed-loop response between these two extremes, all of them equally optimal.
+
+In Figure~\ref{fig:cambioreferencia}, the response of the control loop with the four different tunings is presented, for a reference value change. The best system response is given by the ENNC optimal controller $J_r$, emphasizing its characteristics of less integral error, as shown in Table~\ref{tab:IAEref}.
+
+The optimal controller for disturbance rejection is presented in figure \ref{fig:cambiodi}, is the fastest response to reach the desired value. Also it is seen how the loop response with optimal controller for changes in reference value is the worst for disturbance rejection. The proper functioning of each tune is then evidence, and how to optimize capaccidad objective functions lead to a better choice of parameters of the controller with the need basse control is to be implemented. In table \ref{tab:IAEdi}, the corresponding values of IAE for the curves in figure \ref{fig:cambiodi} are presented, and again the optimal controller is the one that allows minor error.
+
+The optimal controller for disturbance rejection is presented in figure \ref{fig:cambiodi}. Again, the tunnig given by the ENNC method is the fastest response to reach the desired value. Also it is seen how the loop response with optimal controller for changes in reference value is the worst for disturbance rejection. It can be seen that the ART$_2$ and the uSORT$_{2}$ methods fall between these two optimal responses. However, it does not necessarily means that these methods are optimal. Only the tuning found with the ENNC method can be considered to be Pareto optimal. In Table~\ref{tab:IAEdi}, the corresponding values of IAE for the curves in Figure~\ref{fig:cambiodi} are presented, and again the optimal controller is the one that achieves the lower error value.
+
+%CAMBIO EN VALOR REFERENCIA
+\begin{figure}%
+	\centering
+	\includegraphics[width=0.95\columnwidth]{cambioreferencia}%
+	\caption{Optimal response of the control system $J_r$}%
+	\label{fig:cambioreferencia}%
+\end{figure}
+
+%CAMBIO EN PERTURBACIÓN
+\begin{figure}%
+	\centering
+	\includegraphics[width=0.95\columnwidth]{cambiodi}%
+	\caption{Optimal response of the control system $J_{di}$}%
+	\label{fig:cambiodi}%
+\end{figure}
+
+%parámetros del controlador
+\begin{table}
+	\caption{PID controller parameters using two degrees of freedom.}
+	\centering
+	\begin{tabular}{@{}*{5}{c}@{}}
+		\toprule
+		Tuning              &$K_c$       &$T_i$      &$T_d$     & $\beta$ 	\\
+		\midrule              
+		optimum $J_{di}$     &$3.3750$   & $1.0812$  &$0.3095$  &$0.5466$   \\
+		optimum $J_{r}$      &$3.0572$   & $8.4419$  &$0.3986$  &$1.2329$   \\
+		$ART_2$             &$3.3657$   & $1.7636$  &$0.4884$  &$0.2971$   \\
+		$uSORT_2$           &$3.1708$   & $0.8997$  &$0.3945$  &$0.4731$   \\	
+		
+		\bottomrule				
+	\end{tabular}
+	\label{tab:parametroscontrolador}
+\end{table}
+
+%IAE ante cambio en valor de referencia
+\begin{table}
+	\caption{Servo performace response}
+	\centering
+	\begin{tabular}{@{}*{3}{c}@{}}
+		\toprule
+		Tuning             &IAE        &$M_s$   \\
+		\midrule              
+		optimum $J_{r}$     &$1.004$   & $2$    \\
+		optimum $J_{di}$    &$1.297$   & $2$    \\
+		$uSORT_2$          &$1.522$   & $2$    \\
+		$ART_2$          &$2.121$   & $2$    \\	
+		
+		\bottomrule				
+	\end{tabular}
+	\label{tab:IAEref}
+\end{table}
+
+%IAE ante cambio en perturbación
+\begin{table}
+	\caption{Regulator response}
+	\centering
+	\begin{tabular}{@{}*{3}{c}@{}}
+		\toprule
+		Tuning            &IAE        &$M_s$   \\
+		\midrule              
+		optimum $J_{di}$   &$0.1017$   & $2$    \\
+		$uSORT_2$          &$0.1095$   & $2$    \\
+		$ART_2$            &$0.1574$    & $2$    \\	
+		optimum $J_{r}$    &$0.8283$   & $2$    \\
+		\bottomrule				
+	\end{tabular}
+	\label{tab:IAEdi}
+\end{table}
 %
 \section{LiTaO$_3$ Thin Film Deposition Process}
 \label{sec:LiTAO3}
@@ -303,3 +404,8 @@ Figure~\ref{fig:Ch7CompPareto}. As it was expected, all the controllers found us
 	\caption{Servo response comparison for minimum IAE.}
 	\label{fig:Ch7CompParetoServo}
 \end{figure}
+
+In Figures~\ref{fig:Ch7CompParetoReg} and \ref{fig:Ch7CompParetoServo} the responses to a step change in the setpoint and in the disturbance are presented. The corresponding values of \gls{iae} are also presented in the graph. In all cases, the robustness was not considered as a constraint. but it is possible to include it within the MOOTuning software. From Figure~\ref{fig:Ch7CompPareto} given the steep slope of the curve for lower values of $J_{di}$ that a small change in $J_{di}$ may improve substantially the performance for $J_r$. Therefore, one may be more prone to select a controller that may have a little degradation in $J_{di}$ and for this reason, controller MOO01 may not be a good selection as a final solution unless having the minimum value possible of $J_{di}$ is the final goal.
+
+The controller MOO02 may be seen as an intermediate solution between MOO1 and MOO03 in case both $J_{di}$ and $J_r$ are equally important for the decision maker. The power of the multiobjective framework is evident, and giving that the computational power is done offline, it becomes a good tool for the tuning of PIDs in an industrial setting.
+
