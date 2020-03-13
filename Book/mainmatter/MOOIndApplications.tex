@@ -123,7 +123,6 @@ It is important to note that in these figures, only two possible points (in fact
 \label{sec:LiTAO3}
 Temperature control is a very important factor in the deposition process of lithium tantalate (LiTaO$_3$) by means of metal organic chemical vapor deposition (MOCVD) \cite{Zhang2004}.
 
-
 The dynamics of the reactor chamber are characterized by a large lag and time-delay. It is important for the quality of the final product, that the controller follow a predefined temperature profile accurately (servo control) while been able to reject other disturbances (regulatory control).
 
 The model of the MOCVD chamber can be given by:
@@ -135,7 +134,7 @@ G(s) = \frac{K e^{-L s}}{T s+1},
 where the gain $K = 3.2$, the time constant $T = 200$~s and the time-delay $L = 150$~s.
 
 For this case, a two function MOOP is considered with $J_{di}$ and $J_{r}$ as cost functions and a robustness restriction of $M_S = 2.0$. When solving the optimization using the ENNC method, the obtained Pareto front is as given in %
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\begin{tikzpicture}
 	\begin{axis}[
@@ -153,9 +152,215 @@ For this case, a two function MOOP is considered with $J_{di}$ and $J_{r}$ as co
 	\label{fig:LitaPareto}
 \end{figure}
 %
-figure~\ref{fig:LitaPareto}. In this case, the Pareto front is fairly convex.
+figure~\ref{fig:LitaPareto}.
 
-\textbf{TO DO!!!!}
+Again, the Pareto front let the decision maker to choose between multiple possible solutions. In this particular case, taking the anchor point for minimum value of $J_{di}$ from Figure~\ref{fig:LitaPareto}, it can be seen that, from this point, if $J_{di}$ is degraded by $1.8\%$, it means an improvement of $4.37\%$ for $J_{r}$. This information could only be possible if the Pareto is available is some way, either as a graph or as a set of raw data.
+
+In order to help the control engineer to understand the tuning of the controller, it could be useful to plot the variation of the controller parameters as a function of the degradation of one of the cost functions. Given that the LiTaO$_3$ Thin Film Deposition Process requires to follow a given temperature profile, the control engineer may surely consider $J_r$ as the main function.
+%
+\begin{figure}[tb]
+	\centering
+	\subfloat[$K_p$ variation for the LiTaO$_3$ thin film deposition process as a function of $J_r$ degradation.]{
+	\begin{tikzpicture}
+	\begin{axis}[
+	label style={font=\scriptsize},
+	tick label style={font=\scriptsize},
+	xlabel = $m$ (\%),
+	ylabel = $K_p$,
+	grid = major,
+	width=0.45\columnwidth,
+	%scaled x ticks={real:0.01},
+	%xtick scale label code/.code={},
+	xtick={0,0.2,...,1.2},
+	scaled x ticks={real:0.01},
+	xtick scale label code/.code={},
+	ytick={0.41,0.412,...,0.44},
+	y tick label style={
+		/pgf/number format/.cd,
+		fixed,
+		fixed zerofill,
+		precision=3,
+		/tikz/.cd
+	}
+	]
+	\addplot[mark=none, line width=1pt,color=brown] table[x=Jrn, y=Kp]{./tablas/Pareto_LiTa_ms2.dat};
+	\end{axis}
+	\end{tikzpicture}
+	\label{fig:LitaParetoKp}}\qquad
+	%
+	\subfloat[$T_i$ variation for the LiTaO$_3$ thin film deposition process as a function of $J_r$ degradation.]{
+		\begin{tikzpicture}
+		\begin{axis}[
+		label style={font=\scriptsize},
+		tick label style={font=\scriptsize},
+		xlabel = $m$ (\%),
+		ylabel = $T_i$,
+		grid = major,
+		width=0.45\columnwidth,
+		xtick={0,0.2,...,1.2},
+		scaled x ticks={real:0.01},
+		xtick scale label code/.code={},
+		%xtick={0,0.1,...,1},
+		ytick={200,220,...,320},
+		]
+		\addplot[mark=none, line width=1pt,color = blue] table[x=Jrn, y=Ti]{./tablas/Pareto_LiTa_ms2.dat};
+		\end{axis}
+		\end{tikzpicture}
+		\label{fig:LitaParetoTi}
+		}\\
+	%
+	\subfloat[$T_d$ variation for the LiTaO$_3$ thin film deposition process as a function of $J_r$ degradation.]{
+		\begin{tikzpicture}
+		\begin{axis}[
+		label style={font=\scriptsize},
+		tick label style={font=\scriptsize},
+		xlabel = $m$ (\%),
+		ylabel = $T_d$,
+		grid = major,
+		width=0.45\columnwidth,
+		xtick={0,0.2,...,1.2},
+		scaled x ticks={real:0.01},
+		xtick scale label code/.code={},
+		%xtick={0,0.1,...,1},
+		ytick={40,41,...,55},
+		]
+		\addplot[mark=none, line width=1pt,color = red] table[x=Jrn, y=Td]{./tablas/Pareto_LiTa_ms2.dat};
+		\end{axis}
+		\end{tikzpicture}
+		\label{fig:LitaParetoTd}
+		}\qquad
+	%
+	\subfloat[$\beta$ variation for the LiTaO$_3$ thin film deposition process as a function of $J_r$ degradation.]{
+		\begin{tikzpicture}
+		\begin{axis}[
+		label style={font=\scriptsize},
+		tick label style={font=\scriptsize},
+		xlabel = $m$ (\%),
+		ylabel = $\beta$,
+		grid = major,
+		width=0.45\columnwidth,
+		xtick={0,0.2,...,1.2},
+		scaled x ticks={real:0.01},
+		xtick scale label code/.code={},
+		%xtick={0,0.1,...,1},
+		ytick={0.65,0.7,...,1.05},
+		]
+		\addplot[mark=none, line width=1pt,color = olive] table[x=Jrn, y=beta]{./tablas/Pareto_LiTa_ms2.dat};
+		\end{axis}
+		\end{tikzpicture}
+		\label{fig:LitaParetoBeta}	
+	}
+	%
+	\caption{Variation of the parameters vs $J_r$ for the  LiTaO$_3$ thin film deposition process.}
+	\label{fig:LitaParetoParam}
+\end{figure}
+%
+
+In Figure~\ref{fig:LitaParetoParam} the values of all the controller parameters are plotted against $m$, where $m$ is defined as the normalized degradation of $J_{r}$ ($m=0$ represents the anchor point where $J_r$ has its lowest value). Looking the behaviour of $K_p$ in Figure~\ref{fig:LitaParetoKp}, it is clear that the value of $K_p$ is kept fairly constant for all values of $m$. This almost negligible variation may be associated to the fact that, for all controller tunings, the maximum sensitivity is set at $M_S = 2$. When this constraint is not taken into account, the value of $K_p$ may have large variations as in the example in Section~\ref{sec:CSTH}.
+
+For the case of the integral time $T_i$, the behavior of this parameter is plotted in Figure~\ref{fig:LitaParetoTi}. Note that, contrary to the case of $K_p$, the variation is highly dependent of $J_r$ and fairly smooth, which is desirable if the interest is to find a tuning rule. However, for the derivative time $T_d$ in Figure~\ref{fig:LitaParetoTd}, it can be seen that the variation is important but the behavior is not as near as smooth as in the case of $T_i$. Finally and the setpoint weight factor $\beta$, also has a piece-wise behavior with respect to $J_r$ and also the variation of its value is important. Nevertheless, once computed the corresponding tunings of all the controllers of the Pareto, is just to pick and decide which one is more appropriate for the task.
+
+The response of the controlled system to a setpoint step change is presented in %
+%
+\begin{figure}[tb]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	label style={font=\scriptsize},
+	tick label style={font=\scriptsize},
+	xlabel = time~(s),
+	ylabel = output,
+	legend cell align=left,
+	legend style = {legend pos = south east, font=\scriptsize},%{at={(1,0.05)}, anchor=south east},%
+	grid = major,
+	width=0.8\columnwidth,
+	%scaled x ticks={real:0.01},
+	%xtick scale label code/.code={},
+	xtick={0,200,...,1600},
+	%ytick={41,42,...,52},
+	]
+	\addplot[mark=none, color=red] table[x=time, y=r]{./tablas/TestServo.dat};
+	\addplot[mark=none,dashed, color=blue] table[x=time, y=yservo]{./tablas/TestServo.dat};
+	\addplot[mark=none,densely dashdotdotted, color=olive] table[x=time, y=yreg]{./tablas/TestServo.dat};
+	\addplot[mark=none,dashdotted, color=magenta] table[x=time, y=yusort]{./tablas/TestServo.dat};
+	\legend{Reference,$m=0\%$ (IAE=$244.66$), $m=100\%$ (IAE=$285.64$),uSORT$_2$ (IAE=$304.39$)}
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Servo response of the LiTaO$_3$ thin film deposition process with tree different tuning.}
+	\label{fig:LitaServo}
+\end{figure}
+%
+figure~\ref{fig:LitaServo} and for a step signal in the input disturbance in %
+%
+\begin{figure}[tb]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	label style={font=\scriptsize},
+	tick label style={font=\scriptsize},
+	xlabel = time~(s),
+	ylabel = output,
+	legend cell align=left,
+	legend style = {at={(1.05,1)}, anchor=north east, font=\scriptsize},%{legend pos = north east},%
+	grid = major,
+	width=0.8\columnwidth,
+	%scaled x ticks={real:0.01},
+	%xtick scale label code/.code={},
+	xtick={0,200,...,1600},
+	%ytick={41,42,...,52},
+	]
+	\addplot[mark=none, color=red] table[x=time, y=di]{./tablas/TestReg.dat};
+	\addplot[mark=none,dashed, color=blue] table[x=time, y=yservo]{./tablas/TestReg.dat};
+	\addplot[mark=none,densely dashdotdotted, color=olive] table[x=time, y=yreg]{./tablas/TestReg.dat};
+	\addplot[mark=none,dashdotted, color=magenta] table[x=time, y=yusort]{./tablas/TestReg.dat};
+	\legend{Disturbance, $m=0\%$ (IAE=$724.24$), $m=100\%$ (IAE=$502.65$),uSORT$_2$ (IAE=$522.00$)}
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Regulation response of the LiTaO$_3$ thin film deposition process with tree different tuning.}
+	\label{fig:LitaReg}
+\end{figure}
+%
+figure~\ref{fig:LitaReg}. For both cases, the anchor points controllers where compared against the uSORT$_2$ tuning rule \cite{Alfaro2012}, since both uses a \gls{2dof} \gls{pid} controller structure and both attempt to minimize an \gls{iae} cost function.
+
+---------------$<$Voy por aca$>$------------------------
+
+
+For the reference tracking in figure~\ref{fig:LitaServo}, it is clear that the best servo response taken from the Pareto is better than any other controller with the constraint of having a maximum sensitivity of $M_{S,max} = 2$. The uSORT$_2$ method is intended primarily as a regulation tuning with a given fixed $M_S$, and therefore, it is not surprising that this method has a higher IAE.
+
+In the case of the disturbance rejection case, the best tuning is the one given by the best regulator of the Pareto front. The response of this controller is much better than the response given by the best servo controller. When comparing this response with the given by the uSORT$_2$ method, the response is quite similar, since the regulation response of the uSORT$_2$ controller is just $3.85\%$ higher.
+
+However, it is clear that, from the information obtained with the Pareto front, one may be able to find more than just two controller tunings. In fact, one may find all possible optimal controllers in the IAE sense within these two extremes. For example in %
+%
+\begin{figure}[tb]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	label style={font=\scriptsize},
+	tick label style={font=\scriptsize},
+	xlabel = time~(s),
+	ylabel = output,
+	legend cell align=left,
+	legend style = {legend pos = south east, font=\scriptsize},%{at={(1,0.05)}, anchor=south east},
+	grid = major,
+	width=0.8\columnwidth,
+	%scaled x ticks={real:0.01},
+	%xtick scale label code/.code={},
+	xtick={0,200,...,1600},
+	%ytick={41,42,...,52},
+	]
+	\addplot[mark=none] table[x=time, y=y1.00]{./tablas/TestParetoServo.dat};
+	\addplot[mark=none,dashed] table[x=time, y=y0.61]{./tablas/TestParetoServo.dat};
+	\addplot[mark=none,densely dashdotdotted] table[x=time, y=y0.31]{./tablas/TestParetoServo.dat};
+	\addplot[mark=none,dotted] table[x=time, y=y0.12]{./tablas/TestParetoServo.dat};
+	\addplot[mark=none,dashdotted] table[x=time, y=y0.00]{./tablas/TestParetoServo.dat};
+	\legend{$m=100\%$, $m=61\%$,$m=31\%$,$m=12\%$,$m=0\%$}
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Servo response of the LiTaO$_3$ thin film deposition process varying the tuning across the Pareto front with different degradations.}
+	\label{fig:LitaServoParetoResp}
+\end{figure}
+%
+figure~\ref{fig:LitaServoParetoResp}, five of the possible tuning on the Pareto are presented from $m=100\%$ to $m=0\%$ for the reference tracking response. In all cases $M_{S,max}\leq 2.0$. As it can be seen, one of the main advantages of finding the Pareto front is to be able to choose the desired response from an equally optimal set of controller parameters.
 %-----------------------------------------------------------------------------------------------------------------------------------
 %
 \section{Continuous stirred tank heater}

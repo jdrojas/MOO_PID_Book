@@ -57,6 +57,12 @@
 \usepackage{matlab-prettifier}
 \usepackage{siunitx}
 \usepackage{pgfplots}
+\usepackage{subfig}
+\pgfkeys{
+	/pgf/number format/.cd,
+	set thousands separator={\,},
+	min exponent for 1000 sep=4,
+}
 \makeglossaries
 %
 \graphicspath{{./figuras/}}
