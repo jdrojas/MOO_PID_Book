@@ -141,7 +141,7 @@ For this case, a two function MOOP is considered with $J_{di}$ and $J_{r}$ as co
 	xlabel = $J_{di}$,
 	ylabel = $J_{r}$,
 	grid = major,
-	width=0.8\columnwidth,
+	width=0.7\columnwidth,
 	xtick={0.7,0.75,...,1.2},
 	ytick={1.2,1.22,...,1.5},
 	]
@@ -273,7 +273,7 @@ The response of the controlled system to a setpoint step change is presented in 
 	legend cell align=left,
 	legend style = {legend pos = south east, font=\scriptsize},%{at={(1,0.05)}, anchor=south east},%
 	grid = major,
-	width=0.8\columnwidth,
+	width=0.75\columnwidth,
 	%scaled x ticks={real:0.01},
 	%xtick scale label code/.code={},
 	xtick={0,200,...,1600},
@@ -303,7 +303,7 @@ figure~\ref{fig:LitaServo} and for a step signal in the input disturbance in %
 	legend cell align=left,
 	legend style = {at={(1.05,1)}, anchor=north east, font=\scriptsize},%{legend pos = north east},%
 	grid = major,
-	width=0.8\columnwidth,
+	width=0.75\columnwidth,
 	%scaled x ticks={real:0.01},
 	%xtick scale label code/.code={},
 	xtick={0,200,...,1600},
@@ -322,14 +322,11 @@ figure~\ref{fig:LitaServo} and for a step signal in the input disturbance in %
 %
 figure~\ref{fig:LitaReg}. For both cases, the anchor points controllers where compared against the uSORT$_2$ tuning rule \cite{Alfaro2012}, since both uses a \gls{2dof} \gls{pid} controller structure and both attempt to minimize an \gls{iae} cost function.
 
----------------$<$Voy por aca$>$------------------------
+Take into account the response presented in Figure~\ref{fig:LitaServo}. The response of the controlled system is compared against the uSORT$_2$ method as in Section~\ref{sec:Bechmark} given that in this particular example the value of \gls{ms} is also considered. Given that the responses taken from the Pareto are the extreme cases, it is to be expected that all other responses in the Pareto are going to be between these two. Therefore, all the controllers in the Pareto surpass the servo response of the uSORT$_2$, which is not a surprising result given that the uSORT$_2$ method is said to be suboptimal with respect to the servo response, as it is primarily optimized for regulation.
 
+For this same reason, when examining the responses in Figure~\ref{fig:LitaReg} for the disturbance rejection case, it can be seen that the uSORT$_2$ response is close to the case of $m = 100\%$ and this is exactly what it was expected since the uSORT$_2$ method was intended for regulation. Of course, the tuning of the other anchor point has a much worse response, and therefore, the uSORT$_2$ response lies between these two extremes. However, this fact does not mean that the uSORT$_2$ method is optimal in the Pareto sense, because, it may  be possible to find a better servo response with a similar regulation \gls{iae}.
 
-For the reference tracking in figure~\ref{fig:LitaServo}, it is clear that the best servo response taken from the Pareto is better than any other controller with the constraint of having a maximum sensitivity of $M_{S,max} = 2$. The uSORT$_2$ method is intended primarily as a regulation tuning with a given fixed $M_S$, and therefore, it is not surprising that this method has a higher IAE.
-
-In the case of the disturbance rejection case, the best tuning is the one given by the best regulator of the Pareto front. The response of this controller is much better than the response given by the best servo controller. When comparing this response with the given by the uSORT$_2$ method, the response is quite similar, since the regulation response of the uSORT$_2$ controller is just $3.85\%$ higher.
-
-However, it is clear that, from the information obtained with the Pareto front, one may be able to find more than just two controller tunings. In fact, one may find all possible optimal controllers in the IAE sense within these two extremes. For example in %
+Finally to consciously be aware of the advantage of computing the Pareto front, in %
 %
 \begin{figure}[tb]
 	\centering
@@ -342,17 +339,17 @@ However, it is clear that, from the information obtained with the Pareto front, 
 	legend cell align=left,
 	legend style = {legend pos = south east, font=\scriptsize},%{at={(1,0.05)}, anchor=south east},
 	grid = major,
-	width=0.8\columnwidth,
+	width=0.75\columnwidth,
 	%scaled x ticks={real:0.01},
 	%xtick scale label code/.code={},
 	xtick={0,200,...,1600},
 	%ytick={41,42,...,52},
 	]
-	\addplot[mark=none] table[x=time, y=y1.00]{./tablas/TestParetoServo.dat};
-	\addplot[mark=none,dashed] table[x=time, y=y0.61]{./tablas/TestParetoServo.dat};
-	\addplot[mark=none,densely dashdotdotted] table[x=time, y=y0.31]{./tablas/TestParetoServo.dat};
-	\addplot[mark=none,dotted] table[x=time, y=y0.12]{./tablas/TestParetoServo.dat};
-	\addplot[mark=none,dashdotted] table[x=time, y=y0.00]{./tablas/TestParetoServo.dat};
+	\addplot[mark=none, color=red] table[x=time, y=y1.00]{./tablas/TestParetoServo.dat};
+	\addplot[mark=none,dashed, color=blue] table[x=time, y=y0.61]{./tablas/TestParetoServo.dat};
+	\addplot[mark=none,densely dashdotdotted, color=olive] table[x=time, y=y0.31]{./tablas/TestParetoServo.dat};
+	\addplot[mark=none,dotted, color=magenta] table[x=time, y=y0.12]{./tablas/TestParetoServo.dat};
+	\addplot[mark=none,dashdotted, color=cyan] table[x=time, y=y0.00]{./tablas/TestParetoServo.dat};
 	\legend{$m=100\%$, $m=61\%$,$m=31\%$,$m=12\%$,$m=0\%$}
 	\end{axis}
 	\end{tikzpicture}
@@ -360,7 +357,7 @@ However, it is clear that, from the information obtained with the Pareto front, 
 	\label{fig:LitaServoParetoResp}
 \end{figure}
 %
-figure~\ref{fig:LitaServoParetoResp}, five of the possible tuning on the Pareto are presented from $m=100\%$ to $m=0\%$ for the reference tracking response. In all cases $M_{S,max}\leq 2.0$. As it can be seen, one of the main advantages of finding the Pareto front is to be able to choose the desired response from an equally optimal set of controller parameters.
+figure~\ref{fig:LitaServoParetoResp}, five points of the Pareto front where selected ranging from $m=100\%$ to $m=0\%$ and the reference tracking response was plot in the same axis. As before, the front was found with the constraint $M_{S,max}\leq 2.0$. The fact that, among all possible controllers computed, at the end only one of them is going to be selected, may  be seen as a ``waste'' of resources. And this surely may be true if the Pareto is computed for every single case. However, if a general case is computed beforehand and a tool is used to select one of the many controllers, the Pareto front then can be seen more advantageous and certainly more useful for the decision maker. An example of such case is presented in Section~\ref{sec:PIDCSTH}. 
 %-----------------------------------------------------------------------------------------------------------------------------------
 %
 \section{Continuous stirred tank heater}
@@ -596,9 +593,9 @@ The values of the computed values can be found on %
 	\label{tab:CompPIDCSTH}
 \end{table}
 %
-Table~\ref{tab:CompPIDCSTH}, along with its associated values of $J_{di}$ and $J_r$. The Murril and Rovira methods presented in the table were selected because they are intended to minimize the \gls{iae}. The SIMC method was selected because it presents a good compromise between performance, robustness and easiness of the tuning rule. In all cases, the PID tuning is for a one degree of freedom controller (that is  the reason why $\beta$ is equal to one).
+Table~\ref{tab:CompPIDCSTH}, along with its associated values of $J_{di}$ and $J_r$. The Murril and Rovira methods presented in the table were selected because they are intended to minimize the \gls{iae}. In all cases, the PID tuning is for a one degree of freedom controller (that is  the reason why $\beta$ is equal to one).
 
-The PID that can be found using the data and the framework presented in Chapter~\ref{chap:PIDMOOP} is a \gls{soptd}, which may do the comparison somehow unfair. However, below another comparison is made using the same controller topology, the idea now is to compare methods that tries to minimize the \gls{iae}. Using the MOOTuning Tool that accompanies this book, the Pareto front that was found is given as in %
+The PID that can be found using the data and the framework presented in Chapter~\ref{chap:PIDMOOP} is a \gls{soptd}, which may do the comparison somehow unfair. However, the idea now is to compare methods that tries to minimize the \gls{iae}. Using the MOOTuning Tool that accompanies this book, the Pareto front that was found is given as in %
 %
 \begin{figure}[tb]
 	\centering
@@ -611,14 +608,14 @@ Figure~\ref{fig:Ch7CompPareto}. As it was expected, all the controllers found us
 %
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.8\columnwidth]{Ch7CompParetoReg}
+	\includegraphics[width=0.9\columnwidth]{Ch7CompParetoReg}
 	\caption{Regulator response comparison for minimum IAE.}
 	\label{fig:Ch7CompParetoReg}
 \end{figure}
 %
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.8\columnwidth]{Ch7CompParetoServo}
+	\includegraphics[width=0.9\columnwidth]{Ch7CompParetoServo}
 	\caption{Servo response comparison for minimum IAE.}
 	\label{fig:Ch7CompParetoServo}
 \end{figure}
@@ -627,4 +624,30 @@ In Figures~\ref{fig:Ch7CompParetoReg} and \ref{fig:Ch7CompParetoServo} the respo
 
 The controller MOO02 may be seen as an intermediate solution between MOO1 and MOO03 in case both $J_{di}$ and $J_r$ are equally important for the decision maker. The power of the multiobjective framework is evident, and giving that the computational power is done offline, it becomes a good tool for the tuning of PIDs in an industrial setting.
 
-\textbf{TO DO!!!!}
+To check how the tuning performs with the nonlinear model, a simulation was performed using the tuning of the controller $MOO02$. The setpoint was increased by $5\%$ at $t=\SI{100}{\second}$ and the temperature of the steam was increased by $\SI{10}{\celsius}$ at $t=\SI{700}{\second}$. The response is presented in %
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=\columnwidth]{Ch7CSTRControlled}
+	\caption{Response of the controlled system using the nonlinear model for the CSTH.}
+	\label{fig:Ch7CSTRControlled}
+\end{figure}
+%
+Figure~\ref{fig:Ch7CSTRControlled}. As it can be seen, the servo response is very close to the one presented in Figure~\ref{fig:Ch7CompParetoServo}, which is a clear indicator that the linear model was a good approximation of the plant at the given operation point. The response to the change in the stem temperature cannot be compared with the regulation presented in Figure~\ref{fig:Ch7CompParetoReg}, because the disturbance was not applied directly in the input of the plant. However, it is interesting to note that the controller was able to respond with a good dynamic even though it was not optimize for this case.
+
+The controlled variable is presented in %
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=\columnwidth]{Ch7CSTRControlledCV}
+	\caption{Response of the controlled system using the nonlinear model for the CSTH.}
+	\label{fig:Ch7CSTRControlledCV}
+\end{figure}
+%
+Figure~\ref{fig:Ch7CSTRControlledCV}. When the setpoint change, the response of the controller is abrupt (more than double its original value), but then the value rapidly reach the new setpoint. The change produced by the disturbance has a milder response, and in less than \SI{200}{\second} reach again a new steady state.
+
+The case presented here tried to show the steps to use the Pareto front as the methodology to find the controller tuning more appropriate to the task. The example is a simple plant, but very representative of the dynamics that can be found in an industry environment. Many of the plants can be modeled as a second order overdamped process, and therefore, the tool and the data used in this book are readily applied in many cases.
+
+\section{Final remarks}
+\label{sec:FinalRemarks}
+The motivation of the three cases presented in this chapter was to show all the advantages that can be derived from using a multiobjetive approach. However, it has to be noticed that the cost function selected for these studies are totally  arbitrary and other authors may choose to optimize the tuning of the parameters with other criteria. However, the \gls{iae} is a practical measure on the optimality of the control in industry \cite{Shinskey2002}, and for this reason was the selected cost function.
+
+The tool presented in this book is constraint to be used with the \gls{iae} as the measure of optimality. However, the methodology presented in \ref{sec:SolMOOP} is completely general and can (and is encouraged) to be change to the needs of the decision maker.
