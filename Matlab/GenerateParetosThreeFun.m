@@ -95,7 +95,7 @@ parfor k=1:length(LMesh) % replace the "parfor" with a "for" if the paralel tool
         FunMin = repmat(min(ParetoFun),[n,1]);
         ParetoFunNorm = (ParetoFun-FunMin)./(FunMax-FunMin);
         dlmwrite(FileName,[aMesh(k)*ones(n,1),LMesh(k)/T*ones(n,1),ParetoVar,ParetoFun,ParetoFunNorm,Msvec],'delimiter',',','-append');
-        FileNameLog='ArchiveLog3Fun.txt';
+        %FileNameLog='ArchiveLog3Fun.txt';
         fid2=fopen(FileNameLog,'a');
         textoLog=['Write in the file ', FileName, ' at ',datestr(clock)];
         fprintf(fid2,'%s\r\n',textoLog);

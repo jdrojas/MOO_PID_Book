@@ -35,7 +35,7 @@ TolF  = 1e-7;
 TolCon= 1e-9;
 MaxFunEvals=5000;
 MaxIter=5000;
-options = optimset('TolFun',TolF,'TolX',TolX,'TolCon',TolCon,'MaxFunEvals',MaxFunEvals,'MaxIter',MaxIter,'Display','none' ,'Algorithm',algorithm);% iter notify
+options = optimset('TolFun',TolF,'TolX',TolX,'TolCon',TolCon,'MaxFunEvals',MaxFunEvals,'MaxIter',MaxIter,'Display','none' ,'Algorithm',algorithm);% none iter notify
     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%Individual minima%%%%%%%%%%%%%%%%%%%%%%
 %disp('----Step 1: finding individual minima...');

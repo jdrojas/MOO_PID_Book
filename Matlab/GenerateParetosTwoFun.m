@@ -40,7 +40,7 @@ parfor k=1:length(LMesh)
         %L=LMesh(k);
         %a=aMesh(k);
         ParamPlant=[K;T;LMesh(k);aMesh(k)];
-        FileNameLog='ArchivoLog.txt';
+        FileNameLog='ArchivoLog2Fun.txt';
         fid2=fopen(FileNameLog,'a');
         textoLog=['Optimizando para Ms =', num2str(MsMesh(k)),' L = ', num2str(LMesh(k)),' a = ', num2str(aMesh(k)),' a las ',datestr(clock)];
         fprintf(fid2,'%s\r\n',textoLog);
@@ -79,7 +79,7 @@ parfor k=1:length(LMesh)
         ParetoFun = Pareto_Fmat(:,x).';
         ParetoVar = Pareto_Xmat(:,x).';
         % Compute Ms for all optimal controllers
-        P=tf(K,conv([T,1],[aMesh(k)*T,1]),'iodelay',L);
+        P=tf(K,conv([T,1],[aMesh(k)*T,1]),'iodelay',LMesh(k));
         [n,m]=size(ParetoVar);
         Msvec=zeros(n,1);
         for i=1:n
@@ -95,14 +95,13 @@ parfor k=1:length(LMesh)
         FunMin = repmat(min(ParetoFun),[n,1]);
         ParetoFunNorm = (ParetoFun-FunMin)./(FunMax-FunMin);
         dlmwrite(FileName,[aMesh(k)*ones(n,1),LMesh(k)/T*ones(n,1),ParetoVar,ParetoFun,ParetoFunNorm,Msvec],'delimiter',',','-append');
-        FileNameLog='ArchivoLog.txt';
         fid2=fopen(FileNameLog,'a');
         textoLog=['Se escribio el archivo ', FileName, ' el ',datestr(clock)];
         fprintf(fid2,'%s\r\n',textoLog);
         fclose(fid2);
         disp(textoLog)
     catch
-        FileNameLog='ArchivoLog.txt';
+        FileNameLog='ArchivoLog2Fun.txt';
         fid2=fopen(FileNameLog,'a');
         textoLog=['Se dio un error para Ms =', num2str(MsMesh(k)),' L = ', num2str(LMesh(k)),' a = ', num2str(aMesh(k)),' a las ',datestr(clock)];
         fprintf(fid2,'%s\r\n',textoLog);
