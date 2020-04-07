@@ -1373,3 +1373,1031 @@ Write in the file Pareto3Fun_a0.2_to1.5_ms10.csv at 31-Mar-2020 23:51:05
 Optimizing for Ms =1.4 L = 1.5 a = 0.1 a las 31-Mar-2020 23:51:05
 Error for Ms =1.4 L = 1.5 a = 0.1 at 31-Mar-2020 23:51:18
 Optimizing for Ms =1.6 L = 1.5 a = 0.1 a las 31-Mar-2020 23:51:18
+Write in the file Pareto3Fun_a0.3_to0.9_ms10.csv at 01-Apr-2020 00:12:57
+Optimizing for Ms =2 L = 1.1 a = 0.8 a las 01-Apr-2020 00:12:57
+Write in the file Pareto3Fun_a0.9_to1.2_ms1.4.csv at 01-Apr-2020 00:16:39
+Optimizing for Ms =1.6 L = 1.2 a = 0.9 a las 01-Apr-2020 00:16:39
+Write in the file Pareto3Fun_a0.1_to0.8_ms10.csv at 01-Apr-2020 00:18:43
+Optimizing for Ms =1.4 L = 1.6 a = 0 a las 01-Apr-2020 00:18:43
+Write in the file Pareto3Fun_a0.7_to1.3_ms2.csv at 01-Apr-2020 00:20:00
+Optimizing for Ms =10 L = 1.3 a = 0.7 a las 01-Apr-2020 00:20:00
+Write in the file Pareto3Fun_a0.7_to0.3_ms10.csv at 01-Apr-2020 00:25:57
+Optimizing for Ms =1.4 L = 0.3 a = 0.6 a las 01-Apr-2020 00:25:57
+Write in the file Pareto3Fun_a1_to1.5_ms2.csv at 01-Apr-2020 00:26:30
+Optimizing for Ms =10 L = 1.5 a = 1 a las 01-Apr-2020 00:26:30
+Write in the file Pareto3Fun_a0.4_to0.6_ms1.4.csv at 01-Apr-2020 00:44:11
+Optimizing for Ms =2 L = 1.4 a = 0.3 a las 01-Apr-2020 00:44:11
+Write in the file Pareto3Fun_a0.4_to1.4_ms1.6.csv at 01-Apr-2020 00:56:50
+Optimizing for Ms =1.8 L = 1.4 a = 0.4 a las 01-Apr-2020 00:56:50
+Write in the file Pareto3Fun_a0.2_to0.6_ms2.csv at 01-Apr-2020 01:13:43
+Optimizing for Ms =1.6 L = 1.5 a = 0.7 a las 01-Apr-2020 01:13:44
+Write in the file Pareto3Fun_a0.5_to0.2_ms1.6.csv at 01-Apr-2020 01:16:01
+Optimizing for Ms =1.8 L = 0.2 a = 0.5 a las 01-Apr-2020 01:16:01
+Write in the file Pareto3Fun_a0.8_to1.2_ms1.8.csv at 01-Apr-2020 01:20:57
+Optimizing for Ms =2 L = 1.2 a = 0.8 a las 01-Apr-2020 01:20:57
+Write in the file Pareto3Fun_a0.2_to1.2_ms1.4.csv at 01-Apr-2020 01:27:18
+Optimizing for Ms =1.6 L = 1.2 a = 0.2 a las 01-Apr-2020 01:27:18
+Write in the file Pareto3Fun_a0_to1.4_ms1.8.csv at 01-Apr-2020 01:35:09
+Optimizing for Ms =2 L = 1.4 a = 0 a las 01-Apr-2020 01:35:09
+Write in the file Pareto3Fun_a0.7_to1_ms1.6.csv at 01-Apr-2020 01:36:09
+Optimizing for Ms =10 L = 1.4 a = 0.6 a las 01-Apr-2020 01:36:10
+Write in the file Pareto3Fun_a0.6_to0.7_ms1.4.csv at 01-Apr-2020 01:36:10
+Optimizing for Ms =2 L = 1.4 a = 1 a las 01-Apr-2020 01:36:10
+Write in the file Pareto3Fun_a0.5_to1.2_ms1.6.csv at 01-Apr-2020 01:51:41
+Optimizing for Ms =1.8 L = 1.2 a = 0.5 a las 01-Apr-2020 01:51:41
+Write in the file Pareto3Fun_a0.5_to1.6_ms10.csv at 01-Apr-2020 01:56:19
+Optimizing for Ms =1.4 L = 1.6 a = 0.4 a las 01-Apr-2020 01:56:20
+Write in the file Pareto3Fun_a0_to1.5_ms1.6.csv at 01-Apr-2020 02:29:09
+Optimizing for Ms =1.8 L = 1.5 a = 0 a las 01-Apr-2020 02:29:09
+Write in the file Pareto3Fun_a0.3_to1.6_ms1.8.csv at 01-Apr-2020 02:32:38
+Optimizing for Ms =2 L = 1.6 a = 0.3 a las 01-Apr-2020 02:32:38
+Write in the file Pareto3Fun_a0.8_to0.5_ms10.csv at 01-Apr-2020 02:51:26
+Optimizing for Ms =2 L = 1.2 a = 0.4 a las 01-Apr-2020 02:51:26
+Write in the file Pareto3Fun_a0.1_to1.5_ms1.6.csv at 01-Apr-2020 02:53:50
+Optimizing for Ms =1.8 L = 1.5 a = 0.1 a las 01-Apr-2020 02:53:50
+Write in the file Pareto3Fun_a0.3_to0.5_ms10.csv at 01-Apr-2020 03:02:44
+Optimizing for Ms =1.4 L = 0.5 a = 0.2 a las 01-Apr-2020 03:02:44
+Write in the file Pareto3Fun_a0.3_to1.3_ms10.csv at 01-Apr-2020 03:04:27
+Optimizing for Ms =1.4 L = 1.3 a = 0.2 a las 01-Apr-2020 03:04:27
+Write in the file Pareto3Fun_a0.4_to1.6_ms1.4.csv at 01-Apr-2020 03:09:34
+Optimizing for Ms =1.6 L = 1.6 a = 0.4 a las 01-Apr-2020 03:09:34
+Write in the file Pareto3Fun_a0.1_to1.3_ms1.6.csv at 01-Apr-2020 03:14:01
+Optimizing for Ms =1.8 L = 1.3 a = 0.1 a las 01-Apr-2020 03:14:01
+Write in the file Pareto3Fun_a0.6_to1.6_ms2.csv at 01-Apr-2020 03:23:06
+Optimizing for Ms =10 L = 1.6 a = 0.6 a las 01-Apr-2020 03:23:06
+Write in the file Pareto3Fun_a0.5_to0.5_ms1.8.csv at 01-Apr-2020 03:38:38
+Optimizing for Ms =2 L = 1.5 a = 0.6 a las 01-Apr-2020 03:38:38
+Write in the file Pareto3Fun_a0.3_to0.4_ms1.8.csv at 01-Apr-2020 03:41:10
+Optimizing for Ms =10 L = 1.2 a = 0.7 a las 01-Apr-2020 03:41:10
+Write in the file Pareto3Fun_a0.9_to0.4_ms10.csv at 01-Apr-2020 04:07:05
+Optimizing for Ms =1.4 L = 0.4 a = 0.8 a las 01-Apr-2020 04:07:05
+Write in the file Pareto3Fun_a0.7_to1.5_ms1.6.csv at 01-Apr-2020 04:09:45
+Optimizing for Ms =1.8 L = 1.5 a = 0.7 a las 01-Apr-2020 04:09:45
+Write in the file Pareto3Fun_a0.4_to0.3_ms10.csv at 01-Apr-2020 04:22:03
+Optimizing for Ms =10 L = 1.2 a = 0 a las 01-Apr-2020 04:22:03
+Write in the file Pareto3Fun_a0.9_to1.5_ms10.csv at 01-Apr-2020 04:42:15
+Optimizing for Ms =1.4 L = 1.5 a = 0.8 a las 01-Apr-2020 04:42:15
+Write in the file Pareto3Fun_a0.2_to1.6_ms2.csv at 01-Apr-2020 04:47:33
+Optimizing for Ms =10 L = 1.6 a = 0.2 a las 01-Apr-2020 04:47:33
+Write in the file Pareto3Fun_a0.2_to1.2_ms1.6.csv at 01-Apr-2020 04:49:25
+Optimizing for Ms =1.8 L = 1.2 a = 0.2 a las 01-Apr-2020 04:49:25
+Write in the file Pareto3Fun_a1_to1.3_ms10.csv at 01-Apr-2020 04:50:55
+Optimizing for Ms =1.4 L = 1.3 a = 0.9 a las 01-Apr-2020 04:50:55
+Write in the file Pareto3Fun_a0.5_to1.3_ms1.8.csv at 01-Apr-2020 05:09:12
+Optimizing for Ms =2 L = 1.3 a = 0.5 a las 01-Apr-2020 05:09:12
+Write in the file Pareto3Fun_a0.2_to1.3_ms1.4.csv at 01-Apr-2020 05:16:06
+Optimizing for Ms =1.6 L = 1.3 a = 0.2 a las 01-Apr-2020 05:16:06
+Write in the file Pareto3Fun_a0.9_to1.2_ms1.6.csv at 01-Apr-2020 05:21:24
+Optimizing for Ms =1.8 L = 1.2 a = 0.9 a las 01-Apr-2020 05:21:24
+Write in the file Pareto3Fun_a0.8_to1.4_ms1.8.csv at 01-Apr-2020 05:22:15
+Optimizing for Ms =2 L = 1.4 a = 0.8 a las 01-Apr-2020 05:22:15
+Write in the file Pareto3Fun_a0.8_to0.2_ms10.csv at 01-Apr-2020 05:26:23
+Optimizing for Ms =1.4 L = 0.2 a = 0.7 a las 01-Apr-2020 05:26:23
+Write in the file Pareto3Fun_a0_to1.6_ms1.4.csv at 01-Apr-2020 05:28:11
+Optimizing for Ms =1.6 L = 1.6 a = 0 a las 01-Apr-2020 05:28:11
+Write in the file Pareto3Fun_a0.6_to0.3_ms1.4.csv at 01-Apr-2020 05:29:33
+Optimizing for Ms =1.6 L = 0.3 a = 0.6 a las 01-Apr-2020 05:29:33
+Write in the file Pareto3Fun_a0.4_to1.5_ms1.8.csv at 01-Apr-2020 05:40:35
+Optimizing for Ms =2 L = 1.5 a = 0.4 a las 01-Apr-2020 05:40:35
+Write in the file Pareto3Fun_a0.6_to0.4_ms10.csv at 01-Apr-2020 05:44:36
+Optimizing for Ms =1.8 L = 1.4 a = 0.7 a las 01-Apr-2020 05:44:36
+Write in the file Pareto3Fun_a0.1_to1.4_ms2.csv at 01-Apr-2020 06:00:32
+Optimizing for Ms =10 L = 1.4 a = 0.1 a las 01-Apr-2020 06:00:32
+Write in the file Pareto3Fun_a0.8_to1.1_ms2.csv at 01-Apr-2020 06:02:07
+Optimizing for Ms =10 L = 1.1 a = 0.8 a las 01-Apr-2020 06:02:07
+Write in the file Pareto3Fun_a0.8_to1.5_ms1.4.csv at 01-Apr-2020 06:04:40
+Optimizing for Ms =1.6 L = 1.5 a = 0.8 a las 01-Apr-2020 06:04:40
+Write in the file Pareto3Fun_a0.4_to1.6_ms1.6.csv at 01-Apr-2020 06:10:12
+Optimizing for Ms =1.8 L = 1.6 a = 0.4 a las 01-Apr-2020 06:10:12
+Write in the file Pareto3Fun_a0.5_to0.2_ms1.8.csv at 01-Apr-2020 06:28:25
+Optimizing for Ms =2 L = 0.2 a = 0.5 a las 01-Apr-2020 06:28:25
+Write in the file Pareto3Fun_a0.9_to1.3_ms1.4.csv at 01-Apr-2020 06:37:48
+Optimizing for Ms =1.6 L = 1.3 a = 0.9 a las 01-Apr-2020 06:37:48
+Write in the file Pareto3Fun_a0.2_to0.5_ms1.4.csv at 01-Apr-2020 06:38:07
+Optimizing for Ms =1.8 L = 1.5 a = 0.3 a las 01-Apr-2020 06:38:07
+Write in the file Pareto3Fun_a1_to1.5_ms10.csv at 01-Apr-2020 06:48:29
+Optimizing for Ms =1.4 L = 1.5 a = 0.9 a las 01-Apr-2020 06:48:29
+Write in the file Pareto3Fun_a0.4_to1.4_ms1.8.csv at 01-Apr-2020 06:49:34
+Optimizing for Ms =2 L = 1.4 a = 0.4 a las 01-Apr-2020 06:49:34
+Write in the file Pareto3Fun_a0.3_to1.4_ms2.csv at 01-Apr-2020 06:56:59
+Optimizing for Ms =10 L = 1.4 a = 0.3 a las 01-Apr-2020 06:56:59
+Write in the file Pareto3Fun_a0.7_to1.3_ms10.csv at 01-Apr-2020 07:07:05
+Optimizing for Ms =1.4 L = 1.3 a = 0.6 a las 01-Apr-2020 07:07:05
+Write in the file Pareto3Fun_a0_to1.5_ms1.8.csv at 01-Apr-2020 07:09:20
+Optimizing for Ms =2 L = 1.5 a = 0 a las 01-Apr-2020 07:09:20
+Write in the file Pareto3Fun_a1_to1.4_ms2.csv at 01-Apr-2020 07:10:30
+Optimizing for Ms =10 L = 1.4 a = 1 a las 01-Apr-2020 07:10:30
+Write in the file Pareto3Fun_a0.8_to1.2_ms2.csv at 01-Apr-2020 07:13:41
+Optimizing for Ms =10 L = 1.2 a = 0.8 a las 01-Apr-2020 07:13:41
+Write in the file Pareto3Fun_a0.5_to1.2_ms1.8.csv at 01-Apr-2020 07:18:07
+Optimizing for Ms =2 L = 1.2 a = 0.5 a las 01-Apr-2020 07:18:07
+Write in the file Pareto3Fun_a0_to1.4_ms2.csv at 01-Apr-2020 07:37:34
+Optimizing for Ms =10 L = 1.4 a = 0 a las 01-Apr-2020 07:37:34
+Write in the file Pareto3Fun_a0.1_to1.5_ms1.8.csv at 01-Apr-2020 08:27:34
+Optimizing for Ms =2 L = 1.5 a = 0.1 a las 01-Apr-2020 08:27:34
+Write in the file Pareto3Fun_a0.6_to1.4_ms10.csv at 01-Apr-2020 08:29:30
+Optimizing for Ms =1.4 L = 1.4 a = 0.5 a las 01-Apr-2020 08:29:30
+Write in the file Pareto3Fun_a0.6_to1.3_ms1.4.csv at 01-Apr-2020 08:32:22
+Optimizing for Ms =1.6 L = 1.3 a = 0.6 a las 01-Apr-2020 08:32:22
+Write in the file Pareto3Fun_a0.1_to1.3_ms1.8.csv at 01-Apr-2020 08:33:43
+Optimizing for Ms =2 L = 1.3 a = 0.1 a las 01-Apr-2020 08:33:43
+Write in the file Pareto3Fun_a0.3_to1.6_ms2.csv at 01-Apr-2020 08:36:26
+Optimizing for Ms =10 L = 1.6 a = 0.3 a las 01-Apr-2020 08:36:26
+Write in the file Pareto3Fun_a0.9_to1.5_ms1.4.csv at 01-Apr-2020 08:43:02
+Optimizing for Ms =1.6 L = 1.5 a = 0.9 a las 01-Apr-2020 08:43:02
+Write in the file Pareto3Fun_a0.2_to1.3_ms1.6.csv at 01-Apr-2020 08:45:25
+Optimizing for Ms =1.8 L = 1.3 a = 0.2 a las 01-Apr-2020 08:45:25
+Write in the file Pareto3Fun_a0_to1.6_ms1.6.csv at 01-Apr-2020 08:56:57
+Optimizing for Ms =1.8 L = 1.6 a = 0 a las 01-Apr-2020 08:56:57
+Write in the file Pareto3Fun_a0.4_to1.2_ms2.csv at 01-Apr-2020 09:08:27
+Optimizing for Ms =10 L = 1.2 a = 0.4 a las 01-Apr-2020 09:08:27
+Write in the file Pareto3Fun_a0.8_to1.5_ms1.6.csv at 01-Apr-2020 09:14:41
+Optimizing for Ms =1.8 L = 1.5 a = 0.8 a las 01-Apr-2020 09:14:41
+Write in the file Pareto3Fun_a0.8_to0.4_ms1.4.csv at 01-Apr-2020 09:17:11
+Optimizing for Ms =1.6 L = 0.4 a = 0.8 a las 01-Apr-2020 09:17:11
+Write in the file Pareto3Fun_a1_to0.2_ms10.csv at 01-Apr-2020 09:25:49
+Optimizing for Ms =1.4 L = 0.2 a = 0.9 a las 01-Apr-2020 09:25:49
+Write in the file Pareto3Fun_a0.6_to1.5_ms2.csv at 01-Apr-2020 09:44:42
+Optimizing for Ms =10 L = 1.5 a = 0.6 a las 01-Apr-2020 09:44:42
+Write in the file Pareto3Fun_a0.7_to1.5_ms1.8.csv at 01-Apr-2020 09:46:38
+Optimizing for Ms =2 L = 1.5 a = 0.7 a las 01-Apr-2020 09:46:38
+Write in the file Pareto3Fun_a0.7_to0.2_ms1.4.csv at 01-Apr-2020 09:48:43
+Optimizing for Ms =1.6 L = 0.2 a = 0.7 a las 01-Apr-2020 09:48:43
+Write in the file Pareto3Fun_a0.2_to1.2_ms1.8.csv at 01-Apr-2020 09:52:42
+Optimizing for Ms =2 L = 1.2 a = 0.2 a las 01-Apr-2020 09:52:42
+Write in the file Pareto3Fun_a0.5_to1.4_ms1.4.csv at 01-Apr-2020 09:55:09
+Optimizing for Ms =1.6 L = 1.4 a = 0.5 a las 01-Apr-2020 09:55:09
+Write in the file Pareto3Fun_a0.6_to1.6_ms10.csv at 01-Apr-2020 09:56:37
+Optimizing for Ms =1.4 L = 1.6 a = 0.5 a las 01-Apr-2020 09:56:37
+Write in the file Pareto3Fun_a0.6_to0.3_ms1.6.csv at 01-Apr-2020 10:03:41
+Optimizing for Ms =2 L = 1.3 a = 0 a las 01-Apr-2020 10:03:41
+Write in the file Pareto3Fun_a0.7_to1.2_ms10.csv at 01-Apr-2020 10:33:23
+Optimizing for Ms =1.4 L = 1.2 a = 0.6 a las 01-Apr-2020 10:33:23
+Write in the file Pareto3Fun_a0_to1.2_ms10.csv at 01-Apr-2020 10:42:08
+Optimizing for Ms =1.4 L = 1.1 a = 1 a las 01-Apr-2020 10:42:08
+Write in the file Pareto3Fun_a0.9_to1.2_ms1.8.csv at 01-Apr-2020 10:45:26
+Optimizing for Ms =2 L = 1.2 a = 0.9 a las 01-Apr-2020 10:45:27
+Write in the file Pareto3Fun_a0.9_to1.3_ms1.6.csv at 01-Apr-2020 10:56:37
+Optimizing for Ms =1.8 L = 1.3 a = 0.9 a las 01-Apr-2020 10:56:37
+Write in the file Pareto3Fun_a0.8_to1.4_ms2.csv at 01-Apr-2020 11:04:00
+Optimizing for Ms =10 L = 1.4 a = 0.8 a las 01-Apr-2020 11:04:00
+Write in the file Pareto3Fun_a0.5_to1.3_ms2.csv at 01-Apr-2020 11:20:18
+Optimizing for Ms =10 L = 1.3 a = 0.5 a las 01-Apr-2020 11:20:18
+Write in the file Pareto3Fun_a0.5_to1.6_ms1.4.csv at 01-Apr-2020 11:28:47
+Optimizing for Ms =1.6 L = 1.6 a = 0.5 a las 01-Apr-2020 11:28:47
+Write in the file Pareto3Fun_a0.7_to1.4_ms1.8.csv at 01-Apr-2020 11:40:08
+Optimizing for Ms =2 L = 1.4 a = 0.7 a las 01-Apr-2020 11:40:08
+Write in the file Pareto3Fun_a0.4_to1.5_ms2.csv at 01-Apr-2020 11:40:55
+Optimizing for Ms =10 L = 1.5 a = 0.4 a las 01-Apr-2020 11:40:55
+Write in the file Pareto3Fun_a0.2_to1.6_ms10.csv at 01-Apr-2020 11:42:00
+Optimizing for Ms =1.4 L = 1.6 a = 0.1 a las 01-Apr-2020 11:42:00
+Error for Ms =1.4 L = 1.6 a = 0.1 at 01-Apr-2020 11:42:12
+Optimizing for Ms =1.6 L = 1.6 a = 0.1 a las 01-Apr-2020 11:42:12
+Write in the file Pareto3Fun_a0.6_to1.3_ms1.6.csv at 01-Apr-2020 11:53:55
+Optimizing for Ms =1.8 L = 1.3 a = 0.6 a las 01-Apr-2020 11:53:55
+Write in the file Pareto3Fun_a0.9_to1.5_ms1.6.csv at 01-Apr-2020 12:03:14
+Optimizing for Ms =1.8 L = 1.5 a = 0.9 a las 01-Apr-2020 12:03:14
+Write in the file Pareto3Fun_a0.4_to1.6_ms1.8.csv at 01-Apr-2020 12:08:09
+Optimizing for Ms =2 L = 1.6 a = 0.4 a las 01-Apr-2020 12:08:09
+Write in the file Pareto3Fun_a0.6_to1.2_ms1.4.csv at 01-Apr-2020 12:10:06
+Optimizing for Ms =1.6 L = 1.2 a = 0.6 a las 01-Apr-2020 12:10:06
+Write in the file Pareto3Fun_a0.3_to1.5_ms1.8.csv at 01-Apr-2020 12:13:55
+Optimizing for Ms =2 L = 1.5 a = 0.3 a las 01-Apr-2020 12:13:55
+Write in the file Pareto3Fun_a0.1_to1.4_ms10.csv at 01-Apr-2020 12:42:07
+Optimizing for Ms =1.4 L = 1.4 a = 0 a las 01-Apr-2020 12:42:07
+Write in the file Pareto3Fun_a0.5_to0.2_ms2.csv at 01-Apr-2020 12:50:29
+Optimizing for Ms =10 L = 0.2 a = 0.5 a las 01-Apr-2020 12:50:29
+Write in the file Pareto3Fun_a0.4_to1.4_ms2.csv at 01-Apr-2020 12:57:47
+Optimizing for Ms =10 L = 1.4 a = 0.4 a las 01-Apr-2020 12:57:47
+Write in the file Pareto3Fun_a0.8_to1.1_ms10.csv at 01-Apr-2020 12:58:18
+Optimizing for Ms =1.4 L = 1.1 a = 0.7 a las 01-Apr-2020 12:58:18
+Write in the file Pareto3Fun_a0.5_to1.4_ms1.6.csv at 01-Apr-2020 13:03:00
+Optimizing for Ms =1.8 L = 1.4 a = 0.5 a las 01-Apr-2020 13:03:00
+Write in the file Pareto3Fun_a0_to1.5_ms2.csv at 01-Apr-2020 13:16:07
+Optimizing for Ms =10 L = 1.5 a = 0 a las 01-Apr-2020 13:16:07
+Write in the file Pareto3Fun_a0.5_to1.2_ms2.csv at 01-Apr-2020 13:29:08
+Optimizing for Ms =10 L = 1.2 a = 0.5 a las 01-Apr-2020 13:29:08
+Write in the file Pareto3Fun_a0.9_to0.2_ms1.4.csv at 01-Apr-2020 13:30:48
+Optimizing for Ms =1.6 L = 1.1 a = 0.9 a las 01-Apr-2020 13:30:48
+Write in the file Pareto3Fun_a1_to1.4_ms10.csv at 01-Apr-2020 13:34:58
+Optimizing for Ms =1.4 L = 1.4 a = 0.9 a las 01-Apr-2020 13:34:58
+Write in the file Pareto3Fun_a0.8_to0.4_ms1.6.csv at 01-Apr-2020 13:47:15
+Optimizing for Ms =1.6 L = 1.3 a = 0.8 a las 01-Apr-2020 13:47:15
+Write in the file Pareto3Fun_a0_to1.6_ms1.8.csv at 01-Apr-2020 13:48:48
+Optimizing for Ms =2 L = 1.6 a = 0 a las 01-Apr-2020 13:48:48
+Write in the file Pareto3Fun_a0.3_to1.4_ms10.csv at 01-Apr-2020 13:56:59
+Optimizing for Ms =1.4 L = 1.4 a = 0.2 a las 01-Apr-2020 13:56:59
+Write in the file Pareto3Fun_a1_to1.1_ms1.4.csv at 01-Apr-2020 14:09:47
+Optimizing for Ms =1.6 L = 1.1 a = 1 a las 01-Apr-2020 14:09:47
+Write in the file Pareto3Fun_a0.8_to1.2_ms10.csv at 01-Apr-2020 14:12:15
+Optimizing for Ms =1.4 L = 1.2 a = 0.7 a las 01-Apr-2020 14:12:15
+Write in the file Pareto3Fun_a0_to1.4_ms10.csv at 01-Apr-2020 14:19:43
+Optimizing for Ms =1.4 L = 1.3 a = 1 a las 01-Apr-2020 14:19:43
+Write in the file Pareto3Fun_a0.2_to1.3_ms1.8.csv at 01-Apr-2020 14:24:15
+Optimizing for Ms =2 L = 1.3 a = 0.2 a las 01-Apr-2020 14:24:15
+Write in the file Pareto3Fun_a0.5_to1.6_ms1.6.csv at 01-Apr-2020 14:31:08
+Optimizing for Ms =1.8 L = 1.6 a = 0.5 a las 01-Apr-2020 14:31:08
+Write in the file Pareto3Fun_a0.1_to1.6_ms1.6.csv at 01-Apr-2020 14:43:01
+Optimizing for Ms =1.8 L = 1.6 a = 0.1 a las 01-Apr-2020 14:43:01
+Write in the file Pareto3Fun_a0.1_to1.5_ms2.csv at 01-Apr-2020 14:47:07
+Optimizing for Ms =10 L = 1.5 a = 0.1 a las 01-Apr-2020 14:47:07
+Write in the file Pareto3Fun_a0_to1.4_ms1.4.csv at 01-Apr-2020 14:56:42
+Optimizing for Ms =1.6 L = 1.4 a = 0 a las 01-Apr-2020 14:56:42
+Write in the file Pareto3Fun_a0.7_to1.1_ms1.4.csv at 01-Apr-2020 14:57:01
+Optimizing for Ms =1.6 L = 1.1 a = 0.7 a las 01-Apr-2020 14:57:01
+Write in the file Pareto3Fun_a0.7_to0.2_ms1.6.csv at 01-Apr-2020 15:00:29
+Optimizing for Ms =1.8 L = 0.2 a = 0.7 a las 01-Apr-2020 15:00:29
+Write in the file Pareto3Fun_a0.8_to1.5_ms1.8.csv at 01-Apr-2020 15:00:47
+Optimizing for Ms =2 L = 1.5 a = 0.8 a las 01-Apr-2020 15:00:47
+Write in the file Pareto3Fun_a0.1_to1.3_ms2.csv at 01-Apr-2020 15:13:41
+Optimizing for Ms =10 L = 1.3 a = 0.1 a las 01-Apr-2020 15:13:41
+Write in the file Pareto3Fun_a0.3_to1.6_ms10.csv at 01-Apr-2020 15:20:36
+Optimizing for Ms =1.4 L = 1.6 a = 0.2 a las 01-Apr-2020 15:20:36
+Write in the file Pareto3Fun_a0.9_to1.4_ms1.4.csv at 01-Apr-2020 15:27:39
+Optimizing for Ms =1.6 L = 1.4 a = 0.9 a las 01-Apr-2020 15:27:39
+Write in the file Pareto3Fun_a0.7_to1.5_ms2.csv at 01-Apr-2020 15:28:31
+Optimizing for Ms =10 L = 1.5 a = 0.7 a las 01-Apr-2020 15:28:31
+Write in the file Pareto3Fun_a0.2_to1.4_ms1.4.csv at 01-Apr-2020 15:36:46
+Optimizing for Ms =1.6 L = 1.4 a = 0.2 a las 01-Apr-2020 15:36:46
+Write in the file Pareto3Fun_a0.7_to1.2_ms1.4.csv at 01-Apr-2020 15:55:43
+Optimizing for Ms =1.6 L = 1.2 a = 0.7 a las 01-Apr-2020 15:55:43
+Write in the file Pareto3Fun_a0.6_to1.2_ms1.6.csv at 01-Apr-2020 15:58:57
+Optimizing for Ms =1.8 L = 1.2 a = 0.6 a las 01-Apr-2020 15:58:57
+Write in the file Pareto3Fun_a0.2_to1.2_ms2.csv at 01-Apr-2020 16:16:05
+Optimizing for Ms =10 L = 1.2 a = 0.2 a las 01-Apr-2020 16:16:05
+Write in the file Pareto3Fun_a0.4_to1.2_ms10.csv at 01-Apr-2020 16:21:29
+Optimizing for Ms =1.4 L = 1.2 a = 0.3 a las 01-Apr-2020 16:21:29
+Write in the file Pareto3Fun_a0.9_to1.3_ms1.8.csv at 01-Apr-2020 16:24:22
+Optimizing for Ms =2 L = 1.3 a = 0.9 a las 01-Apr-2020 16:24:22
+Write in the file Pareto3Fun_a0_to1.3_ms2.csv at 01-Apr-2020 16:26:58
+Optimizing for Ms =10 L = 1.3 a = 0 a las 01-Apr-2020 16:26:58
+Write in the file Pareto3Fun_a0.9_to1.2_ms2.csv at 01-Apr-2020 16:32:30
+Optimizing for Ms =10 L = 1.2 a = 0.9 a las 01-Apr-2020 16:32:30
+Write in the file Pareto3Fun_a0.6_to1.5_ms10.csv at 01-Apr-2020 16:36:17
+Optimizing for Ms =1.4 L = 1.5 a = 0.5 a las 01-Apr-2020 16:36:17
+Write in the file Pareto3Fun_a0.7_to1.4_ms2.csv at 01-Apr-2020 17:32:02
+Optimizing for Ms =10 L = 1.4 a = 0.7 a las 01-Apr-2020 17:32:02
+Write in the file Pareto3Fun_a0.8_to1.4_ms10.csv at 01-Apr-2020 17:36:13
+Optimizing for Ms =1.4 L = 1.4 a = 0.7 a las 01-Apr-2020 17:36:13
+Write in the file Pareto3Fun_a0.9_to1.5_ms1.8.csv at 01-Apr-2020 17:36:40
+Optimizing for Ms =2 L = 1.5 a = 0.9 a las 01-Apr-2020 17:36:40
+Write in the file Pareto3Fun_a0.6_to1.3_ms1.8.csv at 01-Apr-2020 17:37:40
+Optimizing for Ms =2 L = 1.3 a = 0.6 a las 01-Apr-2020 17:37:40
+Write in the file Pareto3Fun_a0.8_to1.3_ms1.6.csv at 01-Apr-2020 17:39:29
+Optimizing for Ms =1.8 L = 1.3 a = 0.8 a las 01-Apr-2020 17:39:29
+Write in the file Pareto3Fun_a0.5_to1.5_ms1.4.csv at 01-Apr-2020 17:46:41
+Optimizing for Ms =1.6 L = 1.5 a = 0.5 a las 01-Apr-2020 17:46:41
+Write in the file Pareto3Fun_a1_to1.3_ms1.4.csv at 01-Apr-2020 17:51:46
+Optimizing for Ms =1.6 L = 1.3 a = 1 a las 01-Apr-2020 17:51:46
+Write in the file Pareto3Fun_a0.3_to1.5_ms2.csv at 01-Apr-2020 17:57:42
+Optimizing for Ms =10 L = 1.5 a = 0.3 a las 01-Apr-2020 17:57:42
+Write in the file Pareto3Fun_a0.4_to1.6_ms2.csv at 01-Apr-2020 18:17:57
+Optimizing for Ms =10 L = 1.6 a = 0.4 a las 01-Apr-2020 18:17:57
+Write in the file Pareto3Fun_a0.9_to1.1_ms1.6.csv at 01-Apr-2020 18:19:25
+Optimizing for Ms =1.8 L = 1.1 a = 0.9 a las 01-Apr-2020 18:19:25
+Write in the file Pareto3Fun_a0_to1.4_ms1.6.csv at 01-Apr-2020 18:19:47
+Optimizing for Ms =1.6 L = 1.6 a = 0.7 a las 01-Apr-2020 18:19:47
+Write in the file Pareto3Fun_a0.5_to1.3_ms10.csv at 01-Apr-2020 18:30:50
+Optimizing for Ms =1.4 L = 1.3 a = 0.4 a las 01-Apr-2020 18:30:50
+Write in the file Pareto3Fun_a0.4_to1.5_ms10.csv at 01-Apr-2020 18:37:11
+Optimizing for Ms =1.4 L = 1.5 a = 0.3 a las 01-Apr-2020 18:37:11
+Write in the file Pareto3Fun_a0.5_to1.4_ms1.8.csv at 01-Apr-2020 18:53:30
+Optimizing for Ms =2 L = 1.4 a = 0.5 a las 01-Apr-2020 18:53:30
+Write in the file Pareto3Fun_a1_to1.1_ms1.6.csv at 01-Apr-2020 18:57:38
+Optimizing for Ms =1.8 L = 1.1 a = 1 a las 01-Apr-2020 18:57:38
+Write in the file Pareto3Fun_a0.7_to1.4_ms1.4.csv at 01-Apr-2020 19:02:18
+Optimizing for Ms =1.6 L = 1.4 a = 0.7 a las 01-Apr-2020 19:02:18
+Write in the file Pareto3Fun_a0.9_to1.4_ms1.6.csv at 01-Apr-2020 19:03:14
+Optimizing for Ms =1.8 L = 1.4 a = 0.9 a las 01-Apr-2020 19:03:14
+Write in the file Pareto3Fun_a0.2_to1.4_ms1.6.csv at 01-Apr-2020 19:40:50
+Optimizing for Ms =1.8 L = 1.4 a = 0.2 a las 01-Apr-2020 19:40:50
+Write in the file Pareto3Fun_a0.7_to1.1_ms1.6.csv at 01-Apr-2020 19:45:04
+Optimizing for Ms =1.8 L = 1.1 a = 0.7 a las 01-Apr-2020 19:45:04
+Write in the file Pareto3Fun_a0_to1.6_ms2.csv at 01-Apr-2020 19:46:31
+Optimizing for Ms =10 L = 1.6 a = 0 a las 01-Apr-2020 19:46:31
+Write in the file Pareto3Fun_a0.4_to1.3_ms1.4.csv at 01-Apr-2020 19:54:43
+Optimizing for Ms =1.6 L = 1.3 a = 0.4 a las 01-Apr-2020 19:54:43
+Write in the file Pareto3Fun_a0.7_to1.2_ms1.6.csv at 01-Apr-2020 20:04:22
+Optimizing for Ms =1.8 L = 1.2 a = 0.7 a las 01-Apr-2020 20:04:22
+Write in the file Pareto3Fun_a0.2_to1.6_ms1.4.csv at 01-Apr-2020 20:06:45
+Optimizing for Ms =1.6 L = 1.6 a = 0.2 a las 01-Apr-2020 20:06:45
+Write in the file Pareto3Fun_a0.4_to1.4_ms10.csv at 01-Apr-2020 20:08:43
+Optimizing for Ms =1.4 L = 1.4 a = 0.3 a las 01-Apr-2020 20:08:43
+Write in the file Pareto3Fun_a0.1_to1.6_ms1.8.csv at 01-Apr-2020 20:14:00
+Optimizing for Ms =2 L = 1.6 a = 0.1 a las 01-Apr-2020 20:14:00
+Write in the file Pareto3Fun_a0_to1.5_ms10.csv at 01-Apr-2020 20:15:01
+Optimizing for Ms =1.4 L = 1.4 a = 1 a las 01-Apr-2020 20:15:01
+Write in the file Pareto3Fun_a0.5_to1.2_ms10.csv at 01-Apr-2020 20:33:45
+Optimizing for Ms =1.4 L = 1.2 a = 0.4 a las 01-Apr-2020 20:33:45
+Write in the file Pareto3Fun_a0.8_to1.5_ms2.csv at 01-Apr-2020 20:40:07
+Optimizing for Ms =10 L = 1.5 a = 0.8 a las 01-Apr-2020 20:40:07
+Write in the file Pareto3Fun_a0.5_to1.6_ms1.8.csv at 01-Apr-2020 20:42:07
+Optimizing for Ms =2 L = 1.6 a = 0.5 a las 01-Apr-2020 20:42:07
+Write in the file Pareto3Fun_a0.7_to0.2_ms1.8.csv at 01-Apr-2020 20:54:11
+Optimizing for Ms =2 L = 0.2 a = 0.7 a las 01-Apr-2020 20:54:11
+Write in the file Pareto3Fun_a0.2_to1.3_ms2.csv at 01-Apr-2020 20:59:58
+Optimizing for Ms =10 L = 1.3 a = 0.2 a las 01-Apr-2020 20:59:58
+Write in the file Pareto3Fun_a0.6_to1.2_ms1.8.csv at 01-Apr-2020 21:22:51
+Optimizing for Ms =2 L = 1.2 a = 0.6 a las 01-Apr-2020 21:22:51
+Write in the file Pareto3Fun_a0.1_to1.5_ms10.csv at 01-Apr-2020 21:47:17
+Optimizing for Ms =1.4 L = 1.5 a = 0 a las 01-Apr-2020 21:47:17
+Write in the file Pareto3Fun_a0.7_to1.6_ms1.6.csv at 01-Apr-2020 21:47:54
+Optimizing for Ms =1.8 L = 1.6 a = 0.7 a las 01-Apr-2020 21:47:54
+Write in the file Pareto3Fun_a1_to1.4_ms1.4.csv at 01-Apr-2020 21:57:16
+Optimizing for Ms =1.6 L = 1.4 a = 1 a las 01-Apr-2020 21:57:16
+Write in the file Pareto3Fun_a0.4_to1.2_ms1.4.csv at 01-Apr-2020 21:58:13
+Optimizing for Ms =1.6 L = 1.2 a = 0.4 a las 01-Apr-2020 21:58:13
+Write in the file Pareto3Fun_a0.5_to1.5_ms1.6.csv at 01-Apr-2020 21:59:04
+Optimizing for Ms =1.8 L = 1.5 a = 0.5 a las 01-Apr-2020 21:59:04
+Write in the file Pareto3Fun_a0.7_to1.5_ms10.csv at 01-Apr-2020 21:59:10
+Optimizing for Ms =1.4 L = 1.5 a = 0.6 a las 01-Apr-2020 21:59:10
+Write in the file Pareto3Fun_a0.5_to0.2_ms10.csv at 01-Apr-2020 22:03:57
+Optimizing for Ms =1.4 L = 0.2 a = 0.4 a las 01-Apr-2020 22:03:57
+Write in the file Pareto3Fun_a0.1_to1.3_ms10.csv at 01-Apr-2020 22:08:10
+Optimizing for Ms =1.4 L = 1.3 a = 0 a las 01-Apr-2020 22:08:10
+Write in the file Pareto3Fun_a0.7_to1.4_ms1.6.csv at 01-Apr-2020 22:17:16
+Optimizing for Ms =1.4 L = 1.7 a = 0 a las 01-Apr-2020 22:17:16
+Write in the file Pareto3Fun_a0.9_to1.3_ms2.csv at 01-Apr-2020 22:24:39
+Optimizing for Ms =10 L = 1.3 a = 0.9 a las 01-Apr-2020 22:24:39
+Write in the file Pareto3Fun_a1_to1.3_ms1.6.csv at 01-Apr-2020 22:32:16
+Optimizing for Ms =1.8 L = 1.3 a = 1 a las 01-Apr-2020 22:32:16
+Write in the file Pareto3Fun_a0.3_to1.5_ms1.4.csv at 01-Apr-2020 22:57:00
+Optimizing for Ms =1.6 L = 1.5 a = 0.3 a las 01-Apr-2020 22:57:00
+Write in the file Pareto3Fun_a0.2_to1.6_ms1.6.csv at 01-Apr-2020 23:07:02
+Optimizing for Ms =1.8 L = 1.6 a = 0.2 a las 01-Apr-2020 23:07:02
+Write in the file Pareto3Fun_a0.8_to1.3_ms1.8.csv at 01-Apr-2020 23:13:10
+Optimizing for Ms =2 L = 1.3 a = 0.8 a las 01-Apr-2020 23:13:10
+Write in the file Pareto3Fun_a0.9_to1.5_ms2.csv at 01-Apr-2020 23:18:38
+Optimizing for Ms =10 L = 1.6 a = 0.7 a las 01-Apr-2020 23:18:38
+Write in the file Pareto3Fun_a0.2_to1.2_ms10.csv at 01-Apr-2020 23:21:30
+Optimizing for Ms =1.4 L = 1.2 a = 0.1 a las 01-Apr-2020 23:21:30
+Write in the file Pareto3Fun_a0_to1.3_ms10.csv at 01-Apr-2020 23:24:06
+Optimizing for Ms =1.4 L = 1.2 a = 1 a las 01-Apr-2020 23:24:06
+Write in the file Pareto3Fun_a0.9_to1.2_ms10.csv at 01-Apr-2020 23:24:53
+Optimizing for Ms =1.4 L = 1.2 a = 0.8 a las 01-Apr-2020 23:24:53
+Write in the file Pareto3Fun_a0.6_to1.5_ms1.4.csv at 01-Apr-2020 23:24:57
+Optimizing for Ms =1.6 L = 1.5 a = 0.6 a las 01-Apr-2020 23:24:57
+Write in the file Pareto3Fun_a0.4_to1.3_ms1.6.csv at 01-Apr-2020 23:25:43
+Optimizing for Ms =10 L = 1.6 a = 1 a las 01-Apr-2020 23:25:43
+Write in the file Pareto3Fun_a0.6_to1.3_ms2.csv at 01-Apr-2020 23:27:45
+Optimizing for Ms =10 L = 1.3 a = 0.6 a las 01-Apr-2020 23:27:45
+Write in the file Pareto3Fun_a0.9_to1.1_ms1.8.csv at 01-Apr-2020 23:39:29
+Optimizing for Ms =2 L = 1.1 a = 0.9 a las 01-Apr-2020 23:39:29
+Write in the file Pareto3Fun_a1_to1.1_ms1.8.csv at 02-Apr-2020 00:01:38
+Optimizing for Ms =2 L = 1.1 a = 1 a las 02-Apr-2020 00:01:38
+Write in the file Pareto3Fun_a0.7_to1.4_ms10.csv at 02-Apr-2020 00:20:13
+Optimizing for Ms =1.4 L = 1.4 a = 0.6 a las 02-Apr-2020 00:20:13
+Write in the file Pareto3Fun_a0.3_to1.4_ms1.4.csv at 02-Apr-2020 00:21:50
+Optimizing for Ms =1.6 L = 1.4 a = 0.3 a las 02-Apr-2020 00:21:50
+Write in the file Pareto3Fun_a0.9_to1.4_ms1.8.csv at 02-Apr-2020 00:30:56
+Optimizing for Ms =2 L = 1.4 a = 0.9 a las 02-Apr-2020 00:30:56
+Write in the file Pareto3Fun_a0.1_to1.2_ms1.4.csv at 02-Apr-2020 00:42:01
+Optimizing for Ms =1.6 L = 1.2 a = 0.1 a las 02-Apr-2020 00:42:01
+Write in the file Pareto3Fun_a0_to1.5_ms1.4.csv at 02-Apr-2020 00:53:44
+Optimizing for Ms =1.4 L = 1.6 a = 0.8 a las 02-Apr-2020 00:53:44
+Write in the file Pareto3Fun_a0.5_to1.4_ms2.csv at 02-Apr-2020 00:56:14
+Optimizing for Ms =10 L = 1.4 a = 0.5 a las 02-Apr-2020 00:56:14
+Write in the file Pareto3Fun_a0.3_to1.5_ms10.csv at 02-Apr-2020 00:56:34
+Optimizing for Ms =1.4 L = 1.5 a = 0.2 a las 02-Apr-2020 00:56:34
+Write in the file Pareto3Fun_a0.4_to1.6_ms10.csv at 02-Apr-2020 01:08:23
+Optimizing for Ms =1.4 L = 1.6 a = 0.3 a las 02-Apr-2020 01:08:23
+Write in the file Pareto3Fun_a0.8_to1.2_ms1.4.csv at 02-Apr-2020 01:12:55
+Optimizing for Ms =1.6 L = 1.2 a = 0.8 a las 02-Apr-2020 01:12:55
+Write in the file Pareto3Fun_a0.2_to1.4_ms1.8.csv at 02-Apr-2020 01:16:49
+Optimizing for Ms =2 L = 1.4 a = 0.2 a las 02-Apr-2020 01:16:49
+Write in the file Pareto3Fun_a0.4_to1.2_ms1.6.csv at 02-Apr-2020 01:17:27
+Optimizing for Ms =1.8 L = 1.2 a = 0.4 a las 02-Apr-2020 01:17:27
+Write in the file Pareto3Fun_a0.7_to1.1_ms1.8.csv at 02-Apr-2020 01:19:44
+Optimizing for Ms =2 L = 1.1 a = 0.7 a las 02-Apr-2020 01:19:44
+Write in the file Pareto3Fun_a0_to1.3_ms1.4.csv at 02-Apr-2020 01:19:57
+Optimizing for Ms =1.6 L = 1.3 a = 0 a las 02-Apr-2020 01:19:57
+Write in the file Pareto3Fun_a0.7_to1.2_ms1.8.csv at 02-Apr-2020 01:38:32
+Optimizing for Ms =2 L = 1.2 a = 0.7 a las 02-Apr-2020 01:38:32
+Write in the file Pareto3Fun_a0.6_to1.4_ms1.4.csv at 02-Apr-2020 01:38:45
+Optimizing for Ms =1.6 L = 1.4 a = 0.6 a las 02-Apr-2020 01:38:45
+Write in the file Pareto3Fun_a1_to1.4_ms1.6.csv at 02-Apr-2020 02:01:20
+Optimizing for Ms =1.8 L = 1.4 a = 1 a las 02-Apr-2020 02:01:20
+Write in the file Pareto3Fun_a0.1_to1.6_ms2.csv at 02-Apr-2020 02:06:29
+Optimizing for Ms =10 L = 1.6 a = 0.1 a las 02-Apr-2020 02:06:29
+Write in the file Pareto3Fun_a0.4_to0.2_ms1.4.csv at 02-Apr-2020 02:27:40
+Optimizing for Ms =1.6 L = 0.2 a = 0.4 a las 02-Apr-2020 02:27:40
+Write in the file Pareto3Fun_a0.3_to1.5_ms1.6.csv at 02-Apr-2020 02:33:25
+Optimizing for Ms =2 L = 1.7 a = 0 a las 02-Apr-2020 02:33:25
+Write in the file Pareto3Fun_a0_to1.7_ms1.4.csv at 02-Apr-2020 02:34:50
+Optimizing for Ms =1.6 L = 1.7 a = 0 a las 02-Apr-2020 02:34:50
+Write in the file Pareto3Fun_a0.6_to1.5_ms1.6.csv at 02-Apr-2020 02:36:26
+Optimizing for Ms =1.8 L = 1.5 a = 0.6 a las 02-Apr-2020 02:36:26
+Write in the file Pareto3Fun_a1_to1.2_ms1.4.csv at 02-Apr-2020 02:37:23
+Optimizing for Ms =1.6 L = 1.2 a = 1 a las 02-Apr-2020 02:37:23
+Write in the file Pareto3Fun_a0.8_to1.6_ms1.4.csv at 02-Apr-2020 02:43:28
+Optimizing for Ms =1.6 L = 1.6 a = 0.8 a las 02-Apr-2020 02:43:28
+Write in the file Pareto3Fun_a0.5_to1.6_ms2.csv at 02-Apr-2020 02:55:17
+Optimizing for Ms =2 L = 1.6 a = 0.8 a las 02-Apr-2020 02:55:17
+Write in the file Pareto3Fun_a0.3_to1.2_ms1.4.csv at 02-Apr-2020 02:57:33
+Optimizing for Ms =1.6 L = 1.2 a = 0.3 a las 02-Apr-2020 02:57:33
+Write in the file Pareto3Fun_a0.3_to1.6_ms1.4.csv at 02-Apr-2020 02:59:43
+Optimizing for Ms =1.8 L = 1.7 a = 0.1 a las 02-Apr-2020 02:59:44
+Write in the file Pareto3Fun_a0_to1.6_ms10.csv at 02-Apr-2020 03:03:17
+Optimizing for Ms =1.4 L = 1.5 a = 1 a las 02-Apr-2020 03:03:17
+Write in the file Pareto3Fun_a0.8_to1.5_ms10.csv at 02-Apr-2020 03:13:18
+Optimizing for Ms =1.4 L = 1.5 a = 0.7 a las 02-Apr-2020 03:13:18
+Write in the file Pareto3Fun_a0.6_to1.2_ms2.csv at 02-Apr-2020 03:18:34
+Optimizing for Ms =10 L = 1.2 a = 0.6 a las 02-Apr-2020 03:18:34
+Write in the file Pareto3Fun_a0.7_to1.6_ms1.8.csv at 02-Apr-2020 03:30:21
+Optimizing for Ms =2 L = 1.6 a = 0.7 a las 02-Apr-2020 03:30:21
+Write in the file Pareto3Fun_a1_to1.3_ms1.8.csv at 02-Apr-2020 03:48:50
+Optimizing for Ms =2 L = 1.3 a = 1 a las 02-Apr-2020 03:48:50
+Write in the file Pareto3Fun_a0.7_to0.2_ms2.csv at 02-Apr-2020 03:51:05
+Optimizing for Ms =1.8 L = 1.3 a = 0.4 a las 02-Apr-2020 03:51:06
+Write in the file Pareto3Fun_a0.1_to1.2_ms1.6.csv at 02-Apr-2020 03:59:03
+Optimizing for Ms =10 L = 1.7 a = 0.8 a las 02-Apr-2020 03:59:03
+Write in the file Pareto3Fun_a0.5_to1.5_ms1.8.csv at 02-Apr-2020 04:05:52
+Optimizing for Ms =2 L = 1.5 a = 0.5 a las 02-Apr-2020 04:05:52
+Write in the file Pareto3Fun_a0.2_to1.3_ms10.csv at 02-Apr-2020 04:07:40
+Optimizing for Ms =1.4 L = 1.3 a = 0.1 a las 02-Apr-2020 04:07:40
+Write in the file Pareto3Fun_a0.2_to1.5_ms1.4.csv at 02-Apr-2020 04:15:09
+Optimizing for Ms =1.6 L = 1.5 a = 0.2 a las 02-Apr-2020 04:15:09
+Write in the file Pareto3Fun_a0.7_to1.5_ms1.4.csv at 02-Apr-2020 04:30:24
+Optimizing for Ms =2 L = 1.7 a = 0.6 a las 02-Apr-2020 04:30:24
+Write in the file Pareto3Fun_a1_to1.5_ms1.4.csv at 02-Apr-2020 04:35:17
+Optimizing for Ms =1.6 L = 1.5 a = 1 a las 02-Apr-2020 04:35:17
+Write in the file Pareto3Fun_a0_to1.3_ms1.6.csv at 02-Apr-2020 04:43:51
+Optimizing for Ms =1.8 L = 1.3 a = 0 a las 02-Apr-2020 04:43:51
+Write in the file Pareto3Fun_a0.2_to1.6_ms1.8.csv at 02-Apr-2020 04:47:40
+Optimizing for Ms =1.8 L = 1.6 a = 0.9 a las 02-Apr-2020 04:47:40
+Write in the file Pareto3Fun_a0.8_to1.3_ms2.csv at 02-Apr-2020 04:54:23
+Optimizing for Ms =10 L = 1.3 a = 0.8 a las 02-Apr-2020 04:54:23
+Write in the file Pareto3Fun_a0.6_to1.4_ms1.6.csv at 02-Apr-2020 04:55:05
+Optimizing for Ms =1.8 L = 1.4 a = 0.6 a las 02-Apr-2020 04:55:05
+Write in the file Pareto3Fun_a0.3_to1.4_ms1.6.csv at 02-Apr-2020 04:55:09
+Optimizing for Ms =1.8 L = 1.4 a = 0.3 a las 02-Apr-2020 04:55:09
+Write in the file Pareto3Fun_a0.9_to1.3_ms10.csv at 02-Apr-2020 05:10:00
+Optimizing for Ms =1.4 L = 1.3 a = 0.8 a las 02-Apr-2020 05:10:00
+Write in the file Pareto3Fun_a0.1_to1.3_ms1.4.csv at 02-Apr-2020 05:24:40
+Optimizing for Ms =10 L = 1.7 a = 0.2 a las 02-Apr-2020 05:24:40
+Write in the file Pareto3Fun_a0.9_to1.1_ms2.csv at 02-Apr-2020 05:27:39
+Optimizing for Ms =10 L = 1.1 a = 0.9 a las 02-Apr-2020 05:27:39
+Write in the file Pareto3Fun_a1_to1.1_ms2.csv at 02-Apr-2020 05:41:29
+Optimizing for Ms =10 L = 1.1 a = 1 a las 02-Apr-2020 05:41:29
+Write in the file Pareto3Fun_a0_to1.7_ms1.6.csv at 02-Apr-2020 05:42:18
+Optimizing for Ms =1.8 L = 1.7 a = 0 a las 02-Apr-2020 05:42:18
+Write in the file Pareto3Fun_a0.7_to1.6_ms10.csv at 02-Apr-2020 05:45:54
+Optimizing for Ms =1.4 L = 1.6 a = 0.6 a las 02-Apr-2020 05:45:54
+Write in the file Pareto3Fun_a0.8_to1.6_ms1.6.csv at 02-Apr-2020 05:48:39
+Optimizing for Ms =1.8 L = 1.6 a = 0.8 a las 02-Apr-2020 05:48:39
+Write in the file Pareto3Fun_a0.8_to1.2_ms1.6.csv at 02-Apr-2020 05:53:36
+Optimizing for Ms =2 L = 1.7 a = 0.3 a las 02-Apr-2020 05:53:36
+Write in the file Pareto3Fun_a0.9_to1.4_ms2.csv at 02-Apr-2020 06:06:35
+Optimizing for Ms =10 L = 1.4 a = 0.9 a las 02-Apr-2020 06:06:35
+Write in the file Pareto3Fun_a1_to1.6_ms10.csv at 02-Apr-2020 06:09:03
+Optimizing for Ms =1.4 L = 1.6 a = 0.9 a las 02-Apr-2020 06:09:03
+Write in the file Pareto3Fun_a0.6_to1.3_ms10.csv at 02-Apr-2020 06:17:13
+Optimizing for Ms =1.6 L = 1.6 a = 1 a las 02-Apr-2020 06:17:13
+Write in the file Pareto3Fun_a0.3_to1.2_ms1.6.csv at 02-Apr-2020 06:21:57
+Optimizing for Ms =1.8 L = 1.2 a = 0.3 a las 02-Apr-2020 06:21:57
+Write in the file Pareto3Fun_a0.4_to0.2_ms1.6.csv at 02-Apr-2020 06:50:03
+Optimizing for Ms =1.8 L = 1.2 a = 0.1 a las 02-Apr-2020 06:50:03
+Write in the file Pareto3Fun_a0.4_to1.2_ms1.8.csv at 02-Apr-2020 06:52:19
+Optimizing for Ms =1.6 L = 1.7 a = 0.5 a las 02-Apr-2020 06:52:19
+Write in the file Pareto3Fun_a0.8_to1.3_ms1.4.csv at 02-Apr-2020 06:52:22
+Optimizing for Ms =10 L = 1.7 a = 0.5 a las 02-Apr-2020 06:52:22
+Write in the file Pareto3Fun_a0.7_to1.1_ms2.csv at 02-Apr-2020 07:04:03
+Optimizing for Ms =10 L = 1.1 a = 0.7 a las 02-Apr-2020 07:04:03
+Write in the file Pareto3Fun_a1_to1.4_ms1.8.csv at 02-Apr-2020 07:24:51
+Optimizing for Ms =1.4 L = 1.7 a = 0.6 a las 02-Apr-2020 07:24:51
+Write in the file Pareto3Fun_a0.6_to1.6_ms1.4.csv at 02-Apr-2020 07:37:33
+Optimizing for Ms =1.6 L = 1.6 a = 0.6 a las 02-Apr-2020 07:37:33
+Write in the file Pareto3Fun_a0.2_to1.4_ms2.csv at 02-Apr-2020 07:37:43
+Optimizing for Ms =10 L = 1.4 a = 0.2 a las 02-Apr-2020 07:37:43
+Write in the file Pareto3Fun_a1_to1.2_ms1.6.csv at 02-Apr-2020 07:38:04
+Optimizing for Ms =1.8 L = 1.2 a = 1 a las 02-Apr-2020 07:38:04
+Write in the file Pareto3Fun_a0.7_to1.2_ms2.csv at 02-Apr-2020 07:38:47
+Optimizing for Ms =1.6 L = 1.7 a = 0.2 a las 02-Apr-2020 07:38:47
+Write in the file Pareto3Fun_a0.9_to1.6_ms1.4.csv at 02-Apr-2020 07:44:27
+Optimizing for Ms =1.6 L = 1.6 a = 0.9 a las 02-Apr-2020 07:44:27
+Write in the file Pareto3Fun_a0.5_to1.4_ms10.csv at 02-Apr-2020 07:55:02
+Optimizing for Ms =1.4 L = 1.4 a = 0.4 a las 02-Apr-2020 07:55:02
+Write in the file Pareto3Fun_a0.2_to1.5_ms1.6.csv at 02-Apr-2020 08:10:11
+Optimizing for Ms =1.8 L = 1.5 a = 0.2 a las 02-Apr-2020 08:10:11
+Write in the file Pareto3Fun_a1_to1.5_ms1.6.csv at 02-Apr-2020 08:12:41
+Optimizing for Ms =1.4 L = 1.7 a = 0.9 a las 02-Apr-2020 08:12:41
+Write in the file Pareto3Fun_a0.1_to1.7_ms1.8.csv at 02-Apr-2020 08:30:14
+Optimizing for Ms =2 L = 1.7 a = 0.1 a las 02-Apr-2020 08:30:14
+Write in the file Pareto3Fun_a0_to1.7_ms2.csv at 02-Apr-2020 08:32:20
+Optimizing for Ms =10 L = 1.7 a = 0 a las 02-Apr-2020 08:32:20
+Write in the file Pareto3Fun_a0.6_to1.7_ms1.4.csv at 02-Apr-2020 08:32:29
+Optimizing for Ms =1.6 L = 1.7 a = 0.6 a las 02-Apr-2020 08:32:29
+Write in the file Pareto3Fun_a0.8_to1.6_ms2.csv at 02-Apr-2020 08:49:36
+Optimizing for Ms =10 L = 1.6 a = 0.8 a las 02-Apr-2020 08:49:36
+Write in the file Pareto3Fun_a0.6_to1.5_ms1.8.csv at 02-Apr-2020 09:06:13
+Optimizing for Ms =10 L = 1.8 a = 0 a las 02-Apr-2020 09:06:13
+Write in the file Pareto3Fun_a0.1_to1.6_ms10.csv at 02-Apr-2020 09:11:47
+Optimizing for Ms =1.8 L = 1.7 a = 0.7 a las 02-Apr-2020 09:11:47
+Write in the file Pareto3Fun_a0.7_to1.6_ms2.csv at 02-Apr-2020 09:25:46
+Optimizing for Ms =2 L = 1.8 a = 0.7 a las 02-Apr-2020 09:25:46
+Write in the file Pareto3Fun_a0.4_to1.4_ms1.4.csv at 02-Apr-2020 09:29:53
+Optimizing for Ms =1.6 L = 1.8 a = 0 a las 02-Apr-2020 09:29:53
+Write in the file Pareto3Fun_a1_to1.6_ms1.6.csv at 02-Apr-2020 09:30:29
+Optimizing for Ms =1.8 L = 1.6 a = 1 a las 02-Apr-2020 09:30:29
+Write in the file Pareto3Fun_a1_to1.3_ms2.csv at 02-Apr-2020 09:32:00
+Optimizing for Ms =1.4 L = 1.7 a = 0.3 a las 02-Apr-2020 09:32:00
+Write in the file Pareto3Fun_a0.5_to1.7_ms1.6.csv at 02-Apr-2020 09:35:34
+Optimizing for Ms =1.8 L = 1.7 a = 0.5 a las 02-Apr-2020 09:35:34
+Write in the file Pareto3Fun_a0.4_to1.3_ms1.8.csv at 02-Apr-2020 09:35:58
+Optimizing for Ms =2 L = 1.3 a = 0.4 a las 02-Apr-2020 09:35:58
+Write in the file Pareto3Fun_a0_to1.3_ms1.8.csv at 02-Apr-2020 09:37:07
+Optimizing for Ms =1.6 L = 1.7 a = 0.8 a las 02-Apr-2020 09:37:07
+Write in the file Pareto3Fun_a0.9_to1.7_ms1.4.csv at 02-Apr-2020 09:52:32
+Optimizing for Ms =1.6 L = 1.7 a = 0.9 a las 02-Apr-2020 09:52:32
+Write in the file Pareto3Fun_a0.5_to1.5_ms2.csv at 02-Apr-2020 10:15:03
+Optimizing for Ms =10 L = 1.5 a = 0.5 a las 02-Apr-2020 10:15:03
+Write in the file Pareto3Fun_a0.6_to1.2_ms10.csv at 02-Apr-2020 10:15:22
+Optimizing for Ms =1.4 L = 1.2 a = 0.5 a las 02-Apr-2020 10:15:22
+Write in the file Pareto3Fun_a0.2_to1.7_ms1.6.csv at 02-Apr-2020 10:19:43
+Optimizing for Ms =1.8 L = 1.7 a = 0.2 a las 02-Apr-2020 10:19:43
+Write in the file Pareto3Fun_a0.8_to1.7_ms10.csv at 02-Apr-2020 10:21:10
+Optimizing for Ms =1.4 L = 1.7 a = 0.7 a las 02-Apr-2020 10:21:10
+Write in the file Pareto3Fun_a0_to1.7_ms1.8.csv at 02-Apr-2020 10:26:41
+Optimizing for Ms =1.4 L = 1.8 a = 0.7 a las 02-Apr-2020 10:26:41
+Write in the file Pareto3Fun_a0.3_to1.4_ms1.8.csv at 02-Apr-2020 10:31:01
+Optimizing for Ms =1.8 L = 1.7 a = 0.4 a las 02-Apr-2020 10:31:02
+Write in the file Pareto3Fun_a0.6_to1.7_ms2.csv at 02-Apr-2020 10:35:28
+Optimizing for Ms =10 L = 1.7 a = 0.6 a las 02-Apr-2020 10:35:28
+Write in the file Pareto3Fun_a0.9_to1.6_ms1.8.csv at 02-Apr-2020 10:39:58
+Optimizing for Ms =2 L = 1.6 a = 0.9 a las 02-Apr-2020 10:39:58
+Write in the file Pareto3Fun_a0.6_to1.4_ms1.8.csv at 02-Apr-2020 10:44:05
+Optimizing for Ms =2 L = 1.4 a = 0.6 a las 02-Apr-2020 10:44:05
+Write in the file Pareto3Fun_a0.9_to1.6_ms1.6.csv at 02-Apr-2020 10:57:01
+Optimizing for Ms =1.6 L = 1.8 a = 0.8 a las 02-Apr-2020 10:57:01
+Write in the file Pareto3Fun_a0.6_to1.7_ms1.6.csv at 02-Apr-2020 11:22:29
+Optimizing for Ms =1.8 L = 1.7 a = 0.6 a las 02-Apr-2020 11:22:29
+Write in the file Pareto3Fun_a0.3_to1.7_ms1.4.csv at 02-Apr-2020 11:30:27
+Optimizing for Ms =1.6 L = 1.7 a = 0.3 a las 02-Apr-2020 11:30:27
+Write in the file Pareto3Fun_a0.6_to1.6_ms1.6.csv at 02-Apr-2020 11:33:29
+Optimizing for Ms =2 L = 1.8 a = 0.8 a las 02-Apr-2020 11:33:29
+Write in the file Pareto3Fun_a0.7_to1.8_ms1.4.csv at 02-Apr-2020 11:41:54
+Optimizing for Ms =1.6 L = 1.8 a = 0.7 a las 02-Apr-2020 11:41:54
+Write in the file Pareto3Fun_a0.3_to1.2_ms1.8.csv at 02-Apr-2020 11:42:47
+Optimizing for Ms =2 L = 1.2 a = 0.3 a las 02-Apr-2020 11:42:47
+Write in the file Pareto3Fun_a0.8_to1.3_ms10.csv at 02-Apr-2020 11:43:20
+Optimizing for Ms =1.4 L = 1.3 a = 0.7 a las 02-Apr-2020 11:43:20
+Write in the file Pareto3Fun_a0.5_to1.2_ms1.4.csv at 02-Apr-2020 11:44:42
+Optimizing for Ms =10 L = 1.8 a = 0.3 a las 02-Apr-2020 11:44:42
+Write in the file Pareto3Fun_a0.8_to1.6_ms1.8.csv at 02-Apr-2020 11:46:53
+Optimizing for Ms =10 L = 1.8 a = 0.9 a las 02-Apr-2020 11:46:53
+Write in the file Pareto3Fun_a0.1_to1.2_ms1.8.csv at 02-Apr-2020 11:52:42
+Optimizing for Ms =2 L = 1.2 a = 0.1 a las 02-Apr-2020 11:52:42
+Write in the file Pareto3Fun_a0.7_to1.7_ms1.4.csv at 02-Apr-2020 12:01:07
+Optimizing for Ms =1.6 L = 1.7 a = 0.7 a las 02-Apr-2020 12:01:07
+Write in the file Pareto3Fun_a0.3_to1.7_ms2.csv at 02-Apr-2020 12:06:37
+Optimizing for Ms =10 L = 1.7 a = 0.3 a las 02-Apr-2020 12:06:37
+Write in the file Pareto3Fun_a0.9_to1.1_ms10.csv at 02-Apr-2020 12:15:02
+Optimizing for Ms =1.4 L = 1.1 a = 0.8 a las 02-Apr-2020 12:15:02
+Write in the file Pareto3Fun_a0.2_to1.7_ms10.csv at 02-Apr-2020 12:22:02
+Optimizing for Ms =1.4 L = 1.7 a = 0.1 a las 02-Apr-2020 12:22:02
+Write in the file Pareto3Fun_a1_to1.1_ms10.csv at 02-Apr-2020 12:24:00
+Optimizing for Ms =1.4 L = 1.1 a = 0.9 a las 02-Apr-2020 12:24:00
+Write in the file Pareto3Fun_a0_to1.8_ms1.6.csv at 02-Apr-2020 12:32:42
+Optimizing for Ms =1.8 L = 1.8 a = 0 a las 02-Apr-2020 12:32:42
+Write in the file Pareto3Fun_a0.9_to1.4_ms10.csv at 02-Apr-2020 12:36:10
+Optimizing for Ms =2 L = 1.8 a = 0.1 a las 02-Apr-2020 12:36:11
+Write in the file Pareto3Fun_a1_to1.2_ms1.8.csv at 02-Apr-2020 12:53:04
+Optimizing for Ms =2 L = 1.2 a = 1 a las 02-Apr-2020 12:53:04
+Write in the file Pareto3Fun_a0.9_to1.7_ms1.6.csv at 02-Apr-2020 12:59:31
+Optimizing for Ms =1.8 L = 1.7 a = 0.9 a las 02-Apr-2020 12:59:31
+Write in the file Pareto3Fun_a0.7_to1.3_ms1.4.csv at 02-Apr-2020 13:13:28
+Optimizing for Ms =1.6 L = 1.3 a = 0.7 a las 02-Apr-2020 13:13:28
+Write in the file Pareto3Fun_a0.8_to1.7_ms1.6.csv at 02-Apr-2020 13:22:21
+Optimizing for Ms =1.8 L = 1.7 a = 0.8 a las 02-Apr-2020 13:22:21
+Write in the file Pareto3Fun_a0.5_to1.7_ms10.csv at 02-Apr-2020 13:33:37
+Optimizing for Ms =1.4 L = 1.7 a = 0.4 a las 02-Apr-2020 13:33:37
+Write in the file Pareto3Fun_a0.2_to1.5_ms1.8.csv at 02-Apr-2020 13:37:49
+Optimizing for Ms =2 L = 1.5 a = 0.2 a las 02-Apr-2020 13:37:49
+Write in the file Pareto3Fun_a0.1_to1.7_ms1.4.csv at 02-Apr-2020 13:47:27
+Optimizing for Ms =1.6 L = 1.7 a = 0.1 a las 02-Apr-2020 13:47:27
+Write in the file Pareto3Fun_a0.3_to1.7_ms1.6.csv at 02-Apr-2020 13:56:47
+Optimizing for Ms =1.8 L = 1.7 a = 0.3 a las 02-Apr-2020 13:56:47
+Write in the file Pareto3Fun_a0.7_to1.1_ms10.csv at 02-Apr-2020 14:13:17
+Optimizing for Ms =2 L = 1.7 a = 0.9 a las 02-Apr-2020 14:13:17
+Write in the file Pareto3Fun_a0.8_to1.8_ms1.6.csv at 02-Apr-2020 14:15:49
+Optimizing for Ms =1.8 L = 1.8 a = 0.8 a las 02-Apr-2020 14:15:49
+Write in the file Pareto3Fun_a0.1_to1.7_ms2.csv at 02-Apr-2020 14:21:13
+Optimizing for Ms =10 L = 1.7 a = 0.1 a las 02-Apr-2020 14:21:13
+Write in the file Pareto3Fun_a0.7_to1.8_ms1.6.csv at 02-Apr-2020 14:29:58
+Optimizing for Ms =1.8 L = 1.8 a = 0.7 a las 02-Apr-2020 14:29:58
+Write in the file Pareto3Fun_a0.2_to1.4_ms10.csv at 02-Apr-2020 14:40:15
+Optimizing for Ms =1.8 L = 1.7 a = 1 a las 02-Apr-2020 14:40:15
+Write in the file Pareto3Fun_a0.4_to1.7_ms1.4.csv at 02-Apr-2020 14:45:11
+Optimizing for Ms =1.6 L = 1.7 a = 0.4 a las 02-Apr-2020 14:45:11
+Write in the file Pareto3Fun_a0.8_to1.1_ms1.4.csv at 02-Apr-2020 14:45:54
+Optimizing for Ms =1.6 L = 1.1 a = 0.8 a las 02-Apr-2020 14:45:54
+Write in the file Pareto3Fun_a1_to1.6_ms1.8.csv at 02-Apr-2020 14:51:17
+Optimizing for Ms =2 L = 1.6 a = 1 a las 02-Apr-2020 14:51:17
+Write in the file Pareto3Fun_a0.7_to1.7_ms1.8.csv at 02-Apr-2020 15:10:11
+Optimizing for Ms =2 L = 1.7 a = 0.7 a las 02-Apr-2020 15:10:11
+Write in the file Pareto3Fun_a0.8_to1.6_ms10.csv at 02-Apr-2020 15:21:12
+Optimizing for Ms =1.4 L = 1.6 a = 0.7 a las 02-Apr-2020 15:21:12
+Write in the file Pareto3Fun_a0.7_to1.8_ms2.csv at 02-Apr-2020 15:30:50
+Optimizing for Ms =10 L = 1.8 a = 0.7 a las 02-Apr-2020 15:30:50
+Write in the file Pareto3Fun_a0.5_to1.7_ms1.8.csv at 02-Apr-2020 15:34:13
+Optimizing for Ms =2 L = 1.7 a = 0.5 a las 02-Apr-2020 15:34:13
+Write in the file Pareto3Fun_a0.9_to1.1_ms1.4.csv at 02-Apr-2020 15:52:54
+Optimizing for Ms =1.6 L = 1.8 a = 0.3 a las 02-Apr-2020 15:52:54
+Write in the file Pareto3Fun_a0_to1.7_ms10.csv at 02-Apr-2020 15:55:12
+Optimizing for Ms =1.4 L = 1.6 a = 1 a las 02-Apr-2020 15:55:12
+Write in the file Pareto3Fun_a0.2_to1.7_ms1.8.csv at 02-Apr-2020 15:55:35
+Optimizing for Ms =2 L = 1.7 a = 0.2 a las 02-Apr-2020 15:55:35
+Write in the file Pareto3Fun_a0.4_to1.3_ms2.csv at 02-Apr-2020 15:59:38
+Optimizing for Ms =10 L = 1.3 a = 0.4 a las 02-Apr-2020 15:59:38
+Write in the file Pareto3Fun_a0_to1.8_ms10.csv at 02-Apr-2020 16:02:40
+Optimizing for Ms =1.4 L = 1.7 a = 1 a las 02-Apr-2020 16:02:40
+Write in the file Pareto3Fun_a0.7_to1.7_ms1.6.csv at 02-Apr-2020 16:07:19
+Optimizing for Ms =10 L = 1.9 a = 0 a las 02-Apr-2020 16:07:19
+Write in the file Pareto3Fun_a0.9_to1.6_ms2.csv at 02-Apr-2020 16:23:48
+Optimizing for Ms =10 L = 1.6 a = 0.9 a las 02-Apr-2020 16:23:48
+Write in the file Pareto3Fun_a0.4_to1.7_ms1.8.csv at 02-Apr-2020 16:39:07
+Optimizing for Ms =2 L = 1.7 a = 0.4 a las 02-Apr-2020 16:39:07
+Write in the file Pareto3Fun_a0.6_to1.4_ms2.csv at 02-Apr-2020 16:39:12
+Optimizing for Ms =2 L = 1.8 a = 0.4 a las 02-Apr-2020 16:39:12
+Write in the file Pareto3Fun_a0.7_to1.6_ms1.4.csv at 02-Apr-2020 16:41:42
+Optimizing for Ms =1.4 L = 1.8 a = 0.9 a las 02-Apr-2020 16:41:42
+Write in the file Pareto3Fun_a0.1_to1.7_ms1.6.csv at 02-Apr-2020 16:42:09
+Optimizing for Ms =2 L = 1.9 a = 0.1 a las 02-Apr-2020 16:42:09
+Write in the file Pareto3Fun_a0.7_to1.3_ms1.6.csv at 02-Apr-2020 16:53:18
+Optimizing for Ms =1.8 L = 1.3 a = 0.7 a las 02-Apr-2020 16:53:18
+Write in the file Pareto3Fun_a0.6_to1.7_ms10.csv at 02-Apr-2020 17:04:41
+Optimizing for Ms =1.4 L = 1.7 a = 0.5 a las 02-Apr-2020 17:04:41
+Write in the file Pareto3Fun_a0.5_to1.5_ms10.csv at 02-Apr-2020 17:06:31
+Optimizing for Ms =1.8 L = 1.8 a = 0.2 a las 02-Apr-2020 17:06:31
+Write in the file Pareto3Fun_a0.6_to1.7_ms1.8.csv at 02-Apr-2020 17:18:39
+Optimizing for Ms =1.6 L = 1.9 a = 0.3 a las 02-Apr-2020 17:18:39
+Write in the file Pareto3Fun_a1_to1.7_ms1.4.csv at 02-Apr-2020 17:20:30
+Optimizing for Ms =1.6 L = 1.7 a = 1 a las 02-Apr-2020 17:20:30
+Write in the file Pareto3Fun_a0_to1.8_ms1.8.csv at 02-Apr-2020 17:25:46
+Optimizing for Ms =2 L = 1.8 a = 0 a las 02-Apr-2020 17:25:46
+Write in the file Pareto3Fun_a1_to1.6_ms1.4.csv at 02-Apr-2020 17:32:05
+Optimizing for Ms =1.8 L = 1.8 a = 0.9 a las 02-Apr-2020 17:32:05
+Write in the file Pareto3Fun_a0.8_to1.8_ms2.csv at 02-Apr-2020 17:38:12
+Optimizing for Ms =10 L = 1.8 a = 0.8 a las 02-Apr-2020 17:38:12
+Write in the file Pareto3Fun_a0.4_to1.7_ms1.6.csv at 02-Apr-2020 17:42:25
+Optimizing for Ms =2 L = 1.9 a = 0.3 a las 02-Apr-2020 17:42:25
+Write in the file Pareto3Fun_a0.3_to1.2_ms2.csv at 02-Apr-2020 18:07:04
+Optimizing for Ms =10 L = 1.2 a = 0.3 a las 02-Apr-2020 18:07:04
+Write in the file Pareto3Fun_a0.3_to1.8_ms1.6.csv at 02-Apr-2020 18:19:19
+Optimizing for Ms =1.8 L = 1.8 a = 0.3 a las 02-Apr-2020 18:19:19
+Write in the file Pareto3Fun_a0.3_to1.8_ms10.csv at 02-Apr-2020 18:19:47
+Optimizing for Ms =1.4 L = 1.8 a = 0.2 a las 02-Apr-2020 18:19:47
+Error for Ms =1.4 L = 1.8 a = 0.2 at 02-Apr-2020 18:19:58
+Optimizing for Ms =1.6 L = 1.8 a = 0.2 a las 02-Apr-2020 18:19:58
+Write in the file Pareto3Fun_a0.9_to1.8_ms10.csv at 02-Apr-2020 18:21:47
+Optimizing for Ms =1.4 L = 1.8 a = 0.8 a las 02-Apr-2020 18:21:47
+Write in the file Pareto3Fun_a0.1_to1.2_ms2.csv at 02-Apr-2020 18:22:56
+Optimizing for Ms =10 L = 1.2 a = 0.1 a las 02-Apr-2020 18:22:56
+Write in the file Pareto3Fun_a0.1_to1.8_ms2.csv at 02-Apr-2020 18:26:05
+Optimizing for Ms =10 L = 1.8 a = 0.1 a las 02-Apr-2020 18:26:05
+Write in the file Pareto3Fun_a0.9_to1.8_ms1.4.csv at 02-Apr-2020 18:28:43
+Optimizing for Ms =1.6 L = 1.8 a = 0.9 a las 02-Apr-2020 18:28:43
+Write in the file Pareto3Fun_a0.5_to1.7_ms1.4.csv at 02-Apr-2020 18:41:36
+Optimizing for Ms =1.8 L = 1.9 a = 0 a las 02-Apr-2020 18:41:36
+Write in the file Pareto3Fun_a1_to1.2_ms2.csv at 02-Apr-2020 18:41:51
+Optimizing for Ms =10 L = 1.2 a = 1 a las 02-Apr-2020 18:41:51
+Write in the file Pareto3Fun_a0.3_to1.7_ms10.csv at 02-Apr-2020 18:44:37
+Optimizing for Ms =1.4 L = 1.7 a = 0.2 a las 02-Apr-2020 18:44:37
+Write in the file Pareto3Fun_a0.9_to1.7_ms1.8.csv at 02-Apr-2020 18:50:32
+Optimizing for Ms =1.8 L = 1.9 a = 0.4 a las 02-Apr-2020 18:50:32
+Write in the file Pareto3Fun_a0.2_to1.5_ms2.csv at 02-Apr-2020 19:22:04
+Optimizing for Ms =1.4 L = 1.8 a = 0.4 a las 02-Apr-2020 19:22:04
+Write in the file Pareto3Fun_a0.8_to1.7_ms1.8.csv at 02-Apr-2020 19:22:22
+Optimizing for Ms =2 L = 1.7 a = 0.8 a las 02-Apr-2020 19:22:22
+Write in the file Pareto3Fun_a0.3_to1.7_ms1.8.csv at 02-Apr-2020 19:44:15
+Optimizing for Ms =1.8 L = 1.9 a = 0.6 a las 02-Apr-2020 19:44:16
+Write in the file Pareto3Fun_a0.8_to1.1_ms1.6.csv at 02-Apr-2020 19:54:11
+Optimizing for Ms =1.8 L = 1.1 a = 0.8 a las 02-Apr-2020 19:54:11
+Write in the file Pareto3Fun_a0.3_to1.9_ms1.6.csv at 02-Apr-2020 19:56:34
+Optimizing for Ms =1.8 L = 1.9 a = 0.3 a las 02-Apr-2020 19:56:34
+Write in the file Pareto3Fun_a0.9_to1.7_ms2.csv at 02-Apr-2020 20:04:46
+Optimizing for Ms =10 L = 1.7 a = 0.9 a las 02-Apr-2020 20:04:46
+Write in the file Pareto3Fun_a0.8_to1.8_ms1.8.csv at 02-Apr-2020 20:12:10
+Optimizing for Ms =10 L = 1.9 a = 0.8 a las 02-Apr-2020 20:12:10
+Write in the file Pareto3Fun_a0.7_to1.8_ms1.8.csv at 02-Apr-2020 20:17:44
+Optimizing for Ms =2 L = 1.9 a = 0.7 a las 02-Apr-2020 20:17:44
+Write in the file Pareto3Fun_a1_to1.7_ms1.6.csv at 02-Apr-2020 20:18:49
+Optimizing for Ms =1.4 L = 1.9 a = 0.4 a las 02-Apr-2020 20:18:49
+Error for Ms =1.4 L = 1.9 a = 0.4 at 02-Apr-2020 20:19:01
+Optimizing for Ms =1.6 L = 1.9 a = 0.4 a las 02-Apr-2020 20:19:01
+Write in the file Pareto3Fun_a1_to1.7_ms1.8.csv at 02-Apr-2020 20:24:01
+Optimizing for Ms =2 L = 1.7 a = 1 a las 02-Apr-2020 20:24:01
+Write in the file Pareto3Fun_a1_to1.6_ms2.csv at 02-Apr-2020 20:24:07
+Optimizing for Ms =10 L = 1.9 a = 0.2 a las 02-Apr-2020 20:24:07
+Write in the file Pareto3Fun_a0.2_to1.8_ms1.6.csv at 02-Apr-2020 20:46:59
+Optimizing for Ms =1.4 L = 1.9 a = 0.8 a las 02-Apr-2020 20:46:59
+Write in the file Pareto3Fun_a0.2_to1.7_ms1.4.csv at 02-Apr-2020 21:15:18
+Optimizing for Ms =1.6 L = 1.9 a = 0.1 a las 02-Apr-2020 21:15:18
+Write in the file Pareto3Fun_a0.7_to1.7_ms2.csv at 02-Apr-2020 21:23:30
+Optimizing for Ms =10 L = 1.7 a = 0.7 a las 02-Apr-2020 21:23:30
+Write in the file Pareto3Fun_a0.1_to1.7_ms10.csv at 02-Apr-2020 21:28:59
+Optimizing for Ms =2 L = 1.8 a = 1 a las 02-Apr-2020 21:28:59
+Write in the file Pareto3Fun_a0.4_to1.8_ms1.4.csv at 02-Apr-2020 21:35:07
+Optimizing for Ms =1.6 L = 1.8 a = 0.4 a las 02-Apr-2020 21:35:07
+Write in the file Pareto3Fun_a0.5_to1.7_ms2.csv at 02-Apr-2020 21:41:17
+Optimizing for Ms =1.4 L = 1.9 a = 0.2 a las 02-Apr-2020 21:41:17
+Error for Ms =1.4 L = 1.9 a = 0.2 at 02-Apr-2020 21:41:27
+Optimizing for Ms =1.6 L = 1.9 a = 0.2 a las 02-Apr-2020 21:41:27
+Write in the file Pareto3Fun_a0.2_to1.7_ms2.csv at 02-Apr-2020 21:54:50
+Optimizing for Ms =10 L = 1.9 a = 0.4 a las 02-Apr-2020 21:54:51
+Write in the file Pareto3Fun_a0.7_to1.8_ms10.csv at 02-Apr-2020 21:58:29
+Optimizing for Ms =1.4 L = 1.8 a = 0.6 a las 02-Apr-2020 21:58:29
+Write in the file Pareto3Fun_a0.9_to1.8_ms1.6.csv at 02-Apr-2020 22:15:15
+Optimizing for Ms =10 L = 2 a = 0.1 a las 02-Apr-2020 22:15:15
+Write in the file Pareto3Fun_a0.8_to1.9_ms1.4.csv at 02-Apr-2020 22:20:18
+Optimizing for Ms =1.6 L = 1.9 a = 0.8 a las 02-Apr-2020 22:20:18
+Write in the file Pareto3Fun_a0.7_to1.3_ms1.8.csv at 02-Apr-2020 22:27:21
+Optimizing for Ms =1.6 L = 1.8 a = 0.6 a las 02-Apr-2020 22:27:21
+Write in the file Pareto3Fun_a0.2_to1.8_ms1.8.csv at 02-Apr-2020 22:41:03
+Optimizing for Ms =2 L = 1.8 a = 0.2 a las 02-Apr-2020 22:41:03
+Write in the file Pareto3Fun_a0.4_to1.7_ms2.csv at 02-Apr-2020 22:51:53
+Optimizing for Ms =10 L = 1.7 a = 0.4 a las 02-Apr-2020 22:51:53
+Write in the file Pareto3Fun_a0.4_to1.9_ms1.6.csv at 02-Apr-2020 22:53:42
+Optimizing for Ms =1.6 L = 2 a = 0.3 a las 02-Apr-2020 22:53:42
+Write in the file Pareto3Fun_a0.9_to1.6_ms10.csv at 02-Apr-2020 22:55:30
+Optimizing for Ms =1.4 L = 1.9 a = 0 a las 02-Apr-2020 22:55:30
+Error for Ms =1.4 L = 1.9 a = 0 at 02-Apr-2020 22:55:45
+Optimizing for Ms =1.6 L = 1.9 a = 0 a las 02-Apr-2020 22:55:45
+Write in the file Pareto3Fun_a0.4_to1.8_ms2.csv at 02-Apr-2020 22:59:13
+Optimizing for Ms =10 L = 1.8 a = 0.4 a las 02-Apr-2020 22:59:13
+Write in the file Pareto3Fun_a0.1_to1.9_ms2.csv at 02-Apr-2020 22:59:56
+Optimizing for Ms =10 L = 1.9 a = 0.1 a las 02-Apr-2020 22:59:56
+Write in the file Pareto3Fun_a0_to1.9_ms10.csv at 02-Apr-2020 23:10:19
+Optimizing for Ms =1.4 L = 1.8 a = 1 a las 02-Apr-2020 23:10:19
+Write in the file Pareto3Fun_a0_to1.8_ms2.csv at 02-Apr-2020 23:10:36
+Optimizing for Ms =10 L = 1.9 a = 0.6 a las 02-Apr-2020 23:10:37
+Write in the file Pareto3Fun_a0.6_to1.8_ms1.4.csv at 02-Apr-2020 23:12:43
+Optimizing for Ms =1.6 L = 1.9 a = 0.5 a las 02-Apr-2020 23:12:43
+Write in the file Pareto3Fun_a0.4_to1.3_ms10.csv at 02-Apr-2020 23:18:18
+Optimizing for Ms =1.4 L = 1.3 a = 0.3 a las 02-Apr-2020 23:18:18
+Write in the file Pareto3Fun_a0.9_to1.8_ms1.8.csv at 02-Apr-2020 23:23:28
+Optimizing for Ms =2 L = 1.8 a = 0.9 a las 02-Apr-2020 23:23:28
+Write in the file Pareto3Fun_a0_to1.9_ms1.8.csv at 02-Apr-2020 23:30:11
+Optimizing for Ms =2 L = 1.9 a = 0 a las 02-Apr-2020 23:30:11
+Write in the file Pareto3Fun_a0.3_to1.9_ms2.csv at 02-Apr-2020 23:56:34
+Optimizing for Ms =10 L = 1.9 a = 0.3 a las 02-Apr-2020 23:56:34
+Write in the file Pareto3Fun_a0.3_to1.8_ms1.8.csv at 02-Apr-2020 23:58:24
+Optimizing for Ms =2 L = 1.8 a = 0.3 a las 02-Apr-2020 23:58:24
+Write in the file Pareto3Fun_a0.4_to1.8_ms1.6.csv at 02-Apr-2020 23:58:55
+Optimizing for Ms =1.8 L = 1.8 a = 0.4 a las 02-Apr-2020 23:58:55
+Write in the file Pareto3Fun_a0.1_to1.9_ms1.6.csv at 03-Apr-2020 00:00:35
+Optimizing for Ms =1.8 L = 1.9 a = 0.1 a las 03-Apr-2020 00:00:35
+Write in the file Pareto3Fun_a0.8_to1.8_ms10.csv at 03-Apr-2020 00:01:54
+Optimizing for Ms =1.8 L = 1.9 a = 0.8 a las 03-Apr-2020 00:01:54
+Write in the file Pareto3Fun_a0.2_to1.9_ms1.6.csv at 03-Apr-2020 00:08:43
+Optimizing for Ms =1.6 L = 2 a = 0.4 a las 03-Apr-2020 00:08:44
+Write in the file Pareto3Fun_a0.8_to1.8_ms1.4.csv at 03-Apr-2020 00:22:11
+Optimizing for Ms =2 L = 1.9 a = 0.9 a las 03-Apr-2020 00:22:11
+Write in the file Pareto3Fun_a1_to1.8_ms1.4.csv at 03-Apr-2020 00:29:13
+Optimizing for Ms =2 L = 2 a = 0 a las 03-Apr-2020 00:29:13
+Write in the file Pareto3Fun_a0.4_to1.9_ms1.8.csv at 03-Apr-2020 00:59:02
+Optimizing for Ms =2 L = 1.9 a = 0.4 a las 03-Apr-2020 00:59:02
+Write in the file Pareto3Fun_a0.1_to1.2_ms10.csv at 03-Apr-2020 01:08:23
+Optimizing for Ms =1.4 L = 1.2 a = 0 a las 03-Apr-2020 01:08:23
+Write in the file Pareto3Fun_a0.8_to1.9_ms1.6.csv at 03-Apr-2020 01:09:12
+Optimizing for Ms =10 L = 2 a = 0.4 a las 03-Apr-2020 01:09:12
+Write in the file Pareto3Fun_a0.6_to1.8_ms1.6.csv at 03-Apr-2020 01:11:14
+Optimizing for Ms =1.8 L = 1.8 a = 0.6 a las 03-Apr-2020 01:11:14
+Write in the file Pareto3Fun_a0.3_to1.2_ms10.csv at 03-Apr-2020 01:12:59
+Optimizing for Ms =1.4 L = 1.8 a = 0.1 a las 03-Apr-2020 01:12:59
+Write in the file Pareto3Fun_a0.8_to1.1_ms1.8.csv at 03-Apr-2020 01:13:28
+Optimizing for Ms =10 L = 1.8 a = 0.6 a las 03-Apr-2020 01:13:28
+Write in the file Pareto3Fun_a0.1_to1.8_ms10.csv at 03-Apr-2020 01:18:03
+Optimizing for Ms =1.4 L = 1.8 a = 0 a las 03-Apr-2020 01:18:03
+Write in the file Pareto3Fun_a0.8_to1.7_ms2.csv at 03-Apr-2020 01:25:08
+Optimizing for Ms =1.4 L = 1.9 a = 0.6 a las 03-Apr-2020 01:25:08
+Write in the file Pareto3Fun_a1_to1.2_ms10.csv at 03-Apr-2020 01:29:56
+Optimizing for Ms =1.8 L = 1.8 a = 0.5 a las 03-Apr-2020 01:29:56
+Write in the file Pareto3Fun_a0.6_to1.9_ms1.8.csv at 03-Apr-2020 01:31:07
+Optimizing for Ms =2 L = 1.9 a = 0.6 a las 03-Apr-2020 01:31:07
+Write in the file Pareto3Fun_a0.3_to1.9_ms1.8.csv at 03-Apr-2020 01:39:54
+Optimizing for Ms =1.4 L = 2 a = 0.1 a las 03-Apr-2020 01:39:54
+Error for Ms =1.4 L = 2 a = 0.1 at 03-Apr-2020 01:40:06
+Optimizing for Ms =1.8 L = 2 a = 0.8 a las 03-Apr-2020 01:40:06
+Write in the file Pareto3Fun_a0.5_to1.9_ms1.6.csv at 03-Apr-2020 01:44:22
+Optimizing for Ms =1.8 L = 1.9 a = 0.5 a las 03-Apr-2020 01:44:22
+Write in the file Pareto3Fun_a0_to1.9_ms1.6.csv at 03-Apr-2020 01:50:58
+Optimizing for Ms =1.6 L = 2 a = 0.5 a las 03-Apr-2020 01:50:58
+Write in the file Pareto3Fun_a0.3_to2_ms1.6.csv at 03-Apr-2020 01:53:35
+Optimizing for Ms =1.8 L = 2 a = 0.5 a las 03-Apr-2020 01:53:35
+Write in the file Pareto3Fun_a1_to1.7_ms2.csv at 03-Apr-2020 02:09:39
+Optimizing for Ms =10 L = 1.7 a = 1 a las 03-Apr-2020 02:09:39
+Write in the file Pareto3Fun_a0.3_to1.3_ms1.4.csv at 03-Apr-2020 02:16:20
+Optimizing for Ms =1.6 L = 1.3 a = 0.3 a las 03-Apr-2020 02:16:20
+Write in the file Pareto3Fun_a0.7_to1.9_ms2.csv at 03-Apr-2020 02:28:07
+Optimizing for Ms =10 L = 1.9 a = 0.7 a las 03-Apr-2020 02:28:07
+Write in the file Pareto3Fun_a0.9_to1.7_ms10.csv at 03-Apr-2020 02:31:43
+Optimizing for Ms =1.4 L = 1.7 a = 0.8 a las 03-Apr-2020 02:31:43
+Write in the file Pareto3Fun_a0_to1.2_ms1.4.csv at 03-Apr-2020 02:35:47
+Optimizing for Ms =1.6 L = 1.2 a = 0 a las 03-Apr-2020 02:35:47
+Write in the file Pareto3Fun_a0.6_to1.9_ms1.4.csv at 03-Apr-2020 02:43:47
+Optimizing for Ms =1.6 L = 1.9 a = 0.6 a las 03-Apr-2020 02:43:47
+Write in the file Pareto3Fun_a0.8_to1.9_ms10.csv at 03-Apr-2020 02:47:12
+Optimizing for Ms =1.4 L = 1.9 a = 0.7 a las 03-Apr-2020 02:47:12
+Write in the file Pareto3Fun_a0.4_to2_ms1.6.csv at 03-Apr-2020 03:05:31
+Optimizing for Ms =1.8 L = 2 a = 0.6 a las 03-Apr-2020 03:05:31
+Write in the file Pareto3Fun_a0.2_to1.9_ms10.csv at 03-Apr-2020 03:09:33
+Optimizing for Ms =1.4 L = 1.9 a = 0.1 a las 03-Apr-2020 03:09:33
+Write in the file Pareto3Fun_a1_to1.8_ms2.csv at 03-Apr-2020 03:26:36
+Optimizing for Ms =10 L = 1.8 a = 1 a las 03-Apr-2020 03:26:36
+Write in the file Pareto3Fun_a0.8_to1.7_ms1.4.csv at 03-Apr-2020 03:50:23
+Optimizing for Ms =10 L = 1.9 a = 1 a las 03-Apr-2020 03:50:23
+Write in the file Pareto3Fun_a0.7_to1.7_ms10.csv at 03-Apr-2020 03:55:31
+Optimizing for Ms =2 L = 1.9 a = 0.5 a las 03-Apr-2020 03:55:31
+Write in the file Pareto3Fun_a0.4_to1.9_ms10.csv at 03-Apr-2020 04:35:57
+Optimizing for Ms =1.4 L = 1.9 a = 0.3 a las 03-Apr-2020 04:35:57
+Error for Ms =1.4 L = 1.9 a = 0.3 at 03-Apr-2020 04:36:08
+Optimizing for Ms =1.4 L = 2 a = 0.4 a las 03-Apr-2020 04:36:08
+Error for Ms =1.4 L = 2 a = 0.4 at 03-Apr-2020 04:36:21
+Write in the file Pareto3Fun_a0.5_to2_ms1.6.csv at 03-Apr-2020 04:41:31
+Optimizing for Ms =2 L = 2 a = 0.9 a las 03-Apr-2020 04:41:31
+Write in the file Pareto3Fun_a0.2_to1.8_ms2.csv at 03-Apr-2020 04:50:28
+Optimizing for Ms =10 L = 1.8 a = 0.2 a las 03-Apr-2020 04:50:28
+Write in the file Pareto3Fun_a0.1_to1.8_ms1.4.csv at 03-Apr-2020 04:57:59
+Optimizing for Ms =1.6 L = 1.8 a = 0.1 a las 03-Apr-2020 04:57:59
+Write in the file Pareto3Fun_a0.1_to1.9_ms1.8.csv at 03-Apr-2020 05:09:00
+Optimizing for Ms =2 L = 2 a = 0.4 a las 03-Apr-2020 05:09:00
+Write in the file Pareto3Fun_a0.7_to1.9_ms1.4.csv at 03-Apr-2020 05:16:48
+Optimizing for Ms =2 L = 2 a = 0.3 a las 03-Apr-2020 05:16:48
+Write in the file Pareto3Fun_a0_to1.9_ms2.csv at 03-Apr-2020 05:23:48
+Optimizing for Ms =1.8 L = 2 a = 0.2 a las 03-Apr-2020 05:23:48
+Write in the file Pareto3Fun_a0.9_to1.8_ms2.csv at 03-Apr-2020 05:28:34
+Optimizing for Ms =10 L = 2 a = 0.2 a las 03-Apr-2020 05:28:34
+Write in the file Pareto3Fun_a0_to1.8_ms1.4.csv at 03-Apr-2020 05:33:33
+Optimizing for Ms =1.6 L = 1.9 a = 0.9 a las 03-Apr-2020 05:33:33
+Write in the file Pareto3Fun_a0.6_to1.9_ms1.6.csv at 03-Apr-2020 05:36:32
+Optimizing for Ms =1.6 L = 2 a = 0.7 a las 03-Apr-2020 05:36:32
+Write in the file Pareto3Fun_a0.4_to1.7_ms10.csv at 03-Apr-2020 05:39:01
+Optimizing for Ms =1.6 L = 1.9 a = 0.7 a las 03-Apr-2020 05:39:01
+Write in the file Pareto3Fun_a0.4_to1.8_ms10.csv at 03-Apr-2020 05:41:09
+Optimizing for Ms =1.4 L = 1.8 a = 0.3 a las 03-Apr-2020 05:41:09
+Write in the file Pareto3Fun_a0.1_to2_ms10.csv at 03-Apr-2020 05:42:13
+Optimizing for Ms =1.4 L = 2 a = 0 a las 03-Apr-2020 05:42:13
+Write in the file Pareto3Fun_a0.3_to1.3_ms1.6.csv at 03-Apr-2020 05:47:16
+Optimizing for Ms =1.8 L = 1.3 a = 0.3 a las 03-Apr-2020 05:47:16
+Write in the file Pareto3Fun_a0.6_to1.9_ms10.csv at 03-Apr-2020 05:47:37
+Optimizing for Ms =1.4 L = 1.9 a = 0.5 a las 03-Apr-2020 05:47:37
+Write in the file Pareto3Fun_a0.8_to1.9_ms1.8.csv at 03-Apr-2020 05:49:35
+Optimizing for Ms =2 L = 1.9 a = 0.8 a las 03-Apr-2020 05:49:35
+Write in the file Pareto3Fun_a0.3_to1.8_ms2.csv at 03-Apr-2020 05:53:23
+Optimizing for Ms =1.4 L = 1.9 a = 1 a las 03-Apr-2020 05:53:23
+Write in the file Pareto3Fun_a0_to1.2_ms1.6.csv at 03-Apr-2020 05:55:19
+Optimizing for Ms =1.8 L = 1.2 a = 0 a las 03-Apr-2020 05:55:19
+Write in the file Pareto3Fun_a0.4_to1.8_ms1.8.csv at 03-Apr-2020 05:58:24
+Optimizing for Ms =1.4 L = 2 a = 0.2 a las 03-Apr-2020 05:58:25
+Error for Ms =1.4 L = 2 a = 0.2 at 03-Apr-2020 05:58:34
+Write in the file Pareto3Fun_a0.1_to1.9_ms10.csv at 03-Apr-2020 06:02:39
+Optimizing for Ms =1.8 L = 2 a = 0.1 a las 03-Apr-2020 06:02:39
+Write in the file Pareto3Fun_a0.9_to1.9_ms2.csv at 03-Apr-2020 06:34:18
+Optimizing for Ms =10 L = 1.9 a = 0.9 a las 03-Apr-2020 06:34:18
+Write in the file Pareto3Fun_a0.3_to1.9_ms10.csv at 03-Apr-2020 06:41:42
+Optimizing for Ms =2 L = 2 a = 0.2 a las 03-Apr-2020 06:41:42
+Write in the file Pareto3Fun_a0_to2_ms2.csv at 03-Apr-2020 06:45:44
+Optimizing for Ms =10 L = 2 a = 0 a las 03-Apr-2020 06:45:44
+Write in the file Pareto3Fun_a0.3_to1.8_ms1.4.csv at 03-Apr-2020 06:55:46
+Optimizing for Ms =1.6 L = 2 a = 0 a las 03-Apr-2020 06:55:46
+Write in the file Pareto3Fun_a0.6_to1.8_ms1.8.csv at 03-Apr-2020 06:58:47
+Optimizing for Ms =2 L = 1.8 a = 0.6 a las 03-Apr-2020 06:58:47
+Write in the file Pareto3Fun_a0.5_to1.9_ms1.4.csv at 03-Apr-2020 06:59:23
+Optimizing for Ms =1.4 L = 2 a = 0.5 a las 03-Apr-2020 06:59:23
+Write in the file Pareto3Fun_a0.8_to2_ms1.8.csv at 03-Apr-2020 07:11:11
+Optimizing for Ms =2 L = 2 a = 0.8 a las 03-Apr-2020 07:11:11
+Write in the file Pareto3Fun_a0.4_to1.9_ms2.csv at 03-Apr-2020 07:13:30
+Optimizing for Ms =1.6 L = 2 a = 0.2 a las 03-Apr-2020 07:13:30
+Write in the file Pareto3Fun_a0.1_to1.8_ms1.6.csv at 03-Apr-2020 07:26:22
+Optimizing for Ms =1.8 L = 1.8 a = 0.1 a las 03-Apr-2020 07:26:22
+Write in the file Pareto3Fun_a0.5_to2_ms1.8.csv at 03-Apr-2020 07:28:17
+Optimizing for Ms =1.6 L = 2 a = 0.9 a las 03-Apr-2020 07:28:17
+Write in the file Pareto3Fun_a0.5_to1.9_ms1.8.csv at 03-Apr-2020 07:30:33
+Optimizing for Ms =10 L = 2 a = 0.6 a las 03-Apr-2020 07:30:33
+Write in the file Pareto3Fun_a0.5_to1.8_ms1.8.csv at 03-Apr-2020 07:34:23
+Optimizing for Ms =2 L = 1.8 a = 0.5 a las 03-Apr-2020 07:34:23
+Write in the file Pareto3Fun_a1_to1.9_ms1.4.csv at 03-Apr-2020 07:39:32
+Optimizing for Ms =1.6 L = 1.9 a = 1 a las 03-Apr-2020 07:39:32
+Write in the file Pareto3Fun_a0.6_to1.8_ms10.csv at 03-Apr-2020 07:39:38
+Optimizing for Ms =1.4 L = 1.8 a = 0.5 a las 03-Apr-2020 07:39:38
+Write in the file Pareto3Fun_a0.6_to1.9_ms2.csv at 03-Apr-2020 07:46:13
+Optimizing for Ms =10 L = 2 a = 0.3 a las 03-Apr-2020 07:46:13
+Write in the file Pareto3Fun_a0.4_to2_ms10.csv at 03-Apr-2020 07:47:41
+Optimizing for Ms =10 L = 2 a = 0.7 a las 03-Apr-2020 07:47:41
+Write in the file Pareto3Fun_a0.5_to2_ms1.4.csv at 03-Apr-2020 08:09:13
+Write in the file Pareto3Fun_a0.7_to2_ms1.6.csv at 03-Apr-2020 08:24:42
+Write in the file Pareto3Fun_a0.7_to1.9_ms1.6.csv at 03-Apr-2020 08:28:13
+Optimizing for Ms =1.8 L = 1.9 a = 0.7 a las 03-Apr-2020 08:28:13
+Write in the file Pareto3Fun_a0.6_to2_ms1.8.csv at 03-Apr-2020 08:33:30
+Optimizing for Ms =10 L = 2 a = 1 a las 03-Apr-2020 08:33:30
+Write in the file Pareto3Fun_a1_to1.7_ms10.csv at 03-Apr-2020 08:39:36
+Optimizing for Ms =1.8 L = 1.9 a = 1 a las 03-Apr-2020 08:39:36
+Write in the file Pareto3Fun_a0.9_to1.9_ms1.6.csv at 03-Apr-2020 08:48:46
+Optimizing for Ms =1.8 L = 1.9 a = 0.9 a las 03-Apr-2020 08:48:46
+Write in the file Pareto3Fun_a0.5_to1.8_ms1.4.csv at 03-Apr-2020 08:49:51
+Optimizing for Ms =1.6 L = 1.8 a = 0.5 a las 03-Apr-2020 08:49:51
+Write in the file Pareto3Fun_a0.7_to1.9_ms10.csv at 03-Apr-2020 08:54:12
+Optimizing for Ms =1.8 L = 2 a = 0.3 a las 03-Apr-2020 08:54:12
+Write in the file Pareto3Fun_a1_to1.8_ms10.csv at 03-Apr-2020 09:48:36
+Optimizing for Ms =1.8 L = 2 a = 0.4 a las 03-Apr-2020 09:48:36
+Write in the file Pareto3Fun_a0_to2_ms1.6.csv at 03-Apr-2020 09:56:17
+Optimizing for Ms =1.8 L = 2 a = 0 a las 03-Apr-2020 09:56:17
+Write in the file Pareto3Fun_a0.2_to2_ms1.6.csv at 03-Apr-2020 10:11:35
+Write in the file Pareto3Fun_a0.5_to1.9_ms2.csv at 03-Apr-2020 10:12:28
+Optimizing for Ms =10 L = 1.9 a = 0.5 a las 03-Apr-2020 10:12:28
+Write in the file Pareto3Fun_a1_to1.9_ms10.csv at 03-Apr-2020 10:16:28
+Optimizing for Ms =1.4 L = 1.9 a = 0.9 a las 03-Apr-2020 10:16:28
+Write in the file Pareto3Fun_a0.9_to2_ms1.6.csv at 03-Apr-2020 10:16:56
+Optimizing for Ms =1.8 L = 2 a = 0.9 a las 03-Apr-2020 10:16:56
+Write in the file Pareto3Fun_a0_to1.2_ms1.8.csv at 03-Apr-2020 10:25:52
+Optimizing for Ms =2 L = 1.2 a = 0 a las 03-Apr-2020 10:25:52
+Write in the file Pareto3Fun_a0.2_to2_ms1.8.csv at 03-Apr-2020 10:28:27
+Write in the file Pareto3Fun_a0.9_to2_ms2.csv at 03-Apr-2020 10:44:57
+Optimizing for Ms =10 L = 2 a = 0.9 a las 03-Apr-2020 10:44:57
+Write in the file Pareto3Fun_a0.1_to1.9_ms1.4.csv at 03-Apr-2020 10:48:36
+Optimizing for Ms =1.4 L = 2 a = 0.3 a las 03-Apr-2020 10:48:36
+Write in the file Pareto3Fun_a0.1_to2_ms1.8.csv at 03-Apr-2020 11:01:15
+Optimizing for Ms =2 L = 2 a = 0.1 a las 03-Apr-2020 11:01:15
+Write in the file Pareto3Fun_a0.3_to1.3_ms1.8.csv at 03-Apr-2020 11:07:17
+Optimizing for Ms =2 L = 1.3 a = 0.3 a las 03-Apr-2020 11:07:17
+Write in the file Pareto3Fun_a1_to1.9_ms1.6.csv at 03-Apr-2020 11:13:47
+Write in the file Pareto3Fun_a0.4_to2_ms2.csv at 03-Apr-2020 11:22:36
+Write in the file Pareto3Fun_a0.3_to2_ms2.csv at 03-Apr-2020 11:27:59
+Write in the file Pareto3Fun_a0.9_to1.9_ms1.4.csv at 03-Apr-2020 11:35:48
+Optimizing for Ms =1.8 L = 2 a = 1 a las 03-Apr-2020 11:35:48
+Write in the file Pareto3Fun_a0.5_to1.8_ms1.6.csv at 03-Apr-2020 11:36:07
+Optimizing for Ms =1.8 L = 2 a = 0.7 a las 03-Apr-2020 11:36:07
+Write in the file Pareto3Fun_a0.2_to1.8_ms10.csv at 03-Apr-2020 11:38:24
+Optimizing for Ms =1.6 L = 2 a = 0.1 a las 03-Apr-2020 11:38:25
+Write in the file Pareto3Fun_a0.8_to1.9_ms2.csv at 03-Apr-2020 11:56:27
+Optimizing for Ms =2 L = 2 a = 0.6 a las 03-Apr-2020 11:56:27
+Write in the file Pareto3Fun_a0.3_to2_ms1.4.csv at 03-Apr-2020 11:59:11
+Write in the file Pareto3Fun_a0.2_to2_ms10.csv at 03-Apr-2020 12:09:12
+Write in the file Pareto3Fun_a0.1_to1.8_ms1.8.csv at 03-Apr-2020 12:18:48
+Optimizing for Ms =2 L = 2 a = 0.7 a las 03-Apr-2020 12:18:48
+Write in the file Pareto3Fun_a0.9_to1.9_ms10.csv at 03-Apr-2020 12:46:43
+Optimizing for Ms =1.6 L = 2 a = 0.6 a las 03-Apr-2020 12:46:43
+Write in the file Pareto3Fun_a0.2_to2_ms2.csv at 03-Apr-2020 12:48:41
+Write in the file Pareto3Fun_a0.6_to1.8_ms2.csv at 03-Apr-2020 12:59:23
+Optimizing for Ms =2 L = 2 a = 0.5 a las 03-Apr-2020 12:59:23
+Write in the file Pareto3Fun_a0.8_to2_ms2.csv at 03-Apr-2020 13:07:48
+Optimizing for Ms =1.4 L = 2 a = 0.8 a las 03-Apr-2020 13:07:48
+Write in the file Pareto3Fun_a0_to2_ms10.csv at 03-Apr-2020 13:37:04
+Optimizing for Ms =1.4 L = 2 a = 0.6 a las 03-Apr-2020 13:37:04
+Write in the file Pareto3Fun_a0.5_to1.8_ms2.csv at 03-Apr-2020 13:38:35
+Optimizing for Ms =10 L = 1.8 a = 0.5 a las 03-Apr-2020 13:38:35
+Write in the file Pareto3Fun_a0.6_to2_ms10.csv at 03-Apr-2020 13:52:23
+Write in the file Pareto3Fun_a0.7_to1.9_ms1.8.csv at 03-Apr-2020 13:59:25
+Write in the file Pareto3Fun_a0.7_to2_ms10.csv at 03-Apr-2020 14:07:23
+Write in the file Pareto3Fun_a1_to1.9_ms1.8.csv at 03-Apr-2020 14:12:33
+Optimizing for Ms =2 L = 1.9 a = 1 a las 03-Apr-2020 14:12:33
+Write in the file Pareto3Fun_a0.9_to1.9_ms1.8.csv at 03-Apr-2020 14:15:28
+Write in the file Pareto3Fun_a0.3_to2_ms10.csv at 03-Apr-2020 14:27:01
+Write in the file Pareto3Fun_a0.8_to2_ms1.4.csv at 03-Apr-2020 14:28:17
+Optimizing for Ms =1.6 L = 2 a = 0.8 a las 03-Apr-2020 14:28:17
+Write in the file Pareto3Fun_a0.3_to2_ms1.8.csv at 03-Apr-2020 14:30:16
+Write in the file Pareto3Fun_a0_to2_ms1.8.csv at 03-Apr-2020 14:32:29
+Write in the file Pareto3Fun_a0.1_to2_ms1.6.csv at 03-Apr-2020 14:34:01
+Write in the file Pareto3Fun_a1_to2_ms10.csv at 03-Apr-2020 14:37:15
+Optimizing for Ms =1.4 L = 2 a = 0.9 a las 03-Apr-2020 14:37:15
+Write in the file Pareto3Fun_a0.6_to2_ms1.4.csv at 03-Apr-2020 14:46:45
+Write in the file Pareto3Fun_a0.6_to2_ms1.6.csv at 03-Apr-2020 15:17:18
+Write in the file Pareto3Fun_a0.4_to2_ms1.8.csv at 03-Apr-2020 15:22:29
+Write in the file Pareto3Fun_a0.9_to2_ms1.8.csv at 03-Apr-2020 15:38:22
+Write in the file Pareto3Fun_a0.9_to2_ms1.4.csv at 03-Apr-2020 15:59:14
+Write in the file Pareto3Fun_a0_to1.2_ms2.csv at 03-Apr-2020 16:00:21
+Optimizing for Ms =1.8 L = 1.9 a = 0.2 a las 03-Apr-2020 16:00:21
+Write in the file Pareto3Fun_a0.5_to1.9_ms10.csv at 03-Apr-2020 16:24:50
+Optimizing for Ms =1.4 L = 2 a = 1 a las 03-Apr-2020 16:24:50
+Write in the file Pareto3Fun_a0.9_to2_ms10.csv at 03-Apr-2020 16:43:21
+Write in the file Pareto3Fun_a0.7_to2_ms1.8.csv at 03-Apr-2020 16:45:04
+Write in the file Pareto3Fun_a0.1_to2_ms2.csv at 03-Apr-2020 16:53:03
+Write in the file Pareto3Fun_a0.8_to2_ms1.6.csv at 03-Apr-2020 17:00:30
+Write in the file Pareto3Fun_a0.3_to1.3_ms2.csv at 03-Apr-2020 17:02:01
+Optimizing for Ms =1.6 L = 1.8 a = 1 a las 03-Apr-2020 17:02:01
+Write in the file Pareto3Fun_a1_to2_ms1.8.csv at 03-Apr-2020 17:04:30
+Optimizing for Ms =2 L = 2 a = 1 a las 03-Apr-2020 17:04:30
+Write in the file Pareto3Fun_a1_to2_ms1.4.csv at 03-Apr-2020 17:38:25
+Optimizing for Ms =1.6 L = 2 a = 1 a las 03-Apr-2020 17:38:25
+Write in the file Pareto3Fun_a0.6_to2_ms2.csv at 03-Apr-2020 17:48:02
+Write in the file Pareto3Fun_a0.7_to2_ms2.csv at 03-Apr-2020 17:58:11
+Write in the file Pareto3Fun_a0.5_to2_ms2.csv at 03-Apr-2020 18:38:27
+Write in the file Pareto3Fun_a0.5_to1.8_ms10.csv at 03-Apr-2020 19:29:03
+Optimizing for Ms =10 L = 2 a = 0.8 a las 03-Apr-2020 19:29:03
+Write in the file Pareto3Fun_a1_to1.9_ms2.csv at 03-Apr-2020 19:34:11
+Write in the file Pareto3Fun_a1_to1.8_ms1.6.csv at 03-Apr-2020 19:44:40
+Optimizing for Ms =1.8 L = 1.8 a = 1 a las 03-Apr-2020 19:44:40
+Write in the file Pareto3Fun_a1_to2_ms1.6.csv at 03-Apr-2020 20:12:38
+Write in the file Pareto3Fun_a0.2_to1.9_ms1.8.csv at 03-Apr-2020 20:32:09
+Optimizing for Ms =2 L = 1.9 a = 0.2 a las 03-Apr-2020 20:32:09
+Write in the file Pareto3Fun_a1_to2_ms2.csv at 03-Apr-2020 22:06:02
+Write in the file Pareto3Fun_a1_to1.8_ms1.8.csv at 04-Apr-2020 00:30:27
+Write in the file Pareto3Fun_a0.8_to2_ms10.csv at 04-Apr-2020 01:04:31
+Optimizing for Ms =1.4 L = 2 a = 0.7 a las 04-Apr-2020 01:04:31
+Write in the file Pareto3Fun_a0.2_to1.9_ms2.csv at 04-Apr-2020 01:25:31
+Write in the file Pareto3Fun_a0.7_to2_ms1.4.csv at 04-Apr-2020 02:02:17
+Write in the file Pareto3Fun_a0_to2_ms1.4.csv at 04-Apr-2020 11:48:22
+Optimizing for Ms =10 L = 2 a = 0.5 a las 04-Apr-2020 11:48:22
+Write in the file Pareto3Fun_a0.5_to2_ms10.csv at 04-Apr-2020 16:39:30
+The process finished at 04-Apr-2020 16:39:30
