@@ -13,29 +13,28 @@ Control systems are used to maintain process conditions at their desired values 
 \item The ability to move the process variable from one setting to a new desired setting (this is termed set point tracking)
 \end{itemize}
 
-A natural way to adjust or correct the behaviour over time of a dynamic system output, the controlled variable, is by using an actuating input computed on the basis of the comparison of the actual output with its desired value: the feedback error. This is, by means of closed-loop control. To compute the control action information about the feedback error evolution is required. Normally its current value, its past evolution, and a prediction of its future behaviour are used. The way we use this information to deliver the control action constitutes the control algorithm. Conceptually we can view the control systems in the general manner shown in figure (\ref{Ch2fig:FeedbackControlSystem}).
-
 \begin{figure}[tb]
 \centering
-\includegraphics[width=0.9\linewidth]{Ch2FeedbackControlSystem}
+\includegraphics[width=0.8\linewidth]{Ch2FeedbackControlSystem}
 \caption{Feedback Control System} \label{Ch2fig:FeedbackControlSystem}
 \end{figure}
 
-As a detailed  practical example, consider the isothermal Continuous Stirred Tank Reactor (CSTR), as the one in figure (\ref{Ch2fig:CSTR}), where the isothermal series/ parallel Van de Vusse reaction \cite{arrietaETFA2008}, \cite{VandeVusse2} ISA-d takes place. The reaction can be described by the following scheme
+\begin{figure}[tb]
+\centering
+\includegraphics[width=0.4\linewidth]{Ch2Reactor}
+\caption{Isothermal Continuous Stirred Tank Reactor (CSTR)} 
+\label{Ch2fig:CSTR}
+\end{figure}
+
+A natural way to adjust or correct the behaviour over time of a dynamic system output, the controlled variable, is by using an actuating input computed on the basis of the comparison of the actual output with its desired value: the feedback error. This is, by means of closed-loop control. To compute the control action information about the feedback error evolution is required. Normally its current value, its past evolution, and a prediction of its future behaviour are used. The way we use this information to deliver the control action constitutes the control algorithm. Conceptually we can view the control systems in the general manner shown in figure (\ref{Ch2fig:FeedbackControlSystem}). As a detailed  practical example, consider the isothermal Continuous Stirred Tank Reactor (CSTR), as the one in figure (\ref{Ch2fig:CSTR}), where the isothermal series/ parallel Van de Vusse reaction takes place \cite{arrietaETFA2008}, \cite{VandeVusse2} . The reaction can be described by the following scheme
 
 \begin{align}
     A \overset{k_1}{\longrightarrow} B \overset{k_2}{\longrightarrow}C\\
     2 A \overset{k_3}{\longrightarrow} D \nonumber
 \end{align}
 
-\begin{figure}[tb]
-\centering
-\includegraphics[width=0.5\linewidth]{Ch2Reactor}
-\caption{Isothermal Continuous Stirred Tank Reactor (CSTR)} 
-\label{Ch2fig:CSTR}
-\end{figure}
 
-Doing a mass balance, the system can be described by the following model
+From a mass balance, the system can be described by the following model
 
 \begin{align}
     \frac{dC_A(t)}{dt} & = \frac{F_r(t)}{V} \left[C_{Ai}-C_A(t)\right] - k_1 C_A(t) - k_3 C^2_A(t) \nonumber \\
@@ -45,14 +44,14 @@ Doing a mass balance, the system can be described by the following model
 
 \noindent where $F_r$ is the feed flow rate of product $A$, $V$ is the reactor volume which is kept constant during the operation, $C_A$ and $C_B$ are the reactant concentrations in the reactor, and $k_i$ ($i=1,2,3$) are the reaction rate constants for the three reactions.\\
 
-\textcolor{red}{\bf EXPLICAR VARIABLES, CONTROLADA, PERTURBACIONES, MANIPULADA, ETC}
 
-In figure (\ref{Ch2fig:CSTRFigureOpenLoop}) we can observe how the reactor output concentration reacts to changes in each one of its two inputs: The inlet flow rate, $F_r$ and concentration $C_A$. Whereas the first one can be manipulated the second one is considered now know as supplied externally. Therefore, $F_r$ is considered as the manipulated variable and will be the one used to operate and control the reactor. On the other hand, changes in $C_A$ will be seen as disturbances and the controller should be able to counteract such changes and prevent them to generate changes in the output concentration $C_B$. 
 
-\begin{figure}[tb]
+From the point of view of the feedback control system depicted in figure (\ref{Ch2fig:FeedbackControlSystem}), the controlled variable is the product concentration $C_B$, the manipulated variable  the feed flow rate $F_r$. Expected disturbances on the system  may come from variations on the input product concentration $C_A$ as well as flow rate. In figure (\ref{Ch2fig:CSTRFigureOpenLoop}) we can observe how the reactor output concentration reacts to changes in each one of its two inputs: The inlet flow rate, $F_r$ and concentration $C_A$. Whereas the first one can be manipulated the second one is considered now know as supplied externally. Therefore, $F_r$ is considered as the manipulated variable and will be the one used to operate and control the reactor. On the other hand, changes in $C_A$ will be seen as disturbances and the controller should be able to counteract such changes and prevent them to generate changes in the output concentration $C_B$. 
+
+\begin{figure}[htb]
 \centering
-\includegraphics[width=1\linewidth]{../figuras/Ch2FigureOpenLoop}
-\caption{CSTR Open loop Output to change sin inlet flow and concentration} 
+\includegraphics[width=0.9\linewidth]{../figuras/Ch2FigureOpenLoop}
+\caption{CSTR Open-loop output to change sin inlet flow and concentration} 
 \label{Ch2fig:CSTRFigureOpenLoop}
 \end{figure}
 
@@ -61,9 +60,9 @@ The feedback control structure has been used for a long time, but if we constrai
 
 Consider the general two-degree-of-freedom closed-loop control system depicted in figure~\ref{Ch2fig:DoFControlSystem} where $P(s)$ and $\{C_r(s), C_y(s)\}$ are the controlled process model and the controller transfer functions, respectively.  In this system, $r(s)$ is the set-point, $u(s)$ the controller output signal, $d(s)$ the disturbance, $y(s)$ the process controlled variable, and $n(s)$ the measurement noise. It is assumed that the disturbance enter at the process input (load-disturbance).
 
-\begin{figure}[tb]
+\begin{figure}[htb]
 \centering
-	\includegraphics[width=0.5\linewidth]{../figuras/Ch2DoFControlSystem} 
+	\includegraphics[width=0.8\linewidth]{../figuras/Ch2DoFControlSystem} 
 \caption{Two-Degree-of-freedom closed-loop control system.} 
 \label{Ch2fig:DoFControlSystem}
 \end{figure}
@@ -96,8 +95,8 @@ The regulatory control main objective is \emph{load-disturbance rejection}; this
 
 \begin{figure}[tb]
 \centering
-\includegraphics[width=1\linewidth]{../figuras/Ch2FigureClosedLoop}
-\caption{CSTR Open loop Output to change sin inlet flow and concentration} 
+\includegraphics[width=0.9\linewidth]{../figuras/Ch2FigureClosedLoop}
+\caption{CSTR Open-loop output to disturbance changes in inlet flow and concentration} 
 \label{Ch2fig:CSTRFigureClosedLoop}
 \end{figure}
 
@@ -105,7 +104,7 @@ The regulatory control main objective is \emph{load-disturbance rejection}; this
 \section{Industrial Process Characteristics}
 \label{sec:2}
 
-Before a controller for a process is specified, the process to be controlled should be characterised, at least in some broad sense. There are many different types of processes that are controlled automatically. Examples range from fluid levels in tanks to read-write heads of computer disk storage devices. The control inputs to a process are supplied through one or more actuators. For example a motor driven valve can be an actuator for fluid flowing into a tank. Process outputs that are being controlled (e.g., the fluid level in a tank) are measured using appropriate sensors. The basic control of one output variable by the use of one control input variable is called single-input single-output (SISO) control. For more complex systems, multi-input multi-output (MIMO) control may be required. PID control was developed initially as a SISO control strategy, but it has been extended in various ways to MIMO control \cite{wang2008}. Event these extensions, it is common practice in the process industry to rely on PID control at single loop level control problems, whereas multivariable control solutions, such as model predictive control are the ones applied for multivariable and supervisory control [REF].\\
+Before a controller for a process is specified, the process to be controlled should be characterised, at least in some broad sense. There are many different types of processes that are controlled automatically. Examples range from fluid levels in tanks to read-write heads of computer disk storage devices. The control inputs to a process are supplied through one or more actuators. For example a motor driven valve can be an actuator for fluid flowing into a tank. Process outputs that are being controlled (e.g., the fluid level in a tank) are measured using appropriate sensors. The basic control of one output variable by the use of one control input variable is called single-input single-output (SISO) control. For more complex systems, multi-input multi-output (MIMO) control may be required. PID control was developed initially as a SISO control strategy, but it has been extended in various ways to MIMO control \cite{wang2008}. Event these extensions, it is common practice in the process industry to rely on PID control at single loop level control problems, whereas multivariable control solutions, such as model predictive control are the ones applied for multivariable and supervisory control \cite{VilanovaBook2012}.\\
 
 In the great majority of process loops, applying a step to the control variable causes the controlled variable to reach a steady state and does not provoke an instantaneous variation of it. This means that the process model seen by the regulator can be described by an asymptotically stable, strictly proper transfer function. FOPTD dynamics are probably the most usual models used in the process industry for modelling self-regulating behaviours. For example when modelling dynamics that involve balances of temperature, matter, and energy in general. Also in a reactor where a reaction takes place, the components balance generates a dynamics that can be usually modelled as a FOPTD. When different reactors are connected in series, higher order systems arise that can be described by SOPTD models. \\
 
@@ -126,7 +125,7 @@ The simple structure of the PID controller calls for simple process descriptions
 
 \noindent where $K_p$ is the model gain, $T$ its main time constant, $a$ the ratio of its two time constants ($0 \leq a \leq 1.0$), $L$ its dead-time, and $\tau_o$ the model \emph{normalized dead-time} ($0.1 \leq \tau_o \leq 2.0$). Model transfer function \eqref{Ch2eq:SOPTD} allows to represent First-Order-Plus-Dead-Time (FOPDT) processes, with $a=0$, over damped Second-Order-Plus-Dead-Time (SOPDT) processes, with $0 < a < 1$, and Dual-Pole-Plus-Dead-Time (DPPDT) processes, the $a=1$ case.\\
 
-In the great majority of cases, a process description is obtained by performing an experiment on the process. In most cases, a step response will be used. They are also easy to apply. It suffices to switch the regulator to manual, wait until a reasonably steady state is reached, then change the control variable suddenly by an amount sufficient to make the response obtained easily distinguishable from noise. In addition, step tests permit the process to be maintained under reasonable control without perturbing it excessively or leading it to the stability boundary, as required e.g. by the closed loop Ziegler-Nichols method \cite{astromhagglund2006}. From this point of view, to maintain the need for plant experimentation to a minimum is a key point when considering the industrial application of a technique. The parameters of the controlled process model \eqref{eq:113}, $\overline{\theta}_p = \left\{K_p, T, a, L, \tau_o \right\}$, may be identified from the process reaction curve by using, for example, the method presented in \cite{alfaro2006-1}. 
+In the great majority of cases, a process description is obtained by performing an experiment on the process. In most cases, a step response will be used. They are also easy to apply. It suffices to switch the regulator to manual, wait until a reasonably steady state is reached, then change the control variable suddenly by an amount sufficient to make the response obtained easily distinguishable from noise. In addition, step tests permit the process to be maintained under reasonable control without perturbing it excessively or leading it to the stability boundary, as required e.g. by the closed loop Ziegler-Nichols method \cite{astromhagglund2006}. From this point of view, to maintain the need for plant experimentation to a minimum is a key point when considering the industrial application of a technique. The parameters of the controlled process model \eqref{Ch2eq:SOPTD}, $\overline{\theta}_p = \left\{K_p, T, a, L, \tau_o \right\}$, may be identified from the process reaction curve by using, for example, the method presented in \cite{alfaro2006-1}. 
 
 
 
@@ -151,7 +150,7 @@ This form is usually referred to as the \emph{ideal} PID. The three-term functio
 
 \subsubsection*{Proportional term}
 
-Also referred as the P mode, this mode is almost universal and present in all controllers. With reference to \eqref{eq:ideal}, the control law in this case is given by
+Also referred as the P mode, this mode is almost universal and present in all controllers. With reference to \eqref{Ch2eq:PID_ideal}, the control law in this case is given by
 
 \[u_P (t) = K_pe(t) + u_{ss}\]
 
@@ -174,10 +173,10 @@ The final mode is the derivative  action. Here the control is proportional to th
 
 \[u_D(t) = K_pT_d \frac{\md}{\md t}e(t)\]
 
-Where $T_d$ is the derivative or rate time constant. Problems may arise when the error signal is entrenched in (high-frequency) noise or when step changes in the set point occur, since in these cases derivative action will generate large amplitude signals. Derivative action is referred to as a \emph{fast mode} that generally improves the loop stability. It is often said that the D action \emph{anticipates the future}. The message that increasing the derivative gain, will lead to improved stability is commonly conveyed from academia to industry. However, practitioners have often found that the derivative term can behave against such anticipation particularly when there exists a transport delay [REF]. Frustration in tuning  has hence made many practitioners switch off or even exclude the derivative term.  
+Where $T_d$ is the derivative or rate time constant. Problems may arise when the error signal is entrenched in (high-frequency) noise or when step changes in the set point occur, since in these cases derivative action will generate large amplitude signals. Derivative action is referred to as a \emph{fast mode} that generally improves the loop stability. It is often said that the D action \emph{anticipates the future}. The message that increasing the derivative gain, will lead to improved stability is commonly conveyed from academia to industry. However, practitioners have often found that the derivative term can behave against such anticipation particularly when there exists a transport delay \cite{VilanovaBook2012}. Frustration in tuning  has hence made many practitioners switch off or even exclude the derivative term.  
 
 
-Another issue is that the D part of the PID controller in the ideal form \eqref{eq:ideal},  is not proper. To overcome this, it is commonly implemented as
+Another issue is that the D part of the PID controller in the ideal form \eqref{Ch2eq:PID_ideal},  is not proper. To overcome this, it is commonly implemented as
 
 \[U_D(s)= K_p\frac{T_ds}{\alpha T_d s+1} E(s)\]
 
@@ -191,7 +190,7 @@ u(s)=K_p \left ( 1+\frac{1}{T_is}+\frac{T_ds}{\alpha T_d s+1} \right )  e(s)
 
 \subsection{PID Controller formulations}
 \label{sec:3.1}
-The PID algorithm as presented is usually referred as the standard one. However, the combinations of the three basic control actions may come in other different formulations. In fact, usually, the control algorithm implementation is manufacturer dependent and not all of its variations are available in the same controller. Even more, the controllers manufacturers use different names for the same PID algorithm~\cite{gerry1987} WEE.  The diversity of the PID control algorithms is evident in~\cite{odwyer2006} WEE.  In addition, it might be the case that a tuning rule of interest had been obtained using a control algorithm different from the one implemented in the controller to tune. In this case, as it is not guaranteed that the equivalent controller exists, controller parameters conversion relations are required, that will also indicate if the pursued equivalent controller exists. In what follows, the basic PID controller formulations are presented by using a different notation for the parameters in each one of them. This will allow later on the definition of transformation equations for computing the parameters for one formulation from another one.
+The PID algorithm as presented is usually referred as the standard one. However, the combinations of the three basic control actions may come in other different formulations. In fact, usually, the control algorithm implementation is manufacturer dependent and not all of its variations are available in the same controller. Even more, the controllers manufacturers use different names for the same PID algorithm~\cite{gerry1987} \cite{vilanova2017WEE}.  The diversity of the PID control algorithms is evident in~\cite{odwyer2006} .  In addition, it might be the case that a tuning rule of interest had been obtained using a control algorithm different from the one implemented in the controller to tune. In this case, as it is not guaranteed that the equivalent controller exists, controller parameters conversion relations are required, that will also indicate if the pursued equivalent controller exists. In what follows, the basic PID controller formulations are presented by using a different notation for the parameters in each one of them. This will allow later on the definition of transformation equations for computing the parameters for one formulation from another one.
 
 \begin{figure}[tb]
 \centering
@@ -267,7 +266,7 @@ By choosing $\beta < 1$, the control signal instantaneous change can be scaled d
 When the \emph{set-point weighting} factor is considered into the PID controller implementation, the resulting controller is said to have two-degrees-of-freedom (2-DoF) as a different processing of the reference and feedback signal is allowed. In such case, the 2-DoF versions of the previously presented PID controller formulations, also considering the avoiding of the derivative kick, results as:
 
 \subsection{2-DoF PID Controller Algorithms Conversion}
-As it can be observed from the presented PID formulations, whereas the reference controller aspect $C_r(s)$ takes the same form in all formulations, it is the feedback part $C_y(s)$  that prevents a direct translation of the controller parameters from one formulation to another. This is important because some of the existing tuning rules have been conceived for a specific PID formulation. Due to the possibility that the PID algorithm of the controller to tune be different to the one considered by the tuning rule to use, it is necessary to have conversion relations to obtain ``equivalent'' parameters between two or more of them~\cite{alfaroetfa2012-2} WEE. In what follows, we present conversion formulae to get the controller parameters for one specific PID formulation starting from the parameters got for another different one. In order to be as general as possible, the conversion formulae is presented for the more generic 2-DoF PID controller formulations just presented above.
+As it can be observed from the presented PID formulations, whereas the reference controller aspect $C_r(s)$ takes the same form in all formulations, it is the feedback part $C_y(s)$  that prevents a direct translation of the controller parameters from one formulation to another. This is important because some of the existing tuning rules have been conceived for a specific PID formulation. Due to the possibility that the PID algorithm of the controller to tune be different to the one considered by the tuning rule to use, it is necessary to have conversion relations to obtain ``equivalent'' parameters between two or more of them~\cite{alfaroetfa2012-2} \cite{vilanova2017WEE}. In what follows, we present conversion formulae to get the controller parameters for one specific PID formulation starting from the parameters got for another different one. In order to be as general as possible, the conversion formulae is presented for the more generic 2-DoF PID controller formulations just presented above.
 
 
 \section{Normalised Representations}
