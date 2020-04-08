@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="798940681" file="/home/david/Dropbox/UCR/02_Investigacion/01_ProyectosOficiales/MOO_PID_Book/Matlab/MOOTuningv2/MOOTuning.prj" location="/home/david/Dropbox/UCR/02_Investigacion/01_ProyectosOficiales/MOO_PID_Book/Matlab/MOOTuningv2" name="MOOTuning" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="3106516206" file="/home/david/Dropbox/UCR/02_Investigacion/01_ProyectosOficiales/MOO_PID_Book/Matlab/MOOTuningv2/MOOTuning.prj" location="/home/david/Dropbox/UCR/02_Investigacion/01_ProyectosOficiales/MOO_PID_Book/Matlab/MOOTuningv2" name="MOOTuning" target="target.mlapps" target-name="Package App">
     <param.appname>MOOTuning</param.appname>
     <param.authnamewatermark>Jose David Rojas</param.authnamewatermark>
     <param.email>jose.rojas_f@ucr.ac.cr</param.email>
@@ -12,7 +12,7 @@
     </param.icons>
     <param.summary>Tool for PID tuning based on a multiobjective optimization</param.summary>
     <param.description>Tool for two degrees of freedom PID tuning based on a multiobjective optimization. Three sources of disturbances are considered (inputd disturbance, output disturbance and setpoint change)</param.description>
-    <param.screenshot>/tmp/tp437a3997_96ed_44dd_9952_74dfc9dd3668.png</param.screenshot>
+    <param.screenshot>/tmp/tpb8c1ab56_9894_4c20_9016_54ee29d471a8.png</param.screenshot>
     <param.version>1.0</param.version>
     <param.products.name>
       <item>MATLAB</item>
@@ -1421,6 +1421,7 @@
       <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a0.3_to1.5_ms1.8.csv</file>
       <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a0.3_to1.5_ms10.csv</file>
       <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a0.3_to1.5_ms2.csv</file>
+      <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a0.3_to1.6_ms1.4.csv</file>
       <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a0.3_to1.6_ms1.6.csv</file>
       <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a0.3_to1.6_ms1.8.csv</file>
       <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a0.3_to1.6_ms10.csv</file>
@@ -1845,6 +1846,7 @@
       <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a0.7_to1_ms1.8.csv</file>
       <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a0.7_to1_ms10.csv</file>
       <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a0.7_to1_ms2.csv</file>
+      <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a0.7_to2_ms1.4.csv</file>
       <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a0.7_to2_ms1.6.csv</file>
       <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a0.7_to2_ms1.8.csv</file>
       <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a0.7_to2_ms10.csv</file>
@@ -2044,6 +2046,7 @@
       <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a0.9_to1_ms1.8.csv</file>
       <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a0.9_to1_ms10.csv</file>
       <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a0.9_to1_ms2.csv</file>
+      <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a0.9_to2_ms1.4.csv</file>
       <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a0.9_to2_ms1.6.csv</file>
       <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a0.9_to2_ms1.8.csv</file>
       <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a0.9_to2_ms10.csv</file>
@@ -2243,6 +2246,7 @@
       <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a1_to1_ms1.8.csv</file>
       <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a1_to1_ms10.csv</file>
       <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a1_to1_ms2.csv</file>
+      <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a1_to2_ms1.4.csv</file>
       <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a1_to2_ms1.6.csv</file>
       <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a1_to2_ms1.8.csv</file>
       <file>${PROJECT_ROOT}/3fun/Pareto3Fun_a1_to2_ms10.csv</file>
@@ -2273,7 +2277,7 @@
       <vista>false</vista>
       <linux>true</linux>
       <solaris>false</solaris>
-      <osver>5.3.0-26-generic</osver>
+      <osver>5.3.0-46-generic</osver>
       <os32>false</os32>
       <os64>true</os64>
       <arch>glnxa64</arch>

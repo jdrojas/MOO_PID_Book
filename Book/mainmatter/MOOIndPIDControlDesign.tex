@@ -49,9 +49,13 @@ The robustness constraint has also been incorporated into more elaborated  metho
 \label{sec:FormPIDMOOP}
 \subsection{Cost functions and constraints selection}
 \label{sec:CostFunSelec}
-When dealing with \gls{pid} tuning, it is common to define a metric either to optimize the parameters based on that metric, or as a measure to check how well the tuning behaves with respect to other set of parameters.
+When dealing with \gls{pid} tuning, it is common to define a metric either to optimize the parameters, or as a measure to check how well the tuning behaves with respect to other set of parameters.
 
+In theory, to formulate the \gls{moo} problem, any cost function may be used. However, it is common to select cost functions that are contradictory to each other, which is something that arises naturally when dealing with real designs.
 
+For example in \cite{SabinaSanchez2017} the \gls{iae} and the total variation are used as contradictory cost functions. The total variation represents the control effort and is related to the robustness of the closed system, therefore, using these two cost functions, the compromise is made between performance and robustness. Something similar is done in \cite{Pierezan2014}, where a particle swarm optimization technique is applied to the tuning of \gls{pid} controllers for a robotic manipulator. In \cite{Zhou2018} also a two objectives optimization is done with similar cost functions, the difference consist in that a multivariable control loop is tackled at the same time using a compound weight sum of an \gls{iae} metric for three setpoints and a function related to the energy consumption based on the variation of the input variables.
+
+The cost functions not necessarily is an integral function. For example in \cite{Abbas1995} the cost functions are the percent overshoot  and the rise time, but the authors also indicate that the settling time and the maximum controller output can be also considered.
 
 \subsection{PID tuning problem formulation for integral cost functions}
 \label{sec:CostProbPID}
