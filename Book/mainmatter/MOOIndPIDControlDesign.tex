@@ -55,14 +55,25 @@ In theory, to formulate the \gls{moo} problem, any cost function may be used. Ho
 
 For example in \cite{SabinaSanchez2017} the \gls{iae} and the total variation are used as contradictory cost functions. The total variation represents the control effort and is related to the robustness of the closed system, therefore, using these two cost functions, the compromise is made between performance and robustness. Something similar is done in \cite{Pierezan2014}, where a particle swarm optimization technique is applied to the tuning of \gls{pid} controllers for a robotic manipulator. In \cite{Zhou2018} also a two objectives optimization is done with similar cost functions, the difference consist in that a multivariable control loop is tackled at the same time using a compound weight sum of an \gls{iae} metric for three setpoints and a function related to the energy consumption based on the variation of the input variables.
 
-The cost functions not necessarily is an integral function. For example in \cite{Abbas1995} the cost functions are the percent overshoot  and the rise time, but the authors also indicate that the settling time and the maximum controller output can be also considered.
+The cost functions not necessarily is an integral function. For example in \cite{Abbas1995} the cost functions are the percent overshoot  and the rise time, but the authors also indicate that the settling time and the maximum controller output can be also considered. A more classical approach takes into account frequency domain measures as phase and gain margins \cite{astromhagglun84,hoetal95}. In \cite{Huang2008a} the $\cal{ H}_\infty$ norm is used in different frequency bands of different sensitivity functions to define several cost functions which are then used in a multi-objective approach.
+
+Other authors tries to combine integral cost functions with other time domain measures, as in \cite{Chiha2012} where the settling time, overshoot, rise time, \gls{iae}, \gls{ise} and \gls{itae} are taken into account in a weighted sum and optimized using an Ant Colony algorithm approach.
+
+Definitively, the selection of the cost function is widely open and it entirely depends on the necessity of the task at hand. According to \cite{Shinskey2002}, the main objective of a process controller is to mitigate the effects of load of disturbances, setpoint changes are considered of secondary importance. The same authors states that: \begin{quote}
+	``minimum \gls{iae} is a preferred criterion that includes integral error and penalizes continued cycling. Minimum-\gls{iae} tuning also tends to be consistent with minimum error.''
+\end{quote}
+%
+
+Following this reasoning, in this work we propose to use integral cost functions to measure input and output disturbances and setpoint changes in a multi-objective framework, taking the maximum sensitivity as a constraint to find the optimal controller tuning in a Pareto sense.
+
+The controller is considered to be a \gls{2dof} \gls{pid} controller. Even with this topology, the cost functions that results of considering all three sources of disturbances are contradictory among them because minimizing one of them does not minimize the other functions, in fact you may find that the optimal controller for one cost function yields to the maximum value of other function. These details are covered in Section~\ref{sec:MOOPForm} where the multi-objective framework is stated.
 
 \subsection{PID tuning problem formulation for integral cost functions}
 \label{sec:CostProbPID}
 A feedback control system like the one shown in %
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.8\columnwidth]{Ch4bloques}%pretex=\scriptsize,
+	\includegraphics[width=\columnwidth]{Ch4bloques}%pretex=\scriptsize,
 	\caption{Feedback control loop.}% 
 	\label{fig:bloques}%
 \end{figure}
@@ -108,7 +119,7 @@ and the part applied to the process output is:
 It is common to set $\gls{alpha}=0.1$ and $\gls{gamma}=0$. For this reason, the controller parameter vector is give as $\gls{theta}=[\begin{tabular}{cccc} \gls{kp} & \gls{ti} & \gls{td} &\gls{beta} \end{tabular}]^T$. A detailed depiction of the controller transfer function is presented in 
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.8\columnwidth]{Ch4controlador}
+	\includegraphics[width=0.7\columnwidth]{Ch4controlador}
 	\caption{Representation of the \gls{2dof} controller.}
 	\label{fig:Ch4controlador}
 \end{figure}
@@ -193,8 +204,6 @@ J_r(\bm{\theta})=\int_0^\infty \left |r(t)-y_r(t,\bm{\theta})\right | dt.
 \end{equation}
 %
 
-In general, it is not possible to optimize $\bm{\theta}$ for those three functions at the same time. Such impossible point where all the cost functions are optimal is called Utopia point, but optimizing one of them always produce a degradation in the other remaining functions. All the solutions that are closest to the utopia point, create the Pareto frontier which, if all cost functions are considered equal, are equally optimal. 
-
 The problem of minimizing $J_r(\bm{\theta})$, $J_{di}(\bm{\theta})$ and $J_{do}(\bm{\theta})$ at the same time can be posed as a \gls{moo} problem. In addition, since in an industrial environment the robustness is very important, the obtained parameters are constrained to always satisfy  $\gls{ms} \leq M_{s,max}$, where $M_{s,max}$ is the allowed limit of the maximum sensitivity. The combined cost function (vector of cost functions) then becomes:
 %
 \begin{equation}  %inclusión de ecuaciones
@@ -212,4 +221,8 @@ and solved by finding all possible optimal solutions of:
 \label{eq:probmoo}
 \end{equation}
 
-\textbf{To do: Expand more this part}
+In general, it is not possible to find a set of parameters $\bm{\theta}$ that minimizes all those three functions at the same time. Such impossible point where all the cost functions are optimal is called the utopia point. As it names states, the utopia point is impossible to reach because optimizing one of the cost function always produce a degradation in the other remaining functions.
+
+The particular cases that are  the closest to the utopia point, are part of what is called the Pareto frontier. This set of possible solutions are considered to be equally optimal because there is no possibility to improve one of the functions without degrading the others.
+
+This means that solvingthe solution of the control problem does not give a single solution, instead a family of optimal controller tunings are found.
