@@ -1,9 +1,8 @@
 \chapter{Application examples}
 \label{chap:ApplicationExamples}
 %
+\abstract{In this chapter, three different examples are provided to apply the multi-objective framework and tool presented in this book. First a well known benchmark problem is tackled with the presented methodology and compared with different tuning methods. Then a LiTaO$_3$ Thin Film Deposition Process is used as a prototype for a large dead-time process and tested using a two cost function arrangement. Finally, the MOOTuning software is used to analyze the temperature control in a Continuous Stirred Tank Heater in Section~\ref{sec:CSTH} using two a three cost functions.}
 %
-In this chapter different examples are going to be used as exploration ground for the \gls{moo} framework for \gls{pid} tuning. In Section~\ref{sec:Bechmark} the \gls{ennc} method is applied in a typical high order benchmark plant. Then in Section~\ref{sec:LiTAO3}, the framework is tested with a the temperature control in a deposition process of lithium tantalate (LiTaO$_3$) which has a important dead-time. Finally, the MOOTuning software is used to analyze the temperature control in a Continuous Stirred Tank Heater in Section~\ref{sec:CSTH}.
-
 \section{High order benchmark plant}
 \label{sec:Bechmark}
 First the \gls{ennc} method is going to be tested in high order benchmark plant \cite{Astroem2000}. The model of the plant is given by a fourth order transfer function:
@@ -531,7 +530,7 @@ To test the validity of this simplified model, the response of the transfer func
 %
 Figure~\ref{fig:Ch7CSTHComp}. It is clear that the non-linear model is a good representation of the dynamical response of the process. This is the first step in order to find a suitable PID controller to control the plant. In \cite{Alfaro2016} the level of the tank is also controlled, however the dynamic of the level is simpler (its model can be approximated with a first order model without delay) and in this particular example, only the temperature is going to be controlled, while the level is considered to be constant.
 %
-\subsection{PID control of the CSTH}
+\subsection{PID control of the CSTH considering two integral cost functions}
 \label{sec:PIDCSTH}
 In this section, the process will be controlled using a \gls{pid} controller with different tuning methods and compared with the \gls{moo} framework used in the book.
 
@@ -646,6 +645,62 @@ Figure~\ref{fig:Ch7CSTRControlledCV}. When the setpoint change, the response of 
 
 The case presented here tried to show the steps to use the Pareto front as the methodology to find the controller tuning more appropriate to the task. The example is a simple plant, but very representative of the dynamics that can be found in an industry environment. Many of the plants can be modeled as a second order overdamped process, and therefore, the tool and the data used in this book are readily applied in many cases.
 
+\subsection{PID control of the CSTH considering three integral cost functions}
+\label{sec:PIDCSTH3Fun}
+The MOOTuning software also is able to find the optimal parameters of a PID controllers considering three cost functions as presented in Section~\ref{sec:Tuning3PID}. Of course, it is not necessary to use this software since the data base with all the values is also part of the companion software, but the \matlab{} app has the advantage to be a simple interface between the user and the data.
+
+As an example, the tuning tool is used to find the parameters of the controller that has the lowest $J_{do}$ value. This case is interesting because the anchor point where $J_{do}$ has the lowest value, neither the value of $J_r$ nor $J_{di}$ have their maximum value. On the other hand, when $J_{r}$ is set to be the lowest possible value, $J_{do}$ becomes the function that has an intermediate value but $J_{di}$ has its maximum value from the Pareto. Only for the anchor point where $J_{di}$ is minimum, both $J_r$ and $J_{do}$ get their maximum value. The responses for the three anchor points are depicted %
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=\columnwidth]{Ch7CSTHControlled3Fun}
+	\caption{Response of the CSTH process in the three anchor points of the pareto front for $M_s \leq 2.0$.}
+	\label{fig:Ch7CSTHControlled3Fun}
+\end{figure}
+%
+in Figure~\ref{fig:Ch7CSTHControlled3Fun} for the case where $M_s \leq 2.0$. As it can be seen, the response is quite different among the three anchor points. First a change in the reference value is performed at $t=\SI{100}{\second}$, an input step disturbance is present at $t=\SI{1000}{\second}$ and an output step disturbance is introduced in the system at $t=\SI{2000}{\second}$. The values of the cost functions are presented in %
+%
+\begin{table}
+	\centering
+	\caption{Cost functions for the three cost functions case scenario.}
+	\begin{tabular}{cccc}
+		\toprule
+		 				& $J_r$ anchor point 					& $J_{di}$ anchor point				&	$J_{do}$ anchor point	\\
+		 \midrule
+		 $J_r$			&		$67.95$	(minimal)				&		$85.63$	($+26.02\%$)		&	$82.46$($+21.35\%$) \\
+		 $J_{di}$		&		$22.46$ ($+218.13\%$)			&		$7.06$	(minimal)			&	$17.63$ ($+149.72\%$)	\\
+		 $J_{do}$		&		$74.25$ ($+38.01\%$)			&		$102.43$ ($+90.39\%$)		&	$53.80$	(minimal)				\\
+		 Parameters		& \begin{tabular}{c} $K_p = 8.19$ \\ $T_i = 185.18$\\ $T_d = 28.14$\\ $\beta = 0.99$		 \end{tabular} &
+		 \begin{tabular}{c} $K_p = 11.29$ \\ $T_i = 58.8306$\\ $T_d = 29.48$\\ $\beta = 0.43$ \end{tabular} &
+		 \begin{tabular}{c} $K_p = 6.18$ \\ $T_i = 108.76$\\ $T_d = 29.93$\\ $\beta = 0.82$ \end{tabular}\\
+		 \bottomrule
+	\end{tabular}
+	\label{tab:2FunCostFunctionCSTH}
+\end{table}
+%
+Table~\ref{tab:2FunCostFunctionCSTH}. The percentage increment is reported for each cost function in each case.
+
+Using Figure~\ref{fig:Ch7CSTHControlled3Fun} and Table~\ref{tab:2FunCostFunctionCSTH} , it can be confirmed that the tuning with the best parameters for $J_{di}$ produces the worst responses for the other two functions. With these results one may be prone to select the tuning for the lowest value of $J_{di}$ as the final because it does not have the worst values of the other cost functions and it has much better response for the output disturbance case. Observe for example the response for the $J_{di}$ anchor point where the response for the output disturbance is bad (it has a $J_{do}$ increment of $+90.39\%$ with respect to its lowest value). In some sense, it could be seen as the best compromise between the cost functions. Only if the control engineer is heavily invested in minimize the $J_{di}$ cost function, it may select the $J_{di}$ anchor point as the final response, however, using the multiobjective framework presented here, he or she has to be fully aware that is selecting the worst response for the other functions.
+
+Another reason to select the $J_{do}$ anchor point is related to the control effort. When the Total Variation computed as:
+\begin{equation*}
+TV = \sum_{i=0}^{N-1}\left(  u(i+1)-u(i)\right),
+\end{equation*}
+is compared between the three responses, it is found that $TV_{J_r} = 223.82$, $TV_{J_{di}} = 352.94$ and $TV_{J_{do}} = 152.81$ using a step size of $\SI{0.01}{\second}$. It is clear that the response given by the $J_{do}$ anchor point is a very good choice among all the possible values. The control signal is plotted %
+%
+\begin{figure}[tb]
+	\centering
+	\subfloat[Reference and input disturbance step changes.]{\includegraphics[width=0.8\columnwidth]{Ch7CSTHControlledCV3Fun01} \label{fig:Ch7CSTHControlledCV3Fun01}}\\
+	\subfloat[Output disturbance step change.]{\includegraphics[width=0.8\columnwidth]{Ch7CSTHControlledCV3Fun02} \label{fig:Ch7CSTHControlledCV3Fun02}}
+	\caption{Control signal for the CSTH using three cost functions.}
+	\label{fig:Ch7CSTHControlledCV3Fun}
+\end{figure}
+%
+on Figure~\ref{fig:Ch7CSTHControlledCV3Fun}. Since the control signal has a larger magnitude for an output disturbance rejection, it was plotted in different axis.
+
+As it can be seen from the response, effectively the response of the $J_{do}$ anchor point is smoother than the other two. Even if the control engineer is not looking for the best response to the output disturbance, the obtained tuning may be a good compromise between servo and regulation responses with a mild control signal.
+
+In section~\ref{sec:PIDCSTH}, the system was controlled considering only two sources of disturbances. When adding another dimension to the problem, certainly the selection of the final controller may be more difficult because another degree of freedom is added. However, the insight that was gathered from rethinking the problem from this other point of view can be seen as beneficial, because the tuning found using the 3 dimensional Pareto could be a better solution (from a physical point of view) that may not be part of the front with only two functions.
+%
 \section{Final remarks}
 \label{sec:FinalRemarks}
 The motivation of the three cases presented in this chapter was to show all the advantages that can be derived from using a multiobjetive approach. However, it has to be noticed that the cost function selected for these studies are totally  arbitrary and other authors may choose to optimize the tuning of the parameters with other criteria. However, the \gls{iae} is a practical measure on the optimality of the control in industry \cite{Shinskey2002}, and for this reason was the selected cost function.
