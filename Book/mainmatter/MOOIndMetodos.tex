@@ -52,7 +52,26 @@ Points ``a'' and ``b'' are called anchor points and represent the combination of
 
 Point ``N'' is called the pseudo-nadir point, and is defined as the point with the worst values of all the anchor points.
 \subsection{Different approaches to obtain the Pareto front}
-To do
+In its most basic form, the Pareto front is found by performing several optimizations each of which are computed by varying some parameter. The idea is to be able to use standard optimization methods to find each point of the Pareto.
+
+As for single objective optimization there is two big families of methods to solve the problem: Bio-inspired methods that use some kind of heuristic in order to find the minimum of the cost function and deterministic methods mostly based on certain gradient of the function.
+
+In this section, a short review on both families is presented. However, because of the deterministic nature of the gradient based methods, in this book the later family is chosen tool for solving \gls{moop}.
+
+\textbf{AHORA VOY A PONER ACÁ LAS REFERENCIAS, PERO LAS COMENTO MAÑANA!!!}
+\begin{itemize}
+	\item \citet{Rubio-Largo2014}
+	\item \citet{Roman2006}
+	\item \citet{Pierezan2014}
+	\item \citet{Martinez2009a}
+	\item \citet{Martinez2009}
+	\item \citet{Cespedes2016}
+	\item \citet{Ayala2012}
+	\item \citet{Reynoso-Meza2012b} REVISAR ESTE SEGUNDO
+	\item \citet{Zhou2011} REVISAR ESTE PRIMERO
+\end{itemize}
+
+
 %----------------------------------------------------
 \section{Scalarization algorithms to find the Pareto front}
 \label{sec:design-methodologies}
@@ -251,7 +270,7 @@ To tackle these issues, different kinds of plots have been proposed in the liter
 
 As usual when there do exist different approaches to deal with a complex problem, there is  no single visualisation technique is able to provide a comprehensive understanding of the characteristics of the approximation set. It is important to know the specific characteristics, pros and cons of each approach and evaluate the suitability for the problem at hand.
   
-\subsection{The Pareto as data for the construction of a decision tool}
+\subsection{The Pareto as a decision tool}
 \label{sec:ParetoData}
 %
 Since the Pareto front cannot be considered as the final solution of the \gls{moop}, one may use it as the basis to construct a tool that takes advantage of the multiple optimal points found.
@@ -261,13 +280,10 @@ In other words, the Pareto front becomes the raw material that is used to produc
 For example in \cite{Zhao2007}	the concept of Pareto optimality is used to define a genetic programming approach for optimal decision trees. The author presented a Java code for the final tool and use code in two different study cases.
 
 Another example can be found in \cite{Das2012}. In this paper, the route for the transportation of hardzarous waste has to be selected taking into account the cost of the route and the mortality and morbidity of incidents. Once the Pareto frontier has been obtained, the authors present a selection criteria where the Cost Elasticity of risk and the Knees on the Pareto are taken into account for the final decision.
-
-
-
-\subsection{The Pareto Front as part of a decision tool}
-\label{sec:ParetoDecision}
-\textbf{To do}
-
-
+%
+%\subsection{The Pareto Front as part of a decision tool}
+%\label{sec:ParetoDecision}
+%\textbf{To do}
+%
 \bibliographystyle{spbasic}
 \bibliography{ReferenciasMulti}

@@ -1,0 +1,61 @@
+% main.tex
+\documentclass{report}
+\usepackage{url}
+\usepackage{natbib}
+\usepackage{chapterbib}
+
+\begin{document}
+
+\include{chap1}
+\include{chap2}
+% other chapters ...
+
+\end{document}
+
+% chap1.tex
+\chapter{one chapter}
+text~\cite{paper1}
+text~\cite{paper2}
+% don't forget:
+\bibliographystyle{plainnat}
+\bibliography{biblio}
+
+% chap2.tex
+\chapter{another chapter}
+text~\cite{paper2, paper3}
+% don't forget, again:
+\bibliographystyle{plainnat}
+\bibliography{biblio}
+
+% biblio.bib
+@Article{paper1,
+  author =       {John Smith},
+  title =        {A title},
+  journal =      {A Journal},
+  year =         {2010}
+}
+@Article{paper2,
+  author =       {John Doe},
+  title =        {A paper},
+  journal =      {Another journal},
+  year =         {2009}
+}
+@Article{paper3,
+  author =       {Yuppie Networking},
+  title =        {My paper},
+  journal =      {The best journal},
+  year =         {2000}
+}
+
+Finally, to generate the document:
+
+#!/bin/bash
+latex main.tex
+for auxfile in *.aux
+do
+    bibtex `basename $auxfile .aux`
+done
+latex main.tex
+latex main.tex
+
+
