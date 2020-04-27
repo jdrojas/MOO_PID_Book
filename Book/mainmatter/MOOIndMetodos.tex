@@ -17,7 +17,7 @@ In those cases, given a set of cost functions:
 \label{eq:functions}
 \end{equation}
 %
-that depends on $n$ different variables $\xv=\left[x_1, x_2, \ldots, x_n \right]^T$, $x_i \in \mathbf{X}$, where $\mathbf{X}$ is the feasible decision space. The \gls{moop} may be formulated as follows \cite{Marler2004}:%
+that depends on $n$ different variables $\xv=\left[x_1, x_2, \ldots, x_n \right]^T$, $x_i \in \mathbf{X}$, where $\mathbf{X}$ is the feasible decision space. The \gls{moop} may be formulated as follows \citep{Marler2004}:%
 %
 \begin{subequations}%
 	\begin{align}%
@@ -32,7 +32,7 @@ that depends on $n$ different variables $\xv=\left[x_1, x_2, \ldots, x_n \right]
 where $g_j(\xv)$ is the $j$-th inequality constraint and $h_l(\xv)$ is the $l$-th equality constraint. 
 %
 \subsection{Definition of the Pareto front}
-In general, it is not possible to find a set of variables values that minimizes all $F$ functions. In fact, the optimization problem in \eqref{eq:OptProb} have multiple equally optimal solutions in the sense of the Pareto optimality. According to \cite{Marler2004}:
+In general, it is not possible to find a set of variables values that minimizes all $F$ functions. In fact, the optimization problem in \eqref{eq:OptProb} have multiple equally optimal solutions in the sense of the Pareto optimality. According to \citet{Marler2004}:
 \begin{quote}
 	``A point $\xv^*\in \mathbf{X}$, is Pareto optimal iff there does not exist another point, $\xv \in \mathbf{X}$, such that $\mathbf{F}(\xv)\leq\mathbf{F}(\xv^*)$, and $F_i(\xv)<F_i(\xv^*)$ for at least one function''
 \end{quote}
@@ -61,7 +61,7 @@ In general, the algorithms to find the optimal value of a function are designed 
 %
 \subsection{Weighted Sum}
 \label{sec:WS}
-\gls{ws} methodology is a popular procedure to transform a \gls{moop} into a single objective problem by creating a new objective function that is the result of the aggregation of all the functions involved with certain weight for each one \cite{Marler2004}:
+\gls{ws} methodology is a popular procedure to transform a \gls{moop} into a single objective problem by creating a new objective function that is the result of the aggregation of all the functions involved with certain weight for each one \citep{Marler2004}:
 %
 \begin{equation}
 F_{WS}(\mathbf{x}) = \sum_{i=1}^{k}\alpha_{i} {f}_{i}(\mathbf{x}),
@@ -72,14 +72,14 @@ where $\alpha_i$ is the weight of associated with function $f_i$. The idea behin
 
 The weights have two different roles that are entangled, in one hand the weights can be used to represent the importance of one function over the others (the bigger the weight, the higher the importance) and in the other hand the weights ca be used to equalize the relative values of the functions (one function may yield higher values that shadows the others).
 
-However, choosing the values of the weight can be difficult. In \cite{Marler2010} it is shown that the weight can be interpreted as a first order approximation of a preference function, and therefore, cannot fully take into account the desires of the decision-maker.
+However, choosing the values of the weight can be difficult. In \citet{Marler2010} it is shown that the weight can be interpreted as a first order approximation of a preference function, and therefore, cannot fully take into account the desires of the decision-maker.
 
 Lets take a two function \gls{moop} as an example. If the Pareto front wants to be computed, one may try to first normalized the function:
 \begin{equation}
 F_{WS}(\mathbf{x}) = \alpha_{1WS} \hat{f}_{1}(\mathbf{x}) + \alpha_{2WS} \hat{f}_{2}(\mathbf{x}),
 \label{eq:JWS}
 \end{equation}
-with $\alpha_{1WS} + \alpha_{2WS}=1$, and $\hat{f}_{1}(\mathbf{x})$ and $\hat{f}_{2}(\mathbf{x})$ the normalized versions of $f_{1}(\mathbf{x})$ and $f_{2}(\mathbf{x})$, respectively. One possible normalization (see \cite{Marler2004}) is given by:
+with $\alpha_{1WS} + \alpha_{2WS}=1$, and $\hat{f}_{1}(\mathbf{x})$ and $\hat{f}_{2}(\mathbf{x})$ the normalized versions of $f_{1}(\mathbf{x})$ and $f_{2}(\mathbf{x})$, respectively. One possible normalization (see \citet{Marler2004}) is given by:
 \begin{equation}
 \hat{f}_{1}(\mathbf{x}) = \frac{f_{1}(\mathbf{x})-\min{\left( f_{1}(\mathbf{x})\right) }}{\max{(f_{1}(\mathbf{x}))}-\min{\left( f_{1}(\mathbf{x})\right) }}.
 \label{eq:NormalizedJ}
@@ -97,13 +97,13 @@ g(\mathbf{x}) \leq 0,
 \label{eq:WSProblem}
 \end{equation}
 %
-where $h(\mathbf{x})$ and $g(\mathbf{x})$ are the equality and inequality constraints of the original problem. To find the Pareto front, the problem in \eqref{eq:WSProblem} is solve varying the weights. However, it is known that the \gls{ws} method is not appropriate to find the Pareto front. In first place, when \eqref{eq:JWS} is minimized for different values of $\alpha_{1WS}$ and $\alpha_{2WS}$ in order to obtain the Pareto front, an even distribution of the weights does not assure an even distribution of the points in the front. Also, with \gls{ws} it is not possible to obtain Pareto points in the non-convex region of the front, and therefore, not all the possible solutions can be found \cite{Das1997}. In order to tackle this issue, alternative problem formulation have been proposed in the literature to obtain the Pareto front which are presented next.
+where $h(\mathbf{x})$ and $g(\mathbf{x})$ are the equality and inequality constraints of the original problem. To find the Pareto front, the problem in \eqref{eq:WSProblem} is solve varying the weights. However, it is known that the \gls{ws} method is not appropriate to find the Pareto front. In first place, when \eqref{eq:JWS} is minimized for different values of $\alpha_{1WS}$ and $\alpha_{2WS}$ in order to obtain the Pareto front, an even distribution of the weights does not assure an even distribution of the points in the front. Also, with \gls{ws} it is not possible to obtain Pareto points in the non-convex region of the front, and therefore, not all the possible solutions can be found \citep{Das1997}. In order to tackle this issue, alternative problem formulation have been proposed in the literature to obtain the Pareto front which are presented next.
 %--------------------------------------------------
 %--------------------------------------------------
 \subsection{Normal Boundary Intersection}
 \label{sec:NBI}
 %
-The \gls{nbi} is a variation in the way that the \gls{moop} is posed as a single objective optimization problem, in order to obtain an even spaced Pareto front \cite{Das1998}. In %
+The \gls{nbi} is a variation in the way that the \gls{moop} is posed as a single objective optimization problem, in order to obtain an even spaced Pareto front \citep{Das1998}. In %
 %
 \begin{figure}[b]%
 	\centering
@@ -122,7 +122,7 @@ $\alpha_{1NBI}$ \\ $\alpha_{2NBI}$
 \end{equation}
 with $\alpha_{1NBI}+\alpha_{2NBI}=1$.
 
-The central idea behind the \gls{nbi} method is to find the maximum distance from the utopia plane towards the utopia point (with direction $\hat{\mathbf{n}}$) that is normal (or quasi normal as proposed in \cite{Das1998}) to the utopia plane. In other words, this method finds the border of the feasible region that is closer to the utopia point (farther from the utopia plane). This problem is considered a subproblem, because with one given $\beta$,only one point of the Pareto front is found but, by varying this parameter $\beta$ evenly, it is possible to obtain an even spaced realization of the front.
+The central idea behind the \gls{nbi} method is to find the maximum distance from the utopia plane towards the utopia point (with direction $\hat{\mathbf{n}}$) that is normal (or quasi normal as proposed in \citet{Das1998}) to the utopia plane. In other words, this method finds the border of the feasible region that is closer to the utopia point (farther from the utopia plane). This problem is considered a subproblem, because with one given $\beta$,only one point of the Pareto front is found but, by varying this parameter $\beta$ evenly, it is possible to obtain an even spaced realization of the front.
 
 The problem then is posed as follows:%
 %
@@ -136,13 +136,13 @@ g(\xv) \leq 0.
 \label{eq:NBIProblem}
 \end{equation}%
 
-The \gls{nbi} method converts the original problem by adding an equality constraint. By maximizing the new variable $v$ (which represents the distance from the utopia plane towards the utopia point), the front that is closer to the utopia point is found. An alternative formulation of \eqref{eq:NBIProblem} was proposed in \cite{Shukla2007} to ensure that only the points that really belongs to the Pareto front are found.
+The \gls{nbi} method converts the original problem by adding an equality constraint. By maximizing the new variable $v$ (which represents the distance from the utopia plane towards the utopia point), the front that is closer to the utopia point is found. An alternative formulation of \eqref{eq:NBIProblem} was proposed in \citet{Shukla2007} to ensure that only the points that really belongs to the Pareto front are found.
 
-This method has been widely used in several areas.For example, in \cite{Stehr2003} was used to analyze the compromise between gain and phase margin when designing analog circuits. In \cite{Sendin2004}, the \gls{nbi} was considered in the design of nonlinear bioprocesses. In \cite{Ierapetritou2007a} the \gls{nbi} is used to optimize the scheduling of a chemical process with uncertainty. In \cite{Vahidinasab2010} \gls{nbi} is applied to develop optimal bidding strategies for the participants of oligopolistic energy markets; the social welfare and the emissions are considered as the cost functions and the constraints take into account the characteristics of the generators and the power flow of the system. In \cite{Ganesan2013}, \gls{nbi} is used in conjunction with a meta-heuristic algorithm to generate optimal solution options to the green sand mould system problem. In \cite{Brito2014} the method is used coupled with mean-squared error functions in a robust parameter design of the surface roughness in end milling process. In \cite{Rubio-Largo2014} the method is adapted to solve a traffic grooming problem in the telecommunication field. In \cite{Rojas2015b} a comparison between several scalarization methods, including \gls{nbi}, was presented for a \gls{foptd} plant where different disturbance sources are considered. In \cite{Naves2017} \gls{nbi} is used for the optimization of methyl orange treatment with ozone. In \cite{Simab2018} a model for short-term hydrothermal scheduling problem in the presence of the pumped-storage technology and stated as Mixed-Integer Non-Linear Programming, while the scalarization was done using \gls{nbi}. Finally, in \cite{Moura2018} \gls{nbi} was used in the construction of a Pareto boundary chart of a treatment of a synthetic solution of amoxicillin in a reactor with ozone bubbling.
+This method has been widely used in several areas.For example, in \citet{Stehr2003} was used to analyze the compromise between gain and phase margin when designing analog circuits. In \citet{Sendin2004}, the \gls{nbi} was considered in the design of nonlinear bioprocesses. In \citet{Ierapetritou2007a} the \gls{nbi} is used to optimize the scheduling of a chemical process with uncertainty. In \citet{Vahidinasab2010} \gls{nbi} is applied to develop optimal bidding strategies for the participants of oligopolistic energy markets; the social welfare and the emissions are considered as the cost functions and the constraints take into account the characteristics of the generators and the power flow of the system. In \citet{Ganesan2013}, \gls{nbi} is used in conjunction with a meta-heuristic algorithm to generate optimal solution options to the green sand mould system problem. In \citet{Brito2014} the method is used coupled with mean-squared error functions in a robust parameter design of the surface roughness in end milling process. In \citet{Rubio-Largo2014} the method is adapted to solve a traffic grooming problem in the telecommunication field. In \citet{Rojas2015b} a comparison between several scalarization methods, including \gls{nbi}, was presented for a \gls{foptd} plant where different disturbance sources are considered. In \citet{Naves2017} \gls{nbi} is used for the optimization of methyl orange treatment with ozone. In \citet{Simab2018} a model for short-term hydrothermal scheduling problem in the presence of the pumped-storage technology and stated as Mixed-Integer Non-Linear Programming, while the scalarization was done using \gls{nbi}. Finally, in \citet{Moura2018} \gls{nbi} was used in the construction of a Pareto boundary chart of a treatment of a synthetic solution of amoxicillin in a reactor with ozone bubbling.
 %-------------------------------------------------- 
 \subsection{Normalized Normal Constraint}
 \label{sec:NNC}
-The \gls{nnc} is presented in \cite{Messac2003} and is intended to improve the results of the \gls{nbi} by formulating the optimization problem only with inequality constraints and by filtering all the non-Pareto optimal points. The main idea of the methodology is presented in
+The \gls{nnc} is presented in \citet{Messac2003} and is intended to improve the results of the \gls{nbi} by formulating the optimization problem only with inequality constraints and by filtering all the non-Pareto optimal points. The main idea of the methodology is presented in
 %
 \begin{figure}[b]%
 	\centering
@@ -174,13 +174,13 @@ g(\mathbf{x}) \leq 0,
 \label{eq:NNCProblem}
 \end{equation}
 %
-where $\bar{\mathbf{N}}_1$ is the vector that contains the direction of the utopia plane. In some cases, the optimization may yield points that do not belong to the Pareto front. In \cite{Messac2003}, the authors propose to use a filter algorithm to eliminate those points.
+where $\bar{\mathbf{N}}_1$ is the vector that contains the direction of the utopia plane. In some cases, the optimization may yield points that do not belong to the Pareto front. In \citet{Messac2003}, the authors propose to use a filter algorithm to eliminate those points.
 
-This method has been used in several cases. Also in \cite{Hosseini2016a} the method was implemented to optimally solve the transmission congestion management taking into account the cost of congestion management, voltage stability margin, and transient stability margin. In \cite{Sanchez2017a}, the \gls{nnc} was considered to find optimally balanced tuning rules for fractional-order proportional-integral-derivative controllers for \gls{foptd} process models subject to a robustness constraint. In \cite{Mittal2017a} the NNC was used in conjunction with an evolutionary algorithm to find the optimum number and location of wind turbines in a wind farm. In \cite{Benki2018}, the \gls{nnc} was implemented in the design of an aerosol can, tanking into account both the dome growth and the dome reversal pressure DRP. In \cite{Tan2018a}, the \gls{nnc} was applied in the design of microvascular panels for battery cooling applications. The NNC is also applied in \cite{Liu2019} within their algorithm to optimally control the glycerol in a 1,3-propanediol batch process.
+This method has been used in several cases. Also in \citet{Hosseini2016a} the method was implemented to optimally solve the transmission congestion management taking into account the cost of congestion management, voltage stability margin, and transient stability margin. In \citet{Sanchez2017a}, the \gls{nnc} was considered to find optimally balanced tuning rules for fractional-order proportional-integral-derivative controllers for \gls{foptd} process models subject to a robustness constraint. In \citet{Mittal2017a} the NNC was used in conjunction with an evolutionary algorithm to find the optimum number and location of wind turbines in a wind farm. In \citet{Benki2018}, the \gls{nnc} was implemented in the design of an aerosol can, tanking into account both the dome growth and the dome reversal pressure DRP. In \citet{Tan2018a}, the \gls{nnc} was applied in the design of microvascular panels for battery cooling applications. The NNC is also applied in \citet{Liu2019} within their algorithm to optimally control the glycerol in a 1,3-propanediol batch process.
 
 \subsection{Enhanced Normalized Normal Constraint}
 \label{sec:ENNC}
-The \gls{ennc} \cite{Sanchis2008}, is a new perspective of the original \gls{nnc} method. Implicitly, the \gls{nnc} method supposes that in each anchor point, the other functions that are not optimal, have their worst value. For a two functions optimization, this is always the case; however for more than two functions this supposition is not true in general. The \gls{ennc} method redefines the anchor points in such a way that the supposition of the \gls{nnc} holds true, and then the same method may be used. Other advantage of the \gls{ennc} is that it is possible to expand the explored regions of the problem, given a better representation of the Pareto front.
+The \gls{ennc} \citet{Sanchis2008}, is a new perspective of the original \gls{nnc} method. Implicitly, the \gls{nnc} method supposes that in each anchor point, the other functions that are not optimal, have their worst value. For a two functions optimization, this is always the case; however for more than two functions this supposition is not true in general. The \gls{ennc} method redefines the anchor points in such a way that the supposition of the \gls{nnc} holds true, and then the same method may be used. Other advantage of the \gls{ennc} is that it is possible to expand the explored regions of the problem, given a better representation of the Pareto front.
 %
 The new anchor points (called pseudo anchor points) are defined as:
 \begin{equation}
@@ -194,7 +194,7 @@ $f_1^N$ & $f_2^N$ & $\cdots$ & $f_i^{*}$ & $\cdots$ & $f_n^N$
 %
 where $f_i^N$ if the value of function $f_i$ at the pseudo nadir point. The effect of this new definition is to enlarge the utopia hyper plane and scaling the functions in such a way that the Pareto front is evenly obtained while the unexplored regions of the Pareto are reduced.
 
-The Pareto is then computed using the same methodology as in the \gls{nnc} case. This method has also been applied in several cases, for example in \cite{Contreras-Leiva2016}, the \gls{ennc} is applied in the optimization of the tuning parameters of a \gls{2dof} \gls{pid} controller for an \gls{soptd} plant. In\cite{Pereira2017b} an augmented version of the \gls{ennc} is applied to optimized the milling process of aluminum alloy Al 7075 taking into account the axial cutting force, the energy consumption and the material removal rate. The \gls{ennc} is tested in the optimization of a multiobjective model based predictive controller and compared with different techniques in \cite{Toro2011} and for the nonlinear case in \cite{Vallerio2014}.
+The Pareto is then computed using the same methodology as in the \gls{nnc} case. This method has also been applied in several cases, for example in \citet{Contreras-Leiva2016}, the \gls{ennc} is applied in the optimization of the tuning parameters of a \gls{2dof} \gls{pid} controller for an \gls{soptd} plant. In\citet{Pereira2017b} an augmented version of the \gls{ennc} is applied to optimized the milling process of aluminum alloy Al 7075 taking into account the axial cutting force, the energy consumption and the material removal rate. The \gls{ennc} is tested in the optimization of a multiobjective model based predictive controller and compared with different techniques in \citet{Toro2011} and for the nonlinear case in \citet{Vallerio2014}.
 %--------------------------------------------------
 \section{Solution selection from the Pareto front}
 \label{sec:Selection}
@@ -228,25 +228,25 @@ In the following, these three tasks are going to be explored.
 \subsection{Visualization of the Pareto Front}
 \label{sec:ParetoVisualization}
 %
-One of the advantages of using a multiobjective problem approach, is its ability to take into account many cost functions at the same time, and being able to find the set of the \emph{best} solutions. This is the ultimate goal of a multiobjective optimisation, to provide useful information to the decision makers in order to help to choose according to its preferences. This can be done in terms of a large set of raw data that has lately to be processed accordingly. This introduces some cognitive issues that become harder and a clear obstacle for decision making stage, especially when having many objectives (say more than 3). Although there are some performance metrics that can evaluate the quality of a Pareto front approximation set (Inverted Generational Distance \cite{Bosman2003} and Hypervolume \cite{Zitzler1999} among others), it is still not intuitive this approach really helps the decision maker to understand the trade-off relationship among objectives.
+One of the advantages of using a multiobjective problem approach, is its ability to take into account many cost functions at the same time, and being able to find the set of the \emph{best} solutions. This is the ultimate goal of a multiobjective optimisation, to provide useful information to the decision makers in order to help to choose according to its preferences. This can be done in terms of a large set of raw data that has lately to be processed accordingly. This introduces some cognitive issues that become harder and a clear obstacle for decision making stage, especially when having many objectives (say more than 3). Although there are some performance metrics that can evaluate the quality of a Pareto front approximation set (Inverted Generational Distance \citep{Bosman2003} and Hypervolume \citep{Zitzler1999} among others), it is still not intuitive this approach really helps the decision maker to understand the trade-off relationship among objectives.
 
 In contrast, high-dimensional data visualisation is a widely recognised effective way to facilitate the analysis and understanding of multidimensional data. more effective and intuitive to facilitate the decision maker stage to understand the trade-off solutions and thus make a meaningful decision. In the context of multi-objective optimisation, comparing to quantitative performance metrics, visualisation is, in principle, able to provide a decision maker better insights about Pareto front approximation sets (e.g. the distribution of solutions, the geometric characteristics of Pareto front approximation) thus to facilitate the decision-making (e.g. the exploration of trade-off relationship, the knee region or region of interest).
 
-According to \cite{Gao2019} a high quality visualisation tool must provide three types of information in the high dimensional space. 
+According to \citet{Gao2019} a high quality visualisation tool must provide three types of information in the high dimensional space. 
 \begin{itemize}
 \item  Should provide accurate shape, location, and range of the approximate Pareto front. 
 \item  From the provided visualisation, decision makers can observe trade-off between objectives, monitor the evolution progress, assess the quality of the approximate front, and select their preferred solutions if desired. 
 \item  Should be scalable to any dimensions, handle a large number of individuals on the approximate front, and simultaneously visualise multiple fronts for the purpose of visual comparison. Moreover, the resulted visualisation plot should be robust and insensitive to the addition or removal of an individual.
 \end{itemize}
 
-To tackle these issues, different kinds of plots have been proposed in the literature that tries to present all the information of the Pareto in a bi-dimensional graph. Generally speaking, they can be divided into three categories. Interested readers are encouraged to ?nd a recent taxonomy from \cite{B.2018}.
+To tackle these issues, different kinds of plots have been proposed in the literature that tries to present all the information of the Pareto in a bi-dimensional graph. Generally speaking, they can be divided into three categories. Interested readers are encouraged to found a recent taxonomy from \citet{B.2018}.
 
 \begin{description}
 \item [A. Visualisation of All Objective Information] These visualisation techniques aim to reveal all individual objective information of the underlying approximation set. Specifically, scatter plot is the most commonly utilised data visualisation technique that provides a holistic exploration of the population distribution. 
 
-\item [B. Visualisation via Dimension Reduction] Techniques in this category aims to transform the high-dimensional data into a lower dimensional space to facilitate the human cognition. In modern data analytics, there are many dimension reduction techniques available to implement such transformation.  Instead of using dimension reduction techniques from machine learning, In \cite{Blasco2008}, Blasco et al. proposed a new visualisation technique called level diagrams to visualise the approximation set in a objective-wise manner. More specifically, each diagram is a two-dimensional scatter plot where the horizontal coordinate represents the objective value at the corresponding objective while the vertical coordinate indicates the distance with respect to the ideal point. As claimed by the authors, the level diagrams are able to facilitate the investigation of some of the Pareto front characteristics, i.e. discontinuities, closeness to ideal point and ranges of attainable values. 
+\item [B. Visualisation via Dimension Reduction] Techniques in this category aims to transform the high-dimensional data into a lower dimensional space to facilitate the human cognition. In modern data analytics, there are many dimension reduction techniques available to implement such transformation.  Instead of using dimension reduction techniques from machine learning, In \citet{Blasco2008}, Blasco et al. proposed a new visualisation technique called level diagrams to visualise the approximation set in a objective-wise manner. More specifically, each diagram is a two-dimensional scatter plot where the horizontal coordinate represents the objective value at the corresponding objective while the vertical coordinate indicates the distance with respect to the ideal point. As claimed by the authors, the level diagrams are able to facilitate the investigation of some of the Pareto front characteristics, i.e. discontinuities, closeness to ideal point and ranges of attainable values. 
 
-\item [C. Visualisation via a Transformed Coordinate System] Techniques in this category share some similarity with the dimension reduction. They also aim to visualise the original high-dimensional data in a lower-dimensional space. But they try to maintain the original information as much as possible. For example, Ibrahim et al. \cite{Ibrahim2016} developed a variant of the classic Radial coordinate visualisation (RadViz) \cite{Hoffman2002}, called 3D-RadViz, by adding an additional dimension. In particular, this additional dimension represents the perpendicular distance between a solution and a hyper-plane formed by the extreme points of the underlying population. By doing so, the 3D-RadViz is able to provide the information of the convergence of the population. 
+\item [C. Visualisation via a Transformed Coordinate System] Techniques in this category share some similarity with the dimension reduction. They also aim to visualise the original high-dimensional data in a lower-dimensional space. But they try to maintain the original information as much as possible. For example, Ibrahim et al. \citet{Ibrahim2016} developed a variant of the classic Radial coordinate visualisation (RadViz) \citep{Hoffman2002}, called 3D-RadViz, by adding an additional dimension. In particular, this additional dimension represents the perpendicular distance between a solution and a hyper-plane formed by the extreme points of the underlying population. By doing so, the 3D-RadViz is able to provide the information of the convergence of the population. 
 \end{description}
 
 As usual when there do exist different approaches to deal with a complex problem, there is  no single visualisation technique is able to provide a comprehensive understanding of the characteristics of the approximation set. It is important to know the specific characteristics, pros and cons of each approach and evaluate the suitability for the problem at hand.

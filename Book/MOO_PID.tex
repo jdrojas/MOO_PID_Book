@@ -8,7 +8,7 @@
 
 
 % RECOMMENDED %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[graybox,envcountchap,sectrefs]{svmono}
+\documentclass[graybox,envcountchap,sectrefs, natbib]{svmono}
 
 % choose options for [] as required from the list
 % in the Reference Guide
@@ -31,11 +31,7 @@
 %\pgfplotsset{compat=1.13}%\pgfplotsset{compat=1.14}
 %\pgfkeys{/pgf/number format/.cd,1000 sep={\,}}
 %----- Bibliografia ------------
-%\usepackage[style=mexican]{csquotes}
-%\usepackage[backend=biber, style=authoryear]{biblatex}% biber
-%\addbibresource{ReferenciasMulti.bib}
-%\usepackage{emptypage}
-\usepackage{cite}
+\usepackage{natbib}
 %% ********* Table layout **************
 \usepackage{booktabs}
 \usepackage{multirow}
@@ -119,7 +115,8 @@
 %\input{./backmatter/glossary}
 %\include{solutions}
 %\printindex
-\bibliographystyle{spmpsci}
+\bibliographystyle{spbasic}
+%\bibliographystyle{spmpsci}
 \bibliography{ReferenciasMulti}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

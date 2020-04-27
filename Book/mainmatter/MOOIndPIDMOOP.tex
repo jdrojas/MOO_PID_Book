@@ -46,7 +46,7 @@ In regard of the robustness constraint, it has to be noticed that the constraint
 \end{equation*} 
 in this particular case, the maximum sensitivity is set as $2.0$, $1.8$, $1.6$ or $1.4$. A maximum sensitivity of $M_s = 10.0$ was used as a way to relax the constraint is such a manner that practically the optimization was done without constraints but the same script was used for the computation.
 
-The function to compute the Pareto front with the \gls{ennc} method transform the multiobjective cost function into a single function using the scalarization method presented in Section~\ref{sec:ENNC}. The function uses a standard optimization procedure\footnote{The function \texttt{fmincon} of the \matlab{} optimization toolbox was applied} to find each of the points of the pareto. The ENNC function was based on the work of \cite{Houska2011} and \cite{Logist2012}, the Pareto filter used was \cite{Cao2020}.
+The function to compute the Pareto front with the \gls{ennc} method transform the multiobjective cost function into a single function using the scalarization method presented in Section~\ref{sec:ENNC}. The function uses a standard optimization procedure\footnote{The function \texttt{fmincon} of the \matlab{} optimization toolbox was applied} to find each of the points of the pareto. The ENNC function was based on the work of \citet{Houska2011} and \citet{Logist2012}, the Pareto filter used was as in \citet{Cao2020}.
 
 A very important part of the computation is the implementation of the cost function. It is desirable to have a convex function to minimize, since a global minimum is most likely to be found. However, when using the \gls{iae} as a measure of the performance off the closed-loop response, the resulting cost function is not convex. In fact, the implementation of the cost function implies to do a simulation of the dynamic model and compute the integral of the absolute value of the error.
 
@@ -64,9 +64,9 @@ In the following, these two possible routes are considered with two examples on 
 \label{sec:TuningRulesMOOP}
 In this section, two examples on how to use the gathered data from the Pareto front is presented in order to find a tuning rule.
 
-The first example use a reduced set of data where only $J_{di}$ and $J_{do}$ cost functions are considered and a \gls{pi} controller is tuned. The decision variable is the allowed degradation of the $J_{di}$ cost function. These results were first documented in \cite{ContrerasLeiva2015a}. 
+The first example use a reduced set of data where only $J_{di}$ and $J_{do}$ cost functions are considered and a \gls{pi} controller is tuned. The decision variable is the allowed degradation of the $J_{di}$ cost function. These results were first documented in \citet{ContrerasLeiva2015a}. 
 
-The second example shows the results of a \gls{pid} controller tuning that takes into account all three proposed sources of disturbances ($J_{di}$, $J_{do}$ and $J_r$) for plants that are delay dominant. These results where first documented in \cite{Moya2017}.
+The second example shows the results of a \gls{pid} controller tuning that takes into account all three proposed sources of disturbances ($J_{di}$, $J_{do}$ and $J_r$) for plants that are delay dominant. These results where first documented in \citet{Moya2017}.
 
 \subsection{Tuning of a PI controller with two cost functions}
 \label{sec:PI2FunMonica}
@@ -75,7 +75,7 @@ In this case, the Pareto front was conformed just by the cost functions $J_{di}$
 	P(s) = \frac{K e^{-Ls}}{Ts+1}.
 \end{equation}
 
-However, only PI controllers where considered. The set of data is not equal to the presented in Section~\ref{sec:SolMOOP}, instead, this data was found using the LCR scalarization \cite{Rojas2015b}, but the idea behind the tuning is the same.
+However, only PI controllers where considered. The set of data is not equal to the presented in Section~\ref{sec:SolMOOP}, instead, this data was found using the LCR scalarization \citet{Rojas2015b}, but the idea behind the tuning is the same.
 
 In this case, only the feedback controller $C_y(s,\bm{\theta})$ of Figure~\ref{fig:Ch4controlador} is considered. After analyzing the data, it was found that one possible function that represents the variation of $\kappa_p$ with respect to the degradation variable $\alpha$ is given by:
 \begin{equation}  %inclusión de ecuaciones
@@ -215,7 +215,7 @@ This is an example on how the Pareto front can be used as the basis to create to
 %
 Table~\ref{tab:cftoolkpMonica} the mean R-squared value is presented for the case of the regression on the $\kappa_p$ variable and for the case of $\tau_i$ in Table~\ref{tab:cftoolTiMonica}. As it can be seen, the selected function and parameters fit the data well, which should give the user confidence that using \eqref{ec:KpMonica} and \eqref{ec:TiMonica} will most likely give a Pareto optimal results.
 
-The proposed tuning rule is comparable to other optimal tuning rules as in \cite{Murril1967} and  \cite{Alfaro2012a}, because in all cases, an integral cost function is optimized. In the case of the Murrill tuning \cite{Murril1967}, the \gls{iae} is minimized for disturbance rejection, while in the case of the Usort method \cite{Alfaro2012a}, the disturbance rejection response is also minimized, but the maximum sensitivity is taken into account as a measure of robustness.
+The proposed tuning rule is comparable to other optimal tuning rules as in \citet{Murril1967} and  \citet{Alfaro2012a}, because in all cases, an integral cost function is optimized. In the case of the Murrill tuning \citep{Murril1967}, the \gls{iae} is minimized for disturbance rejection, while in the case of the Usort method \citep{Alfaro2012a}, the disturbance rejection response is also minimized, but the maximum sensitivity is taken into account as a measure of robustness.
 
 For these two methods, only the input disturbace is taken into account, while in the proposed method of this example, the user can vary the response between being optimal to the input disturbance or optimal to the output disturbance, given more flexibility to the tuning. A controller was tuned with these three methods and compared in Table~\ref{tab:desemJdiMonica}.
 %
@@ -654,7 +654,7 @@ From Table~\ref{T:T2} and \ref{T:T3} it can be deduced that the tuning rule find
 \label{sec:TuningRules}
 With the example presented above, it was clear that it is feasible to find tuning rules from Pareto fronts. However, there are several points that need to be addressed:
 \begin{itemize}
-	\item The tuning rule was intended to be as simple as possible. However, it needed 126 coefficients to find the four parameters of the controller. Compared with other tuning rules \cite{odwyer2006}, this tuning rule is complex.
+	\item The tuning rule was intended to be as simple as possible. However, it needed 126 coefficients to find the four parameters of the controller. Compared with other tuning rules \citet{odwyer2006}, this tuning rule is complex.
 	%
 	\item The idea of the degradation factor is interesting and directly related to the Pareto front, however, is not as intuitive as setting something more measurable, as the time constant of the closed-loop system for example.
 	%
@@ -665,14 +665,14 @@ With the example presented above, it was clear that it is feasible to find tunin
 	\item The data obtained from the optimizations has the contraint to have certain Maximum Sensitivity $M_s$. However, the presented rule takes into account only the value of $M_s = 2$. In order to have tuning rules for other values of $M_s$, possibly another set of 126 coefficients needs to be found for each desired value, which requires a lot of effort that may be not worth it.
 \end{itemize}
 
-All these points raise an important question, is it useful to find tuning rules that becomes too cumbersome for setting a PID controller? The literature about PID tuning (see \cite{ODwyer2000} for a list of PID tuning rules) generally shows simple tuning rules that need only a few decision parameters (for example \cite{Skogestad2003}) or even no decision parameters, since they minimize a single cost function (as in the MoReRT tuning rule \cite{Alfaro2016}), and therefore, only one tuning is possible. However, using the multiobjective approach presented here, the relationships between the controller gains, the tuning parameters and the model parameters become so complex, that a simple tuning rule that compasses all cases is impossible to find.
+All these points raise an important question, is it useful to find tuning rules that becomes too cumbersome for setting a PID controller? The literature about PID tuning (see \citet{ODwyer2000} for a list of PID tuning rules) generally shows simple tuning rules that need only a few decision parameters (for example \citet{Skogestad2003}) or even no decision parameters, since they minimize a single cost function (as in the MoReRT tuning rule \citep{Alfaro2016}), and therefore, only one tuning is possible. However, using the multiobjective approach presented here, the relationships between the controller gains, the tuning parameters and the model parameters become so complex, that a simple tuning rule that compasses all cases is impossible to find.
 
 In these case, a more direct approach may be more suitable for the task of finding the best controller tuning. It is true that the Pareto front is not the final solution for the tuning problem, however only a selection is needed to ultimately find the desired solution. Therefore, a \textit{database} approach may be more sensible to the task at hand. This option is explored in the next section.
 %
 \section{Database approach for the final tuning}
 \label{sec:DatabaseMOOP}
 %
-The information of the Pareto front is very valuable, each point represents an optimal controller tuning that also complies with the robustness criterion. However, without any guidance about how to choose the final tuning, the data becomes useless. The idea of using the Pareto as the basis for a tuning rule was explored in Section~\ref{sec:TuningRulesMOOP} for two degrees of freedom PID controllers taking into account three different sources of disturbances and a robustness constraint for a \gls{soptd} plant. However it was found that a simple rule is very difficult to find, given the complexity of the relationship between the different parameters. For simpler cases, it may be possible to find suitable tuning rules (as in \cite{ContrerasLeiva2015a}) but for a more realistic case, the final tuning becomes cumbersome.
+The information of the Pareto front is very valuable, each point represents an optimal controller tuning that also complies with the robustness criterion. However, without any guidance about how to choose the final tuning, the data becomes useless. The idea of using the Pareto as the basis for a tuning rule was explored in Section~\ref{sec:TuningRulesMOOP} for two degrees of freedom PID controllers taking into account three different sources of disturbances and a robustness constraint for a \gls{soptd} plant. However it was found that a simple rule is very difficult to find, given the complexity of the relationship between the different parameters. For simpler cases, it may be possible to find suitable tuning rules (as in \citet{ContrerasLeiva2015a}) but for a more realistic case, the final tuning becomes cumbersome.
 
 In this scenario, the other approach to take advantage of the information in the Pareto is to actually use the data directly. Visualize the Pareto is also a difficult task, specially for more than two cost functions. Therefore, the approach that is presented here is to use a \gls{cad} that let the user to select the desired closed-loop performance according to their needs without the need to plot the front.
 
@@ -786,9 +786,9 @@ Table~\ref{tab:ExampleMOOTuning02}. With the extra constraint of keeping the sam
 
 This example shows the usefulness of the tool to explore the Pareto, without the need to plot the Fronts and without optimizing every time a change is made in the allowed degradation parameters. Of course, this is possible thanks to the fact that all the Paretos were obtained beforehand and that they are available as a series of files included in the tool.
  
-\section{Matlab code}
+\section{Appendix: Matlab code}
 \label{sec:MatlabBode}
-\subsection{Script for the generation of the Pareto Fronts: GenerateParetosThreeFun}
+\subsection{Script for the generation of the Pareto Fronts}
 \lstinputlisting[style=Matlab-editor, breaklines=true]{./codigo/GenerateParetosThreeFun.m}
 \subsubsection{Function used to avoid nested loops: MeshLaMs}
 This function allows to compute all cases without using nested loops. It was necessary in order to use the parallel computing toolbox to accelerate the computation of all the data.
