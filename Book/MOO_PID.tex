@@ -32,6 +32,7 @@
 %\pgfkeys{/pgf/number format/.cd,1000 sep={\,}}
 %----- Bibliografia ------------
 \usepackage{natbib}
+\usepackage{chapterbib}
 %% ********* Table layout **************
 \usepackage{booktabs}
 \usepackage{multirow}
@@ -100,23 +101,23 @@
 %\include{part}
 %\include{chapter}
 %\include{appendix}
-\input{./mainmatter/MOOIndIntro.tex}
+\include{./mainmatter/MOOIndIntro}
 %\input{./mainmatter/MOOIndProm.tex}
 %\chapter{Implementation of the multi-objective optimization methods using \matlab}
 %\textit{Writing in process}
 %\input{./mainmatter/MOOIndResults.tex}
-\input{./mainmatter/MOOIndPIDControl.tex}
-\input{./mainmatter/MOOIndPIDControlConsideration.tex}
-\input{./mainmatter/MOOIndPIDControlDesign.tex}
-\input{./mainmatter/MOOIndMetodos.tex}
-\input{./mainmatter/MOOIndPIDMOOP.tex}
-\input{./mainmatter/MOOIndApplications.tex}
+\include{./mainmatter/MOOIndPIDControl}
+\include{./mainmatter/MOOIndPIDControlConsideration}
+\include{./mainmatter/MOOIndPIDControlDesign}
+\include{./mainmatter/MOOIndMetodos}
+\include{./mainmatter/MOOIndPIDMOOP}
+\include{./mainmatter/MOOIndApplications}
 \backmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\input{./backmatter/glossary}
 %\include{solutions}
 %\printindex
 \bibliographystyle{spbasic}
-%\bibliographystyle{spmpsci}
+%%\bibliographystyle{spmpsci}
 \bibliography{ReferenciasMulti}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
