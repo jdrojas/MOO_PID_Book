@@ -52,26 +52,19 @@ Points ``a'' and ``b'' are called anchor points and represent the combination of
 
 Point ``N'' is called the pseudo-nadir point, and is defined as the point with the worst values of all the anchor points.
 \subsection{Different approaches to obtain the Pareto front}
-In its most basic form, the Pareto front is found by performing several optimizations each of which are computed by varying some parameter. The idea is to be able to use standard optimization methods to find each point of the Pareto.
+In its most basic form, the Pareto front is found by performing several optimizations, each of which are computed by varying some parameter. The idea is to be able to use standard optimization methods to find each point of the Pareto.
 
 As for single objective optimization there is two big families of methods to solve the problem: Bio-inspired methods that use some kind of heuristic in order to find the minimum of the cost function and deterministic methods mostly based on certain gradient of the function.
 
 In this section, a short review on both families is presented. However, because of the deterministic nature of the gradient based methods, in this book the later family is chosen tool for solving \gls{moop}.
+%
+In \citet{Zhou2011} a review on multi-objective evolutionary algorithm is presented. The author indicates that several of the algorithms are similar to the non-dominated sorting genetic algorithm II (NSGA-II) \citep{Deb2002}. Genetic algorithms are based in the idea of random mutation across generations and interchange of genes from parents to children. They also explain other kind of algorithms like particle swarm optimization which is based on the social behavior of bird flocking or fish schooling \citep{Eberhart1995}. Originally this method was employed for single function optimization, but it has been extended for multiple cost functions. Other methods that has been used for solving \gls{moop}, have a probabilistic nature like Ant Colony Optimization \citep{Dorigo2005} or the Cross Entropy method \citep{Rubinstein2004}. One drawback is that these methods are heuristic, and may yield different results each time they are computed. However, the main advantage is that they probably are able to find the global minimum of the functions.
 
-\textbf{AHORA VOY A PONER ACÁ LAS REFERENCIAS, PERO LAS COMENTO MAÑANA!!!}
-\begin{itemize}
-	\item \citet{Rubio-Largo2014}
-	\item \citet{Roman2006}
-	\item \citet{Pierezan2014}
-	\item \citet{Martinez2009a}
-	\item \citet{Martinez2009}
-	\item \citet{Cespedes2016}
-	\item \citet{Ayala2012}
-	\item \citet{Reynoso-Meza2012b} REVISAR ESTE SEGUNDO
-	\item \citet{Zhou2011} REVISAR ESTE PRIMERO
-\end{itemize}
+Specifically, for \gls{pid} control, evolutionary algorithms have been used in \citet{Reynoso-Meza2012b} for the multivariate process of the Wood and Berry distillation column. Another case is presented in \citet{Pierezan2014} where multi-objective Particle Swarm Optimization is applied on multivariable PID controllers tuning to improve the performance of a robotic manipulator. This method was also used in \citet{Tian2014} but applied to a nonlinear process continuous stirred tank reactor. In a general process control case, in \citet{Cespedes2016} Ant Colony Optimization, Invasive Weed Colony Optimization \citep{Mehrabian2006}, Linear Biogeography-based optimization \citep{Simon2008}, Genetic Algorithms and Particle swarm optimization are compared when solving the tuning of an industrial \gls{pid} controller for \gls{soptd} plants.
 
+Also in \citet{Mahdavian2014}, a multi-objective optimization for \gls{pid} control of a greenhouse electrical lighting system based on the cost of electricity is investigated and solved using an evolutionary algorithm. Multiobjective salp swarm algorithm (MSSA) with opposition based learning initialization and evolution was used in \cite{Mahdavian2014} for tuning the parameters of a \gls{pid} controller for an Antilock Braking Systems with good results over NSGA-II, but the later was more consistent with the results.
 
+In the other hand, the deterministic methods are primarily based on a scalarization method. The main idea is to take all the cost functions and formulate the problem in such a way that can be readily solved using an standard optimization method. The main methods are the \gls{ws} \citep{Marler2004}, the \gls{nbi} \citep{Das1998}, the \gls{nnc} \citep{Messac2003} and the \gls{ennc} \citep{Sanchis2008}. These methods are explored in the next section and used in the rest of the book.
 %----------------------------------------------------
 \section{Scalarization algorithms to find the Pareto front}
 \label{sec:design-methodologies}
