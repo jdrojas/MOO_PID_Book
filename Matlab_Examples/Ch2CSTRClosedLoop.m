@@ -24,11 +24,13 @@ Fr_in=60;         % Percentage control input
 C_Bin=70;         % percentage for output concentration
 
 % Changes
-C_Afeed_Change=-5;  % Percentage change
-C_Afeed_instant=10; % Time to apply change
-Fr_Change=-10;       % Percentage change
-Fr_instant=20;       % Time to apply change
-Ref_C_B_Change=5;   % Percentage change
+C_Afeed_Change=5;  % Percentage change
+C_Afeed_instant=2; % Time to apply change
+Fr_Change=5;       % Percentage change
+Fr_instant=10;       % Time to apply changeç
+CB_Change=5;  % Percentage change
+CB_instant=20; % Time to apply change
+Ref_C_B_Change=0;   % Percentage change
 Ref_C_B_instant=2;  % Time to apply change
 
 
@@ -57,25 +59,5 @@ plot(Fr.Time,Fr.Data,'r'); hold on;
 xlabel(' Time [min]');
 ylabel(' Feed Fr [%]'); 
 title('Fr [%] : Control action');
-axis([0 tf 50 100]);
-
-% Simulation for the PI controller
-Td=0;
-sim('Ch2CSTRClosedLoop_Sys',[0 tf]);
-% Plot figures
-subplot(211);
-plot(C_B.Time,C_B.Data,'b'); hold on;
-xlabel(' Time [min]');
-ylabel(' C_B [%]: Reference (Black dash) Output (red solid)'); 
-title('CSTR : Output concentration ');
-axis([0 tf 65 80]);
-legend('Ref', 'PID','PI');
-
-subplot(212);
-plot(Fr.Time,Fr.Data,'b'); hold on;
-xlabel(' Time [min]');
-ylabel(' Feed Fr [%]'); 
-title('Fr [%] : Control action');
-axis([0 tf 50 100]);
-legend('PID','PI');
+axis([0 tf 30 75]);
 
