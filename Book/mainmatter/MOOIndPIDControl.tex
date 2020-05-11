@@ -12,16 +12,16 @@ Control systems are used to maintain process conditions at their desired values 
 \item The ability to maintain the process variable at its desired value in spite of disturbances that might be experienced (this is termed disturbance rejection)
 \item The ability to move the process variable from one setting to a new desired setting (this is termed set point tracking)
 \end{itemize}
-
+%
 \begin{figure}[tb]
 \centering
-\includegraphics[width=0.8\linewidth]{Ch2FeedbackControlSystem}
+\includegraphics[width=\linewidth]{Ch2FeedbackControlSystem}
 \caption{Feedback Control System} \label{Ch2fig:FeedbackControlSystem}
 \end{figure}
-
+%
 \begin{figure}[tb]
 \centering
-\includegraphics[width=0.4\linewidth]{Ch2Reactor}
+\includegraphics[width=0.6\linewidth]{Ch2Reactor}
 \caption{Isothermal Continuous Stirred Tank Reactor (CSTR)} 
 \label{Ch2fig:CSTR}
 \end{figure}
@@ -50,7 +50,7 @@ From the point of view of the feedback control system depicted in figure (\ref{C
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.9\linewidth]{../figuras/Ch2FigureOpenLoop}
+\includegraphics[width=\linewidth]{../figuras/Ch2FigureOpenLoop}
 \caption{CSTR Open-loop output to change sin inlet flow and concentration} 
 \label{Ch2fig:CSTRFigureOpenLoop}
 \end{figure}
@@ -60,9 +60,9 @@ The feedback control structure has been used for a long time, but if we constrai
 
 Consider the general two-degree-of-freedom closed-loop control system depicted in figure~\ref{Ch2fig:DoFControlSystem} where $P(s)$ and $\{C_r(s), C_y(s)\}$ are the controlled process model and the controller transfer functions, respectively.  In this system, $r(s)$ is the set-point, $u(s)$ the controller output signal, $d(s)$ the disturbance, $y(s)$ the process controlled variable, and $n(s)$ the measurement noise. It is assumed that the disturbance enter at the process input (load-disturbance).
 
-\begin{figure}[htb]
+\begin{figure}[tb]
 \centering
-	\includegraphics[width=0.8\linewidth]{../figuras/Ch2DoFControlSystem} 
+	\includegraphics[width=\linewidth]{../figuras/Ch2DoFControlSystem} 
 \caption{Two-Degree-of-freedom closed-loop control system.} 
 \label{Ch2fig:DoFControlSystem}
 \end{figure}
@@ -95,7 +95,7 @@ The regulatory control main objective is \emph{load-disturbance rejection}; this
 
 \begin{figure}[tb]
 \centering
-\includegraphics[width=0.9\linewidth]{../figuras/Ch2FigureClosedLoop}
+\includegraphics[width=\linewidth]{../figuras/Ch2FigureClosedLoop}
 \caption{CSTR Open-loop output to disturbance changes in inlet flow and concentration} 
 \label{Ch2fig:CSTRFigureClosedLoop}
 \end{figure}

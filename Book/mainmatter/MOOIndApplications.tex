@@ -69,7 +69,7 @@ The optimal controller for disturbance rejection is presented in figure \ref{fig
 %CAMBIO EN VALOR REFERENCIA
 \begin{figure}[tb]%
 	\centering
-	\includegraphics[width=0.9\columnwidth]{Ch7cambioreferencia}%
+	\includegraphics[width=\columnwidth]{Ch7cambioreferencia}%
 	\caption{Optimal response of the control system $J_r$}%
 	\label{fig:Ch7cambioreferencia}%
 \end{figure}
@@ -77,7 +77,7 @@ The optimal controller for disturbance rejection is presented in figure \ref{fig
 %CAMBIO EN PERTURBACIÓN
 \begin{figure}[tb]%
 	\centering
-	\includegraphics[width=0.9\columnwidth]{cambiodi}%
+	\includegraphics[width=\columnwidth]{cambiodi}%
 	\caption{Optimal response of the control system $J_{di}$}%
 	\label{fig:cambiodi}%
 \end{figure}
@@ -272,7 +272,7 @@ The response of the controlled system to a setpoint step change is presented in 
 	legend cell align=left,
 	legend style = {legend pos = south east, font=\scriptsize},%{at={(1,0.05)}, anchor=south east},%
 	grid = major,
-	width=0.75\columnwidth,
+	width=\columnwidth,
 	%scaled x ticks={real:0.01},
 	%xtick scale label code/.code={},
 	xtick={0,200,...,1600},
@@ -302,7 +302,7 @@ figure~\ref{fig:LitaServo} and for a step signal in the input disturbance in %
 	legend cell align=left,
 	legend style = {at={(1.05,1)}, anchor=north east, font=\scriptsize},%{legend pos = north east},%
 	grid = major,
-	width=0.75\columnwidth,
+	width=\columnwidth,
 	%scaled x ticks={real:0.01},
 	%xtick scale label code/.code={},
 	xtick={0,200,...,1600},
@@ -338,7 +338,7 @@ Finally to consciously be aware of the advantage of computing the Pareto front, 
 	legend cell align=left,
 	legend style = {legend pos = south east, font=\scriptsize},%{at={(1,0.05)}, anchor=south east},
 	grid = major,
-	width=0.75\columnwidth,
+	width=\columnwidth,
 	%scaled x ticks={real:0.01},
 	%xtick scale label code/.code={},
 	xtick={0,200,...,1600},
@@ -501,7 +501,7 @@ Figure~\ref{fig:Ch7HeatExhangerEq} the Simulink implementation of the heat excha
 In order to find a PID controller using the MOOTuning app, it is necessary to find a linear model of the plant in the operation point. An identification procedure was performed with a change of 10\% in the value of $U_T$ to find the transfer function between $Y_T$ and $U_T$. The response to this change is depicted in %
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.8\columnwidth]{Ch7CSTHResp}
+	\includegraphics[width=\columnwidth]{Ch7CSTHResp}
 	\caption{Response of the process to a change of 10\% in the $U_T(t)$ input.}
 	\label{fig:Ch7CSTHResp}
 \end{figure}
@@ -598,7 +598,7 @@ The PID that can be found using the data and the framework presented in Chapter~
 %
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.8\columnwidth]{Ch7CompPareto}
+	\includegraphics[width=\columnwidth]{Ch7CompPareto}
 	\caption{MOOTuning compared to the Murril and Rovira methods that also minimizes \gls{iae}.}
 	\label{fig:Ch7CompPareto}
 \end{figure}
@@ -607,14 +607,14 @@ Figure~\ref{fig:Ch7CompPareto}. As it was expected, all the controllers found us
 %
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.9\columnwidth]{Ch7CompParetoReg}
+	\includegraphics[width=\columnwidth]{Ch7CompParetoReg}
 	\caption{Regulator response comparison for minimum IAE.}
 	\label{fig:Ch7CompParetoReg}
 \end{figure}
 %
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.9\columnwidth]{Ch7CompParetoServo}
+	\includegraphics[width=\columnwidth]{Ch7CompParetoServo}
 	\caption{Servo response comparison for minimum IAE.}
 	\label{fig:Ch7CompParetoServo}
 \end{figure}
@@ -689,8 +689,8 @@ is compared between the three responses, it is found that $TV_{J_r} = 223.82$, $
 %
 \begin{figure}[tb]
 	\centering
-	\subfloat[Reference and input disturbance step changes.]{\includegraphics[width=0.8\columnwidth]{Ch7CSTHControlledCV3Fun01} \label{fig:Ch7CSTHControlledCV3Fun01}}\\
-	\subfloat[Output disturbance step change.]{\includegraphics[width=0.8\columnwidth]{Ch7CSTHControlledCV3Fun02} \label{fig:Ch7CSTHControlledCV3Fun02}}
+	\subfloat[Reference and input disturbance step changes.]{\includegraphics[width=\columnwidth]{Ch7CSTHControlledCV3Fun01} \label{fig:Ch7CSTHControlledCV3Fun01}}\\
+	\subfloat[Output disturbance step change.]{\includegraphics[width=\columnwidth]{Ch7CSTHControlledCV3Fun02} \label{fig:Ch7CSTHControlledCV3Fun02}}
 	\caption{Control signal for the CSTH using three cost functions.}
 	\label{fig:Ch7CSTHControlledCV3Fun}
 \end{figure}
