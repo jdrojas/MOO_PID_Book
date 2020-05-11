@@ -84,55 +84,84 @@ Tuning is usually a compromise between performance and robustness. In fact, info
  
 It is usual practice, for One-Degree-of-Freedom (1-DoF) controllers, to relate the tuning method to the expected operation mode for the control system, \emph{servo} or \emph{regulation}. Therefore, controller settings can be found for optimal set-point or load-disturbance responses. This fact allows better performance of the controller when the control system operates on the selected tuned mode but, a degradation in the performance is expected when the tuning and operation modes are different. Obviously there is always the need to choose one of the two possible ways to tune the controller, for set-point tracking or load-disturbances rejection. In the case of 1-DoF PID, tuning can be optimal just for one of the two operation modes.
 
-%\subsubsection{Motivation example}
-%\label{motiv_ex}
-%
-%In order to show how the performance of a system can be degraded when the controller is not operating according to the tuned mode, an example is provided. This motivates the analysis the servo/regulation \emph{trade-off}.
-%
-%Consider the following plant transfer function, taken from \cite{zhuangAthertonIEE1993}, and the corresponding FOPDT
-%approximation 
-%
-%\begin{equation}
-%P_1(s)=\frac{\me^{-0.5s}}{(s+1)^2} \approx \frac{\me^{-0.99s}}{1+1.65s} \label{system_example} 
-%\end{equation}
-%
-%The application of the ISE tuning formulae for optimal set-point and load-disturbance responses provides the PID parameters shown in Table \ref{PIDparameters_ex0}.
-%
-%\begin{table}[h!]
-%\begin{center}
-%\caption{Motivation example - PID controller parameters for $P_1$} \label{PIDparameters_ex0}
-%\begin{tabular}{c|ccc}
-%\hline 
-%\textbf{tuning}        &$K_p$ &$T_i$ &$T_d$   \\ 
-%\hline
-%$set-point(sp)$        &1.657  &1.694  &0.513 \\
-%$load-disturbance(ld)$ &2.418  &1.007  &0.559 \\
-%\hline
-%\end{tabular}
-%\end{center}
-%\end{table}
-%
-%Fig. \ref{example1} shows the performance of both settings when the control system is operating in both, servo and regulation mode. It can be appreciated that the load-disturbance response of the set-point tuning is closer to the optimal regulation one than the load-disturbance tuning to the optimal servo tuning. Therefore the observed Performance Degradation is larger for the load-disturbance tuning. From a global point of view, it will seem better to choose the set-point settings. 
-%
-%\begin{figure}[h!]
-%    \begin{center}
-%        \includegraphics[width=0.8\linewidth]{fig22.eps}
-%        \caption{Motivation example - Process responses for servo and regulation for system $P_1$.}
-%        \label{example1}
-%    \end{center}
-%\end{figure}
+In order to show how the performance of a system can be degraded when the controller is not operating according to the tuned mode, an example is provided. This motivates the analysis the servo/regulation \emph{trade-off}.
 
+Consider the following plant transfer function, taken from \cite{zhuangAthertonIEE1993}, and the corresponding FOPDT
+approximation 
+
+\begin{equation}
+P_1(s)=\frac{\me^{-0.5s}}{(s+1)^2} \approx \frac{\me^{-0.99s}}{1+1.65s} \label{system_example} 
+\end{equation}
+
+PID controller parameters are found in \cite{zhuangAthertonIEE1993} by application of the ISE tuning formulae for optimal set-point and load-disturbance. Figure \ref{ch3:fig:example1} shows the performance of both settings when the control system is operating in both, servo and regulation mode. It can be appreciated that the load-disturbance response of the set-point tuning ($sp$) is closer to the optimal regulation one than the load-disturbance tuning ($ld$) to the optimal servo tuning. Therefore the observed Performance Degradation is larger for the load-disturbance tuning. It is needed to search for a compromise among both tunings. If just one has to be taken, then it seems better to choose the set-point settings. However, as conflicting objectives, a more complex approach is needed in order find the best tradeoff (whatever best means).
+
+\begin{figure}[htb]
+    \begin{center}
+        \includegraphics[width=0.8\linewidth]{Ch3fig22.png}
+        \caption{Process responses for servo and regulation for system \ref{system_example}.}
+        \label{ch3:fig:example1}
+    \end{center}
+\end{figure}
 
 
 \subsection{Performance vs. Robustness}
 
+Robustness is an important attribute for control systems, because the design procedures are usually based on the use of low-order linear models identified at the closed-loop operation point. If only the system performance is taken into account, using by example an integrated error criteria (IAE, ITAE or ISE), or a time response characteristic (overshoot, rise-time or settling-time for example), as in \cite{Huang2002, Tavakoli2003}, the resulting closed-loop control system probably will have a very poor robustness.  On the other hand, if the system is designed to have good robustness, as in \cite{Hagglund2008}, and if the performance of the resulting system is not evaluated, the designer will not have any indication of the \emph{cost} of having such highly robust system.  System performance and robustness were take into account in \cite{Shen2002, Tavakoli2005}, optimizing its IAE or ITAE performance but guarantee only the usually accepted minimum level of robustness ($M_S=2$). Therefore, the design of the closed-loop control system must take into account the system performance to load-disturbance and set-point changes and its robustness to variation of the controlled process characteristics, preserving the well-known \emph{trade-off} between all these variables.\\
 
-Robustness is an important attribute for control systems, because the design procedures are usually based on the use of low-order linear models identified at the closed-loop operation point. If only the system performance is taken into account, using by example an integrated error criteria (IAE, ITAE or ISE), or a time response characteristic (overshoot, rise-time or settling-time for example), as in \cite{Huang2002, Tavakoli2003}, the resulting closed-loop control system probably will have a very poor robustness.  On the other hand, if the system is designed to have good robustness, as in \cite{Hagglund2008}, and if the performance of the resulting system is not evaluated, the designer will not have any indication of the \emph{cost} of having such highly robust system.  System performance and robustness were take into account in \cite{Shen2002, Tavakoli2005}, optimizing its IAE or ITAE performance but guarantee only the usually accepted minimum level of robustness ($M_S=2$). Therefore, the design of the closed-loop control system must take into account the system performance to load-disturbance and set-point changes and its robustness to variation of the controlled process characteristics, preserving the well-known \emph{trade-off} between all these variables.
+At this point, we can recover the CSTR reactor example of the previous chapter. In order to illustrate the performance / robustness tradeoff, we consider here the tuning of a PID controller in order to achieve different levels of robustness. The MoReRT method from \cite{Alfaro2016}. As the MoReRT allows a desired robustness level to be imposed as design specification, two cases have been considered here: (a) for $M_S=2.0$ the controller parameters are: $K_p=3.335$, $T_i =0.685 min$, $T_d=0.181 min$, (b) for $M_S=1.6$, the controller parameters are: $K_p=2.372$, $T_i=0.663 min$, $T_d=0.162 min$. As it can be seen, robust designs, corresponding to lower values of $M_S$, correspond lo lower controller gains. As a result, time responses will be smoother but the performance indexes will worsen. Results are shown in table \ref{tab:cstrtradeoff} and figure (\ref{ch3:fig:Ch3FigureClosedLoopRobustnessServoRegulation}). 
+
+\begin{figure}[htb]
+    \begin{center}
+        \includegraphics[width=\linewidth]{Ch3FigureClosedLoopRobustnessServoRegulation.png}
+        \caption{CSTR reactor time output and control effort to a reference step change and disturbance at the inlet $C_A$ concentration }
+        \label{ch3:fig:Ch3FigureClosedLoopRobustnessServoRegulation}
+    \end{center}
+\end{figure}
 
 
+Table \ref{tab:cstrtradeoff} shows the IAE performance indexes for the output concentration deviations as well as the TV for the control effort corresponding to a disturbance change at the input concentration $C_{A}$ as well as to a desired change in the operating point, this is the desired output concentration $C_B$. It is seen that the performance is worse for the more robust design but, on the other hand, the control effort gets smoother. 
 
-Accomplishment of the robustness...
+\begin{table}%[ht]
+\caption{Robustness - Performance tradeoff CSTR example} \label{tab:cstrtradeoff}
+\begin{center}
+		\begin{small}
+    \begin{tabular}{c|cc|cc}
+    \hline
+    	 & \multicolumn{2}{c|}{Set-point change for $C_B$}  & \multicolumn{2}{c}{Disturbance at $C_A$ concentration}  \\
+    		 & IAE & TV & IAE & TV     \\
+     \hline
+     			$M_s=2.0$ PID Design   & 12.00 & 35.42 & 2.58 & 15.36 \\
+     			$M_s=1.6$ PID Design   & 14.05 & 34.30 & 3.66 & 13.60 \\
+    \hline
+    \end{tabular}
+    \end{small}
+\end{center}
+\end{table}
 
 
 \subsection{Input vs. Output Disturbances}
-To do
+
+Disturbance attenuation is often recognised as the primary concern of a control system. Regulation of the operating conditions is the usual task work to be pursued by a feedback controller. However, much of the academic works almost concentrate on set-point experiments for controller evaluation.  Therefore a controller design that emphasizes disturbance rejection rather than set-point tracking is an important design problem that, even if it has been the focus of research it may have not received the appropriate attention. Indeed much of the design approaches as well as application and/or simulation examples provided in academic works almost concentrate on set-point experiments for controller evaluation. Even those that explicitly concentrate on the disturbance attenuation problem, usually concentrate on input load disturbances.\\
+
+There is however a disturbance attenuation consideration not taken into account, as far as the knowledge of the authors concern. This is that of considering a different load disturbance dynamics path. As mentioned in \cite{Shinskey2002}, there are some processes that exhibit different dynamics in the load path. These include heat exchangers, where the load can enter the tube bundle whereas the manipulated ?ow enters the shell (or vice versa), and distillation columns, where the load is the feed and the manipulated ?ow is boil up or re?ux.\\
+
+As a matter of a simple example, the example controller used in the previous section, the one with $M_S=2.0$ is faced here to three different disturbances:
+
+\begin{itemize}
+\item A disturbance that  enters at the process input, a load disturbance. This is exemplified here by a 10\% disturbance at the inlet flow rat $F_r$ 
+\item A disturbance that enters at  an intermediate point of the process dynamics.. This is exemplified here by a 10\% disturbance at the inlet concentration of the $A$ component. $C_A$
+\item A disturbance that affects directly at the process output. This is exemplified here by a 10\% disturbance at the output concentration of the $B$ component. $C_B$
+ \end{itemize} 
+
+As it can be seen in figure (\ref{ch3:fig:Ch3FigureClosedLoopDisturbances}), even the size of the disturbance is the same in all three situations, the response of the controller is different. In case of the output disturbance, its dynamics is commonly associated to the one for a reference change. In fact, the disturbance signal enters at the same point in the block diagram (except for eventual sensor measurement noise). Therefore, depending on the control system specifications, the attenuation of one disturbance or the other requires different considerations. Adding, in addition to the other two tradeoffs just presented above, a third potential source of conflicting objectives that motivates the need for a multiobjective approach.
+
+
+\begin{figure}[htb]
+    \begin{center}
+        \includegraphics[width=\linewidth]{Ch3FigureClosedLoopDisturbances.png}
+        \caption{CSTR output $C_B$ concentration in response to different disturbances.}
+        \label{ch3:fig:Ch3FigureClosedLoopDisturbances}
+    \end{center}
+\end{figure}
+
+
