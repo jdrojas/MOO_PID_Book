@@ -50,12 +50,13 @@ text~\cite{paper2, paper3}
 Finally, to generate the document:
 
 #!/bin/bash
-latex main.tex
+pdflatex -synctex=1 -interaction=nonstopmode MOO_PID.tex
+bibtex `basename MOO_PID.aux`
 for auxfile in *.aux
 do
     bibtex `basename $auxfile .aux`
 done
-latex main.tex
-latex main.tex
+pdflatex -synctex=1 -interaction=nonstopmode MOO_PID.tex
+pdflatex -synctex=1 -interaction=nonstopmode MOO_PID.tex
 
 
