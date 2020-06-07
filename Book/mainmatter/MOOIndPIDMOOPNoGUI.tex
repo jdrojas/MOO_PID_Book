@@ -51,87 +51,81 @@ Figure.~\ref{fig:RealPareto_t0_05Jdi}, the cost function $J_{di}(\hat{\theta})$ 
 \label{eq:NormContrParam}
 \end{equation}
 
-
-------- > \textbf{VOY POR ACÁ} <--------------------------
-
-
-As it can be seen, the function is convex, but is rather flat close to the optimum. Depending on the optimization algorithm, this shape may generate a large number of iterations until convergence and therefore, requiring a considerable amount of time. The plot in Fig.~\ref{fig:RealPareto_t0_05Jdi} was obtained with ten thousand different tunings of the controller around the optimal controllers for $J_{di}(\theta)$ and $J_{do}(\theta)$. The computation time to obtain this set of data was in the range of hours. %In Fig.~\ref{fig:RealParetot0_05}, the complete set of points is plotted in the objective functions plane with the corresponding Pareto front highlighted where only 3\% of the points correspond to a Pareto optimal point. This fact shows the necessity to use some methodology like NNC, NBI or LCR in order to obtain only the frontier, without an excessive use of computational resources.%
+From Figure~\ref{fig:RealPareto_t0_05Jdi}, it can be concluded that the cost function $J_{di}$ is rather convex, and very flat close to its minimal value. The graph in Fig.~\ref{fig:RealPareto_t0_05Jdi} was plotted with ten thousand controller tunings of the controller taking the optimal tuning of $J_{di}(\theta)$ and $J_{do}(\theta)$ as central points. The computation time to obtain this set of data was in the range of hours. In Fig.~\ref{fig:RealParetot0_05}, the complete set of points is plotted in the objective functions plane with the corresponding Pareto front highlighted. The points that represent the Front represents only 3\% of all the points plotted in that figure. If the decision maker is only interested in the  This fact shows the necessity to use some scalarization methods like \gls{nbi} or \gls{nnc} in order to obtain only the front, without the need to compute points that will be dismissed later in the process.
 %
-%\begin{figure}%
-%\centering
-%\includegraphics[width=\porcentajefig\columnwidth]{RealParetot0_05} %
-%\caption{Pareto front obtained directly from a ten thousand points data set for \eqref{eq:NormP} %with $\tau_0=0.5$.}%
-%\label{fig:RealParetot0_05}%
-%\end{figure}
+\begin{figure}[tb]%
+\centering
+\includegraphics[width=\columnwidth]{RealParetot0_05} %
+\caption{Pareto front obtained directly from a ten thousand points data set for \eqref{eq:NormP} with $\tau_0=0.5$.}%
+\label{fig:RealParetot0_05}%
+\end{figure}
 
-The Pareto front was obtained with 50 points using the WS, NBI, NNC and LRC methods. 
-%In Fig.~\ref{fig:ParetoWSt0_05}, the result using WS are presented. The solid line represents the real Pareto front and the points marked with a plus sign correspond to the obtained values. As it can be seen, all the points obtained with the WS method are Pareto optimal, however its distribution is not even spaced and are grouped for low values of $J_{di}(\theta)$. This is expected since the shape of the Pareto front does not correspond to the relation needed to obtain a even spaced front with an even spaced parametrization of $\alpha_1$ and $\alpha_2$ as presented in \cite{Das1997}.
+%The Pareto front was obtained with 50 points using the WS, NBI, NNC and LRC methods. 
+In Fig.~\ref{fig:ParetoWSt0_05}, the result using WS are presented. The solid line represents the real Pareto front and the points marked with a plus sign correspond to the obtained values. As it can be seen, all the points obtained with the WS method are Pareto optimal, however its distribution is not evenly spaced and are grouped for low values of $J_{di}(\theta)$. This is expected since the shape of the Pareto front does not correspond to the relation needed to obtain a even spaced front with an even spaced parametrization of $\alpha_1$ and $\alpha_2$ as presented in \cite{Das1997}.
 %
-%\begin{figure}%
-%\centering
-%\includegraphics[width=\porcentajefig\columnwidth]{ParetoWSt0_05}%
-%\caption{Pareto front obtained with WS method and $\tau_0=0.5$.}%
-%\label{fig:ParetoWSt0_05}%
-%\end{figure}
-%
-%The result for NBI method is presented in Fig.~\ref{fig:ParetoNBIt0_05}. As it can be seen, the frontier obtained with this method is evenly spaced. It is important to note that the method find different Pareto optimal points than the WS method
-%
-%\begin{figure}%
-%\centering
-%\includegraphics[width=\porcentajefig\columnwidth]{ParetoNBIt0_05}%
-%\caption{Pareto front obtained with NBI method and $\tau_0=0.5$.}%
-%\label{fig:ParetoNBIt0_05}%
-%\end{figure}
-%
-As a fact, it has been observed that when obtaining the Pareto front with the NNC, this method is able to find a better approximation than WS (from a visual point of view, since both methods are able to obtain Pareto optimal points). The case of the NNC is presented in Fig.~\ref{fig:ParetoNNCt0_05}. Due to space constraints, the results of the WS and NBI methods are omitted. 
+\begin{figure}[tb]%
+\centering
+\includegraphics[width=\columnwidth]{ParetoWSt0_05}%
+\caption{Pareto front obtained with WS method and $\tau_0=0.5$.}%
+\label{fig:ParetoWSt0_05}%
+\end{figure}
 
-%When the obtained Pareto front is compared with the one obtained using the WS method,
-%. Comparing Fig.~\ref{fig:ParetoWSt0_05} with Fig.~\ref{fig:ParetoNNCt0_05},
-%it is clear that the NNC is able to find a better approximation of the Pareto front than WS (from a visual point of view, since both methods are able to obtain Pareto optimal points). %It also is important to note that, the point in the Pareto front for a certain value $\alpha_{1NNC}$ yield to the same point for $\alpha_{1NBI}$, that is, in theory, both NBI and NNC found the exact same Pareto points, if the Pareto front is convex. In case of non-convexity, it is possible that the two methods yield to different points in the part of the frontier that is not absolutely Pareto optimal \cite{Messac2003}.
-\begin{figure}%
+The result for NBI method is presented in Fig.~\ref{fig:ParetoNBIt0_05}. As it can be seen, the frontier obtained with this method is evenly spaced. It is important to note that the method find different Pareto optimal points than the WS method
+%
+\begin{figure}[tb]%
+\centering
+\includegraphics[width=\columnwidth]{ParetoNBIt0_05}%
+\caption{Pareto front obtained with NBI method and $\tau_0=0.5$.}%
+\label{fig:ParetoNBIt0_05}%
+\end{figure}
+%
+
+Finally, when the Pareto front is found using the \gls{nnc} method, the points computed are very similar to the ones found with the \gls{nbi} scalarization. The \gls{nnc} case is presented in Fig.~\ref{fig:ParetoNNCt0_05}. 
+%
+\begin{figure}[tb]%
 	\centering
 	\includegraphics[width=\columnwidth]{ParetoNNCt0_05}%
 	\caption{Pareto front obtained with NNC method and $\tau_0=0.5$.}%
 	\label{fig:ParetoNNCt0_05}%
 \end{figure}
 %
+Comparing Figure~\ref{fig:ParetoWSt0_05} with Figures~\ref{fig:ParetoNBIt0_05} and \ref{fig:ParetoNNCt0_05}, it is clear that both the \gls{nbi} and \gls{nnc} both are able to find a more accurate approximation of the Pareto front than \gls{ws}. Of course, all the methods are able to find Pareto optimal points, but in order to have a good understanding of the problem, it is important to have a set of point that are representative of the actual behavior of the front. It also is important to note that, the if the actual Pareto front is convex, the results with the \gls{nbi} and \gls{nnc} should be the same. In case of non-convexity, it is possible that the two methods yield to different points in the non-dominated points that should be filtered, following the \gls{nnc} method \cite{Messac2003}.
+%
+%
+%
+%The LRC results are found in Fig.~\ref{fig:ParetoLRCt0_05}. In this case, only the $J_{di}(\hat{\theta})$ is evenly spaced, as discussed in Section~\ref{sec:LRC}. It is clear that this new methodology is also capable of finding the Pareto front correctly and with a simpler optimization problem.
+%\begin{figure}%
+%	\centering
+%	\includegraphics[width=\columnwidth]{ParetoLRCt0_05}%
+%	\caption{Pareto front obtained with LRC method and $\tau_0=0.5$. For comparison purposes only, for the LRC method, instead of using $\alpha$ in the abscissa, the value $1-\alpha$ was used instead.}%
+%	\label{fig:ParetoLRCt0_05}%
+%\end{figure}
 
-The LRC results are found in Fig.~\ref{fig:ParetoLRCt0_05}. In this case, only the $J_{di}(\hat{\theta})$ is evenly spaced, as discussed in Section~\ref{sec:LRC}. It is clear that this new methodology is also capable of finding the Pareto front correctly and with a simpler optimization problem.
-\begin{figure}%
-	\centering
-	\includegraphics[width=\columnwidth]{ParetoLRCt0_05}%
-	\caption{Pareto front obtained with LRC method and $\tau_0=0.5$. For comparison purposes only, for the LRC method, instead of using $\alpha$ in the abscissa, the value $1-\alpha$ was used instead.}%
-	\label{fig:ParetoLRCt0_05}%
+In Fig.\ref{fig:KpvsAlpha_t0_05.pdf} the comparison between the results for $\kappa_p$ are presented while the values for $\tau_i$ are shown in Fig.~\ref{fig:TivsAlphat0_05}. 
+%
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{KpvsAlpha_t0_05}
+\caption{$\kappa_p$ values for all the methods wrt $\alpha$ and with $\tau_0=0.5$.}
+\label{fig:KpvsAlpha_t0_05.pdf}
 \end{figure}
-
-%In Fig.\ref{fig:KpvsAlpha_t0_05.pdf} the comparison between the results for $\kappa_p$ are presented while the values for $\tau_i$ are shown in Fig.~\ref{fig:TivsAlphat0_05}. Only in these two figures, and for comparison purposes, in the case of the LRC method, instead of using $\alpha$ in the abscissa, the value $1-\alpha$ was used instead. This is necessary since, the way the parameter $\alpha$ is defined in LRC is backwards as in the other cases.
-
-%As it can be seen, NBI and NNC obtain the exact same points in the Pareto for all values of $\alpha$. However, there are certain differences in the results for $\tau_i$. Since NBI depends on a equality constraint, it is more difficult for the optimization algorithm\footnote{For all the methods, the optimization problem was solved using an active-set strategy with a maximum of 1000 iterations and 1000 function evaluations.} to converge to the solution. In fact, for some cases, using the NBI methodology lead to more than a thousand function evaluations. Since the maximum was set to one thousand evaluations, for some point the results do not exactly match.
-
-%However, it is interesting to note that for all four cases, the variation in the values of $\kappa_p$ and $\tau_i$ follows certain pattern. 
-%\begin{figure}
-%\centering
-%\includegraphics[width=\porcentajefig\columnwidth]{KpvsAlpha_t0_05}
-%\caption{$\kappa_p$ values for all the methods wrt $\alpha$ and with $\tau_0=0.5$.}
-%\label{fig:KpvsAlpha_t0_05.pdf}
-%\end{figure}
 %%
-%\begin{figure}
-%\centering
-%\includegraphics[width=\porcentajefig\columnwidth]{TivsAlphat0_05}
-%\caption{$\tau_i$ values for all the methods wrt $\alpha$ and with $\tau_0=0.5$.}
-%\label{fig:TivsAlphat0_05}
-%\end{figure}
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\columnwidth]{TivsAlphat0_05}
+\caption{$\tau_i$ values for all the methods wrt $\alpha$ and with $\tau_0=0.5$.}
+\label{fig:TivsAlphat0_05}
+\end{figure}
+%
+As it can be seen, \gls{nbi} and \gls{nnc} obtain the exact same points in the Pareto for all values of $\alpha$. However, there are certain differences in the results for $\tau_i$. Since \gls{nbi} depends on a equality constraint, it is more difficult for the optimization algorithm\footnote{For all the methods, the optimization problem was solved using an active-set strategy with a maximum of 1000 iterations and 1000 function evaluations.} to converge to the solution. In fact, for some cases, using the \gls{nbi} methodology lead to more than a thousand function evaluations. Since the maximum was set to one thousand evaluations, for some point the results do not exactly match. However, it is interesting to note that for all three cases, the variation in the values of $\kappa_p$ and $\tau_i$ follows certain pattern. 
 
-The computational performance of the methods has also been considered. Using MATLAB in a PC running Linux with a 3.2.0.2-amd64 kernel and an Intel Core i7 at $1.60$GHz, the results are given in Table~\ref{tab:Results}. This table corresponds to the computation of a fifty point Pareto front for $\tau_0=0.5$. Interestingly, it was found that NNC has lower performance than NBI, for this particular plant. However, it has to be noticed that the NBI reached the evaluation limit in four out of fifty points whereas NNC needed more than a thousand evaluation just once. In all cases the LRC had better performance than the other methods, given its simplicity. Taken the results of the WS method as a reference (since it is the simplest and more intuitive method), the LRC method required $82\%$ less iterations, $56\%$ less function evaluations and $27\%$ less computation time. The NBI and NNC required less iterations than WS but in general, they required more function evaluation ($8\%$ and $11\%$, respectively) and more computation time ($14.74\%$ and $82.05\%$, respectively).
-
-Computing the Pareto front, in total the WS method spent $32.6$ minutes, the NBI $37.4$ minutes, the NNC $59.33$ minutes and the LRC only $23.07$ minutes. It can be seen that the savings in computational load is important. For an offline optimization, the computation time may not be very important, but, if these optimization methods are intended to be used in an online application, the performance and the computation time has to be taken into account.
-
+The computational performance of the methods has also been considered. Using MATLAB in a PC running Linux with a 3.2.0.2-amd64 kernel and an Intel Core i7 at $1.60$GHz, the results are given in Table~\ref{tab:Results}.
+%
 \begin{table}%[ht!]
 	\caption{Performance comparison for different optimization methods}
 	\centering
 	\begin{tabular}{ccccccc}
-		\hline
+		\toprule
 		\multirow{2}{*}{Method} & \multicolumn{2}{c}{Iterations} & \multicolumn{2}{c}{\begin{tabular}{c} Function\\evaluations\end{tabular}} & \multicolumn{2}{c}{\begin{tabular}{c} Computation\\time (s) \end{tabular}}\\
 		\cline{2-7}
 		& Average & Max & Average & Max & Average & Max \\
@@ -139,11 +133,17 @@ Computing the Pareto front, in total the WS method spent $32.6$ minutes, the NBI
 		WS & $68.82$ & $109$ & $132.34$ & $212$ & $39.11$ & $63.77$\\
 		NBI & $30.78$	& $225$ & $142.86$ & $1003$	& $44.88$	& $320.81$\\
 		NNC & $41.28$ &	$297$ & $147.02$ & $1002$ & $71.21$	& $486.47$\\
-		LRC	& $12.24$ &	$34$ & $58.56$ & $136$ & $28.45$ & $66.094$\\
-		\hline
+		%LRC	& $12.24$ &	$34$ & $58.56$ & $136$ & $28.45$ & $66.094$\\
+		\bottomrule
 	\end{tabular}
 	\label{tab:Results}
 \end{table}
+%
+This table corresponds to the computation of a fifty point Pareto front for $\tau_0=0.5$. Interestingly, it was found that NNC has lower performance than NBI, for this particular plant. However, it has to be noticed that the NBI reached the evaluation limit in four out of fifty points whereas NNC needed more than a thousand evaluation just once. In all cases the LRC had better performance than the other methods, given its simplicity. Taken the results of the WS method as a reference (since it is the simplest and more intuitive method), the LRC method required $82\%$ less iterations, $56\%$ less function evaluations and $27\%$ less computation time. The NBI and NNC required less iterations than WS but in general, they required more function evaluation ($8\%$ and $11\%$, respectively) and more computation time ($14.74\%$ and $82.05\%$, respectively).
+
+Computing the Pareto front, in total the WS method spent $32.6$ minutes, the NBI $37.4$ minutes, the NNC $59.33$ minutes and the LRC only $23.07$ minutes. It can be seen that the savings in computational load is important. For an offline optimization, the computation time may not be very important, but, if these optimization methods are intended to be used in an online application, the performance and the computation time has to be taken into account.
+
+
 
 Therefore, given the present results, it is recommendable to use the NNC method in order to obtain the Pareto front since it gives a better look of the Pareto if the computational load is not an important issue. However, if it is known that the Pareto has a convex shape and it is desirable to have a direct physical meaning associated to the parameter $\alpha$, it is better to use the proposed LRC instead.
 
