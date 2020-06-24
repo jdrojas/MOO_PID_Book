@@ -1,7 +1,7 @@
 \chapter{Industrial application examples}
 \label{chap:ApplicationExamples}
 %
-\abstract{In this chapter, different examples are provided to apply the tool presented in this book. The MOOTuning software is used to analyze the temperature control in a Continuous Stirred Tank Heater in Section~\ref{sec:CSTH} using two a three cost functions. TO DO!!}
+\abstract{In this chapter, different examples are provided to apply the tool presented in this book. The MOOTuning software is used to analyze the temperature control in a Continuous Stirred Tank Heater (CSTH) in Section~\ref{sec:CSTH} using two a three cost functions. Also a Continuos Stirred Tank Reactor (CSTR) is considered for the control of the concentration of the product in an isothermal case in Section~\ref{sec:CSTRVandeVusse} ¿and the non-isothermal case in section~ ?}
 %
 
 %
@@ -347,11 +347,87 @@ As it can be seen from the response, effectively the response of the $J_{do}$ an
 
 In section~\ref{sec:PIDCSTH}, the system was controlled considering only two sources of disturbances. When adding another dimension to the problem, certainly the selection of the final controller may be more difficult because another degree of freedom is added. However, the insight that was gathered from rethinking the problem from this other point of view can be seen as beneficial, because the tuning found using the 3 dimensional Pareto could be a better solution (from a physical point of view) that may not be part of the front with only two functions.
 %
+% -----------------------------------------------------------------------------------------------------------
+%
+\section{Continuous Stirred Tank Reactor}
+\label{sec:CSTRVandeVusse}
+%
+The \gls{cstr} with the Van de Vusse reaction \citep{VandeVusse1964} is a common benchmark plant for testing control algorithms given its different dynamics depending on the operating point and is depicted in %
+\begin{figure}[tb]
+	\centering
+	\includegraphics[scale=0.6]{Ch7VandeVusse}
+	\caption{\gls{cstr} process using the Van de Vusse reaction model.}
+	\label{fig:Ch7VandeVusse}
+\end{figure}
+%
+Figure~\ref{fig:Ch7VandeVusse}. For this particular case, the isothermal process is considered and both the concentration sensor as the valve actuator will be modeled as well. The objective is to control the feed flow to obtain the desired concentration of a product.
+
+The Van de Vusse reaction models a process where desired product B is obtained from A, but at the same time, both A and B are degraded to D and C respectively. The chemical equation that represent this reaction is given by:
+%
+\begin{align*}
+A &\overset{k_1}{\longrightarrow} B \overset{k_2}{\longrightarrow}C,\\
+2 A &\overset{k_3}{\longrightarrow} D,
+\end{align*}
+%
+where $k_i$ are the rate constants of the formation rates of A and product B as given by \citep{VandeVusse1964}:
+\begin{equation}
+\begin{split}
+r_A &= -k_1 A - k_3 A^2,\\
+r_B &= k_1 A - k_2 B.
+\end{split}
+\label{eq:RateVandeVusse}
+\end{equation}
+
+When performing a mass balance, the model becomes \citep{Arrieta2010}:
+%
+\begin{equation}
+\begin{split}
+\frac{dC_A(t)}{dt} & = \frac{F_r(t)}{V} \left(C_{Ai}-C_A(t)\right) - k_1 C_A(t) - k_3 C^2_A(t)\\
+\frac{dC_B(t)}{dt} & = -\frac{F_r(t)}{V} C_B(t)+ k_1 C_A(t) - k_2 C_B(t)
+\end{split}
+\label{eq:CSTRMVE}
+\end{equation}
+%
+where $C_A$ and $C_B$ represents the reactants concentrations  in \si{\mole\per\liter}, $C_{Ai}$ is the concentration of A in the feed flow in \si{\mole\per\liter}, $F_r$ is the input flow in \si{\liter\per\minute}, and $V$ is the volume of the \gls{cstr} in \si{\liter}. The nominal values of the parameters are presented in %
+%
+\begin{table}[tb]
+	\centering
+	\caption{Parameters values for the \gls{cstr} model.}
+	\begin{tabular}{cc}
+		\toprule
+		$k_1 = \SI{0.833}{\per\minute}$ & $k_2 = \SI{1.667}{\per\minute}$ \\
+		$k_3 = \SI{0.167}{\per\minute}$ & $C_{Ai} = \SI{10}{\mole\per\liter}$\\
+		$V = \SI{700}{\liter}$\\
+		\bottomrule
+	\end{tabular}
+	\label{tab:ParamCSTR}
+\end{table}
+%
+
+The range of the sensor for the product is supposed to be in the range 0 to \SI{1.5714}{\mole\per\liter} and the maximum flow that is allowed by the valve is given by \SI{634.1719}{\liter\per\minute}. Given these values, the model for the sensor-transmitter is given by:
+\begin{equation}
+	y(t) = \left(\frac{100}{1.5714}\right) C_B(t),
+	\label{eq:Sensor}
+\end{equation}
+%
+while the transmitter is modeled as:
+\begin{equation}
+F_r(t) = \left(\frac{634.1719}{100}\right) u(t),
+\label{eq:Sensor}
+\end{equation}
+%
+where $u(t)$ and $y(t)$ are the normalized input and output signal, respectively. The operation point of the plant is given by $u_0 = 60\%$ and $y_0 = 70\%$ which represents concentration of $C_{A0} = \SI{2.9175}{\mole\per\liter}$ and $C_{B0} = \SI{1.10}{\mole\per\liter}$.
+
+
+
+\cite{Kuntanapreeda2012}
+ 
 \section{Final remarks}
 \label{sec:FinalRemarks}
 The motivation of the three cases presented in this chapter was to show all the advantages that can be derived from using a multiobjetive approach. However, it has to be noticed that the cost function selected for these studies are totally  arbitrary and other authors may choose to optimize the tuning of the parameters with other criteria. However, the \gls{iae} is a practical measure on the optimality of the control in industry \citep{Shinskey2002}, and for this reason was the selected cost function.
 
 The tool presented in this book is constraint to be used with the \gls{iae} as the measure of optimality. However, the methodology presented in \ref{sec:SolMOOP} is completely general and can (and is encouraged) to be change to the needs of the decision maker.
+
 
 \bibliographystyle{spbasic}
 \bibliography{ReferenciasMulti}

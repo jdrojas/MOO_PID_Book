@@ -1,0 +1,127 @@
+
+\documentclass[review,3p,number,english]{elsarticle}
+%\documentclass[letterpaper, 10 pt, conference]{ieeeconf}
+
+%\IEEEoverridecommandlockouts
+%\overrideIEEEmargins
+
+%\usepackage{times}
+%\usepackage{latexsym}
+\usepackage{babel}
+%\usepackage{algorithm}
+%\usepackage{algorithmic}
+%\usepackage[dvips]{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+
+\usepackage{mathrsfs}
+%\usepackage[cmex10]{amsmath}
+%\usepackage{amssymb}
+
+\def\argmin{\mathop{\rm argmin}}
+\def\argmax{\mathop{\rm argmax}}
+\newcommand{\me}{\mathrm{e}}
+
+\usepackage[final]{psfrag}
+%\DeclareGraphicsExtensions{.eps,.ps,.PS,.EPS}
+
+%---------------------------------------------------------
+% DEFINICIONS R. VILANOVA
+%
+\def\q{z^{-1}}
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\bea{\begin{eqnarray}}
+\def\eea{\end{eqnarray}}
+
+\def\conclusio#1{\vspace{0.5cm}
+\centerline{\begin{tabular}{|p{4.75in}|}  \hline
+\begin{center} {\em #1} \end{center}\\ \hline
+\end{tabular} \vspace{0.5cm}}}
+
+%
+% NEW ENVIRONMENTS
+%
+% -----> Entorn Teorema (Theorem)
+\newtheorem{Theorem}{Theorem}[section]
+
+% -----> Entorn Lema (Lemma)
+\newtheorem{Lemma}{Lemma}[section]
+
+% -----> Entorn Corol.lari (Corollary)
+\newtheorem{Corollary}{Corollary}[section]
+
+% -----> Entorn Demostraci¢ (proof)
+%\newenvironment{proof}{{\em Proof  : }}{\begin{flushright}
+%$\Box$ \end{flushright}}
+
+%
+%---------------------------------------------------------
+\journal{Journal of Process Control}
+
+\begin{document}
+
+\begin{frontmatter}
+
+%\title{Improved PID Autotuning for balanced control operation}
+\title{PID Autotuning for Weighted Servo/Regulation Control Operation}
+
+\author[uab,ucr]{O. Arrieta}
+\ead{Orlando.Arrieta@uab.cat,Orlando.Arrieta@ucr.ac.cr}
+
+\author[ub]{A. Visioli}
+\ead{antonio.visioli@ing.unibs.it}
+
+\author[uab]{R. Vilanova}
+\ead{Ramon.Vilanova@uab.cat}
+
+
+\address[uab]{Departament de Telecomunicació\'o i d'Enginyeria de Sistemes, ETSE \\Universitat Aut\`onoma de Barcelona, 08193 Bellaterra, Barcelona, Spain}
+
+\address[ucr]{Departamento de Autom\'atica, Escuela de Ingenier\'ia El\'ectrica \\Universidad de Costa Rica, San Jos\'e 11501-2060, Costa Rica}
+
+\address[ub]{Dipartimento di Elettronica per l'Automazione, Facolt\`a di Ingegneria \\Universit\`a degli Studi di Brescia, Via Branze 38, 25213 Brescia, Italy}
+
+
+%\maketitle
+
+\begin{abstract}
+This paper analyzes optimal controller settings for controllers
+with One-Degree-of-Freedom (1-DoF)
+Proportional-Integral-Derivative (PID) structure. A new analysis
+is conducted from the point of view of the \emph{operating mode}
+(either servo or regulation mode) of the control-loop and
+\emph{tuning mode} of the controller. Performance of the optimal
+tuning settings can be degraded when the operating mode is
+different from that selected for tuning and obviously both
+situations can be present in any control system. In this context,
+a Weighted Performance Degradation index, that considers the
+importance and balance between the servo and regulation operation
+modes, is minimized and based on this minimization, an autotuning
+procedure as a function of the normalized process dead-time is
+proposed.
+\end{abstract}
+
+\begin{keyword}
+PID Control \sep Performance Analysis \sep Automatic Tuning \sep
+Genetic Algorithms
+\end{keyword}
+
+\end{frontmatter}
+
+\input{GammaS_intro}
+\input{GammaS_problem}
+%\input{GammaS_performance_degradation}
+%\input{GammaS_intermediate}
+\input{GammaS_intermediate_new}
+\input{GammaS_autotuning}
+\input{GammaS_example_new}
+\input{GammaS_conclusions}
+\input{GammaS_acknowledgments}
+
+\vspace{1cm}
+
+\bibliographystyle{elsarticle-num}
+\bibliography{GammaS}
+
+\end{document}

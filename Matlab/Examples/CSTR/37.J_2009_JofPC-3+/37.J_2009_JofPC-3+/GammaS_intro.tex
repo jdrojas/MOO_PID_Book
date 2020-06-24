@@ -1,0 +1,81 @@
+%-----------------------------------------
+%
+\section{Introduction}
+%
+%-------------------------------------------
+
+Proportional-Integrative-Derivative (PID) {contro\-llers} are with
+no doubt the most extensive option that can be found on industrial
+control applications \cite{astromCEP2001}. Their success is mainly
+due to its simple structure and to the physical meaning of the
+corresponding three parameters (therefore making manual tuning
+possible). This fact makes PID control easier to understand by the
+control engineers than other most advanced control techniques. In
+addition, the PID controller provides satisfactory performance in
+a wide range of practical situations.
+
+During the last years, in fact since the initial work of Ziegler
+and Nichols \cite{zieglernichols42}, much work has been done
+developing methods to determine the PID controller parameters (see
+for example
+\cite{astromJPC2004,skogestadJPC2003,kristianssonJPC2006}).
+O'Dwyer \cite{odwyer2003} presents a collection of tuning rules
+for PID controllers, which show their abundance.
+
+Within the wide range of approaches to autotuning, optimal methods
+have received special interest. These methods provide, given a
+simple model process description -such as a
+First-Order-Plus-Dead-Time (FOPDT) model- settings for optimal
+closed-loop responses \cite{zhuangAthertonIEE1993}.
+
+For One-Degree-of-Freedom (1-DoF) controllers, it is usual to
+relate the tuning method to the expected operation mode for the
+control system, known as \emph{servo} or \emph{regulation}.
+Therefore, controller settings can be found for optimal set-point
+or load-disturbance responses. This fact allows better performance
+of the controller when the control system operates on the selected
+tuned mode but, a degradation in the performance is expected when
+the tuning and operation modes are different. Obviously there is
+always the need to choose one of the two possible ways to tune the
+controller, for set-point tracking or load-disturbances rejection.
+In the case of 1-DoF PID, tuning can be optimal just for one of
+the two operation modes. The main problem, about the Performance
+Degradation analysis for both tuning modes, was previously
+formulated in \cite{arrietaCSC2007} and some approaches related to
+tuning methods and autotuning have been proposed in
+\cite{arrietaMED2007,arrietaCDC2007}.
+
+What is provided in this paper is a continuation of the these
+ideas in order to find an \emph{intermediate} tuning for the
+controller that improves the overall performance of the system,
+considered as a \emph{trade-off} between servo and regulation
+operation modes. The settings are determined from the combination
+of the optimal ones for set-point and load-disturbance, presented
+in \cite{zhuangAthertonIEE1993}, and taking into account the
+balance between the importance of each one of the operation modes
+for the control system (servo or regulation). The optimization is
+here performed using genetic algorithms \citep{mitchell1998}.
+
+The proposed new method considers a 1-DoF PID controller as an
+alternative when an \emph{explicit} 2-DoF PID controller is not
+available. It should be remembered that for the
+Two-Degree-of-Freedom (2-DoF) PID controller, tuning is usually
+optimal for regulation operation and suboptimal for servo-control,
+where this suboptimal behavior is achieved using a set-point
+weighting factor as an extra tuning parameter that gives the
+second Degree-of-Freedom, to improve the tracking action. Also,
+sometimes is not strictly necessary, or not justified, to increase
+the number of the tuning parameters in contrast to the benefits
+that could be obtained. It could be stated that the proposed
+\emph{intermediate} tuning is a particular case that results in a
+suboptimal tuning, when both operation modes may happen.
+
+The paper is organized as follows. Next section introduces the
+general problem formulation, with some related concepts. Section
+\ref{methodology} presents the \emph{intermediate} tuning between
+the parameters of both operation modes in such a way that a
+Weighted Performance Degradation ($WPD$) is minimized; the results
+are generalized in terms of an autotuning procedure that is
+presented in Section \ref{autotuning}. Some examples are shown in
+Section \ref{example} and the conclusions are drawn in Section
+\ref{conclusions}.
