@@ -5,11 +5,11 @@
 %
 
 %
-\section{Continuous stirred tank heater}
+\section{Continuous Stirred Tank Heater}
 \label{sec:CSTH}
 %
 \subsection{Description of the process}
-\label{sec:Description}
+\label{sec:DescriptionCSTH}
 %
 The control of a \gls{csth} is a common task in industrial processes. In this section, the control of the temperature of the \gls{csth} will be solved as a \gls{moop} using a \gls{2dof} \gls{pid} controller. The diagram of the process is presented in %
 \begin{figure}[b]
@@ -352,6 +352,9 @@ In section~\ref{sec:PIDCSTH}, the system was controlled considering only two sou
 \section{Continuous Stirred Tank Reactor}
 \label{sec:CSTRVandeVusse}
 %
+\subsection{Description of the process}
+\label{sec:DescriptionCSTH}
+
 The \gls{cstr} with the Van de Vusse reaction \citep{VandeVusse1964} is a common benchmark plant for testing control algorithms given its different dynamics depending on the operating point and is depicted in %
 \begin{figure}[tb]
 	\centering
@@ -416,10 +419,25 @@ F_r(t) = \left(\frac{634.1719}{100}\right) u(t),
 \label{eq:Sensor}
 \end{equation}
 %
-where $u(t)$ and $y(t)$ are the normalized input and output signal, respectively. The operation point of the plant is given by $u_0 = 60\%$ and $y_0 = 70\%$ which represents concentration of $C_{A0} = \SI{2.9175}{\mole\per\liter}$ and $C_{B0} = \SI{1.10}{\mole\per\liter}$.
+where $u(t)$ and $y(t)$ are the normalized input and output signal, respectively. The operation point of the plant is given by $u_0 = 60\%$ and $y_0 = 70\%$ which represents concentration of $C_{A0} = \SI{2.9175}{\mole\per\liter}$ and $C_{B0} = \SI{1.10}{\mole\per\liter}$ with the input concentration given by $C_{Ai0} = \SI{10}{\mole\per\liter}$.
 
+\subsection{Linearization}
+\label{sec:CSTRLin}
+In order to use the MOOTuning software, it is necessary to have a linear model of the process. In this case, the linearization is done by taking the first order approximation of the model in \eqref{eq:CSTRMVE} around the operation point.
 
-
+When defining the incremental variables $\mathbf{\delta x}$, $\mathbf{\delta u}$ and $\delta y$ as:
+\begin{align*}
+\mathbf{\delta x} &= \left[ \begin{array}{c} C_A - C_{A0} \\ C_B - C_{B0} \end{array} \right] \\
+\mathbf{\delta u} &= \left[ \begin{array}{c} u-u_0 \\ C_{Ai} - C_{Ai0} \end{array} \right] \\
+\delta y &= y - y_0
+\end{align*}
+The process dynamics can be approximated by the first order model given by:
+%
+\begin{align}
+\dot{\mathbf{\delta x}} &= \left[ \begin{array}{cc} \frac{6.341719 u_0}{V} - k1 - 2 k_3 C_{A0} & 0 \\ k1 & \frac{-6.341719 u_0}{V} - k_2 \end{array}\right] \mathbf{\delta x}% + \left[ \frac{6.341719 (C_{Ai0}-C_{A0})}{V} & \frac{6.341719 u_0}{V} \\ \frac{-6.341719 C_{B0}}{V} & 0\right] \delta u \\
+%
+%\delta y &= \left[ \begin{array}{cc} 0 & \frac{100}{1.5714} \end{array} \right] \mathbf{\delta x}
+\end{align}
 \cite{Kuntanapreeda2012}
  
 \section{Final remarks}

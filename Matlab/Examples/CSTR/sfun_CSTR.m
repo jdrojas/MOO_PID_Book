@@ -24,7 +24,7 @@ function setup(block)
 
 % Se registra el número de puertos de entrada y salida
 block.NumInputPorts  = 2; % Cantidad de entradas
-block.NumOutputPorts = 1; % Cantidad de salidas
+block.NumOutputPorts = 3; % Cantidad de salidas
 
 % Setup port properties to be inherited or dynamic
 block.SetPreCompInpPortInfoToDynamic;
@@ -47,6 +47,16 @@ block.OutputPort(1).Dimensions       = 1;
 block.OutputPort(1).DatatypeID  = 0; % double
 block.OutputPort(1).Complexity  = 'Real';
 block.OutputPort(1).SamplingMode = 'Sample';
+
+block.OutputPort(2).Dimensions       = 1;
+block.OutputPort(2).DatatypeID  = 0; % double
+block.OutputPort(2).Complexity  = 'Real';
+block.OutputPort(2).SamplingMode = 'Sample';
+
+block.OutputPort(3).Dimensions       = 1;
+block.OutputPort(3).DatatypeID  = 0; % double
+block.OutputPort(3).Complexity  = 'Real';
+block.OutputPort(3).SamplingMode = 'Sample';
 
 % Número de parámetros
 block.NumDialogPrms  = 2; % Vector of parameters and vector of initial states
@@ -76,7 +86,9 @@ function Salidas(block)
 % Acá se escribe las ecuaciones de salida
 x = block.ContStates.Data; % el estado actual
 y=(100/1.5714)*x(2); %Cb is the second state variable
-block.OutputPort(1).Data = y; 
+block.OutputPort(1).Data = y;
+block.OutputPort(2).Data = x(1);
+block.OutputPort(3).Data = x(2);
 %end Salidas
 
 function ModeloEstados(block)
