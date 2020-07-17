@@ -421,6 +421,36 @@ F_r(t) = \left(\frac{634.1719}{100}\right) u(t),
 %
 where $u(t)$ and $y(t)$ are the normalized input and output signal, respectively. The operation point of the plant is given by $u_0 = 60\%$ and $y_0 = 70\%$ which represents concentration of $C_{A0} = \SI{2.9175}{\mole\per\liter}$ and $C_{B0} = \SI{1.10}{\mole\per\liter}$ with the input concentration given by $C_{Ai0} = \SI{10}{\mole\per\liter}$.
 
+These parameters give the system a wide range of operation. In %
+\begin{figure}
+	\centering
+	\includegraphics[width=\columnwidth]{Ch7VandeVusseOP}
+	\caption{Operation points of the \gls{cstr} process.}
+	\label{fig:Ch7VandeVusseOP}
+\end{figure}
+Figure~\ref{fig:Ch7VandeVusseOP} it can be seen that with the value of $C_{Ai0}$ given and the input at $60\%$, the output yield $70\%$. In the figure the dashed lines represents the variation due to $\pm 10\%$ variation of $C_{Ai}$. It can be seen that, with a $100 \%$ value for $u$ and a variation of $10\%$ of $C_{Ai}$, the output is less than $100\%$ of the capacity of the sensor.
+
+The concentration of $C_a$ and $C_b$ are both plotted in %
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{Ch7VandeVusseOPStates}
+	\caption{Concentration of the reactants for all possible operating points.}
+	\label{fig:Ch7VandeVusseOPStates}
+\end{figure}
+%
+Figure~\ref{fig:Ch7VandeVusseOPStates}. The $C_a$ concentration is on the horizontal axis is while the $C_b$ concentration is on the vertical axis. The selected operation point is represented with a circle in the curve and also the curves with the variation on the value of $C_{Ai}$ are also presented. As it can be seen, in the operation point selected, the curves start to diverge, which means that the model has a larger dependency on the variation of the input concentration. This has to be taken into account when designing the feedback controller.
+
+When considering the transient response to a change in the input flow $u$, the response is as given in
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{Ch7VandeVusseStep}
+	\caption{Open loop response to a step change in the input signal of the \gls{cstr}.}
+	\label{fig:Ch7VandeVusseStep}
+\end{figure}
+%
+Figure~\ref{fig:Ch7VandeVusseStep}. It is interesting to note that the the system has an inverse response. This characteristic limits the possible performance of the controlled loop, making unfeasible to increase the gain of the controller to achieve a faster response without instability. This is also another point that has to be considered when designing the controller.
+
+
 \subsection{Linearization}
 \label{sec:CSTRLin}
 In order to use the MOOTuning software, it is necessary to have a linear model of the process. In this case, the linearization is done by taking the first order approximation of the model in \eqref{eq:CSTRMVE} around the operation point.
@@ -434,10 +464,17 @@ When defining the incremental variables $\mathbf{\delta x}$, $\mathbf{\delta u}$
 The process dynamics can be approximated by the first order model given by:
 %
 \begin{align}
-\dot{\mathbf{\delta x}} &= \left[ \begin{array}{cc} \frac{6.341719 u_0}{V} - k1 - 2 k_3 C_{A0} & 0 \\ k1 & \frac{-6.341719 u_0}{V} - k_2 \end{array}\right] \mathbf{\delta x}% + \left[ \frac{6.341719 (C_{Ai0}-C_{A0})}{V} & \frac{6.341719 u_0}{V} \\ \frac{-6.341719 C_{B0}}{V} & 0\right] \delta u \\
+\dot{\mathbf{\delta x}} &=  \mathbf{A}\mathbf{\delta x} + \mathbf{B} \mathbf{\delta u} \\
 %
-%\delta y &= \left[ \begin{array}{cc} 0 & \frac{100}{1.5714} \end{array} \right] \mathbf{\delta x}
+\delta y &=  \mathbf{C} \mathbf{\delta x}
 \end{align}
+%
+where,
+\begin{align*}
+	\mathbf{A} &= \left[ \begin{array}{cc} \frac{6.341719 u_0}{V} - k1 - 2 k_3 C_{A0} & 0 \\ k1 & \frac{-6.341719 u_0}{V} - k_2 \end{array}\right]\\
+	\mathbf{B} &= \left[ \begin{array}{cc} \frac{6.341719 (C_{Ai0}-C_{A0})}{V} & \frac{6.341719 u_0}{V} \\ \frac{-6.341719 C_{B0}}{V} & 0 \end{array} \right] \\
+	\mathbf{C} &= \left[ \begin{array}{cc} 0 & \frac{100}{1.5714} \end{array} \right]
+\end{align*}
 \cite{Kuntanapreeda2012}
  
 \section{Final remarks}
