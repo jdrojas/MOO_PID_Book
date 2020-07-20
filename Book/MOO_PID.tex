@@ -75,13 +75,31 @@
                        % your makeindex program
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newcommand{\matlab}{MATLAB\textregistered{}}
+\def\hasbeencalled{0}
+\newcommand\matlab{
+	\ifnum\hasbeencalled=0
+	MATLAB\textregistered{}
+	\global\def\hasbeencalled{1}
+	\else
+	MATLAB
+	\fi
+}
+%
+\def\hasbeencalledTwo{0}
+\newcommand\simulink{
+	\ifnum\hasbeencalledTwo=0
+	Simulink\textregistered{}
+	\global\def\hasbeencalledTwo{1}
+	\else
+	Simulink
+	\fi
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 \author{José David Rojas, Orlando Arrieta, Ramon Vilanova}
 \title{Industrial PID Controller Tuning}
-\subtitle{with a multi-objective framework using \matlab}
+\subtitle{with a multi-objective framework using MATLAB\textregistered{}}
 \maketitle
 
 \frontmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
