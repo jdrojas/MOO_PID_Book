@@ -34,13 +34,13 @@ block.SetPreCompOutPortInfoToDynamic;
 block.InputPort(1).Dimensions        = 1;
 block.InputPort(1).DatatypeID  = 0;  % double
 block.InputPort(1).Complexity  = 'Real';
-block.InputPort(1).DirectFeedthrough = true;
+block.InputPort(1).DirectFeedthrough = false;
 
 % Propiedades de los puertos de entrada
 block.InputPort(2).Dimensions        = 1;
 block.InputPort(2).DatatypeID  = 0;  % double
 block.InputPort(2).Complexity  = 'Real';
-block.InputPort(2).DirectFeedthrough = true;
+block.InputPort(2).DirectFeedthrough = false;
 
 % Propiedades de los puertos de salida
 block.OutputPort(1).Dimensions       = 1;

@@ -625,10 +625,190 @@ However, given that all controllers are constraint to fulfill $M_s = 2.0$, the d
 
 \subsection{Validation of the controller designs}
 \label{sec:ValidationCSTR}
-\textbf{To do!}
+%
+The designed controllers were tested using the nonlinear model of the \gls{cstr}. It is important to note that the controllers were tuned for a plant model that is different than the ``real'' plant. In this particular case, several approximations where made which were necessary in order to use the framework presented in the other chapters. Because of this, it is important to look for a solution that takes into account this possible sources of instability.
+%
+\begin{table}[tb]
+	\centering
+	\caption{IAE values for the controllers applied to the nonlinear model as servo controllers}
+	\begin{tabular}{p{1.5cm}>{\centering}p{1cm}>{\centering}p{1cm}>{\centering}p{1cm}>{\centering\arraybackslash}p{1cm}}
+		\toprule
+		\multirow{2}{*}{Robustness}	& \multicolumn{4}{c}{Controller}\\
+		\cmidrule{2-5}
+									& C1 & C2 & C3 & C4 \\
+		\midrule
+		$M_s = 1.8$ & 0.94 & 0.83 & 0.87 & 0.84\\
+		$M_s = 2.0$ & 0.86 & 0.79 & 0.83 & 0.81\\
+		$M_s \geq 2.0$ & 11.20 & 0.78 & 1.02 & 0.83\\
+		\bottomrule
+	\end{tabular}
+	\label{tab:CSTRIAEServo}
+\end{table}
+%
+\begin{table}[tb]
+	\centering
+	\caption{TV values for the controllers applied to the nonlinear model as servo controllers}
+	\begin{tabular}{p{1.5cm}>{\centering}p{1cm}>{\centering}p{1cm}>{\centering}p{1cm}>{\centering\arraybackslash}p{1cm}}
+		\toprule
+		\multirow{2}{*}{Robustness}	& \multicolumn{4}{c}{Controller}\\
+		\cmidrule{2-5}
+		& C1 & C2 & C3 & C4 \\
+		\midrule
+		$M_s = 1.8$ & 9.40 & 13.20 & 9.14 & 11.10\\
+		$M_s = 2.0$ & 11.34 & 20.01 & 12.75 & 16.37\\
+		$M_s \geq 2.0$ & 1936.10 & 29.10 & 128.30 & 73.20\\
+		\bottomrule
+	\end{tabular}
+	\label{tab:CSTRTVServo}
+\end{table}
+%
+\begin{figure}
+	\centering
+	\subfloat[$M_s = 2.0$]{\includegraphics[width=0.8\linewidth]{CH7CSTRControlServoMs2Y} \label{fig:CH7CSTRControlServoMs2Y}}\\
+	\subfloat[$M_s = 1.8$]{\includegraphics[width=0.8\linewidth]{CH7CSTRControlServoMs18Y} \label{fig:CH7CSTRControlServoMs18Y}}\\
+	\subfloat[$M_s \geq 2$]{\includegraphics[width=0.8\linewidth]{CH7CSTRControlServoMs10Y} \label{fig:CH7CSTRControlServoMs10Y}}
+	\caption{Response of the controlled system with the nonlinear model for several robustness levels serving as servo.}
+	\label{fig:CH7CSTRControlServoY}
+\end{figure}
+%
+%
+\begin{figure}
+	\centering
+	\subfloat[$M_s = 2.0$]{\includegraphics[width=0.8\linewidth]{CH7CSTRControlServoMs2U} \label{fig:CH7CSTRControlServoMs2U}}\\
+	\subfloat[$M_s = 1.8$]{\includegraphics[width=0.8\linewidth]{CH7CSTRControlServoMs18U} \label{fig:CH7CSTRControlServoMs18U}}\\
+	\subfloat[$M_s \geq 2$]{\includegraphics[width=0.8\linewidth]{CH7CSTRControlServoMs10U} \label{fig:CH7CSTRControlServoMs10U}}
+	\caption{Control signal of the controlled system with the nonlinear model for several robustness levels serving as servo.}
+	\label{fig:CH7CSTRControlServoU}
+\end{figure}
+%
+In Table~\ref{tab:CSTRIAEServo}, the \gls{iae} for the servo response to a step change in the reference at $t= \SI{1}{\second}$ is presented, with the response  plotted in Figure~\ref{fig:CH7CSTRControlServoY}. On the other hand the total variation is presented in Table~\ref{tab:CSTRTVServo} en the control signal in Figure~\ref{fig:CH7CSTRControlServoU}. All controllers where tested for all possible robustness measures.
 
+The first thing to notice is that for the case of $M_s \geq 2.0$, presented in Figure~\ref{fig:CH7CSTRControlServoMs10Y}, the response becomes practically unstable for the C1 tuning. The \gls{pid} controller that was implemented in \simulink have and antiwindup loop that prevents the integral part to become infinite. For the other cases the response presents important oscillations. The problem with C1 is that the gain is relatively high, which produces the controller to saturate as can be seen in Figure~\ref{fig:CH7CSTRControlServoMs10U}.
 
-\cite{Kuntanapreeda2012}
+For this particular case, controller C2 (which was expected to be the ``best'' servo) yield a better \gls{iae} when comparing the $M_s \geq 2.0$ against $M_s = 1.8$ and $M_s = 2.0$ as it was expected knowing Table~\ref{tab:CSTRDesigns}, however this is not the case for C4 controllers, because the nonlinearity of the plant and the approximations made start to take a toll on the design of the controllers.
+
+Now consider the controllers that took into account the robustness as a constraint in the optimization. For all cases the controller are able to control the plant without oscillation (except for controller C1). As expected, controllers C2 and C4 had the best performance, but also the were more expensive (higher values of TV). However, an interesting option is controller C3. This controller was designed by allowing a 20\% degradation of $J_{di}$. Its servo response may not be the best in terms of performance but it has an interesting compromise between the control effort and the \gls{iae} value. If this degradation does not affect the regulator response too much, this controller may be considered as the final tuning.
+
+The next step is then to validate the response as a regulator. %
+%
+\begin{table}[tb]
+	\centering
+	\caption{IAE values for the controllers applied to the nonlinear model as regulator controllers}
+	\begin{tabular}{p{1.5cm}>{\centering}p{1cm}>{\centering}p{1cm}>{\centering}p{1cm}>{\centering\arraybackslash}p{1cm}}
+		\toprule
+		\multirow{2}{*}{Robustness}	& \multicolumn{4}{c}{Controller}\\
+		\cmidrule{2-5}
+		& C1 & C2 & C3 & C4 \\
+		\midrule
+		$M_s = 1.8$ & 2.29 & 3.40 & 2.54 & 2.85\\
+		$M_s = 2.0$ & 2.03 & 3.24 & 2.26 & 2.65\\
+		$M_s \geq 2.0$ & 11.62 & 3.18 & 1.97 & 2.00\\
+		\bottomrule
+	\end{tabular}
+	\label{tab:CSTRIAEReg}
+\end{table}
+%
+\begin{table}[tb]
+	\centering
+	\caption{TV values for the controllers applied to the nonlinear model as regulator controllers}
+	\begin{tabular}{p{1.5cm}>{\centering}p{1cm}>{\centering}p{1cm}>{\centering}p{1cm}>{\centering\arraybackslash}p{1cm}}
+		\toprule
+		\multirow{2}{*}{Robustness}	& \multicolumn{4}{c}{Controller}\\
+		\cmidrule{2-5}
+		& C1 & C2 & C3 & C4 \\
+		\midrule
+		$M_s = 1.8$ & 13.30 & 11.85 & 12.50 & 11.65\\
+		$M_s = 2.0$ & 13.68 & 15.54 & 13.16 & 14.10\\
+		$M_s \geq 2.0$ & 3034.50 & 22.00 & 183.90 & 84.00\\
+		\bottomrule
+	\end{tabular}
+	\label{tab:CSTRTVReg}
+\end{table}
+%
+\begin{figure}
+	\centering
+	\subfloat[$M_s = 2.0$]{\includegraphics[width=0.8\linewidth]{CH7CSTRControlRegMs2Y} \label{fig:CH7CSTRControlRegMs2Y}}\\
+	\subfloat[$M_s = 1.8$]{\includegraphics[width=0.8\linewidth]{CH7CSTRControlRegMs18Y} \label{fig:CH7CSTRControlRegMs18Y}}\\
+	\subfloat[$M_s \geq 2$]{\includegraphics[width=0.8\linewidth]{CH7CSTRControlRegMs10Y} \label{fig:CH7CSTRControlRegMs10Y}}
+	\caption{Response of the controlled system with the nonlinear model for several robustness levels serving as regulator.}
+	\label{fig:CH7CSTRControlRegY}
+\end{figure}
+%
+%
+\begin{figure}
+	\centering
+	\subfloat[$M_s = 2.0$]{\includegraphics[width=0.8\linewidth]{CH7CSTRControlRegMs2U} \label{fig:CH7CSTRControlRegMs2U}}\\
+	\subfloat[$M_s = 1.8$]{\includegraphics[width=0.8\linewidth]{CH7CSTRControlRegMs18U} \label{fig:CH7CSTRControlRegMs18U}}\\
+	\subfloat[$M_s \geq 2$]{\includegraphics[width=0.8\linewidth]{CH7CSTRControlRegMs10U} \label{fig:CH7CSTRControlRegMs10U}}
+	\caption{Control signal of the controlled system with the nonlinear model for several robustness levels serving as regulator.}
+	\label{fig:CH7CSTRControlRegU}
+\end{figure}
+%
+Table~\ref{tab:CSTRIAEReg} the values of \gls{iae} are presented for a step change of $\SI{1}{\mole\per\liter}$ in $C_{ai}$ for all controller cases and robustness values. The corresponding values of $TV$ are presented in Table~\ref{tab:CSTRTVReg}. The plots of the responses and the control signal are shown in Figure~\ref{fig:CH7CSTRControlRegY} and Figure~\ref{fig:CH7CSTRControlRegU} respectively. As in the case of the servo response, the design for $M_s \geq 2.0$ is not useful in the C1 case, because the response is practically unstable again as depicted in Figure~\ref{fig:CH7CSTRControlRegMs10Y}. It has to be noticed that the response of the plant between $C_{ai}$ and the output does not have a non-minimum phase zero, and therefore an inverse response is not present.
+
+For the other cases ($M_s = 2.0$ and $M_s = 1.8$) the best controllers were the C1 family, followed by C3. This is expected since these controllers were found as the best regulators. Controller C2 has the worst regulator response but at the same time, it as also the most expensive cost signal for the case $M_s = 2.0$.
+
+Let's examine C3 controllers. The performance of this controllers are worse than C1, but just by approximately 11\%, and with a less aggressive control signal for the regulator response (Table~\ref{tab:CSTRTVReg}). Taking into account that C3 was also a family of controllers that had a relatively good performance for servo control, so far it represents a good candidate to become the final controller.
+
+As a final validation test, let the setpoint change to be 5\%. In that case the response is as given in %
+%
+\begin{figure}[tb]
+	\centering
+	\subfloat[Output signal]{\includegraphics[width=\linewidth]{CH7CSTRControlServoMs2Y_Sat}\label{fig:CH7CSTRControlServoMs2Y_Sat}}\\
+		\subfloat[Control signal]{\includegraphics[width=\linewidth]{CH7CSTRControlServoMs2U_Sat}\label{fig:CH7CSTRControlServoMs2U_Sat}}
+	\caption{Response to a 5\% step change in the setpoint signal.}
+	\label{fig:CH7CSTRControlServoSat}
+\end{figure}
+%
+Figure~\ref{fig:CH7CSTRControlServoSat} for all controllers families and $M_s = 2.0$.
+%
+\begin{table}[tb]
+	\centering
+	\caption{IAE values for the controllers applied to the nonlinear model as servo controller for a step change of 5\% and $M_s = 2.0$}
+	\begin{tabular}{c>{\centering}p{1cm}>{\centering}p{1cm}>{\centering}p{1cm}>{\centering\arraybackslash}p{1cm}}
+		\toprule
+		\multirow{2}{*}{Cost function}	& \multicolumn{4}{c}{Controller}\\
+		\cmidrule{2-5}
+		& C1 & C2 & C3 & C4 \\
+		\midrule
+		IAE & 4.69 & 5.07 & 4.60 & 4.71\\
+		TV	& 52.70	& 73.44	& 59.81	& 68.01\\
+		\bottomrule
+	\end{tabular}
+	\label{tab:CSTRIAEServoSat}
+\end{table}
+%
+
+The values of IAE and TV are presented in Table~\ref{tab:CSTRIAEServoSat}. The PID was implemented to be limited in the range between 0 and 100\%, with the corresponding antiwindup. Since controllers C2 and C4 have a control signal which is more aggressive for setpoint changes, they saturate and produces larger values of IAE than the controllers intended for regulation. Interestingly, C3 controller has a lower value of IAE than any other controller while its TV value lies in between C1 and C4 controllers. Again, this test indicates that C3 controller can be a good candidate for the final tuning of the \gls{pid}.
+
+Lastly, lets again set the change in the setpoint to 5\%, but lets compare the difference when C3 is selected as the controller and the $M_s$ is varied. %
+%
+\begin{figure}[tb]
+	\centering
+	\subfloat[Output signal]{\includegraphics[width=\linewidth]{CH7CSTRControlServoC3Y_Sat}\label{fig:CH7CSTRControlServoC3Y_Sat}}\\
+	\subfloat[Control signal]{\includegraphics[width=\linewidth]{CH7CSTRControlServoC3U_Sat}\label{fig:CH7CSTRControlServoC3U_Sat}}
+	\caption{Response to a 5\% step change in the setpoint signal for C3 controllers.}
+	\label{fig:CH7CSTRControlServoC3Sat}
+\end{figure}
+%
+\begin{table}[tb]
+	\centering
+	\caption{IAE values for the C3 controllers applied to the nonlinear model as servo controller for a step change of 5\%}
+	\begin{tabular}{c >{\centering}p{1cm}>{\centering\arraybackslash}p{1cm}}
+		\toprule
+		\multirow{2}{*}{Cost function}	& \multicolumn{2}{c}{$M_s$}\\
+		\cmidrule{2-3}
+		& 1.8 & 2.0 \\
+		\midrule
+		IAE & 4.83 & 4.61 \\
+		TV	& 42.11	& 59.81	\\
+		\bottomrule
+	\end{tabular}
+	\label{tab:CSTRIAEServoC3Sat}
+\end{table}
+%
+In Figure~\ref{fig:CH7CSTRControlServoC3Sat} the output of the controlled loop and the control signal is presented and in Table~\ref{tab:CSTRIAEServoC3Sat}, the values of IAE and TV are presented for both $M_s = 1.8$ and $M_s = 2.0$. As it was expected, since neither of those controllers saturates, the response with a less restrictive robustness constraint has a better IAE. However it certainly has a more aggressive control signal. The IAE for the case $M_s = 2.0$ is $4.55\%$ lower than the $M_s = 1.8$ case however it comes to a cost of having a $42.03\%$ higher TV. Considering all the analysis done to this point and having into account that the tuning were made with an several approximations from the original model, it seem that the C3 tuning (best servo allowing a 20\% degradation on $J_{di}$) with a robustness constraint of $M_s = 1.8$ is the most sensible choice as the final tuning.
+%\cite{Kuntanapreeda2012}
  
 \section{Final remarks}
 \label{sec:FinalRemarks}
