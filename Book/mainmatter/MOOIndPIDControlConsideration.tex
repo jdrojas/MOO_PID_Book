@@ -1,5 +1,5 @@
 \chapter{PID Controller Considerations}
-\label{chap:PIDControllerDesign}
+\label{chap:PIDControllerConsideration}
 
 \section{Control System Evaluation Metrics}
 
@@ -120,24 +120,19 @@ At this point, we can recover the CSTR reactor example of the previous chapter. 
 
 
 Table \ref{tab:cstrtradeoff} shows the IAE performance indexes for the output concentration deviations as well as the TV for the control effort corresponding to a disturbance change at the input concentration $C_{A}$ as well as to a desired change in the operating point, this is the desired output concentration $C_B$. It is seen that the performance is worse for the more robust design but, on the other hand, the control effort gets smoother. 
-
-\begin{table}%[ht]
-\caption{Robustness - Performance tradeoff CSTR example} \label{tab:cstrtradeoff}
-\begin{center}
-		\begin{small}
-    \begin{tabular}{c|cc|cc}
-    \hline
-    	 & \multicolumn{2}{c|}{Set-point change for $C_B$}  & \multicolumn{2}{c}{Disturbance at $C_A$ concentration}  \\
-    		 & IAE & TV & IAE & TV     \\
-     \hline
-     			$M_s=2.0$ PID Design   & 12.00 & 35.42 & 2.58 & 15.36 \\
-     			$M_s=1.6$ PID Design   & 14.05 & 34.30 & 3.66 & 13.60 \\
-    \hline
+\begin{table}[tb]
+	\caption{Robustness - Performance tradeoff CSTR example} \label{tab:cstrtradeoff}
+	\centering
+    \begin{tabular}{ccccc}
+    \toprule
+    	 & \multicolumn{2}{c}{Set-point change for $C_B$}  & \multicolumn{2}{c}{Disturbance at $C_A$ concentration}\\
+   		 & IAE & TV & IAE & TV\\
+    \midrule
+    $M_s=2.0$ PID Design   & 12.00 & 35.42 & 2.58 & 15.36 \\
+    $M_s=1.6$ PID Design   & 14.05 & 34.30 & 3.66 & 13.60 \\
+    \bottomrule
     \end{tabular}
-    \end{small}
-\end{center}
 \end{table}
-
 
 \subsection{Input vs. Output Disturbances}
 

@@ -1,7 +1,7 @@
 \chapter{Industrial application examples}
 \label{chap:ApplicationExamples}
 %
-\abstract{In this chapter, different examples are provided to apply the tool presented in this book. The MOOTuning software is used to analyze the temperature control in a Continuous Stirred Tank Heater (CSTH) in Section~\ref{sec:CSTH} using two a three cost functions. Also a Continuos Stirred Tank Reactor (CSTR) is considered for the control of the concentration of the product in an isothermal case in Section~\ref{sec:CSTRVandeVusse} ¿and the non-isothermal case in section~ ?}
+\abstract{In this chapter, different examples are provided to apply the tool presented in this book. The MOOTuning software is used to analyze the temperature control in a Continuous Stirred Tank Heater (CSTH) in Section~\ref{sec:CSTH} using two a three cost functions. Also a Continuos Stirred Tank Reactor (CSTR) is considered for the control of the concentration of the product in an isothermal case in Section~\ref{sec:CSTRVandeVusse}}
 %
 
 %
@@ -353,7 +353,7 @@ In section~\ref{sec:PIDCSTH}, the system was controlled considering only two sou
 \label{sec:CSTRVandeVusse}
 %
 \subsection{Description of the process}
-\label{sec:DescriptionCSTH}
+\label{sec:DescriptionCSTR}
 
 The \gls{cstr} with the Van de Vusse reaction \citep{VandeVusse1964} is a common benchmark plant for testing control algorithms given its different dynamics depending on the operating point and is depicted in %
 \begin{figure}[tb]
@@ -416,7 +416,7 @@ The range of the sensor for the product is supposed to be in the range 0 to \SI{
 while the transmitter is modeled as:
 \begin{equation}
 F_r(t) = \left(\frac{634.1719}{100}\right) u(t),
-\label{eq:Sensor}
+\label{eq:Transmiter}
 \end{equation}
 %
 where $u(t)$ and $y(t)$ are the normalized input and output signal, respectively. The operation point of the plant is given by $u_0 = 60\%$ and $y_0 = 70\%$ which represents concentration of $C_{A0} = \SI{2.9175}{\mole\per\liter}$ and $C_{B0} = \SI{1.10}{\mole\per\liter}$ with the input concentration given by $C_{Ai0} = \SI{10}{\mole\per\liter}$.

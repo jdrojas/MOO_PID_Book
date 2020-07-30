@@ -786,24 +786,24 @@ Table~\ref{tab:ExampleMOOTuning02}. With the extra constraint of keeping the sam
 
 This example shows the usefulness of the tool to explore the Pareto, without the need to plot the Fronts and without optimizing every time a change is made in the allowed degradation parameters. Of course, this is possible thanks to the fact that all the Paretos were obtained beforehand and that they are available as a series of files included in the tool.
  
-\section{Appendix: Matlab code}
-\label{sec:MatlabBode}
-\subsection{Script for the generation of the Pareto Fronts}
-\lstinputlisting[style=Matlab-editor, breaklines=true]{./codigo/GenerateParetosThreeFun.m}
-\subsubsection{Function used to avoid nested loops: MeshLaMs}
-This function allows to compute all cases without using nested loops. It was necessary in order to use the parallel computing toolbox to accelerate the computation of all the data.
-\lstinputlisting[style=Matlab-editor, breaklines=true]{./codigo/MeshLaMs.m}
-\subsubsection{Function to compute Ms: MsCalc}
-\lstinputlisting[style=Matlab-editor, breaklines=true]{./codigo/MsCalc.m}
-\subsubsection{Functions that implements the cost functions}
-\textbf{C function for the simulation}
-\lstinputlisting[language=C, breaklines=true, postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}]{./codigo/SOPTDPIDSimu.c}\mbox{}\\
-\textbf{Implementation of the Jdi function}
-\lstinputlisting[style=Matlab-editor, breaklines=true]{./codigo/Jdi.m}\mbox{}\\
-\textbf{Implementation of the Jdo function}
-\lstinputlisting[style=Matlab-editor, breaklines=true]{./codigo/Jdo.m}\mbox{}\\
-\textbf{Implementation of the Jr function}
-\lstinputlisting[style=Matlab-editor, breaklines=true]{./codigo/Jr.m}
+%\section{Appendix: Matlab code}
+%\label{sec:MatlabBode}
+%\subsection{Script for the generation of the Pareto Fronts}
+%\lstinputlisting[style=Matlab-editor, breaklines=true]{./codigo/GenerateParetosThreeFun.m}
+%\subsubsection{Function used to avoid nested loops: MeshLaMs}
+%This function allows to compute all cases without using nested loops. It was necessary in order to use the parallel computing toolbox to accelerate the computation of all the data.
+%\lstinputlisting[style=Matlab-editor, breaklines=true]{./codigo/MeshLaMs.m}
+%\subsubsection{Function to compute Ms: MsCalc}
+%\lstinputlisting[style=Matlab-editor, breaklines=true]{./codigo/MsCalc.m}
+%\subsubsection{Functions that implements the cost functions}
+%\textbf{C function for the simulation}
+%\lstinputlisting[language=C, breaklines=true, postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}]{./codigo/SOPTDPIDSimu.c}\mbox{}\\
+%\textbf{Implementation of the Jdi function}
+%\lstinputlisting[style=Matlab-editor, breaklines=true]{./codigo/Jdi.m}\mbox{}\\
+%\textbf{Implementation of the Jdo function}
+%\lstinputlisting[style=Matlab-editor, breaklines=true]{./codigo/Jdo.m}\mbox{}\\
+%\textbf{Implementation of the Jr function}
+%\lstinputlisting[style=Matlab-editor, breaklines=true]{./codigo/Jr.m}
 
 \bibliographystyle{spbasic}
 \bibliography{ReferenciasMulti}
