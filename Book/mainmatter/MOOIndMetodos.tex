@@ -54,9 +54,102 @@ Point ``N'' is called the pseudo-nadir point, and is defined as the point with t
 
 \subsection{Practical example}
 \label{sec:ParetoPractical}
+To get an insight of the concept of Pareto Front, an industrial controlled process will be considered. In this particular case, the relationship between \gls{tv} and \gls{iae} for the controller as regulator is studied. However, in the rest of the book, the compromises between the response for different sources of disturbances will be considered. The objective of this section is to show that the concept of Pareto front can be used with diverse cost functions.
 
+In Section~\ref{sec:ParetoApproach}, different approaches to obtain the Pareto are presented. For this particular example a ``brute force'' approach is taken. The process that is used as example is a wastewater treatment plant (WWTP) as presented in %
+%
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=\linewidth]{Ch5WTP}
+	\caption{Representation of a simple wastewater treatment process.}
+	\label{sec:Ch5WTP}
+\end{figure}
+%
+Figure~\ref{sec:Ch5WTP}.
 
+The residual water after it has been used in residential commercial or industrial zones is known as wastewater. It is collected through sewers with the intention to be treated to be later deposited in receiving waters like rivers, lakes or the sea. According to \citet{Olsson1999} ``while the primary goal of a treatment plant is to achieve an average reduction in nutrient levels, the secondary goal is disturbance rejection, to achieve good effluent quality in spite of the many disturbances''. One of the characteristics of this process is that it is subject to large variation in the influent characteristics like the substrate concentration, oxygen levels and even flow. For example in \citet{Henze1997}, it is shown an example were the influent flow at midday can reach up to 244\% of the average flow in one day, while minimum could reach 32\% of the average flow.
+
+To reduce the substrate levels, the idea is to stimulate the grow of microorganism that consume the substrate, to later be remove in a settler. This biological process is known as Activated Sludge Process (ASP) and it is one of the most important methods \citep{Henze1997}. Bacteria is the most important component of the sludge. These bacteria can remove carbon components and also nitrogenous components from the influent. To control the grow of bacteria, air is pumped into the wastewater while being store in tanks. As pointed out by \citet{Jeppsson1996}:
+\begin{quote}
+	The basic idea of the activated sludge process is to maintain ``active sludge'' suspended in wastewater by means of stirring or aeration. The suspended material contains not only living biomass, that is, bacteria and other microorganisms, but also organic and inorganic particles. Some of the organic particles may be broken down into simpler components by a process known as hydrolysis, while other organic particles are not affected (inert material). The biomass in the process will use the organic material as its energy source (usually in combination with oxygen or another oxidation agent), that is, the organic material will be removed from the wastewater while more biomass is produced. The amount of suspended material in the process is normally controlled by means of adding a sedimentation tank at the end of the process, where the biomass is transported towards the bottom by gravity settling and is either recirculated back to the biological process or removed from the system as excess sludge, whereas the now purified wastewater is withdrawn from the top of the sedimentation tank and released either for further treatment or directly into a receiving water.
+\end{quote}
+%
+
+Therefore, the basic layout of a WWTP using the ASP contains an aeration tank and a settling tank as represented in Figure~\ref{sec:Ch5WTP}. The ``cleaned'' water is withdrawn from the top of the settler while part of the sludge is recirculated to the bioreactor and the rest is used to produce where the treated wastewater is deposited in the receiving water while a concentrated sludge is withdrawn from the bottom \citep{Henze1997}. This concentrated sludge can be recycled in order to maintain a high density of biomass in the thanks.
+
+One of the characteristics of WWTPs is their high energy consumption \citep{Longo2016}. The bioreactor needs electricity to produce the aeration, move the water using pumps and continuous stirring. At the same time it is necessary to cope with disturbances coming from the influent. With this train of logic, from a control perspective, it is necessary to keep the system regulated, at the same time that the energy is minimized.
+
+In order to frame this problem mathematically, first a model has to be selected. In this case, the model first proposed in \cite{Nejjari1999} and slightly modified in \cite{Han2008} will be considered. This model is a fourth order non-linear set of equations found after a material balance is performed. The model is given by:
+\begin{equation}
+	\begin{split}
+	\frac{d X (t)}{dt} &= \mu(t) X(t) - D(t) (1+r)X(t)+rD(t)X_r(t)\\
+	\frac{d S (t)}{dt} &= -\frac{\mu(t)}{Y}X(t) - D(t)(1+r)S(t)+D(t)S_{in}(t)\\
+	\frac{d DO (t)}{dt} &= - \frac{K_0 \mu(t) X(t)}{Y} - D(t)(1+r)DO(t)\\
+					& \qquad + \alpha Q_{air}(t) \left(DO_{max} - DO(t)\right) +D(t) DO_{in}(t)\\
+	\frac{d X_r (t)}{dt} &= D(t) (1+r) X(t)- D(t) \left( \beta + r \right) X_r(t)\\
+	%
+	\mu(t) &= \mu_{max} \frac{S(t)}{K_S + S(t)} \cdot \frac{DO(t)}{K_{DO}+DO(t)}
+	\end{split}
+	\label{frac:WWTPModel}
+\end{equation}
+%
+where,
+\begin{itemize}
+	\item $X(t)$ is the biomass concentration
+	\item $S(t)$ is the substrate concentration
+	\item $DO(t)$ is the dissolved oxygen in the bioreactor
+	\item $X_r(t)$ is the recycled biomass concentration
+	\item $D(t)$ is the dilution rate
+	\item $DO_{in}(t)$ is dissolved oxygen concentration in the influent
+	\item $Q_{air}(t)$ is the aeration rate
+	\item $\mu(t)$ biomass growth rate
+\end{itemize}
+%
+and the parameters are:
+\begin{itemize}
+	\item $DO_{max}$ is the maximum dissolved oxygen concentration
+	\item $S_{in}$ is the substrate concentration in the influent
+	\item $Y$ is the biomass yield factor
+	\item $\mu_{max}$ is the maximum specific growth rate
+	\item $K_S$ is the affinity constant
+	\item $K_{DO}$ is the saturation constant
+	\item $\alpha$ is the oxygen transfer rate
+	\item $K_0$ is a model constant
+	\item $r$ is the recycled sludge rate
+	\item $\beta$ is the removed sludge rate
+\end{itemize}
+
+The values of all the parameters are given in %
+\begin{table}
+	\centering
+	\caption{Parameter values for the WWTP model}
+	\begin{tabular}{lll}
+		\toprule
+		$DO_{max} = \SI{10}{\milli\gram\per\liter}$ & $S_{in} = \SI{200}{\milli\gram\per\liter}$ & $DO_{in} = \SI{0.5}{\milli\gram\per\liter}$\\
+		$Y = 0.65$ & $\mu_{max} = \SI{0.15}{\milli\gram\per\liter}$ & $r = 0.6$ \\
+		$K_S = \SI{100}{\milli\gram\per\liter}$ & $K_{DO} = \SI{2}{\milli\gram\per\liter}$ & $\alpha = 0.018$ \\
+		$K_0 = 0.5$ & $\beta = 0.2$\\
+		\bottomrule
+	\end{tabular}
+	\label{tab:ParamValues}
+\end{table}
+%
+Table~\ref{tab:ParamValues} while the value of the variables in the selected operation point is given in %
+%
+\begin{table}[tb]
+	\centering
+	\caption{Variables values for WWTP in operation point}
+	\begin{tabular}{ll}
+		\toprule
+		$Q_{air0} = 27.5735$ & $D_0 =  0.025$ \\
+		$S_{in0} = \SI{200}{\milli\gram\per\liter}$ & $DO_{in0} = \SI{0.5}{\milli\gram\per\liter}$\\
+		$X_0 = 298.2353$ & $S0 = 10.2941$\\
+		$DO_0 = 5.0$ & $X_{r0} = 596.4706$\\
+		\bottomrule
+	\end{tabular}
+\end{table}
 \subsection{Different approaches to obtain the Pareto front}
+\label{sec:ParetoApproach}
 In its most basic form, the Pareto front is found by performing several optimizations, each of which are computed by varying some parameter. The idea is to be able to use standard optimization methods to find each point of the Pareto.
 
 As for single objective optimization there is two big families of methods to solve the problem: Bio-inspired methods that use some kind of heuristic in order to find the minimum of the cost function and deterministic methods mostly based on certain gradient of the function.
