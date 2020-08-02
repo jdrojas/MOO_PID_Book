@@ -58,5 +58,3 @@ do
 done
 pdflatex -synctex=1 -interaction=nonstopmode MOO_PID.tex
 pdflatex -synctex=1 -interaction=nonstopmode MOO_PID.tex
-
-

@@ -1,8 +1,8 @@
 clear; clc
 WTPInit;
 h = load_system('WTPLoop');
-Kp = linspace(0,10,32);
-Ti = linspace(0.1,10,32);
+Kp = linspace(0,10,50);
+Ti = linspace(0.1,10,50);
 [KP,TI] = meshgrid(Kp,Ti);
 IaeGrid = zeros(length(Kp)*length(Ti),1);
 TVGrid = zeros(length(Kp)*length(Ti),1);

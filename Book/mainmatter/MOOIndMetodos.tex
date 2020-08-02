@@ -79,7 +79,7 @@ Therefore, the basic layout of a WWTP using the ASP contains an aeration tank an
 
 One of the characteristics of WWTPs is their high energy consumption \citep{Longo2016}. The bioreactor needs electricity to produce the aeration, move the water using pumps and continuous stirring. At the same time it is necessary to cope with disturbances coming from the influent. With this train of logic, from a control perspective, it is necessary to keep the system regulated, at the same time that the energy is minimized.
 
-In order to frame this problem mathematically, first a model has to be selected. In this case, the model first proposed in \cite{Nejjari1999} and slightly modified in \cite{Han2008} will be considered. This model is a fourth order non-linear set of equations found after a material balance is performed. The model is given by:
+In order to frame thisma problem mathematically, first a model has to be selected. In this case, the model first proposed in \cite{Nejjari1999} and slightly modified in \cite{Han2008} will be considered. This model is a fourth order non-linear set of equations found after a material balance is performed. The model is given by:
 \begin{equation}
 	\begin{split}
 	\frac{d X (t)}{dt} &= \mu(t) X(t) - D(t) (1+r)X(t)+rD(t)X_r(t)\\
@@ -120,7 +120,7 @@ and the parameters are:
 \end{itemize}
 
 The values of all the parameters are given in %
-\begin{table}
+\begin{table}[tb]
 	\centering
 	\caption{Parameter values for the WWTP model}
 	\begin{tabular}{lll}
@@ -134,41 +134,264 @@ The values of all the parameters are given in %
 	\label{tab:ParamValues}
 \end{table}
 %
-Table~\ref{tab:ParamValues} while the value of the variables in the selected operation point is given in %
+Table~\ref{tab:ParamValues}, while the value of the variables in the selected operation point is given in %
 %
 \begin{table}[tb]
 	\centering
 	\caption{Variables values for WWTP in operation point}
 	\begin{tabular}{ll}
 		\toprule
-		$Q_{air0} = 27.5735$ & $D_0 =  0.025$ \\
+		$Q_{air0} = 27.57$ & $D_0 =  0.025$ \\
 		$S_{in0} = \SI{200}{\milli\gram\per\liter}$ & $DO_{in0} = \SI{0.5}{\milli\gram\per\liter}$\\
-		$X_0 = 298.2353$ & $S0 = 10.2941$\\
-		$DO_0 = 5.0$ & $X_{r0} = 596.4706$\\
+		$X_0 = 298.24$ & $S0 = 10.29$\\
+		$DO_0 = 5.00$ & $X_{r0} = 596.47$\\
 		\bottomrule
 	\end{tabular}
+	\label{tab:WTPOP}
 \end{table}
+%
+Table~\ref{tab:WTPOP}.
+
+The idea is to study the relationship between the \gls{iae} for the closed-loop regulation against the dilution rate disturbances and the \gls{tv} of the aeration rate. The \gls{iae} represents the performance of the plant while the \gls{tv} is an indirect measure of the energy required to accomplished that level of performance. It is expected that a good disturbance rejection response (lower \gls{iae}) implies a higher \gls{tv} (which means a more aggressive control signal).
+
+The closed-loop is controlled by means of a PI controller that manipulates the aeration rate in order to keep the dissolved oxygen concentration in the reactor around $5.0$ in the presence of dilution rate disturbances. The model was implemented with an S-function and the simulation where performed using \simulink. The implementation of the model can be found in the software companion to this book and is represented in Figure~\ref{fig:Ch5SimulinkWTPModel}. The parameters of the WTP can be varied by means of a mask, as presented in Figure~\ref{fig:Ch5WTPMask}. The parameters and the initial conditions can be set manually, alternatively, an initialization script is also included, with the parameter and variables values presented in Table~\ref{tab:ParamValues} and Table~\ref{tab:WTPOP}.
+%
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=\linewidth]{Ch5SimulinkWTPModel}
+	\caption{\simulink implementation of the WWTP model.}
+	\label{fig:Ch5SimulinkWTPModel}
+\end{figure}
+%
+\begin{figure}[tb]
+	\centering
+	\includegraphics[width=0.4\linewidth]{Ch5WTPMask}
+	\caption{Mask that allows to change the parameters of the WWTP model.}
+	\label{fig:Ch5WTPMask}
+\end{figure}
+
+The implementation of the controller is very simple, a more complete version is used in Section~\ref{sec:CSTRVandeVusse}, where a chemical process is used to show the multivariable approach presented in this book. The IAE and TV values are also computed within the \simulink model.
+
+In Section~\ref{sec:ParetoApproach}, some methods to produce the front are presented, however, for this practical example, a more basic approach is taken. The idea can be summarized as follows: Varying the values of $K_p$ and $T_i$ within a certain range, compute both \gls{iae} and \gls{tv} for all possible combinations. From this data, found the Pareto front.
+
+This procedure is simple, however it is necessary to do a simulation of the system for every point, as presented in Figure~\ref{fig:Ch5ParetoWTP}. %
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{Ch5ParetoWTP}
+	\caption{Result of the simulation for WTP considering \gls{iae} and \gls{tv}.}
+	\label{fig:Ch5ParetoWTP}
+\end{figure}
+%
+This figure represents 2500 simulations where the resulting \gls{iae} and \gls{tv} are represented in the plane known as the function space. One expect the Pareto to be shaped like the example presented in Figure~\ref{fig:planoFun01}, however this is not necessarily true for all cases, as can be verified with this particular example. Nevertheless, the Pareto arises once all the simulations are completed. All points represents a particular set of values of $K_p$ and $T_i$. The points marked with a circle are the ones that belongs to the Pareto. All this points represents optimal values of $Kp$ and $Ti$ because, it is not possible to find any other solution capable to have a lower value for one of the functions without worsening the other function.
+
+For this particular example, the left anchor point (the one with lower value of \gls{iae}) can be considered as the the case with the controller with the best performance but with a higher consumption of energy. Since there some points above this point, it can be said that there are more costly controllers but with worst performance. It is obvious that this set of controllers are not of our interest, that is the dominated solution can be disregarded.
+
+On the other side, the anchor point on the right (the one with lower \gls{tv}) is an interesting case, in which the controller is set in open loop (the value of $K_p$ is equal to zero). The particular value of \gls{iae} for this case is totally dependent of the disturbance signal used for the simulation. However the behavior found in this example is what would be expected: better performance implies a more aggressive control signal.
+
+However, it is clear that is not efficient to find the Pareto front using brute force. Consider that, from all the points computed, only a small fraction ($8.4\%$ to be exact) correspond to cases in the front. A lot of computer power was literally wasted. Also, note that, by varying $K_p$ and $T_i$ evenly, it was not possible to found an evenly distributed front. It is also important to note that not all points that were selected as part of the Pareto may not actually belong to it. If more points were found, it may be possible to find a better representation of the front but the computation needed (an the time) will not be productive.
+
+However, once the Pareto is obtained, the user is capable to make decisions regarding the final selection of the parameters. For example, the decision maker can allow a level of degradation in \gls{iae} to obtain certain improvement on the \gls{tv}. Let's define the \gls{iae} degradation $\alpha_{iae}$ as:
+\begin{equation*}
+	\alpha_{IAE} = \frac{IAE - IAE_{min}}{IAE_{max}-IAE_{min}},
+\end{equation*}
+%
+with such definition, a value of $\alpha_{IAE} = 0$ represents zero degradation, that is, the case where the $IAE$ value is at its minimum. On the other hand, a value of $\alpha_{IAE} = 1$ represents the maximum value of \gls{iae} within the Pareto front, that is, the maximum possible degradation.
+
+With this in mind and looking at the Pareto in Figure~\ref{fig:Ch5ParetoWTP}, it is clear that, to obtain an improvement on \gls{tv} of about $20\%$, it is necessary to degrade the \gls{iae} about $50\%$. This may or may not be appropriate for the application. But, whichever point the decision maker takes as the final controller, if it is one of the points in the front, he or she can be sure that it is optimal.
+
+But the efforts should be directed to find the Pareto from the beginning, not as a subproduct of a brute force task. Now, certain techniques are shown that are intended to directly find the best representation of the Pareto with as little effort as possible. Later in the book, some tools are proposed to take advantage from the Pareto, once it has been found.
+
 \subsection{Different approaches to obtain the Pareto front}
 \label{sec:ParetoApproach}
-In its most basic form, the Pareto front is found by performing several optimizations, each of which are computed by varying some parameter. The idea is to be able to use standard optimization methods to find each point of the Pareto.
+In its most basic form, the Pareto front is found by performing several optimizations, each of which are computed by varying some kind of parameters. Because of this, the idea is to be able to use standard optimization methods to find each point of the Pareto. However, this standard methods are meant to solve single objective problems.
 
 As for single objective optimization there is two big families of methods to solve the problem: Bio-inspired methods that use some kind of heuristic in order to find the minimum of the cost function and deterministic methods mostly based on certain gradient of the function.
 
 In this section, a short review on both families is presented. However, because of the deterministic nature of the gradient based methods, in this book the later family is chosen tool for solving \gls{moop}.
-%
+
 In \citet{Zhou2011} a review on multi-objective evolutionary algorithm is presented. The author indicates that several of the algorithms are similar to the non-dominated sorting genetic algorithm II (NSGA-II) \citep{Deb2002}. Genetic algorithms are based in the idea of random mutation across generations and interchange of genes from parents to children. They also explain other kind of algorithms like particle swarm optimization which is based on the social behavior of bird flocking or fish schooling \citep{Eberhart1995}. Originally this method was employed for single function optimization, but it has been extended for multiple cost functions. Other methods that has been used for solving \gls{moop}, have a probabilistic nature like Ant Colony Optimization \citep{Dorigo2005} or the Cross Entropy method \citep{Rubinstein2004}. One drawback is that these methods are heuristic, and may yield different results each time they are computed. However, the main advantage is that they probably are able to find the global minimum of the functions.
 
-Specifically, for \gls{pid} control, evolutionary algorithms have been used in \citet{Reynoso-Meza2012b} for the multivariate process of the Wood and Berry distillation column. Another case is presented in \citet{Pierezan2014} where multi-objective Particle Swarm Optimization is applied on multivariable PID controllers tuning to improve the performance of a robotic manipulator. This method was also used in \citet{Tian2014} but applied to a nonlinear process continuous stirred tank reactor. In a general process control case, in \citet{Cespedes2016} Ant Colony Optimization, Invasive Weed Colony Optimization \citep{Mehrabian2006}, Linear Biogeography-based optimization \citep{Simon2008}, Genetic Algorithms and Particle swarm optimization are compared when solving the tuning of an industrial \gls{pid} controller for \gls{soptd} plants.
+Specifically, for \gls{pid} control, evolutionary algorithms have been used in \citet{Reynoso-Meza2012b} for the multivariate process of the Wood and Berry distillation column. Another case is presented in \citet{Pierezan2014} where multi-objective Particle Swarm Optimization is applied on multivariable PID controllers tuning to improve the performance of a robotic manipulator. This method was also used in \citet{Tian2014} but applied to a nonlinear process continuous stirred tank reactor. Also in \citet{Mahdavian2014}, a multi-objective optimization for \gls{pid} control of a greenhouse electrical lighting system based on the cost of electricity is investigated and solved using an evolutionary algorithm. Multiobjective salp swarm algorithm (MSSA) with opposition based learning initialization and evolution was used in \citet{Domingues2019} for tuning the parameters of a \gls{pid} controller for an Antilock Braking Systems with good results over NSGA-II, but the later was more consistent with the results.
 
-Also in \citet{Mahdavian2014}, a multi-objective optimization for \gls{pid} control of a greenhouse electrical lighting system based on the cost of electricity is investigated and solved using an evolutionary algorithm. Multiobjective salp swarm algorithm (MSSA) with opposition based learning initialization and evolution was used in \citet{Domingues2019} for tuning the parameters of a \gls{pid} controller for an Antilock Braking Systems with good results over NSGA-II, but the later was more consistent with the results.
+\subsubsection{Comparison of bioinspired methods for process control}
+%
+Now lets compare how is the performance of some bioinspired methods for industrial process control. In \citet{Cespedes2016} Ant Colony Optimization, Invasive Weed Colony Optimization \citep{Mehrabian2006}, Linear Biogeography-based optimization \citep{Simon2008}, Genetic Algorithms and Particle swarm optimization are compared when solving the tuning of an industrial \gls{pid} controller for \gls{soptd} plants. The main results are summarized below. These methods were used to minimize $J_{di}$, but it is important to note that, for this particular study, the methods were not implemented to produce a Pareto front (i.e. to minimize $J_r$ at the same time). The idea is just to compare different bioinspired methods computationally. However, they can be adapted to be used in multiobjective optimization problems with small changes.
 
-In the other hand, the deterministic methods are primarily based on a scalarization method. The main idea is to take all the cost functions and formulate the problem in such a way that can be readily solved using an standard optimization method. The main methods are the \gls{ws} \citep{Marler2004}, the \gls{nbi} \citep{Das1998}, the \gls{nnc} \citep{Messac2003} and the \gls{ennc} \citep{Sanchis2008}. These methods are explored in the next section and used in the rest of the book.
+\paragraph{Ant Colony Optimization}
+\label{sec:ACO}
+Ants can naturally fin the shortest path between its nest and the food source by producing some kind of chemical signaling that let the complete population know the path that most ants are using.  As pointed by \citet{Dorigo2006}: ``these  ants  deposit pheromone  on  the  ground  in  order  to  mark  some  favorable path that should be followed by other members of the colony. Ant colony optimization (ACO) exploits a similar mechanism for solving optimization problems''
+
+Initially a fixed number of ``artificial ants'' are assigned a given random path which represent the different values of the decision variables that minimize some cost function. The quantity of ``artificial pheromone'' is also assigned to each path according to the fitness of the solution. The algorithm then start to discard some paths and in the end, the path with more ``pheromone'' is supposed to represent the optimal solution \citep{Goss1989}.
+%
+\paragraph{Invasive Weed Colony Optimization}
+\label{sec:IWO}
+%
+Invasive Weed Optimization (IWO) is a search algorithm first presented in \citet{Mehrabian2006a}. The idea behind the method is based on how weed colonize and distribute the space around \citep{Binitha2012}. IWO can solve multidimensional optimization problems following the next steps:
+%
+\begin{enumerate}
+	\item Initialize the population: First a set of random initial solutions widespread over the multidimensional problem space are selected. These solution are considered as members of the weed colony. %, this random population based on VarMin, VarMax and VarSize.
+	%%
+	\item Reproduction: Each member of the population is allowed to produce seeds depending on its own, as well as the colony's, lowest and highest fitness, such that, the number of seeds produced by a weed increases linearly from lowest possible seed for a weed with worst fitness to the maximum number of seeds for a plant with best fitness (which corresponds to the lowest objective function value for a minimization problem)\citep{Kundu2011}%
+	%%
+	\item Spatial dispersal: The seeds are distributed randomly across the search space with a varying variance. The idea behind this is that the seeds will not be near (that is, be similar) to the parent plant.
+	%
+	\item Competitive exclusion: When all seeds have a defined position, they are ranked using the cost function to minimize. The weeds with lower function value are discarded, since this cost function is considered to represent the fitness of each plant, when discarding the ones with worst value, it is ensure that only the specimens with better fitness survive and are able to reproduce in the next generation.
+\end{enumerate}
+%
+\paragraph{Linear Biogeography-based optimization}
+In its original form, Biogeography is the branch of biology that studies the geographical distribution of plants and animal and the mathematical models associated with the extinction and migration of species \citep{MacArthur1967}.
+
+Biogeography-based optimization (BBO) is an evolutionary algorithm in which each possible solution to the problem is treated as an habitat (or island). The solution with a better cost function then is considered to be a better habitat  because the value of the solution is analogous to the characteristics of the habitat that let different species to thrive \citep{Simon2008}.
+
+Good habitats are considered to have high rate of emigration, because its good features allows an increase in the number of species. This increase may lead to a saturation in its capacity to house more species. The solutions with lower fitness has a high rate of immigration, because animals and plants search for less concentrated habitats to grow and reproduce.
+
+New solutions are found by mixing the characteristics of each habitats according to its emigration and immigration rates. Then, this new habitats are compared against each other, and the best ones are used to form new solutions until an optimal is found.
+
+\paragraph{Genetic Algorithms}
+The Genetic Algorithms (GA) are based on the ideas of evolution, genetics and natural selection. The main characteristics of GA are~\citep{Simon2013}:
+%
+\begin{itemize}
+	\item It tries to simulate the sexual reproduction of a biological population.
+	\item The individuals have a finite life span.
+	\item In each generation, some new characteristics of the population arises due to random mutation.
+	\item There is a positive correlation between the ability to survive and the ability to reproduce.
+\end{itemize}
+
+As in nature, the idea behind GA is that only the best fitted specimen in a population are able to reproduce, and therefore, pass it genome to the next generation. This ``fitness'' value is considered to be the cost function that is intended to be minimized \citep{Mitchell1995}.
+
+In this case, each individual is viewed as a possible solution to the problem. Its value is coded as a binary chain, simulating the genetic information of living beings. The algorithm then decides which individuals of each generation are allowed to reproduced and therefore, only the ones with a minimal the minimal cost function survive.
+%
+\paragraph{Particle swarm optimization}
+Particle swarm optimization (PSO) is also a search algorithm. But in this case, each solution in the pool of initial solutions are considered to represent an individual in a swarm (for example a flock of birds). In general, each individual is called a particle which represents a possible solution to the problem.The interesting characteristic of this method is that the adjustment of each particle depends on its history and its relationship with the neighboring particles~\citep{Shi2004}.
+
+If for example, a flock of birds is considered as the biological counterpart, the objective is to define an algorithm that mimics the movement of this flock that naturally occurs without an apparent leader, this phenomenon is usually called swarm intelligence~\citep{Kennedy1995}. At each iteration, the acceleration of each particle is changed to move them to the best solutions found.
+
+\paragraph{Comparison of each method for industrial controller tuning}
+%
+In this comparison a \gls{pid} controller is tuned as regulator using the methods presented above, for a second order overdamped system with pure time delay. The results of each method were obtained with a computer equipped with an Intel Core i5-3470 CPU at 3.20GHz and 8 GB of RAM using \matlab as programming language.
+
+For comparison purposes, the result of the optimization using the interior-point (IP) algorithm is presented. In all cases it was required that at least 125 iteration where performed in order to let all methods to explore the complete solution space. Also, in al cases, the initial solutions where selected around the same point. A total of 100 different experiments were applied to 9 different plants. The difference in the plants were the time delay and the relationship between the larger and smaller time constant. This plants are presented in %
+%
+\begin{table}[tb]%
+	\centering
+	\caption{Parameter of the test plants.}
+	\label{tab:Plants}
+	\begin{tabular}{cc}
+		\toprule
+		Plant & Parameters \{$K$, $T$, $L$, $a$\}\\
+		\midrule
+		P1 & \{1, 1, 0.1, 0.0\}\\
+		P2 & \{1, 1, 0.1, 0.5\}\\
+		P3 & \{1, 1, 0.1, 1.0\}\\
+		P4 & \{1, 1, 1.0, 0.0\}\\
+		P5 & \{1, 1, 1.0, 0.5\}\\
+		P6 & \{1, 1, 1.0, 1.0\}\\
+		P7 & \{1, 1, 2.0, 0.0\}\\
+		P8 & \{1, 1, 2.0, 0.5\}\\
+		P9 & \{1, 1, 2.0, 1.0\}\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+%
+Table~\ref{tab:Plants}. It has to be noticed in these plants that they cover all the spectrum of plants, from plats with small time delay ($L=0.1$) to plants where the time delay is twice the value of the larger time constant.
+
+It was found that all method were able to find and optimal similar to the one found using the deterministic method IP. When comparing the disturbance rejection response, presented in %
+%
+\begin{figure}[tb]%
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	xlabel={time (s)},
+	ylabel={amplitude},
+	legend pos=north east,
+	legend style = {font=\scriptsize},
+	grid=major,
+	xtick={0,2,...,20},
+	xmin=0,
+	xmax=20,
+	]
+	\addplot+[mark=none] table[x=time, y=ACO, col sep=comma]{./tablas/ComparacionJdi.csv};
+	\addplot+[mark=none,dashed] table[x=time, y=IWO, col sep=comma]{./tablas/ComparacionJdi.csv};
+	\addplot+[mark=none,dashdotted] table[x=time, y=LBBO, col sep=comma]{./tablas/ComparacionJdi.csv};
+	\addplot+[mark=none,dashdotdotted] table[x=time, y=GA, col sep=comma]{./tablas/ComparacionJdi.csv};
+	\addplot+[mark=none,loosely dashdotdotted] table[x=time, y=PSO, col sep=comma]{./tablas/ComparacionJdi.csv};
+	\legend{{ACO, IAE=1.6718},{IWO, IAE=1.273},{LBBO, IAE=1.6167},{GA, IAE=1.2934},{PSO, IAE=1.2729}}
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Simulation of the different bio-inspired optimization methods to an unitary step change in the disturbance for plant P5.}%
+	\label{fig:Disturbance}%
+\end{figure}
+%
+Fig.~\ref{fig:Disturbance}, it was found that the results of each method are acceptable. The values presented on the figure are the \gls{iae} of the regulator response, that is, the algorithm were used to take $J_{di}$ as its cost function. The lowest value was found with the PSO and IWO methods. The simulation in Fig.~\ref{fig:Disturbance} is the application of the average parameters of the controller with plant P5. Remember that the methods were applied 100 times for each case, the average was taken to minimize the random nature of the bio-inspire methods. The computational cost of each method is presented in %
+%
+\begin{table}[tb]%
+	\centering
+	\caption{Computational performance for different optimization methods and different plants.}\vspace{1mm}
+	\begin{tabular}{cccccccc}
+		\toprule
+		\multirow{2}{*}{Method} & \multicolumn{2}{c}{Number of iterations}& Function & \multicolumn{3}{c}{Iteration time}\\
+		\cline{2-3} \cline{5-7}
+		& mean & max & count & mean & max & average std dev\\
+		\midrule
+		IP & $51$ & $90$ & $284$ & $0.011$ & $0.036$ & $0.007$ \\
+		ACO & $135$ & $135$ & $6750$ & $0.118$ & $0.125$ & $0.001$\\
+		IWO & $125$ & $125$ & $6106$ & $0.059$ & $0.127$ & $0.021$\\
+		LBBO & $337$ & $500$ & $7706$ & $0.032$ & $0.052$ & $0.008$\\
+		GA & $125$ & $125$ & $6300$ & $0.073$ & $0.078$ & $0.001$\\
+		PSO & $148$ & $253$ & $2976$ & $0.060$ & $0.072$ & $0.002$\\
+		\bottomrule 
+	\end{tabular}
+	\label{tab:Results01}
+\end{table}
+%
+Table~\ref{tab:Results01}. It can be seen that the method with higher number of iteration, in average, is LBBO, followed by PSO. IWO and GA has the lowest number of mean iterations.
+
+Compared to the base case of the IP algorithm, the bio-inspired methods have a bigger function calls, because the bio-inspired methods has a large number of ``agents'' (particles, ants, genes, habitats, seeds, etc).Regarding the spent time, the algorithm that takes longer time to finish in average was ACO, and the fastest was LBBO.
+
+Of course, the servo response can also be analyzed with the obtained controllers. In %
+%
+\begin{figure}[tb]%
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	xlabel={time (s)},
+	ylabel={amplitude},
+	legend pos=south east,
+	legend style = {font=\scriptsize},
+	grid=major,
+	xtick={0,2,...,20},
+	xmin=0,
+	xmax=20,
+	]
+	\addplot+[mark=none] table[x=time, y=ACO, col sep=comma]{./tablas/ComparacionJr.csv};
+	\addplot+[mark=none,dashed] table[x=time, y=IWO, col sep=comma]{./tablas/ComparacionJr.csv};
+	\addplot+[mark=none,dashdotted] table[x=time, y=LBBO, col sep=comma]{./tablas/ComparacionJr.csv};
+	\addplot+[mark=none,dashdotdotted] table[x=time, y=GA, col sep=comma]{./tablas/ComparacionJr.csv};
+	\addplot+[mark=none,loosely dashdotdotted] table[x=time, y=PSO, col sep=comma]{./tablas/ComparacionJr.csv};
+	\legend{{ACO, IAE=2.6297},{IWO, IAE=2.7681},{LBBO, IAE=2.6531},{GA, IAE=2.6537},{PSO, IAE=2.7841}}
+	\end{axis}
+	\end{tikzpicture}
+	\caption{Simulation of the different bio-inspired optimization methods to a unitary step change in reference for plant P5.}%
+	\label{fig:Reference}%
+\end{figure}
+%
+Figure~\ref{fig:Reference}, the response to a step change in the setpoint can be observed for all methods. Since the controller used had only one degree of freedom, the controller that has better response for regulation response has the worst response for setpoint tracking. This compromise exists even when a \gls{2dof} controller is employed. It is true that for most cases, the disturbance rejection is more important the the setpoint tracking, however, in industrial processes, both responses may have to be taken into account for a correct functioning of the system. In those cases, multiobjective optimization comes handy in order to let the decision maker find the best set of parameters for the controlled loop.
+
+\subsubsection{Deterministic methods for multiobjective optimization}
+
+In its core conception, bioinspired methods are stochastic. They depend on a random set of initial solutions or they add some randomness within the algorithm. For this reason, the final solution obtained may be (hopefully) slightly different each time the optimization is performed.
+
+The classical deterministic methods are based more in the computation of a gradient, in order to minimize the cost function. Given that it exist a lot of results and well-proven algorithms to minimize the problem with this idea, it is logical to try to pose a multiobjective problem in such a way that the standard methods can be applied. One way to do this is performing a scalarization.
+
+The main idea behind this scalarization is to take all the cost functions and formulate the problem in such a way that a minimize a single function gives a result such that all functions are taken into account simultaneously. Repeatedly solving this scalar optimization methods while varying a parameter lead to find the Pareto front. According to \citet{Marler2004}, the main methods are the \gls{ws} , the \gls{nbi} \citep{Das1998}, the \gls{nnc} \citep{Messac2003} and the \gls{ennc} \citep{Sanchis2008}. These methods are explored in the next section and used in the rest of the book.
 %----------------------------------------------------
 \section{Scalarization algorithms to find the Pareto front}
 \label{sec:design-methodologies}
 
 In general, the algorithms to find the optimal value of a function are designed to be used in a single objective paradigm. In order to be able to use the same standard algorithms with a multi-objective problem, some scalarization method has to be employed.
-%
+
+The most important methods are summarized next and then applied in Chapter~\ref{chap:ApplicationExamplesNoGUI}.
+
 \subsection{Weighted Sum}
 \label{sec:WS}
 \gls{ws} methodology is a popular procedure to transform a \gls{moop} into a single objective problem by creating a new objective function that is the result of the aggregation of all the functions involved with certain weight for each one \citep{Marler2004}:
