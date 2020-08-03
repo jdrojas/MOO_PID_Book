@@ -812,9 +812,13 @@ In Figure~\ref{fig:CH7CSTRControlServoC3Sat} the output of the controlled loop a
  
 \section{Final remarks}
 \label{sec:FinalRemarks}
-The motivation of the cases presented in this chapter was to show all the advantages that can be derived from using a multiobjetive approach. However, it has to be noticed that the cost function selected for these studies are totally  arbitrary and other authors may choose to optimize the tuning of the parameters with other criteria. However, the \gls{iae} is a practical measure on the optimality of the control in industry \citep{Shinskey2002}, and for this reason was the selected cost function.
+The motivation of the examples presented in this chapter was to show all the advantages that can be derived from using a multiobjetive approach when tuning a PID controller for industrial applications. As it was shown, the final selection of the parameters was defined not only by its optimal value, but also, according to the robustness needs and the level of compromise between the cost functions.
 
-The tool presented in this book is constraint to be used with the \gls{iae} as the measure of optimality. However, the methodology presented in \ref{sec:SolMOOP} is completely general and can (and is encouraged) to be change to the needs of the decision maker.
+However, it has to be noticed that the cost function selected for these studies are totally  arbitrary and other authors may choose to optimize the tuning of the parameters with other criteria. For example, in Section~\ref{sec:ParetoPractical}, the total variation was selected as one of the cost functions and the Pareto found was considerably different than the ones found using $J_{di}$, $J_{do}$ and $J_r$. But it is known that the \gls{iae} is a practical measure on the optimality of the control in industry \citep{Shinskey2002}, and for this reason was the selected cost function for the tool presented in this book and consequently the examples examined in this chapter.
+
+Apart from the theoretical contribution of this book, the \matlab tool that is included along with the complete set of data, represents an interesting starting point for further studies. Of course the methodology presented in \ref{sec:SolMOOP} is completely general and can (and is encouraged) to be change to the needs of the decision maker.
+
+One of the most interesting characteristics of control systems is that it always implies some kind of compromise. The relationship between servo and regulation control, or between performance and aggressiveness is always something that has to be taken into account along with the need to have a robust control system that is able to keep working despite the difference between the model and the actual plant. It is the desire of the authors to have helped in the development of a deeper understanding on this issues, and to open the door to more research in the field of optimization applied to industrial control.
 
 \bibliographystyle{spbasic}
 \bibliography{ReferenciasMulti}
