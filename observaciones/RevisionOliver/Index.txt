@@ -1,0 +1,45 @@
+Index
+
+PID controller
+multiobjective optimization
+MOOP
+two degrees of freedom
+continuously stirred tank heater
+continuously stirred tank reactor
+enhanced normalized normal constraint
+ENNC
+first order plus time delay plant
+integral of the absolute value of the error
+IAE
+integral of the square error
+ISE
+integral time absolute error
+ITAE
+normal boundary intersection
+NBI
+normalized normal constraint
+NNC
+overdamped second order plus time delay
+ODSOPTD
+total variation
+TV
+weighted sum
+WS
+Proportional gain
+Time delay
+Servo
+Regulator
+Integral time
+Input signal
+Output signal
+Control signal
+Setpoint
+Pareto
+Pareto front
+cost functions
+wastewater treatment plant
+Thin Film Deposition Process
+MATLAB
+Simulink
+GUI
+Disturbances
