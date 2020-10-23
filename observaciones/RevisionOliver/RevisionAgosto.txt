@@ -1,0 +1,54 @@
+Dear José David,
+
+
+Thank you for the revised pdf. Some comments:
+
+
+1. It's still on the slim side but I'm not going to push that any further.
+
+
+I will send the manuscript to the AIC Series Editor for a Foreword to be written but there are some things that you can be looking at while it's being written:
+
+
+2. I think you should have a general read-through of the manuscript, possibly showing it to a native English speaker. I noticed a number of things that would be quickly cleaned up by a careful re-read; some of them are English glitches but many are simply typos. I attach an annotated version of page 150 as an example.
+
+
+3. There is rather a large quotation on page 46. I don't say that this definitely needs a permission and if you think it doesn't, I shall take your word for it as the acquisition of proper permissions for reproduction of third-party material is the responsibility of the author, but it is rather a large quotation; I'm afraid there's no firm guidance I can give on this - quotation of other people's text is too full of grey areas and judgements but we do give the general advice "if in doubt, get permission". My rule of thumb (and that's all it is) is that if no more than 100 words have been quoted (in total, not just in a single quotation), I ignore it as long as it's properly cited; this is rather a longer quotation than that so I'm raising the question. Assuming that the author is the rights holder for the thesis, if you did decide to get a permission, you can use the form I sent with the draft contract for the book (reattached here); if you prefer to use an e-mail without the form, please make sure you copy the text "Would you kindly grant... throughout the world" into the e-mail. In any case, it might be politic to let the author know that you've quoted his thesis.
+
+I could see no reason to raise the issue of permissions otherwise but please be sure that if you have reused any third-party material, you have adequate permission (see guidelines attached).
+
+
+4. You are correct about the contract permitting the use of the electronic extras - no further modification will be needed; please submit the MATLAB material with the final manuscript sot that we can load it onto the Springer platform; if it's possible to break the material up into material for separate chapters, please do so and note which material applies to which chapter (so that they can be associated on the website) if it's either not possible or not sensible to do so, please say that too.
+
+
+5. Other text matters that I noticed outside the example attachment:
+
+
+    a. The last line of page 142 reads “…is presented in Table 8.7 en the” "en" is plainly not right but I don't know what it's supposed to say - please check and correct.
+
+    b. Legend of Figure 5.4: I recommend that this be changed to read either “Mask that allows the parameters of the WWTP model to change” or “Mask that allows the parameters of     the WWTP model to be changed” (if the process is automatic without intervention from a human, the first is better; if a human has to get involved to change things manually, the     ​second is better) either is better English than the present version.
+
+    c. FIrst line of page 7 has a space before the full stop that needs to be removed.
+
+    d. Two lines below Table 8.3 on page 129, following "Table 8.3" in the text, there is a space before the comma that also needs to be removed.
+
+    e. I would make the following changes in section headings:
+
+     2.3.3 "2-DoF PID Controller Algorithm Conversion" or (better to my mind if more than one algorithm is or could be involved) " 2.3.3 Conversion of 2-DoF PID Controller Algorithms"
+
+     4.1.2 "Tuning based on Minimisation of a Performance Criterion" or " 4.1.2 Tuning based on Minimisation of Performance Criteria" depending on whether one performance criterion is involved or more than one.
+
+    4.2.1 "Cost Functions and Constraint Selection" or "Cost Function and Constraint Selection​"​ depending on whether it's only the constraints that are being selected (with the cost functions being used for some purpose associated with the selection) (the first option) or wether both the constraints and the cost functions are being selected (the second option). Note that although "Cost Functions and the Selection of Constraints" or "Selection of Cost Functions and Constraints" has the item(s) being selected in the plural, if the "selection" comes at the end, the item(s) being selected appear(s) in the singular even if there is more than one of them.
+
+     6.2 "High-Order Benchmark Plant"
+
+     8.1/8.2 "Continuously Stirred Tank Heater" Please pay attention to this anywhere else it occurs as well - a continuously stirred tank heater is a tank heater that is stirred without stopping; a continuous stirred tank heater is a stirred tank heater that doesn't stop or have any breaks in it. In the first case, continuously refers to the stirring, in the second to the heater, which I don't think is what you mean.
+
+
+​6. Have you prepared a list of terms for the Index?
+
+
+Best wishes,
+
+
+Oliver
