@@ -5,17 +5,17 @@
 %
 
 %
-\section{Continuous Stirred Tank Heater}
+\section{Continuously Stirred Tank Heater}
 \label{sec:CSTH}
 %
 \subsection{Description of the process}
 \label{sec:DescriptionCSTH}
 %
 The control of a \gls{csth} is a common task in industrial processes. In this section, the control of the temperature of the \gls{csth} will be solved as a \gls{moop} using a \gls{2dof} \gls{pid} controller. The diagram of the process is presented in %
-\begin{figure}[b]
+\begin{figure}[bt]
 	\centering
-	\includegraphics{Ch7CSTR}
-	\caption{Simplified diagram of a continuous stirred-tank heater to be controlled.}
+	\includegraphics[width=\linewidth]{Ch7CSTR}
+	\caption{Simplified diagram of a continuously stirred tank heater to be controlled.}
 	\label{fig:Ch7CSTR}
 \end{figure}
 Figure~\ref{fig:Ch7CSTR}. A heat exchanger is installed inside the tank to heat the fluid. The flow rate inside the heat exchanger is controlled with a valve with input variable $U_T$ and the liquid inside the heat exchanger enters with temperature $T_{ci}$ and leaves with temperature $T_{co}$, the average temperature inide the heat exchanger is $T_{ca}$. The volume inside the tank is variable, the input flow rate is $Q_i$ with temperature $T_i$. The output flow rate is $Q$ with temperature $T$. The output flow rate is controlled with a valve with input variable $U_L$. The tank is covered with a jacket that prevents any heat loss to the atmosphere.
@@ -31,7 +31,7 @@ According to \citet{Alfaro2016}, a possible model for this process is given by t
 			\begin{equation*}
 				\rho C_p A H(t) \frac{T(t)}{dt} = \rho C_p Q_i(t)\left( T_i(t) - T(t)\right) + W(t),
 			\end{equation*}
-			where $C_p$ is the heat capacity of the fluid and $W(t)$ is the rate of heat transfer from the heat exchanger to the tank. $W(t)$ can be modeled as:
+			where $C_p$ is the heat capacity of the fluid and $W(t)$ is the rate of heat transfer from the heat exchanger to the tank. %$W(t)$ can be modeled as:
 	\item Heat exchanger energy balance:
 			\begin{equation*}
 				\rho_c C_{pc} V_c \frac{T_{ca}(t)}{dt} = \rho_c C_{pc} Q_c(t)\left( T_{ci}(t)-T_{co}(t)\right) - W(t),
@@ -325,7 +325,7 @@ in Figure~\ref{fig:Ch7CSTHControlled3Fun} for the case where $M_s \leq 2.0$. As 
 %
 Table~\ref{tab:2FunCostFunctionCSTH}. The percentage increment is reported for each cost function in each case.
 
-Using Figure~\ref{fig:Ch7CSTHControlled3Fun} and Table~\ref{tab:2FunCostFunctionCSTH} , it can be confirmed that the tuning with the best parameters for $J_{di}$ produces the worst responses for the other two functions. With these results one may be prone to select the tuning for the lowest value of $J_{di}$ as the final because it does not have the worst values of the other cost functions and it has much better response for the output disturbance case. Observe for example the response for the $J_{di}$ anchor point where the response for the output disturbance is bad (it has a $J_{do}$ increment of $+90.39\%$ with respect to its lowest value). In some sense, it could be seen as the best compromise between the cost functions. Only if the control engineer is heavily invested in minimize the $J_{di}$ cost function, it may select the $J_{di}$ anchor point as the final response, however, using the multiobjective framework presented here, he or she has to be fully aware that is selecting the worst response for the other functions.
+Using Figure~\ref{fig:Ch7CSTHControlled3Fun} and Table~\ref{tab:2FunCostFunctionCSTH}, it can be confirmed that the tuning with the best parameters for $J_{di}$ produces the worst responses for the other two functions. With these results one may be prone to select the tuning for the lowest value of $J_{di}$ as the final because it does not have the worst values of the other cost functions and it has much better response for the output disturbance case. Observe for example the response for the $J_{di}$ anchor point where the response for the output disturbance is bad (it has a $J_{do}$ increment of $+90.39\%$ with respect to its lowest value). In some sense, it could be seen as the best compromise between the cost functions. Only if the control engineer is heavily invested in minimize the $J_{di}$ cost function, it may select the $J_{di}$ anchor point as the final response, however, using the multiobjective framework presented here, he or she has to be fully aware that is selecting the worst response for the other functions.
 
 Another reason to select the $J_{do}$ anchor point is related to the control effort. When the Total Variation computed as:
 \begin{equation*}
@@ -349,7 +349,7 @@ In section~\ref{sec:PIDCSTH}, the system was controlled considering only two sou
 %
 % -----------------------------------------------------------------------------------------------------------
 %
-\section{Continuous Stirred Tank Reactor}
+\section{Continuously Stirred Tank Reactor}
 \label{sec:CSTRVandeVusse}
 %
 \subsection{Description of the process}
@@ -461,7 +461,7 @@ This model was implemented as an S-Function in \matlab/\simulink and can be foun
 Figure~\ref{fig:Ch7CSTRSimulinkSystem}, the basic block with the model is presented. It has $u$ and $C_{ai}$ as inputs and $y$, $C_a$ and $C_b$ as outputs. With the intention to facilitate the characterization of the model, a mask was designed to enter the parameters and the initial value of the states. This mask can be found in %
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=0.5\linewidth]{Ch7VandeVusseParamWindow}
+	\includegraphics[width=0.7\linewidth]{Ch7VandeVusseParamWindow}
 	\caption{\simulink mask to enter parameters and initial values for the \gls{cstr} system.}
 	\label{fig:Ch7VandeVusseParamWindow}
 \end{figure}  
@@ -681,7 +681,7 @@ The designed controllers were tested using the nonlinear model of the \gls{cstr}
 	\label{fig:CH7CSTRControlServoU}
 \end{figure}
 %
-In Table~\ref{tab:CSTRIAEServo}, the \gls{iae} for the servo response to a step change in the reference at $t= \SI{1}{\second}$ is presented, with the response  plotted in Figure~\ref{fig:CH7CSTRControlServoY}. On the other hand the total variation is presented in Table~\ref{tab:CSTRTVServo} en the control signal in Figure~\ref{fig:CH7CSTRControlServoU}. All controllers where tested for all possible robustness measures.
+In Table~\ref{tab:CSTRIAEServo}, the \gls{iae} for the servo response to a step change in the reference at $t= \SI{1}{\second}$ is presented, with the response  plotted in Figure~\ref{fig:CH7CSTRControlServoY}. On the other hand the total variation is presented in Table~\ref{tab:CSTRTVServo} and the control signal in Figure~\ref{fig:CH7CSTRControlServoU}. All controllers where tested for all possible robustness measures.
 
 The first thing to notice is that for the case of $M_s \geq 2.0$, presented in Figure~\ref{fig:CH7CSTRControlServoMs10Y}, the response becomes practically unstable for the C1 tuning. The \gls{pid} controller that was implemented in \simulink have and antiwindup loop that prevents the integral part to become infinite. For the other cases the response presents important oscillations. The problem with C1 is that the gain is relatively high, which produces the controller to saturate as can be seen in Figure~\ref{fig:CH7CSTRControlServoMs10U}.
 
@@ -807,18 +807,18 @@ Lastly, lets again set the change in the setpoint to 5\%, but lets compare the d
 	\label{tab:CSTRIAEServoC3Sat}
 \end{table}
 %
-In Figure~\ref{fig:CH7CSTRControlServoC3Sat} the output of the controlled loop and the control signal is presented and in Table~\ref{tab:CSTRIAEServoC3Sat}, the values of IAE and TV are presented for both $M_s = 1.8$ and $M_s = 2.0$. As it was expected, since neither of those controllers saturates, the response with a less restrictive robustness constraint has a better IAE. However it certainly has a more aggressive control signal. The IAE for the case $M_s = 2.0$ is $4.55\%$ lower than the $M_s = 1.8$ case however it comes to a cost of having a $42.03\%$ higher TV. Considering all the analysis done to this point and having into account that the tuning were made with an several approximations from the original model, it seem that the C3 tuning (best servo allowing a 20\% degradation on $J_{di}$) with a robustness constraint of $M_s = 1.8$ is the most sensible choice as the final tuning.
+In Figure~\ref{fig:CH7CSTRControlServoC3Sat} the output of the controlled loop and the control signal is presented and in Table~\ref{tab:CSTRIAEServoC3Sat}, the values of IAE and TV are presented for both $M_s = 1.8$ and $M_s = 2.0$. As it was expected, since neither of those controllers saturates, the response with a less restrictive robustness constraint has a better IAE. However it certainly has a more aggressive control signal. The IAE for the case $M_s = 2.0$ is $4.55\%$ lower than the $M_s = 1.8$ case however it comes to a cost of having a $42.03\%$ higher TV. Considering all the analysis done to this point and having into account that the tuning were made with several approximations from the original model, it seems that the C3 tuning (best servo allowing a 20\% degradation on $J_{di}$) with a robustness constraint of $M_s = 1.8$ is the most sensible choice as the final tuning.
 %\cite{Kuntanapreeda2012}
  
 \section{Final remarks}
 \label{sec:FinalRemarks}
-The motivation of the examples presented in this chapter was to show all the advantages that can be derived from using a multiobjetive approach when tuning a PID controller for industrial applications. As it was shown, the final selection of the parameters was defined not only by its optimal value, but also, according to the robustness needs and the level of compromise between the cost functions.
+The motivation of the examples presented in this chapter was to show all the advantages that can be derived from using a multiobjective approach when tuning a PID controller for industrial applications. As has been shown,, the final selection of the parameters was defined not only by its optimal value, but also, according to the robustness needs and the level of compromise between the cost functions.
 
-However, it has to be noticed that the cost function selected for these studies are totally  arbitrary and other authors may choose to optimize the tuning of the parameters with other criteria. For example, in Section~\ref{sec:ParetoPractical}, the total variation was selected as one of the cost functions and the Pareto found was considerably different than the ones found using $J_{di}$, $J_{do}$ and $J_r$. But it is known that the \gls{iae} is a practical measure on the optimality of the control in industry \citep{Shinskey2002}, and for this reason was the selected cost function for the tool presented in this book and consequently the examples examined in this chapter.
+However, it has to be noticed that the cost functions selected for these studies are totally arbitrary and other authors may choose to optimize the tuning of the parameters with other criteria. For example, in Section~\ref{sec:ParetoPractical}, the total variation was selected as one of the cost functions and the Pareto found was considerably different from the ones found using $J_{di}$, $J_{do}$ and $J_r$. But it is known that the \gls{iae} is a practical measure of the optimality of the control in industry \citep{Shinskey2002}, and for this reason was the selected cost function for the tool presented in this book and consequently the examples examined in this chapter.
 
 Apart from the theoretical contribution of this book, the \matlab tool that is included along with the complete set of data, represents an interesting starting point for further studies. Of course the methodology presented in \ref{sec:SolMOOP} is completely general and can (and is encouraged) to be change to the needs of the decision maker.
 
-One of the most interesting characteristics of control systems is that it always implies some kind of compromise. The relationship between servo and regulation control, or between performance and aggressiveness is always something that has to be taken into account along with the need to have a robust control system that is able to keep working despite the difference between the model and the actual plant. It is the desire of the authors to have helped in the development of a deeper understanding on this issues, and to open the door to more research in the field of optimization applied to industrial control.
+One of the most interesting characteristics of control systems is that some kind of compromise is always involved. The relationship between servo and regulation control, or between performance and aggressiveness is always something that has to be taken into account along with the need to have a robust control system that is able to keep working despite the difference between the model and the actual plant. It is the desire of the authors to have helped in the development of a deeper understanding on this issues, and to open the door to more research in the field of optimization applied to industrial control.
 
 \bibliographystyle{spbasic}
 \bibliography{ReferenciasMulti}

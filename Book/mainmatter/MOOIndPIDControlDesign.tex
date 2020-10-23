@@ -22,11 +22,11 @@ In \citet{chenseborg2002} proposed a modification of the direct synthesis method
 One of the advantages of IMC is the introduction of the desired closed loop time constant which can be used by operators to manipulate the degree of robustness. In \citet{vilanovaJPC2008} proposed a robust IMC based ISA tuning rule for set-point tracking. The tuning introduces two user defined parameters and also provides an automatic tuning rule.
 
 
-\subsection{Tuning based on Minimisation of a Performance Criterions}
+\subsection{Tuning based on Minimisation of Performance Criteria}
 
-The methods based on the application of optimization techniques are an alternative to the analytical methods.
-The basic idea is to try to capture different aspects of the desired operation in closed loop under the signature of a determined cost functional to be minimized. In \citet{corripio2001} and in \citet{shinskey.1994}, for example, controllers are  optimized with respect to integral error criteria such as the  ISE, IAE and ITAE.  However, among the
-set of tuning rules in this category, ITAE is claimed to yield better performance \citet{ogatabook}. The first works in using optimization of integral criteria for deriving tuning rules where the ones of \citet{lopez1967} and \citet{Rovira1969a}   where, coming from the load disturbance based tunings of Ziegler-Nichols, tunings are provided for both load disturbance and set-point as different closed-loop operation modes. More recently, optimal tunings have been proposed \citep{Arrieta2010} for a balanced operation among both modes when two degrees of freedom are not available or, when it is not clear the predominant operation mode the control system will work on.
+The methods based on the application of optimization techniques are an alternative to the analytical methods. The basic idea is to try to capture different aspects of the desired operation in closed loop under the signature of a determined cost functional to be minimized. In \citet{corripio2001} and in \citet{shinskey.1994}, for example, controllers are  optimized with respect to integral error criteria such as the  ISE, IAE and ITAE.
+
+However, among the set of tuning rules in this category, ITAE is claimed to yield better performance \citet{ogatabook}. The first works in using optimization of integral criteria for deriving tuning rules where the ones of \citet{lopez1967} and \citet{Rovira1969a}   where, coming from the load disturbance based tunings of Ziegler-Nichols, tunings are provided for both load disturbance and set-point as different closed-loop operation modes. More recently, optimal tunings have been proposed \citep{Arrieta2010} for a balanced operation among both modes when two degrees of freedom are not available or, when it is not clear the predominant operation mode the control system will work on.
 
 Quite simple tuning rules, for different variants of the integral criteria are provided in \citet{zhuang1993} . The corresponding version for unstable and integrating systems is provided in \citet{visioli2001}. More recently, thanks in part to greater accessibility to optimization routines, powerful software and computing power, there have appeared approaches of Multiobjective optimization, such as \citet{herreros2002}  and \citet{toivonen2006}, where a generic approach is presented and its application to the particular case of a PID controller exemplified. 
 
@@ -46,7 +46,7 @@ The robustness constraint has also been incorporated into more elaborated  metho
 %
 \section{Formalization of PID tuning as a multiobjective optimization problem}
 \label{sec:FormPIDMOOP}
-\subsection{Cost functions and constraints selection}
+\subsection{Cost Function and Constraint Selection}
 \label{sec:CostFunSelec}
 When dealing with \gls{pid} tuning, it is common to define a metric either to optimize the parameters, or as a measure to check how well the tuning behaves with respect to other set of parameters.
 
