@@ -17,7 +17,7 @@ In those cases, given a set of cost functions:
 \label{eq:functions}
 \end{equation}
 %
-that depends on $n$ different variables $\xv=\left[x_1, x_2, \ldots, x_n \right]^T$, $x_i \in \mathbf{X}$, where $\mathbf{X}$ is the feasible decision space. The \gls{moop} may be formulated as follows \citep{Marler2004}:%
+that depends on $n$ different variables $\xv=\left[x_1, x_2, \ldots, x_n \right]^T$, $\xv \in \mathbf{X}$, where $\mathbf{X}$ is the feasible decision space. The \gls{moop} may be formulated as follows \citep{Marler2004}:%
 %
 \begin{subequations}%
 	\begin{align}%
@@ -32,7 +32,7 @@ that depends on $n$ different variables $\xv=\left[x_1, x_2, \ldots, x_n \right]
 where $g_j(\xv)$ is the $j$-th inequality constraint and $h_l(\xv)$ is the $l$-th equality constraint. 
 %
 \subsection{Definition of the Pareto front}
-In general, it is not possible to find a set of variables values that minimizes all $F$ functions. In fact, the optimization problem in \eqref{eq:OptProb} have multiple equally optimal solutions in the sense of the Pareto optimality. According to \citet{Marler2004}:
+In general, it is not possible to find a set of variables values that simultaneously minimizes all $F$ functions. In fact, the optimization problem in \eqref{eq:OptProb} have multiple equally optimal solutions in the sense of the Pareto optimality. According to \citet{Marler2004}:
 \begin{quote}
 	``A point $\xv^*\in \mathbf{X}$, is Pareto optimal iff there does not exist another point, $\xv \in \mathbf{X}$, such that $\mathbf{F}(\xv)\leq\mathbf{F}(\xv^*)$, and $F_i(\xv)<F_i(\xv^*)$ for at least one function''
 \end{quote}
@@ -56,7 +56,16 @@ Point ``N'' is called the pseudo-nadir point, and is defined as the point with t
 \label{sec:ParetoPractical}
 To get an insight of the concept of Pareto Front, an industrial controlled process will be considered. In this particular case, the relationship between \gls{tv} and \gls{iae} for the controller as regulator is studied. However, in the rest of the book, the compromises between the response for different sources of disturbances will be considered. The objective of this section is to show that the concept of Pareto front can be used with diverse cost functions.
 
-In Section~\ref{sec:ParetoApproach}, different approaches to obtain the Pareto are presented. For this particular example a ``brute force'' approach is taken. The process that is used as example is a wastewater treatment plant (WWTP) as presented in %
+In Section~\ref{sec:ParetoApproach}, different approaches to obtain the Pareto are presented. For this particular example a ``brute force'' approach is taken. The process that is used as example is a \gls{wwtp}.
+
+The residual water after it has been used in residential commercial or industrial zones is known as wastewater. It is collected through sewers with the intention to be treated to be later deposited in receiving waters like rivers, lakes or the sea. According to \citet{Olsson1999} ``while the primary goal of a treatment plant is to achieve an average reduction in nutrient levels, the secondary goal is disturbance rejection, to achieve good effluent quality in spite of the many disturbances''. One of the characteristics of this process is that it is subject to large variation in the influent characteristics like the substrate concentration, oxygen levels and even flow. For example in \citet{Henze1997}, it is shown an example were the influent flow at midday can reach up to 244\% of the average flow in one day, while minimum could reach 32\% of the average flow.
+
+To reduce the substrate levels, the idea is to stimulate the grow of microorganism that consume the substrate, to later be removed in the settler. This biological process is known as Activated Sludge Process (ASP) and it is one of the most important methods for wastewater treatment \citep{Henze1997}. Bacteria is the most important component of the sludge. These bacteria can remove carbon components and also nitrogenous components from the influent. To control the grow of bacteria, air is pumped into the wastewater while being store in tanks.
+
+As pointed out by \citet{Jeppsson1996}, from the point of view of the bacteria, the organic particles in the influent are used as its source of energy. Bacteria take the oxygen and the particles and produce other simpler compounds (methane for example). The air injected in the tanks is its main source of oxygen and therefore is the principal manipulated variable of the system. However it is common to also have anoxic tanks (that is, tanks without external oxygen) that are used to promote the growth of bacteria that takes the oxygen directly from the water in the tank. Anoxic tanks are used to remove the nitrogenous components. The suspended material, the sludge, is remove from the water by settlers. Part of the sludge is recirculated to the system in order to keep enough biomass in the tanks, while the rest is dispose out of the loop to be used as fertilizer.
+
+Therefore, the basic layout of a \gls{wwtp} using the ASP contains an aeration tank and a settling tank as represented in 
+as presented in %
 %
 \begin{figure}[tb]
 	\centering
@@ -65,17 +74,9 @@ In Section~\ref{sec:ParetoApproach}, different approaches to obtain the Pareto a
 	\label{sec:Ch5WTP}
 \end{figure}
 %
-Figure~\ref{sec:Ch5WTP}.
+Figure~\ref{sec:Ch5WTP}. The ``cleaned'' water is withdrawn from the top of the settler while part of the sludge is recirculated to the bioreactor and the rest is used to produce where the treated wastewater is deposited in the receiving water while a concentrated sludge is withdrawn from the bottom \citep{Henze1997}. This concentrated sludge can be recycled in order to maintain a high density of biomass in the thanks.
 
-The residual water after it has been used in residential commercial or industrial zones is known as wastewater. It is collected through sewers with the intention to be treated to be later deposited in receiving waters like rivers, lakes or the sea. According to \citet{Olsson1999} ``while the primary goal of a treatment plant is to achieve an average reduction in nutrient levels, the secondary goal is disturbance rejection, to achieve good effluent quality in spite of the many disturbances''. One of the characteristics of this process is that it is subject to large variation in the influent characteristics like the substrate concentration, oxygen levels and even flow. For example in \citet{Henze1997}, it is shown an example were the influent flow at midday can reach up to 244\% of the average flow in one day, while minimum could reach 32\% of the average flow.
-
-To reduce the substrate levels, the idea is to stimulate the grow of microorganism that consume the substrate, to later be remove in a settler. This biological process is known as Activated Sludge Process (ASP) and it is one of the most important methods for wastewater treatment \citep{Henze1997}. Bacteria is the most important component of the sludge. These bacteria can remove carbon components and also nitrogenous components from the influent. To control the grow of bacteria, air is pumped into the wastewater while being store in tanks.
-
-As pointed out by \citet{Jeppsson1996}, from the point of view of the bacteria, the organic particles in the influent are used as its source of energy. Bacteria take the oxygen and the particles and produce other simpler compounds (methane for example). The air injected in the tanks is its main source of oxygen and therefore is the principal manipulated variable of the system. However it is common to also have anoxic tanks (that is, tanks without external oxygen) that are used to promote the growth of bacteria that takes the oxygen directly from the water in the tank. This anoxic tanks are used to remove the nitrogenous components. The suspended material, the sludge, is remove from the water by settlers. Part of the sludge is recirculated to the system in order to keep enough biomass in the tanks, while the rest is dispose out of the loop to be used as fertilizer.
-
-Therefore, the basic layout of a WWTP using the ASP contains an aeration tank and a settling tank as represented in Figure~\ref{sec:Ch5WTP}. The ``cleaned'' water is withdrawn from the top of the settler while part of the sludge is recirculated to the bioreactor and the rest is used to produce where the treated wastewater is deposited in the receiving water while a concentrated sludge is withdrawn from the bottom \citep{Henze1997}. This concentrated sludge can be recycled in order to maintain a high density of biomass in the thanks.
-
-One of the characteristics of WWTPs is their high energy consumption \citep{Longo2016}. The bioreactor needs electricity to produce the aeration, move the water using pumps and continuous stirring. At the same time it is necessary to cope with disturbances coming from the influent. With this train of logic, from a control perspective, it is necessary to keep the system regulated, at the same time that the energy is minimized.
+One of the characteristics of \gls{wwtp}s is their high energy consumption \citep{Longo2016}. The bioreactor needs electricity to produce the aeration, move the water using pumps and continuous stirring. At the same time it is necessary to cope with disturbances coming from the influent. With this train of logic, from a control perspective, it is necessary to keep the system regulated, at the same time that the energy is minimized.
 
 In order to frame this problem mathematically, first a model has to be selected. In this case, the model first proposed in \cite{Nejjari1999} and slightly modified in \cite{Han2008} will be considered. This model is a fourth order non-linear set of equations found after a material balance is performed. The model is given by:
 \begin{equation}
@@ -152,37 +153,37 @@ Table~\ref{tab:WTPOP}.
 
 The idea is to study the relationship between the \gls{iae} for the closed-loop regulation against the dilution rate disturbances and the \gls{tv} of the aeration rate. The \gls{iae} represents the performance of the plant while the \gls{tv} is an indirect measure of the energy required to accomplished that level of performance. It is expected that a good disturbance rejection response (lower \gls{iae}) implies a higher \gls{tv} (which means a more aggressive control signal).
 
-The closed-loop is controlled by means of a PI controller that manipulates the aeration rate in order to keep the dissolved oxygen concentration in the reactor around $5.0$ in the presence of dilution rate disturbances. The model was implemented with an S-function and the simulation where performed using \simulink. The implementation of the model can be found in the software companion to this book and is represented in Figure~\ref{fig:Ch5SimulinkWTPModel}. The parameters of the WTP can be varied by means of a mask, as presented in Figure~\ref{fig:Ch5WTPMask}. The parameters and the initial conditions can be set manually, alternatively, an initialization script is also included, with the parameter and variables values presented in Table~\ref{tab:ParamValues} and Table~\ref{tab:WTPOP}.
+The closed-loop is controlled by means of a \gls{pi} controller that manipulates the aeration rate in order to keep the dissolved oxygen concentration in the reactor around $5.0$ in the presence of dilution rate disturbances. The model was implemented with an S-function and the simulations were performed using \simulink. The implementation of the model can be found in the software companion to this book and is represented in Figure~\ref{fig:Ch5SimulinkWTPModel}. The parameters of the \gls{wwtp} can be varied by means of a mask, as presented in Figure~\ref{fig:Ch5WTPMask}. The parameters and the initial conditions can be set manually, alternatively, an initialization script is also included, with the parameter and variables values presented in Table~\ref{tab:ParamValues} and Table~\ref{tab:WTPOP}.
 %
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=\linewidth]{Ch5SimulinkWTPModel}
-	\caption{\simulink implementation of the WWTP model.}
+	\caption{\simulink implementation of the \gls{wwtp} control system.}
 	\label{fig:Ch5SimulinkWTPModel}
 \end{figure}
 %
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.4\linewidth]{Ch5WTPMask}
-	\caption{Mask that allows the parameters of the WWTP model to be changed.}
+	\caption{Mask that allows the parameters of the \gls{wwtp} model to be changed.}
 	\label{fig:Ch5WTPMask}
 \end{figure}
 
-The implementation of the controller is very simple, a more complete version is used in Section~\ref{sec:CSTRVandeVusse}, where a chemical process is used to show the multivariable approach presented in this book. The IAE and TV values are also computed within the \simulink model.
+The implementation of the controller is very simple, a more complete version is used in Section~\ref{sec:CSTRVandeVusse}, where a chemical process is used to show the multivariable approach presented in this book. The \gls{iae} and \gls{tv} values are also computed within the \simulink{} model.
 
-In Section~\ref{sec:ParetoApproach}, some methods to produce the front are presented, however, for this practical example, a more basic approach is taken. The idea can be summarized as follows: Varying the values of $K_p$ and $T_i$ within a certain range, compute both \gls{iae} and \gls{tv} for all possible combinations. From this data, found the Pareto front.
+In Section~\ref{sec:ParetoApproach}, some methods to generate the front are presented, however, for this practical example, a more basic approach is taken. The idea can be summarized as follows: Varying the values of $K_p$ and $T_i$ within a certain range, compute both \gls{iae} and \gls{tv} for all possible combinations. From this data, found the Pareto front.
 
 This procedure is simple, however it is necessary to do a simulation of the system for every point, as presented in Figure~\ref{fig:Ch5ParetoWTP}. %
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{Ch5ParetoWTP}
-	\caption{Result of the simulation for WTP considering \gls{iae} and \gls{tv}.}
+	\caption{Result of the simulation for \gls{wwtp} considering \gls{iae} and \gls{tv}.}
 	\label{fig:Ch5ParetoWTP}
 \end{figure}
 %
-This figure represents 2500 simulations where the resulting \gls{iae} and \gls{tv} are represented in the plane known as the function space. One expect the Pareto to be shaped like the example presented in Figure~\ref{fig:planoFun01}, however this is not necessarily true for all cases, as can be verified with this particular example. Nevertheless, the Pareto arises once all the simulations are completed. All points represents a particular set of values of $K_p$ and $T_i$. The points marked with a circle are the ones that belongs to the Pareto. All this points represents optimal values of $Kp$ and $Ti$ because, it is not possible to find any other solution capable to have a lower value for one of the functions without worsening the other function.
+This figure represents 2500 simulations where the resulting \gls{iae} and \gls{tv} are represented in the plane known as the function space. One expect the Pareto to be shaped like the example presented in Figure~\ref{fig:planoFun01}, however this is not necessarily true for all cases, as can be verified with this particular example. Nevertheless, the Pareto arises once all the simulations are completed. All points represent a particular set of values of $K_p$ and $T_i$. The points marked with a circle are the ones that belong to the Pareto. All these points represent optimal values of $K_p$ and $T_i$ because, it is not possible to find any other solution capable to have a lower value for one of the functions without worsening the other function.
 
-For this particular example, the left anchor point (the one with lower value of \gls{iae}) can be considered as the the case with the controller with the best performance but with a higher consumption of energy. Since there some points above this point, it can be said that there are more costly controllers but with worst performance. It is obvious that this set of controllers are not of our interest, that is the dominated solution can be disregarded.
+For this particular example, the left anchor point (the one with lower value of \gls{iae}) can be considered as the case with the controller with the best performance but with a higher consumption of energy. Since there are some points above this point, it can be said that there are more costly controllers but with worst performance. It is obvious that this set of controllers are not of our interest, that is the dominated solution can be disregarded.
 
 On the other side, the anchor point on the right (the one with lower \gls{tv}) is an interesting case, in which the controller is set in open loop (the value of $K_p$ is equal to zero). The particular value of \gls{iae} for this case is totally dependent of the disturbance signal used for the simulation. However the behavior found in this example is what would be expected: better performance implies a more aggressive control signal.
 
