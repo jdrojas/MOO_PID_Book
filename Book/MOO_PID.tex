@@ -81,19 +81,20 @@
 \def\hasbeencalled{0}
 \newcommand\matlab{
 	\ifnum\hasbeencalled=0
-	MATLAB\textregistered{}
+	MATLAB\textregistered{}%
 	\global\def\hasbeencalled{1}
 	\else
-	MATLAB
+	MATLAB%
 	\fi
 }
 %
 \def\hasbeencalledTwo{0}
 \newcommand\simulink{
 	\ifnum\hasbeencalledTwo=0
-	Simulink\textregistered	\global\def\hasbeencalledTwo{1}
+	Simulink\textregistered%
+	\global\def\hasbeencalledTwo{1}
 	\else
-	Simulink
+	Simulink%
 	\fi
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

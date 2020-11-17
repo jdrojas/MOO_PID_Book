@@ -14,11 +14,11 @@
 The control of a \gls{csth} is a common task in industrial processes. In this section, the control of the temperature of the \gls{csth} will be solved as a \gls{moop} using a \gls{2dof} \gls{pid} controller. The diagram of the process is presented in %
 \begin{figure}[bt]
 	\centering
-	\includegraphics[width=\linewidth]{Ch7CSTR}
+	\includegraphics[width=0.85\linewidth]{Ch7CSTR}
 	\caption{Simplified diagram of a continuously stirred tank heater to be controlled.}
 	\label{fig:Ch7CSTR}
 \end{figure}
-Figure~\ref{fig:Ch7CSTR}. A heat exchanger is installed inside the tank to heat the fluid. The flow rate inside the heat exchanger is controlled with a valve with input variable $U_T$ and the liquid inside the heat exchanger enters with temperature $T_{ci}$ and leaves with temperature $T_{co}$, the average temperature inide the heat exchanger is $T_{ca}$. The volume inside the tank is variable, the input flow rate is $Q_i$ with temperature $T_i$. The output flow rate is $Q$ with temperature $T$. The output flow rate is controlled with a valve with input variable $U_L$. The tank is covered with a jacket that prevents any heat loss to the atmosphere.
+Figure~\ref{fig:Ch7CSTR}. A heat exchanger is installed inside the tank to heat the fluid. The flow rate inside the heat exchanger is controlled with a valve with input variable $U_T$ and the liquid inside the heat exchanger enters with temperature $T_{ci}$ and leaves with temperature $T_{co}$, the average temperature inside the heat exchanger is $T_{ca}$. The volume inside the tank is variable, the input flow rate is $Q_i$ with temperature $T_i$. The output flow rate is $Q$ with temperature $T$. The output flow rate is controlled with a valve with input variable $U_L$. The tank is covered with a jacket that prevents any heat loss to the atmosphere.
 
 According to \citet{Alfaro2016}, a possible model for this process is given by the following set of algebraic-differential equations:
 \begin{itemize}
@@ -123,7 +123,7 @@ Taking this model in consideration, it can be said that, from the point of view 
 	\end{tabular}
 \end{table}
 %
-Table~\ref{tab:ParametersCSTH}. This model was implemented in \simulink and can be found with the companion software. In %
+Table~\ref{tab:ParametersCSTH}. This model was implemented in \simulink{} and can be found with the companion software. In %
 %
 \begin{figure}[tb]
 	\centering
@@ -140,11 +140,11 @@ Figure~\ref{fig:Ch7Implementation}. Each equation of the model was implemented i
 	\label{fig:Ch7HeatExhangerEq}
 \end{figure}
 %
-Figure~\ref{fig:Ch7HeatExhangerEq} the \simulink implementation of the heat exchanger energy balance is presented. The result of this submodel is the computation of the state variable $T_{ca}$, which represents the average temperature of the heating fluid. As it can be seen, the parameters of the model are not hard-coded in the \simulink blocks, instead a parameter initialization script is call before the simulation starts. If the user desires to change any value of the parameters, it can be done globally in the script and then automatically called during the simulation.
+Figure~\ref{fig:Ch7HeatExhangerEq} the \simulink{} implementation of the heat exchanger energy balance is presented. The result of this submodel is the computation of the state variable $T_{ca}$, which represents the average temperature of the heating fluid. As it can be seen, the parameters of the model are not hard-coded in the \simulink{} blocks, instead a parameter initialization script is called before the simulation starts. If the user desires to change any value of the parameters, it can be done globally in the script and then automatically called during the simulation.
 
 \subsection{Simplified linear model}
 \label{sec:SimpLinMod}
-In order to find a PID controller using the MOOTuning app, it is necessary to find a linear model of the plant in the operation point. An identification procedure was performed with a change of 10\% in the value of $U_T$ to find the transfer function between $Y_T$ and $U_T$. The response to this change is depicted in %
+In order to find a \gls{pid} controller using the MOOTuning app, it is necessary to find a linear model of the plant in the operation point. An identification procedure was performed with a change of 10\% in the value of $U_T$ to find the transfer function between $Y_T$ and $U_T$. The response to this change is depicted in %
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=\columnwidth]{Ch7CSTHResp}
@@ -154,7 +154,7 @@ In order to find a PID controller using the MOOTuning app, it is necessary to fi
 %
 Figure~\ref{fig:Ch7CSTHResp}. As it can be seen, the response is overdamped and takes approximately \SI{500}{\second} to reach a new steady state. A change in 10\% on the input signal produces a variation of approximately $3.5\%$ in the output signal. It has to be noticed that the presented signals are normalized between 0 and 100\% representing the full spam of the transmitter and actuators.
 
-In order to find the model, the process was supposed to have two poles, no zeros and a pure time-delay (also known as dead-time). Of course, if a linearization procedure were performed using the nonlinear model, a seventh order model would be obtained. However, for PID tuning, a first or second order model is usually expected to tune the controller.
+In order to find the model, the process was supposed to have two poles, no zeros and a pure time-delay (also known as dead-time). Of course, if a linearization procedure were performed using the nonlinear model, a seventh order model would be obtained. However, for \gls{pid} tuning, a first or second order model is usually expected to tune the controller.
 
 Considering the experiment performed with the data as depicted in Figure~\ref{fig:Ch7CSTHResp}, the resulting simplified model is given by:
 %
@@ -174,7 +174,7 @@ To test the validity of this simplified model, the response of the transfer func
 	\label{fig:Ch7CSTHComp}
 \end{figure}
 %
-Figure~\ref{fig:Ch7CSTHComp}. It is clear that the non-linear model is a good representation of the dynamical response of the process. This is the first step in order to find a suitable PID controller to control the plant. In \citet{Alfaro2016} the level of the tank is also controlled, however the dynamic of the level is simpler (its model can be approximated with a first order model without delay) and in this particular example, only the temperature is going to be controlled, while the level is considered to be constant.
+Figure~\ref{fig:Ch7CSTHComp}. It is clear that the non-linear model is a good representation of the dynamical response of the process. This is the first step in order to find a suitable \gls{pid} controller to control the plant. In \citet{Alfaro2016} the level of the tank is also controlled, however the dynamics of the level is simpler (its model can be approximated with a first order model without delay) and in this particular example, only the temperature is going to be controlled, while the level is considered to be constant.
 %
 \subsection{PID control of the CSTH considering two integral cost functions}
 \label{sec:PIDCSTH}
@@ -238,9 +238,9 @@ The values of the computed values can be found on %
 	\label{tab:CompPIDCSTH}
 \end{table}
 %
-Table~\ref{tab:CompPIDCSTH}, along with its associated values of $J_{di}$ and $J_r$. The Murril and Rovira methods presented in the table were selected because they are intended to minimize the \gls{iae}. In all cases, the PID tuning is for a one degree of freedom controller (that is  the reason why $\beta$ is equal to one).
+Table~\ref{tab:CompPIDCSTH}, along with its associated values of $J_{di}$ and $J_r$. The Murril and Rovira methods presented in the table were selected because they are intended to minimize the \gls{iae}. In all cases, the \gls{pid} tuning is for a one degree of freedom controller (that is  the reason why $\beta$ is equal to one).
 
-The PID that can be found using the data and the framework presented in Chapter~\ref{chap:PIDMOOP} is a \gls{soptd}, which may do the comparison somehow unfair. However, the idea now is to compare methods that tries to minimize the \gls{iae}. Using the MOOTuning Tool that accompanies this book, the Pareto front that was found is given as in %
+The \gls{pid} that can be found using the data and the framework presented in Chapter~\ref{chap:PIDMOOP} is a \gls{2dof} controller, which may do the comparison somehow unfair. However, the idea now is to compare methods that tries to minimize the \gls{iae}. Using the MOOTuning Tool that accompanies this book, the Pareto front that was found is given as in %
 %
 \begin{figure}[tb]
 	\centering
@@ -249,7 +249,7 @@ The PID that can be found using the data and the framework presented in Chapter~
 	\label{fig:Ch7CompPareto}
 \end{figure}
 %
-Figure~\ref{fig:Ch7CompPareto}. As it was expected, all the controllers found using the \gls{moo} tool present lower values for $J_{di}$ and $J_r$. If all controllers had the same topology, most certainly both controller would be close to the anchor points. However, what it is important here is the fact that, using the tool, the user has the ability to chose between practically an infinity of possible controllers. From the Pareto front, three different tuning were selected in order to compare the responses using the non-linear plant. The values of the parameters are presented also in Table~\ref{tab:CompPIDCSTH} and depicted as circles in the Pareto front in Figure~\ref{fig:Ch7CompPareto}.
+Figure~\ref{fig:Ch7CompPareto}. As it was expected, all the controllers found using the \gls{moo} tool present lower values for $J_{di}$ and $J_r$. If all controllers had the same topology, most certainly both controller would be close to the anchor points. However, what it is important here is the fact that, using the tool, the user has the ability to chose between practically an infinity of possible controllers. From the Pareto front, three different tunings were selected in order to compare the responses using the non-linear plant. The values of the parameters are presented also in Table~\ref{tab:CompPIDCSTH} and depicted as circles in the Pareto front in Figure~\ref{fig:Ch7CompPareto}.
 %
 \begin{figure}[tb]
 	\centering
@@ -267,9 +267,9 @@ Figure~\ref{fig:Ch7CompPareto}. As it was expected, all the controllers found us
 
 In Figures~\ref{fig:Ch7CompParetoReg} and \ref{fig:Ch7CompParetoServo} the responses to a step change in the setpoint and in the disturbance are presented. The corresponding values of \gls{iae} are also presented in the graph. In all cases, the robustness was not considered as a constraint. but it is possible to include it within the MOOTuning software. From Figure~\ref{fig:Ch7CompPareto} given the steep slope of the curve for lower values of $J_{di}$ that a small change in $J_{di}$ may improve substantially the performance for $J_r$. Therefore, one may be more prone to select a controller that may have a little degradation in $J_{di}$ and for this reason, controller MOO01 may not be a good selection as a final solution unless having the minimum value possible of $J_{di}$ is the final goal.
 
-The controller MOO02 may be seen as an intermediate solution between MOO1 and MOO03 in case both $J_{di}$ and $J_r$ are equally important for the decision maker. The power of the multiobjective framework is evident, and giving that the computational power is done offline, it becomes a good tool for the tuning of PIDs in an industrial setting.
+The controller MOO02 may be seen as an intermediate solution between MOO1 and MOO03 in case both $J_{di}$ and $J_r$ are equally important for the decision maker. The power of the multiobjective framework is evident, and giving that the computational work is done offline, it becomes a good tool for the tuning of PIDs in an industrial setting.
 
-To check how the tuning performs with the nonlinear model, a simulation was performed using the tuning of the controller $MOO02$. The setpoint was increased by $5\%$ at $t=\SI{100}{\second}$ and the temperature of the steam was increased by $\SI{10}{\celsius}$ at $t=\SI{700}{\second}$. The response is presented in %
+To check how the tuning performs with the nonlinear model, a simulation was performed using the tuning of the controller MOO02. The setpoint was increased by $5\%$ at $t=\SI{100}{\second}$ and the temperature of the steam was increased by $\SI{10}{\celsius}$ at $t=\SI{700}{\second}$. The response is presented in %
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=\columnwidth]{Ch7CSTRControlled}
@@ -277,7 +277,7 @@ To check how the tuning performs with the nonlinear model, a simulation was perf
 	\label{fig:Ch7CSTRControlled}
 \end{figure}
 %
-Figure~\ref{fig:Ch7CSTRControlled}. As it can be seen, the servo response is very close to the one presented in Figure~\ref{fig:Ch7CompParetoServo}, which is a clear indicator that the linear model was a good approximation of the plant at the given operation point. The response to the change in the stem temperature cannot be compared with the regulation presented in Figure~\ref{fig:Ch7CompParetoReg}, because the disturbance was not applied directly in the input of the plant. However, it is interesting to note that the controller was able to respond with a good dynamic even though it was not optimize for this case.
+Figure~\ref{fig:Ch7CSTRControlled}. As it can be seen, the servo response is very close to the one presented in Figure~\ref{fig:Ch7CompParetoServo}, which is a clear indicator that the linear model was a good approximation of the plant at the given operation point. The response to the change in the stem temperature cannot be compared with the regulation presented in Figure~\ref{fig:Ch7CompParetoReg}, because the disturbance was not applied directly at the input of the plant. However, it is interesting to note that the controller was able to respond with a good dynamic even though it was not optimized for this case.
 
 The controlled variable is presented in %
 \begin{figure}[tb]
@@ -287,13 +287,13 @@ The controlled variable is presented in %
 	\label{fig:Ch7CSTRControlledCV}
 \end{figure}
 %
-Figure~\ref{fig:Ch7CSTRControlledCV}. When the setpoint change, the response of the controller is abrupt (more than double its original value), but then the value rapidly reach the new setpoint. The change produced by the disturbance has a milder response, and in less than \SI{200}{\second} reach again a new steady state.
+Figure~\ref{fig:Ch7CSTRControlledCV}. When the setpoint changes, the response of the controller is abrupt (more than double its original value), but then the value rapidly reaches the new setpoint. The change produced by the disturbance has a milder response, and in less than \SI{200}{\second} reach again a new steady state.
 
-The case presented here tried to show the steps to use the Pareto front as the methodology to find the controller tuning more appropriate to the task. The example is a simple plant, but very representative of the dynamics that can be found in an industry environment. Many of the plants can be modeled as a second order overdamped process, and therefore, the tool and the data used in this book are readily applied in many cases.
+The case presented here was intended to show the steps to use the Pareto front as the methodology to find the controller tuning more appropriate to the task. The example is a simple plant, but very representative of the dynamics that can be found in an industry environment. Many of the plants can be modeled as a second order overdamped process, and therefore, the tool and the data used in this book are readily applied in many cases.
 
 \subsection{PID control of the CSTH considering three integral cost functions}
 \label{sec:PIDCSTH3Fun}
-The MOOTuning software also is able to find the optimal parameters of a PID controllers considering three cost functions as presented in Section~\ref{sec:Tuning3PID}. Of course, it is not necessary to use this software since the data base with all the values is also part of the companion software, but the \matlab app has the advantage to be a simple interface between the user and the data.
+The MOOTuning software is also able to find the optimal parameters of a \gls{pid} controllers considering three cost functions as presented in Section~\ref{sec:Tuning3PID}. Of course, it is not necessary to use this software since the data base with all the values is also part of the companion software, but the \matlab{} app has the advantage to be a simple interface between the user and the data.
 
 As an example, the tuning tool is used to find the parameters of the controller that has the lowest $J_{do}$ value. This case is interesting because the anchor point where $J_{do}$ has the lowest value, neither the value of $J_r$ nor $J_{di}$ have their maximum value. On the other hand, when $J_{r}$ is set to be the lowest possible value, $J_{do}$ becomes the function that has an intermediate value but $J_{di}$ has its maximum value from the Pareto. Only for the anchor point where $J_{di}$ is minimum, both $J_r$ and $J_{do}$ get their maximum value. The responses for the three anchor points are depicted %
 \begin{figure}[tb]
@@ -325,9 +325,9 @@ in Figure~\ref{fig:Ch7CSTHControlled3Fun} for the case where $M_s \leq 2.0$. As 
 %
 Table~\ref{tab:2FunCostFunctionCSTH}. The percentage increment is reported for each cost function in each case.
 
-Using Figure~\ref{fig:Ch7CSTHControlled3Fun} and Table~\ref{tab:2FunCostFunctionCSTH}, it can be confirmed that the tuning with the best parameters for $J_{di}$ produces the worst responses for the other two functions. With these results one may be prone to select the tuning for the lowest value of $J_{di}$ as the final because it does not have the worst values of the other cost functions and it has much better response for the output disturbance case. Observe for example the response for the $J_{di}$ anchor point where the response for the output disturbance is bad (it has a $J_{do}$ increment of $+90.39\%$ with respect to its lowest value). In some sense, it could be seen as the best compromise between the cost functions. Only if the control engineer is heavily invested in minimize the $J_{di}$ cost function, it may select the $J_{di}$ anchor point as the final response, however, using the multiobjective framework presented here, he or she has to be fully aware that is selecting the worst response for the other functions.
+Using Figure~\ref{fig:Ch7CSTHControlled3Fun} and Table~\ref{tab:2FunCostFunctionCSTH}, it can be confirmed that the tuning with the best parameters for $J_{di}$ produces the worst responses for the other two functions. With these results one may be prone to select the tuning for the lowest value of $J_{di}$ as the final choice because it does not have the worst values of the other cost functions and it has much better response for the output disturbance case. Observe for example the response for the $J_{di}$ anchor point where the response for the output disturbance is bad (it has a $J_{do}$ increment of $+90.39\%$ with respect to its lowest value). In some sense, it could be seen as the best compromise between the cost functions. Only if the control engineer is heavily invested in minimize the $J_{di}$ cost function, it may select the $J_{di}$ anchor point as the final response, however, using the multiobjective framework presented here, he or she has to be fully aware that is selecting the worst response for the other functions.
 
-Another reason to select the $J_{do}$ anchor point is related to the control effort. When the Total Variation computed as:
+Another reason to select the $J_{do}$ anchor point is related to the control effort. When the \gls{tv} computed as:
 \begin{equation*}
 TV = \sum_{i=0}^{N-1}\left(  u(i+1)-u(i)\right),
 \end{equation*}
@@ -430,7 +430,7 @@ These parameters give the system a wide range of operation. In %
 \end{figure}
 Figure~\ref{fig:Ch7VandeVusseOP} it can be seen that with the value of $C_{Ai0}$ given and the input at $60\%$, the output yield $70\%$. In the figure the dashed lines represents the variation due to $\pm 10\%$ variation of $C_{Ai}$. It can be seen that, with a $100 \%$ value for $u$ and a variation of $10\%$ of $C_{Ai}$, the output is less than $100\%$ of the capacity of the sensor.
 
-The concentration of $C_a$ and $C_b$ are both plotted in %
+The concentration of $C_A$ and $C_B$ are both plotted in %
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{Ch7VandeVusseOPStates}
@@ -438,9 +438,9 @@ The concentration of $C_a$ and $C_b$ are both plotted in %
 	\label{fig:Ch7VandeVusseOPStates}
 \end{figure}
 %
-Figure~\ref{fig:Ch7VandeVusseOPStates}. The $C_a$ concentration is on the horizontal axis is while the $C_b$ concentration is on the vertical axis. The selected operation point is represented with a circle in the curve and also the curves with the variation on the value of $C_{Ai}$ are also presented. As it can be seen, in the operation point selected, the curves start to diverge, which means that the model has a larger dependency on the variation of the input concentration. This has to be taken into account when designing the feedback controller.
+Figure~\ref{fig:Ch7VandeVusseOPStates}. The $C_A$ concentration is on the horizontal axis is while the $C_B$ concentration is on the vertical axis. The selected operation point is represented with a circle in the curve and also the curves with the variation on the value of $C_{Ai}$ are also presented. As it can be seen, in the operation point selected, the curves start to diverge, which means that the model has a larger dependency on the variation of the input concentration. This has to be taken into account when designing the feedback controller.
 
-When considering the transient response to a change in the input flow $u$, the response is as given in %
+When considering the transient response to a change in the input $u$, the response is as given in %
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{Ch7VandeVusseStep}
@@ -458,16 +458,16 @@ This model was implemented as an S-Function in \matlab/\simulink and can be foun
 	\label{fig:Ch7CSTRSimulinkSystem}
 \end{figure}
 %
-Figure~\ref{fig:Ch7CSTRSimulinkSystem}, the basic block with the model is presented. It has $u$ and $C_{ai}$ as inputs and $y$, $C_a$ and $C_b$ as outputs. With the intention to facilitate the characterization of the model, a mask was designed to enter the parameters and the initial value of the states. This mask can be found in %
+Figure~\ref{fig:Ch7CSTRSimulinkSystem}, the basic block with the model is presented. It has $u$ and $C_{Ai}$ as inputs and $y$, $C_A$ and $C_B$ as outputs. With the intention to facilitate the characterization of the model, a mask was designed to enter the parameters and the initial value of the states. This mask can be found in %
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.7\linewidth]{Ch7VandeVusseParamWindow}
 	\caption{\simulink mask to enter parameters and initial values for the \gls{cstr} system.}
 	\label{fig:Ch7VandeVusseParamWindow}
 \end{figure}  
-Figure~\ref{fig:Ch7VandeVusseParamWindow}. All the values of the parameters can be set on the \matlab workspace and use directly on the mask. This is and advantage in case the user desires to use another set of parameters or compare the response of the system with different values.
+Figure~\ref{fig:Ch7VandeVusseParamWindow}. All the values of the parameters can be set on the \matlab{} workspace and use directly on the mask. This is and advantage in case the user desires to use another set of parameters or compare the response of the system with different values.
 
-The objective of this example is to control the reactor using the multiobjective approach. In order to use the framework and the \matlab app, it is necessary to find a suitable linear second order model. Next, the procedure to find this model is presented.
+The objective of this example is to control the reactor using the multiobjective approach. In order to use the framework and the \matlab{} app, it is necessary to find a suitable linear second order model. Next, the procedure to find this model is presented.
 
 \subsection{Linearization}
 \label{sec:CSTRLin}
@@ -512,7 +512,7 @@ It has to be clear that this transfer function is only an approximation of the m
 %
 Figure~\ref{fig:Ch7CSTRLinear}. As it can be seen, the linear model represents the transient response well, however it fails to predict the steady state. Of course, the smaller the change in the input, the better is the the approximation for both the transient and the steady state response.
 
-However, the model that is expected in the \matlab app does not contemplate a non-minimum phase zero in the model. Using the model reduction rules of \citet{Skogestad2003}, the \gls{soptd} model ends as:
+However, the model that is expected in the \matlab{} app does not contemplate a non-minimum phase zero in the model. Using the model reduction rules of \citet{Skogestad2003}, the \gls{soptd} model ends as:
 \begin{equation}
 	F_{aprox} = \frac{0.368 e^{-0.331}}{0.193 s^2 + 0.878 s +1}.
 	\label{eq:Faprox}
@@ -525,10 +525,10 @@ which corresponds to approximate the non-minimum phase zero by a time delay. The
 	\label{fig:Ch7CSTRLinearSkogestad}
 \end{figure}
 %
-Figure~\ref{fig:Ch7CSTRLinearSkogestad}. Of course, the dynamic model is quite different from the original nonlinear model, both in the transient and steady states. Since the controller is going to be designed with the linearized time-delayed transfer function, it is necessary to consider some restriction on the performance in order to give certain robustness to the design.
+Figure~\ref{fig:Ch7CSTRLinearSkogestad}. Of course, the dynamic model is quite different from the original nonlinear model, both in the transient and steady states. Since the controller is going to be designed with the linearized time-delayed transfer function, it is necessary to consider some constraint on the performance in order to give certain robustness to the design.
 
 \subsection{Controller design}
-For this particular example, the design of the controller parameters will contemplate three different robustness cases: without any restriction to the value of \gls{ms}, $M_s = 2.0$ and $M_s = 1.8$. The MOOTuning app is able to introduce the robustness as a restriction in the design. However, it is limited to certain values of $M_s$ which are considered to be reasonable for an industrial control applications.
+For this particular example, the design of the controller parameters will contemplate three different robustness cases: without any constraint to the value of \gls{ms}, $M_s = 2.0$ and $M_s = 1.8$. The MOOTuning app is able to introduce the robustness as a constraint in the design. However, it is limited to certain values of $M_s$ which are considered to be reasonable for an industrial control applications.
 
 In this particular example, only $J_{r}$ and $J_{di}$ are going to be considered. The design is based on the model in \eqref{eq:Faprox} and will be tested on the nonlinear model as well. Several points of the Pareto are going to be tested: the two anchor points (C1 for best regulator and C2 for best servo), the best regulator possible with a 20\% degradation on $J_r$ (C3) and the best servo possible with a 20\% degradation on $J_{di}$ (C4).
 %
@@ -601,7 +601,7 @@ The control signals for the controllers are presented in Figures~\ref{fig:Ch7CST
 	\label{fig:Ch7CSTRControlC2U}
 \end{figure}
 %
-For the case of C1 controllers, the control signal varies significantly according to the robustness value. The case without any constraint has a larger peak and more oscillatory response than any of the other controllers. It is interesting, however, to note that the control signal for the C2 controllers are very similar and again, this is due to the presence of the $\beta$ parameter. The fact that an unconstrained controller may be applied to the controlled system has to be taken with caution, because in this design, the model used for the controller tuning is known to be different that the system. Therefore, applying an aggressive control signal may lead to unwanted oscillatory behavior and even instability.
+For the case of C1 controllers, the control signal varies significantly according to the robustness value. The case without any constraint has a larger peak and more oscillatory response than any of the other controllers. It is interesting, however, to note that the control signal for the C2 controllers are very similar and again, this is due to the presence of the $\beta$ parameter. The fact that an unconstrained controller may be applied to the controlled system has to be taken with caution, because in this design, the model used for the controller tuning is known to be different than the system. Therefore, applying an aggressive control signal may lead to unwanted oscillatory behavior and even instability.
 
 Now, the responses of the different controllers families can be compared for the same given robustness, for example $M_s = 2.0$ as in %
 \begin{figure}[tb]
@@ -621,12 +621,12 @@ Figure~\ref{fig:Ch7CSTRControlMs2}. For all this controllers, the robustness is 
 \end{figure}
 %
 
-However, given that all controllers are constraint to fulfill $M_s = 2.0$, the difference between them are not very notorious. It can be seen on Figure~\ref{fig:Ch7CSTRControlMs2U} that the peaks and oscillatory behavior of all controllers are practically the same. When the robustness became too thing (for example values below 1.4) the controllers for servo and regulator practically become the same and the degree of freedom to select the dynamic behavior is practically non-existent.
+However, given that all controllers are constrained to fulfill $M_s = 2.0$, the difference between them are not very notorious. It can be seen on Figure~\ref{fig:Ch7CSTRControlMs2U} that the peaks and oscillatory behavior of all controllers are practically the same. When the robustness became too tight (for example values below 1.4) the controllers for servo and regulator practically become the same and the degree of freedom to select the dynamic behavior is practically non-existent.
 
 \subsection{Validation of the controller designs}
 \label{sec:ValidationCSTR}
 %
-The designed controllers were tested using the nonlinear model of the \gls{cstr}. It is important to note that the controllers were tuned for a plant model that is different than the ``real'' plant. In this particular case, several approximations where made which were necessary in order to use the framework presented in the other chapters. Because of this, it is important to look for a solution that takes into account this possible sources of instability.
+The designed controllers were tested using the nonlinear model of the \gls{cstr}. It is important to note that the controllers were tuned for a plant model that is different than the ``real'' plant. In this particular case, several approximations where made which were necessary in order to use the framework presented in the other chapters. Because of this, it is important to look for a solution that takes into account this possible sources of uncertainty, therefore instability.
 %
 \begin{table}[tb]
 	\centering
@@ -685,9 +685,9 @@ In Table~\ref{tab:CSTRIAEServo}, the \gls{iae} for the servo response to a step 
 
 The first thing to notice is that for the case of $M_s \geq 2.0$, presented in Figure~\ref{fig:CH7CSTRControlServoMs10Y}, the response becomes practically unstable for the C1 tuning. The \gls{pid} controller that was implemented in \simulink have and antiwindup loop that prevents the integral part to become infinite. For the other cases the response presents important oscillations. The problem with C1 is that the gain is relatively high, which produces the controller to saturate as can be seen in Figure~\ref{fig:CH7CSTRControlServoMs10U}.
 
-For this particular case, controller C2 (which was expected to be the ``best'' servo) yield a better \gls{iae} when comparing the $M_s \geq 2.0$ against $M_s = 1.8$ and $M_s = 2.0$ as it was expected knowing Table~\ref{tab:CSTRDesigns}, however this is not the case for C4 controllers, because the nonlinearity of the plant and the approximations made start to take a toll on the design of the controllers.
+For this particular case, controller C2 (which was expected to be the ``best'' servo) yields a better \gls{iae} when comparing the $M_s \geq 2.0$ against $M_s = 1.8$ and $M_s = 2.0$ as it was expected knowing Table~\ref{tab:CSTRDesigns}. However this is not the case for C4 controllers, because the nonlinearity of the plant and the approximations made start to take a toll on the design of the controllers.
 
-Now consider the controllers that took into account the robustness as a constraint in the optimization. For all cases the controller are able to control the plant without oscillation (except for controller C1). As expected, controllers C2 and C4 had the best performance, but also the were more expensive (higher values of TV). However, an interesting option is controller C3. This controller was designed by allowing a 20\% degradation of $J_{di}$. Its servo response may not be the best in terms of performance but it has an interesting compromise between the control effort and the \gls{iae} value. If this degradation does not affect the regulator response too much, this controller may be considered as the final tuning.
+Now consider the controllers that took into account the robustness as a constraint in the optimization. For all cases, the controller is able to control the plant without oscillation (except for controller C1). As expected, controllers C2 and C4 had the best performance, but also the were more expensive (higher values of TV). However, an interesting option is controller C3. This controller was designed by allowing a 20\% degradation of $J_{di}$. Its servo response may not be the best in terms of performance but it has an interesting compromise between the control effort and the \gls{iae} value. If this degradation does not affect the regulator response too much, this controller may be considered as the final tuning.
 
 The next step is then to validate the response as a regulator. %
 %
@@ -744,11 +744,11 @@ The next step is then to validate the response as a regulator. %
 	\label{fig:CH7CSTRControlRegU}
 \end{figure}
 %
-Table~\ref{tab:CSTRIAEReg} the values of \gls{iae} are presented for a step change of $\SI{1}{\mole\per\liter}$ in $C_{ai}$ for all controller cases and robustness values. The corresponding values of $TV$ are presented in Table~\ref{tab:CSTRTVReg}. The plots of the responses and the control signal are shown in Figure~\ref{fig:CH7CSTRControlRegY} and Figure~\ref{fig:CH7CSTRControlRegU} respectively. As in the case of the servo response, the design for $M_s \geq 2.0$ is not useful in the C1 case, because the response is practically unstable again as depicted in Figure~\ref{fig:CH7CSTRControlRegMs10Y}. It has to be noticed that the response of the plant between $C_{ai}$ and the output does not have a non-minimum phase zero, and therefore an inverse response is not present.
+In Table~\ref{tab:CSTRIAEReg} the values of \gls{iae} are presented for a step change of $\SI{1}{\mole\per\liter}$ in $C_{ai}$ for all controller cases and robustness values. The corresponding values of $TV$ are presented in Table~\ref{tab:CSTRTVReg}. The plots of the responses and the control signal are shown in Figure~\ref{fig:CH7CSTRControlRegY} and Figure~\ref{fig:CH7CSTRControlRegU} respectively. As in the case of the servo response, the design for $M_s \geq 2.0$ is not useful in the C1 case, because the response is practically unstable again as depicted in Figure~\ref{fig:CH7CSTRControlRegMs10Y}. It has to be noticed that the response of the plant between $C_{ai}$ and the output does not have a non-minimum phase zero, and therefore an inverse response is not present.
 
 For the other cases ($M_s = 2.0$ and $M_s = 1.8$) the best controllers were the C1 family, followed by C3. This is expected since these controllers were found as the best regulators. Controller C2 has the worst regulator response but at the same time, it as also the most expensive cost signal for the case $M_s = 2.0$.
 
-Let's examine C3 controllers. The performance of this controllers are worse than C1, but just by approximately 11\%, and with a less aggressive control signal for the regulator response (Table~\ref{tab:CSTRTVReg}). Taking into account that C3 was also a family of controllers that had a relatively good performance for servo control, so far it represents a good candidate to become the final controller.
+Let's examine C3 controllers. The performance of these controllers are worse than C1, but just by approximately 11\%, and with a less aggressive control signal for the regulator response (Table~\ref{tab:CSTRTVReg}). Taking into account that C3 was also a family of controllers that had a relatively good performance for servo control, so far it represents a good candidate to become the final controller.
 
 As a final validation test, let the setpoint change to be 5\%. In that case the response is as given in %
 %
@@ -779,7 +779,7 @@ Figure~\ref{fig:CH7CSTRControlServoSat} for all controllers families and $M_s = 
 \end{table}
 %
 
-The values of IAE and TV are presented in Table~\ref{tab:CSTRIAEServoSat}. The PID was implemented to be limited in the range between 0 and 100\%, with the corresponding antiwindup. Since controllers C2 and C4 have a control signal which is more aggressive for setpoint changes, they saturate and produces larger values of IAE than the controllers intended for regulation. Interestingly, C3 controller has a lower value of IAE than any other controller while its TV value lies in between C1 and C4 controllers. Again, this test indicates that C3 controller can be a good candidate for the final tuning of the \gls{pid}.
+The values of IAE and TV are presented in Table~\ref{tab:CSTRIAEServoSat}. The \gls{pid} was implemented to be limited in the range between 0 and 100\%, with the corresponding antiwindup. Since controllers C2 and C4 have a control signal which is more aggressive for setpoint changes, they saturate and produces larger values of IAE than the controllers intended for regulation. Interestingly, C3 controller has a lower value of IAE than any other controller while its TV value lies in between C1 and C4 controllers. Again, this test indicates that C3 controller can be a good candidate for the final tuning of the \gls{pid}.
 
 Lastly, lets again set the change in the setpoint to 5\%, but lets compare the difference when C3 is selected as the controller and the $M_s$ is varied. %
 %
@@ -812,11 +812,11 @@ In Figure~\ref{fig:CH7CSTRControlServoC3Sat} the output of the controlled loop a
  
 \section{Final remarks}
 \label{sec:FinalRemarks}
-The motivation of the examples presented in this chapter was to show all the advantages that can be derived from using a multiobjective approach when tuning a PID controller for industrial applications. As has been shown,, the final selection of the parameters was defined not only by its optimal value, but also, according to the robustness needs and the level of compromise between the cost functions.
+The motivation of the examples presented in this chapter was to show all the advantages that can be derived from using a multiobjective approach when tuning a \gls{pid} controller for industrial applications. As has been shown,, the final selection of the parameters was defined not only by its optimal value, but also, according to the robustness needs and the level of compromise between the cost functions.
 
-However, it has to be noticed that the cost functions selected for these studies are totally arbitrary and other authors may choose to optimize the tuning of the parameters with other criteria. For example, in Section~\ref{sec:ParetoPractical}, the total variation was selected as one of the cost functions and the Pareto found was considerably different from the ones found using $J_{di}$, $J_{do}$ and $J_r$. But it is known that the \gls{iae} is a practical measure of the optimality of the control in industry \citep{Shinskey2002}, and for this reason was the selected cost function for the tool presented in this book and consequently the examples examined in this chapter.
+However, it has to be noticed that the cost functions selected for these studies are totally arbitrary and other authors may choose to optimize the tuning of the parameters with respect to other criteria. For example, in Section~\ref{sec:ParetoPractical}, the total variation was selected as one of the cost functions and the Pareto found was considerably different from the ones found using $J_{di}$, $J_{do}$ and $J_r$. But it is known that the \gls{iae} is a practical measure of the optimality of the control in industry \citep{Shinskey2002}, and for this reason was the selected cost function for the tool presented in this book and consequently the examples examined in this chapter.
 
-Apart from the theoretical contribution of this book, the \matlab tool that is included along with the complete set of data, represents an interesting starting point for further studies. Of course the methodology presented in \ref{sec:SolMOOP} is completely general and can (and is encouraged) to be change to the needs of the decision maker.
+Apart from the theoretical contribution of this book, the \matlab{} tool that is included along with the complete set of data, represents an interesting starting point for further studies. Of course the methodology presented in \ref{sec:SolMOOP} is completely general and can (and is encouraged to) be changed to the needs of the decision maker.
 
 One of the most interesting characteristics of control systems is that some kind of compromise is always involved. The relationship between servo and regulation control, or between performance and aggressiveness is always something that has to be taken into account along with the need to have a robust control system that is able to keep working despite the difference between the model and the actual plant. It is the desire of the authors to have helped in the development of a deeper understanding on this issues, and to open the door to more research in the field of optimization applied to industrial control.
 

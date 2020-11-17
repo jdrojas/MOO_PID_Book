@@ -1,12 +1,12 @@
 \chapter{Application of the multiobjective approach}
 \label{chap:ApplicationExamplesNoGUI}
 
-\abstract{In this chapter, the \gls{moo} techniques are tested and applied to different scenarios. A comparison fo the implementation of several linearization techniques is presented. Then, a well known benchmark problem is tackled with the presented methodology and compared with different tuning methods. Finally, a LiTaO$_3$ Thin Film Deposition Process is used as a prototype for a large dead-time process and tested using a two cost function arrangement.}
+\abstract{In this chapter, the \gls{moo} techniques are tested and applied to different scenarios. A comparison of the implementation of several scalarization techniques is presented. Then, a well known benchmark problem is tackled with the presented methodology and compared with different tuning methods. Finally, a LiTaO$_3$ Thin Film Deposition Process is used as a prototype for a large dead-time process and tested using a two cost function arrangement.}
 
 \section{Comparison of the methods to obtain the Pareto front}
 \label{sec:Comparison}
 \subsection{Performance comparison of the scalarization methods}
-In order to compare de efficiency of different linearization methods, different test were performed on the normalized process given by:
+In order to compare the efficiency of different linearization methods, different test were performed on the normalized process given by:
 %
 \begin{equation}
 \hat{P}(\hat{s}) = \frac{e^{-\tau_0 \hat{s}}}{\hat{s}+1},
@@ -52,7 +52,7 @@ Figure.~\ref{fig:RealPareto_t0_05Jdi}, the cost function $J_{di}(\hat{\theta})$ 
 \label{eq:NormContrParam}
 \end{equation}
 
-From Figure~\ref{fig:RealPareto_t0_05Jdi}, it can be concluded that the cost function $J_{di}$ is rather convex, and very flat close to its minimal value. The graph in Fig.~\ref{fig:RealPareto_t0_05Jdi} was plotted with ten thousand controller tunings of the controller taking the optimal tuning of $J_{di}(\theta)$ and $J_{do}(\theta)$ as central points. The computation time to obtain this set of data was in the range of hours. In Fig.~\ref{fig:RealParetot0_05}, the complete set of points is plotted in the objective functions plane with the corresponding Pareto front highlighted. The points that represent the Front represents only 3\% of all the points plotted in that figure. If the decision maker is only interested in the  This fact shows the necessity to use some scalarization methods like \gls{nbi} or \gls{nnc} in order to obtain only the front, without the need to compute points that will be dismissed later in the process.
+From Figure~\ref{fig:RealPareto_t0_05Jdi}, it can be concluded that the cost function $J_{di}$ is rather convex, and very flat close to its minimal value. The graph in Fig.~\ref{fig:RealPareto_t0_05Jdi} was plotted with ten thousand controller tunings of the controller taking the optimal tuning of $J_{di}(\theta)$ and $J_{do}(\theta)$ as central points. The computation time to obtain this set of data was in the range of hours. In Fig.~\ref{fig:RealParetot0_05}, the complete set of points is plotted in the objective functions plane with the corresponding Pareto front highlighted. The points that represent the Pareto front represents only 3\% of all the points plotted in that figure. This fact shows the necessity to use some scalarization methods like \gls{nbi} or \gls{nnc} in order to obtain only the front, without the need to compute points that will be dismissed later in the process.
 %
 \begin{figure}[tb]%
 \centering
@@ -62,16 +62,16 @@ From Figure~\ref{fig:RealPareto_t0_05Jdi}, it can be concluded that the cost fun
 \end{figure}
 
 %The Pareto front was obtained with 50 points using the WS, NBI, NNC and LRC methods. 
-In Fig.~\ref{fig:ParetoWSt0_05}, the result using \gls{ws} are presented. The solid line represents the real Pareto front and the points marked with a plus sign correspond to the obtained values. As it can be seen, all the points obtained with the \gls{ws} method are Pareto optimal, however its distribution is not evenly spaced and are grouped for low values of $J_{di}(\theta)$. This is expected since the shape of the Pareto front does not correspond to the relation needed to obtain a even spaced front with an even spaced parametrization of $\alpha_1$ and $\alpha_2$ as presented in \cite{Das1997}.
+In Fig.~\ref{fig:ParetoWSt0_05}, the result using \gls{ws} is presented. The solid line represents the real Pareto front and the points marked with a plus sign correspond to the obtained values. As it can be seen, all the points obtained with the \gls{ws} method are Pareto optimal, however its distribution is not evenly spaced and are grouped for low values of $J_{di}(\theta)$. This is expected since the shape of the Pareto front does not correspond to the relation needed to obtain an even spaced front with an even spaced parametrization of $\alpha_1$ and $\alpha_2$ as presented in \cite{Das1997}.
 %
 \begin{figure}[tb]%
 \centering
 \includegraphics[width=0.8\columnwidth]{ParetoWSt0_05}%
-\caption{Pareto front obtained with WS method and $\tau_0=0.5$.}%
+\caption{Pareto front obtained with \gls{ws} method and $\tau_0=0.5$.}%
 \label{fig:ParetoWSt0_05}%
 \end{figure}
 
-The result for NBI method is presented in Fig.~\ref{fig:ParetoNBIt0_05}. As it can be seen, the frontier obtained with this method is evenly spaced. It is important to note that the method find different Pareto optimal points than the WS method
+The result for \gls{nbi} method is presented in Fig.~\ref{fig:ParetoNBIt0_05}. As it can be seen, the frontier obtained with this method is evenly spaced. It is important to note that the method finds different Pareto optimal points than the \gls{ws} method
 %
 \begin{figure}[tb]%
 \centering
@@ -108,7 +108,7 @@ In Fig.\ref{fig:KpvsAlpha_t0_05.pdf} the comparison between the results for $\ka
 \label{fig:TivsAlphat0_05}
 \end{figure}
 %
-As it can be seen, \gls{nbi} and \gls{nnc} obtain the exact same points in the Pareto for all values of $\alpha$. However, there are certain differences in the results for $\tau_i$. Since \gls{nbi} depends on a equality constraint, it is more difficult for the optimization algorithm\footnote{For all the methods, the optimization problem was solved using an active-set strategy with a maximum of 1000 iterations and 1000 function evaluations.} to converge to the solution. In fact, for some cases, using the \gls{nbi} methodology lead to more than a thousand function evaluations. Since the maximum was set to one thousand evaluations, for some point the results do not exactly match. However, it is interesting to note that for all three cases, the variation in the values of $\kappa_p$ and $\tau_i$ follows certain pattern. 
+As it can be seen, \gls{nbi} and \gls{nnc} obtain the exact same points in the Pareto for all values of $\alpha$. However, there are certain differences in the results for $\tau_i$. Since \gls{nbi} depends on a equality constraint, it is more difficult for the optimization algorithm\footnote{For all the methods, the optimization problem was solved using an active-set strategy with a maximum of 1000 iterations and 1000 function evaluations.} to converge to the solution. In fact, for some cases, using the \gls{nbi} methodology leads to more than a thousand function evaluations. Since the maximum was set to one thousand evaluations, for some point the results do not exactly match. However, it is interesting to note that for all three cases, the variation in the values of $\kappa_p$ and $\tau_i$ follows certain pattern. 
 
 The computational performance of the methods has also been considered. Using MATLAB in a PC running Linux with a 3.2.0.2-amd64 kernel and an Intel Core i7 at $1.60$GHz, the results are given in Table~\ref{tab:Results}.
 %
@@ -130,7 +130,7 @@ The computational performance of the methods has also been considered. Using MAT
 	\label{tab:Results}
 \end{table}
 %
-Each Pareto front correspond to 50 points for $\tau_0=0.5$ and the table gives the values obtained regarding computational performance: number of iterations, number of function evaluations and the time spend during the process. Interestingly, it was found that \gls{nbi} has better performance than \gls{nnc} for this particular case. However, during the computation it was noticed that the \gls{nbi} reached the maximum number of evaluation in four of the fifty points whereas the \gls{nnc} method reach the same limit for just one point. If the results of the \gls{ws} is taken as the base reference, it was found that \gls{nbi} and \gls{nnc} required a lower number of iterations on average, however, they needed more function evaluation ($8\%$ and $11\%$, respectively) and more computation time ($14.74\%$ and $82.05\%$, respectively).
+Each Pareto front corresponds to 50 points for $\tau_0=0.5$ and the table gives the values obtained regarding computational performance: number of iterations, number of function evaluations and the time spend during the process. Interestingly, it was found that \gls{nbi} has better performance than \gls{nnc} for this particular case. However, during the computation it was noticed that the \gls{nbi} reached the maximum number of evaluations in four of the fifty points whereas the \gls{nnc} method reach the same limit for just one point. If the results of the \gls{ws} is taken as the base reference, it was found that \gls{nbi} and \gls{nnc} required a lower number of iterations on average, however, they needed more function evaluation ($8\%$ and $11\%$, respectively) and more computation time ($14.74\%$ and $82.05\%$, respectively).
 
 Regarding the computation of all points of the Pareto, it was found that using the \gls{ws} method $32.6$ minutes where needed, using the \gls{nbi} $37.4$ minutes where spend while using the \gls{nnc} method took $59.33$ minutes. However, it is clear that performing the computation of the Pareto front is a computational expensive task, that may no be suitable for an ``online'' tuning procedure. However, it is interesting to consider the case where the front is computed ``offline'' for a family of plants (using the normalized version) and then, use the data directly for the decision making process of choosing the final tuning of the controller.
 
@@ -139,7 +139,7 @@ In the following, the results are analyzed from a control theory point of view a
 \subsection{Analysis of the results from the control theory perspective}
 \label{sec:Control}
 %
-When the plant is varied from $\tau_0=0.1$ to $\tau_0=2$ in steps of $0.1$, the corresponding Pareto fronts are plotted in Fig.~\ref{fig:Paretos_t0_all}. It was expected that for increasing values $\tau_0$, the values of $J_{di}$ and $J_{do}$ also increase because of the inherent delay of the plant which directly affect the \gls{iae}.
+When the plant is varied from $\tau_0=0.1$ to $\tau_0=2$ in steps of $0.1$, the corresponding Pareto fronts are plotted in Fig.~\ref{fig:Paretos_t0_all}. It was expected that for increasing values $\tau_0$, the values of $J_{di}$ and $J_{do}$ also increase because of the inherent delay of the plant which directly affects the \gls{iae}, the achievable performance.
 %
 \begin{figure}[tb]%
 \centering
@@ -149,7 +149,7 @@ When the plant is varied from $\tau_0=0.1$ to $\tau_0=2$ in steps of $0.1$, the 
 \end{figure}
 %
 
-As it can be seen, depending of $\tau_0$, the values that the cost functions have can be very different. For this reason it may be interesting to compared the Paretos with a normalized version of the cost functions for the same variation on $\tau_0$. This study is presented in Figure~\ref{fig:Paretos_t0_Norm}. %
+As it can be seen, depending on $\tau_0$, the values that the cost functions have can be very different. For this reason it may be interesting to compared the Paretos with a normalized version of the cost functions for the same variation on $\tau_0$. This study is presented in Figure~\ref{fig:Paretos_t0_Norm}. %
 %
 \begin{figure}[tb]%
 	\centering
@@ -180,9 +180,9 @@ The result for $\tau_0=0.5$ is presented in Fig.~\ref{fig:ComprPoint_t0_05}. It 
 \label{fig:ComprPoint_t0_05}
 \end{figure}
 %%
-As it can be seen, the tuning of the parameters that are closer to the utopia point is the one that produces a degradation of $26\%$ in $\hat{J}_{di}(\hat{\theta})$ and a corresponding $30.52\%$ degradation in $\hat{J}_{do}(\hat{\theta})$. This point may not be suitable for the requirements of the problem at hand, but is a good start point from where the designer can choose the ``best'' (not necessarily the optimal) solution for the particular problem.
+As it can be seen, the tuning of the parameters that are closer to the utopia point is the one that produces a degradation of $26\%$ in $\hat{J}_{di}(\hat{\theta})$ and a corresponding $30.52\%$ degradation in $\hat{J}_{do}(\hat{\theta})$. This point may not be suitable for the requirements of the problem at hand, but is a good starting point from where the designer can choose the ``best'' (not necessarily the optimal) solution for the particular problem.
 
-In Figure~\ref{fig:KpvsAlpha} and \ref{fig:TivsAlpha} the variation of the parameters $\kappa_p$ and $\tau_i$ with respect to $\alpha$ for different values of $\tau_0$ are presented. For example, in the case of $\kappa_p$ higher values of $\tau_0$ gives lower values for this parameter. The variation is small with respect to the increase in the degradation of $J_{di}$ (which is represented by $\alpha$ in the figures), except for lower values of $\tau_0$. Something similar happens when $\tau_i$ is analyzed, however, in this case the value of $\tau_i$ increases when $\tau_0$ is larger, but again the variation with respect to the degradation is not very large. This is important to note, because, if the controller does not allow a precise input of the parameter tuning, it may be possible that the desire point in the Pareto front cannot be achieved for some values of $\tau_0$, since small changes in the tuning produce important changes in the degradation (in percentage). However, it has to be noted in Figure~\ref{fig:Paretos_t0_all} that the possible change in \gls{iae} for both input and output disturbances rejection is smaller for higher values of $\tau_0$ than for lower values. The relationship between $\kappa_p$ and $\tau_i$ is presented in Figure~\ref{fig:TivsKp}. The possible range of values is also smaller for higher values of $\tau_0$. 
+In Figures~\ref{fig:KpvsAlpha} and \ref{fig:TivsAlpha} the variation of the parameters $\kappa_p$ and $\tau_i$ with respect to $\alpha$ for different values of $\tau_0$ are presented. For example, in the case of $\kappa_p$ higher values of $\tau_0$ gives lower values for this parameter. The variation is small with respect to the increase in the degradation of $J_{di}$ (which is represented by $\alpha$ in the figures), except for lower values of $\tau_0$. Something similar happens when $\tau_i$ is analyzed, however, in this case the value of $\tau_i$ increases when $\tau_0$ is larger, but again the variation with respect to the degradation is not very large. This is important to note, because, if the controller does not allow a precise input of the parameter tuning, it may be possible that the desired point in the Pareto front cannot be achieved for some values of $\tau_0$, since small changes in the tuning produce important changes in the degradation (in percentage). However, it has to be noted in Figure~\ref{fig:Paretos_t0_all} that the possible change in \gls{iae} for both input and output disturbances rejection is smaller for higher values of $\tau_0$ than for lower values. The relationship between $\kappa_p$ and $\tau_i$ is presented in Figure~\ref{fig:TivsKp}. The possible range of values is also smaller for higher values of $\tau_0$. 
 %
 \begin{figure}%
 \centering
@@ -215,7 +215,7 @@ It is important to remember that each point of the Pareto front represent a diff
 	\label{fig:PIMethods}%
 \end{figure}
 %
-It is important to note that this methods are not necessarily the result of an optimization problem and therefore, they may not be in the Pareto.
+It is important to note that those methods are not necessarily the result of an optimization problem and therefore, they may not belong to the Pareto.
 
 The tuning of \citet{Murril1967} was created with the intention of minimize the \gls{iae} for input disturbances. This explains the fact that the value of $J_{di}$ for this controller is very close to the anchor point where $J_{di}$ is minimal. In the case of Rovira~\citep{Rovira1969}, it was designed to minimize the servo response of the closed loop controller. In this particular case, given that the controller used in the Pareto is a one degree of freedom \gls{pi}.
 
@@ -231,7 +231,9 @@ In this particular section, the obtained Paretos did not considered the robustne
 \end{figure}
 %
 
-Of course, the robustness of the controlled system is not good for a real application of the controller. It is generally accepted that a value of two or lower is a desirable, and in this cases, almost all of them has a value of $M_S$ greater than 2. However, it is possible to consider the robustness inside the optimization problem, either as a cost function or as constraint. As an example, consider the case of $\tau_0=0.5$ presented in Figure~\ref{fig:Pareto10000MS16}. When the case for $M_S\leq 1.6$ is considered, the feasible region is shrink considerably. In this case, the Pareto front for the optimal tuning is outside the new feasible region and therefore, a completely different Pareto front would be obtained when the optimization methods are run with this new constraint. Depending of the desired value of $M_S$ and the given value of $\tau_0$, it may be possible that the optimal frontier also satisfy the robustness constraint.
+Of course, the robustness of the controlled system is not good for a real application of the controller. It is generally accepted that a value of two or lower is a desirable, and in this cases, almost all of them has a value of $M_S$ greater than 2. However, it is possible to consider the robustness inside the optimization problem, either as a cost function or as constraint. As an example, consider the case of $\tau_0=0.5$ presented in Figure~\ref{fig:Pareto10000MS16}. When the case for $M_S\leq 1.6$ is considered, the feasible region is shrinks considerably. In this case, the Pareto front for the optimal tuning is outside the new feasible region and therefore, a completely different Pareto front would be obtained when the optimization methods are run with this new constraint.
+
+Depending on the desired value of $M_S$ and the given value of $\tau_0$, it may be possible that the optimal frontier also do satisfy the robustness constraint.
 %
 \begin{figure}%
 \centering
@@ -268,7 +270,7 @@ alternatively, if it is supposed that the ``real'' model of the plant is known, 
 	\label{fig:Ch7CompRespBench}
 \end{figure}
 %
-Figure~\ref{fig:Ch7CompRespBench}. As it can be seen, the model represent accurately the dynamics of the original plant and therefore is considered to be a good approximation of the original model.
+Figure~\ref{fig:Ch7CompRespBench}. As it can be seen, the model represents accurately the dynamics of the original plant and therefore it is considered to be a good approximation of the original model.
 
 The next step is to find the Pareto front for this particular plant. The followed methodology was as presented in Chapter~\ref{chap:PIDMOOP}. For this particular case, only $J_{di}$ and $J_r$ where considered as the cost functions with a \gls{2dof} \gls{pid} controller. In Figure~\ref{fig:paretomodelo}, the obtained Pareto front is presented. 
 %^
@@ -279,7 +281,7 @@ The next step is to find the Pareto front for this particular plant. The followe
 	\label{fig:paretomodelo}%
 \end{figure}
 
-The curve has a typical form, with a high slope for low values of $J_{di}$ and an almost flat slope for higher values. This shape has a particular physical meaning: to improve the response of the $J_{di}$ cost function, the $J_{r}$ value has to be augmented (worsening the servo response), however the degradation is not as much as the improvement in the $J_{di}$ function. This is a clear example of one of the many advantages of using a multi-objective framework for controller tuning and the main reason why is the chosen framework in this book, it gives the decision taker more tools to select the more appropriate tuning for the controllers.
+The curve has a typical form, with a higher slope for low values of $J_{di}$ and an almost flat slope for higher values. This shape has a particular physical meaning: to improve the response of the $J_{di}$ cost function, the $J_{r}$ value has to be augmented (worsening the servo response), however the degradation is not as much as the improvement in the $J_{di}$ function. This is a clear example of one of the many advantages of using a multi-objective framework for controller tuning and the main reason why is the chosen framework in this book, it gives the decision taker more tools to select the more appropriate tuning for the controllers.
 
 In order to compare the response of the optimal controllers, the tuning for the anchor points are presented along the resposes of the ART$_2$ method \citep{Vilanova2011} and the uSORT$_2$ method\citep{Alfaro2012a}, in order to compare the performance of the closed loop response. It is important to clarify that these two tuning are just the extreme points of the Pareto front, thanks to the ENNC method and that there is a practically and infinite amount of possible parameter tuning to select. The obtained parameters are listed in %
 %
@@ -303,7 +305,7 @@ In order to compare the response of the optimal controllers, the tuning for the 
 %
 Table~\ref{tab:parametroscontrolador} for reference. It is important to note that in all cases, the Maximum Sensibility was set to be around $M_s = 2.0$ to ensure a minimum level of robustness.
 
-In Figure~\ref{fig:Ch7cambioreferencia}, the closed-loop responses of all the four controllers are presented for the case of a step change in the setpoint. it was found that precisely the controller in the anchor point of the Pareto front that give the minimum value of $J_r$ is in fact the one that give the best result of all the controllers. However, it has to be noticed that both ART$_2$ and uSORT methods are intended for regulator response mainly, and theredore, it was not expected to have a low $J_r$. The obtained values are given in Table~\ref{tab:IAEref} where both the \gls{iae} and \gls{ms} are presented. 
+In Figure~\ref{fig:Ch7cambioreferencia}, the closed-loop responses of all the four controllers are presented for the case of a step change in the setpoint. it was found that precisely the controller in the anchor point of the Pareto front that give the minimum value of $J_r$ is in fact the one that give the best result of all the controllers. However, it has to be noticed that both ART$_2$ and uSORT methods are intended for regulator response mainly, and theredore, it was not expected to have a lower $J_r$. The obtained values are given in Table~\ref{tab:IAEref} where both the \gls{iae} and \gls{ms} are presented. 
 
 On the other hand, the optimal controllers in the regulator mode are presented in Figure~\ref{fig:cambiodi}. Again, as expected, the controller in the anchor point that has the lowest value of $J_{di}$, is the one with the fastest response. Also, it is clear that the other anchor point (the one with the lowest value of $J_r$) has the worst response for disturbance rejection as it was expected. In table \ref{tab:IAEdi}, the corresponding values of IAE for the curves in Figure~\ref{fig:cambiodi} are presented.
 
@@ -364,7 +366,7 @@ It is important to note that in these figures, only two possible points (in fact
 \label{sec:LiTAO3}
 Temperature control is a very important factor in the deposition process of lithium tantalate (LiTaO$_3$) by means of metal organic chemical vapor deposition (MOCVD) \citep{Zhang2004}.
 
-The dynamics of the reactor chamber are characterized by a large lag and time-delay. It is important for the quality of the final product, that the controller follow a predefined temperature profile accurately (servo control) while been able to reject other disturbances (regulatory control).
+The dynamics of the reactor chamber are characterized by a large lag and time-delay. It is important for the quality of the final product, that the controller follows a predefined temperature profile accurately (servo control) while being able to reject other disturbances (regulatory control).
 
 The model of the MOCVD chamber can be given by:
 \begin{equation}
@@ -374,7 +376,7 @@ G(s) = \frac{K e^{-L s}}{T s+1},
 %
 where the gain $K = 3.2$, the time constant $T = 200$~s and the time-delay $L = 150$~s.
 
-For this case, a two function MOOP is considered with $J_{di}$ and $J_{r}$ as cost functions and a robustness restriction of $M_S = 2.0$. When solving the optimization using the ENNC method, the obtained Pareto front is as given in %
+For this case, a two function MOOP is considered with $J_{di}$ and $J_{r}$ as cost functions and a robustness constraint of $M_S = 2.0$. When solving the optimization using the ENNC method, the obtained Pareto front is as given in %
 \begin{figure}[tb]
 	\centering
 	\begin{tikzpicture}
@@ -499,7 +501,7 @@ In order to help the control engineer to understand the tuning of the controller
 
 In Figure~\ref{fig:LitaParetoParam} the values of all the controller parameters are plotted against $m$, where $m$ is defined as the normalized degradation of $J_{r}$ ($m=0$ represents the anchor point where $J_r$ has its lowest value). Looking the behaviour of $K_p$ in Figure~\ref{fig:LitaParetoKp}, it is clear that the value of $K_p$ is kept fairly constant for all values of $m$. This almost negligible variation may be associated to the fact that, for all controller tunings, the maximum sensitivity is set at $M_S = 2$. When this constraint is not taken into account, the value of $K_p$ may have large variations as in the example in Section~\ref{sec:CSTH}.
 
-For the case of the integral time $T_i$, the behavior of this parameter is plotted in Figure~\ref{fig:LitaParetoTi}. Note that, contrary to the case of $K_p$, the variation is highly dependent of $J_r$ and fairly smooth, which is desirable if the interest is to find a tuning rule. However, for the derivative time $T_d$ in Figure~\ref{fig:LitaParetoTd}, it can be seen that the variation is important but the behavior is not as near as smooth as in the case of $T_i$. Finally and the setpoint weight factor $\beta$, also has a piece-wise behavior with respect to $J_r$ and also the variation of its value is important. Nevertheless, once computed the corresponding tunings of all the controllers of the Pareto, is just to pick and decide which one is more appropriate for the task.
+For the case of the integral time $T_i$, the behavior of this parameter is plotted in Figure~\ref{fig:LitaParetoTi}. Note that, contrary to the case of $K_p$, the variation is highly dependent of $J_r$ and fairly smooth, which is desirable if the interest is to find a tuning rule. However, for the derivative time $T_d$ in Figure~\ref{fig:LitaParetoTd}, it can be seen that the variation is important but the behavior is not as near as smooth as in the case of $T_i$. Finally and the setpoint weight factor $\beta$, also has a piece-wise behavior with respect to $J_r$ and also the variation of its value is important. Nevertheless, once computed the corresponding tunings of all the controllers of the Pareto, the task is just to decide and pick which one is more appropriate for the task.
 
 The response of the controlled system to a setpoint step change is presented in %
 %
