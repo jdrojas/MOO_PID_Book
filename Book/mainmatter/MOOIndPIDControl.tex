@@ -19,7 +19,7 @@ Control systems are used to maintain process conditions at their desired values 
 \caption{Feedback Control System} \label{Ch2fig:FeedbackControlSystem}
 \end{figure}
 
-A natural way to adjust or correct the behaviour over time of a dynamic system output, the controlled variable, is by using an actuating input computed on the basis of the comparison of the actual output with its desired value: the feedback error. This is, by means of closed-loop control. To compute the control action information about the feedback error evolution is required. Normally its current value, its past evolution, and a prediction of its future behaviour are used. The way we use this information to deliver the control action constitutes the control algorithm. Conceptually we can view the control systems in the general manner shown in figure~\ref{Ch2fig:FeedbackControlSystem}. As a detailed  practical example, consider the isothermal \gls{cstr}, as the one in figure (\ref{Ch2fig:CSTR}), where the isothermal series/ parallel Van de Vusse reaction takes place \citep{arrietaETFA2008}, \citep{VandeVusse2} . The reaction can be described by the following scheme:
+A natural way to adjust or correct the behaviour over time of a dynamic system output, the controlled variable, is by using an actuating input computed on the basis of the comparison of the actual output with its desired value: the feedback error. This is, by means of closed-loop control. To compute the control action information about the feedback error evolution is required. Normally its current value, its past evolution, and a prediction of its future behaviour are used. The way we use this information to deliver the control action constitutes the control algorithm. Conceptually we can view the control systems in the general manner shown in figure~\ref{Ch2fig:FeedbackControlSystem}. As a detailed  practical example, consider the isothermal \gls{cstr}, as the one in figure (\ref{Ch2fig:CSTR}), where the isothermal series/ parallel Van de Vusse reaction takes place \citep{arrietaETFA2008}, \citep{VandeVusse2}. The reaction can be described by the following scheme:
 %
 \begin{align}
     A \overset{k_1}{\longrightarrow} B \overset{k_2}{\longrightarrow}C\\
@@ -30,7 +30,7 @@ A natural way to adjust or correct the behaviour over time of a dynamic system o
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.6\linewidth]{Ch2Reactor}
-	\caption{Isothermal Continuous Stirred Tank Reactor .} 
+	\caption{Isothermal Continuously Stirred Tank Reactor .} 
 	\label{Ch2fig:CSTR}
 \end{figure}
 
@@ -112,7 +112,7 @@ A complete and illustrative source of modelling for process control, illustratin
 \subsection{Controlled Process Model}
 \label{sec:2.1}
 
-The simple structure of the \gls{pid} controller calls for simple process descriptions, this fact motivates the use of first or second order models. On that respect, the controlled process model in the control design scenario considered in this book will be the one aimed at representing the self-regulating non-oscilating (overdamped) step responses. The overdamped controlled processes will be represented by a linear model given by the transfer function
+The simple structure of the \gls{pid} controller calls for simple process descriptions, this fact motivates the use of first or second order models. On that respect, the controlled process model in the control design scenario considered in this book will be the one aimed at representing the self-regulating non-oscillating (overdamped) step responses. The overdamped controlled processes will be represented by a linear model given by the transfer function
 %
 \begin{equation}
     P(s) = \frac{K_p e^{-Ls}}{(Ts+1)(aTs+1)}, \ \tau_o = L/T, 
@@ -234,7 +234,7 @@ In this case, parameters are denoted with a prime in order to distinguish them f
 	u(s) =  K^*_p \left(1+ \frac{1}{T^*_i s} + T^*_d s  \right) \left(\frac{1}{T_f s+1}\right) e(s)	
 \end{equation} 
 
-In this case, parameters are denoted with a star in order to distinguish them from the standard and series form ones. Notice that the controller variable filter introduces the filter time constant $T_f$ as an additional controller parameter. This fact will make the relationship of this controller formulation parameters with the previous ones not so straightforward. It will be presented later on on a more general framework. 
+In this case, parameters are denoted with a star in order to distinguish them from the standard and series form ones. Notice that the controller variable filter introduces the filter time constant $T_f$ as an additional controller parameter. This fact will make the relationship of this controller formulation parameters with the previous ones not so straightforward. It will be presented later on a more general framework. 
 \end{itemize}
 %
 \subsection{Reference Processing and 2-DoF PID}
@@ -272,7 +272,7 @@ As it can be observed from the presented PID formulations, whereas the reference
 \section{Normalised Representations}
 \label{sec:4}
 
-The design approach that is to be presented in the following chapters is applied to controlled processes represented by stable over-damped models. These models encompass from first order to double pole stable models. For control system performance analysis and controller tuning it is convenient to work with dimensionless parameters to made it non dependent on the controlled process time scale and gain. Therefore in this section the process model as well as controller transfer functions to be considered will be rewritten in their normalised form in terms of dimensionless parameters.  Therefore, in this book, all the results are based on normalised transfer function models as well as the corresponding normalized controller parameters. In this way we ensure that controller design is consistent from the point of view of being aplicable to all transfer function models equivalent to the normalised one but to a time-scaling.  An additional advantage is that the number of process model transfer function do have one parameter less.\\
+The design approach that is to be presented in the following chapters is applied to controlled processes represented by stable over-damped models. These models encompass from first order to double pole stable models. For control system performance analysis and controller tuning it is convenient to work with dimensionless parameters to made it non dependent on the controlled process time scale and gain. Therefore in this section the process model as well as controller transfer functions to be considered will be rewritten in their normalised form in terms of dimensionless parameters.  Therefore, in this book, all the results are based on normalised transfer function models as well as the corresponding normalized controller parameters. In this way we ensure that controller design is consistent from the point of view of being applicable to all transfer function models equivalent to the normalised one but to a time-scaling.  An additional advantage is that the number of process model transfer function do have one parameter less.
 
 \subsection{Process Model Normalisation}
 \label{sec:4.1}
