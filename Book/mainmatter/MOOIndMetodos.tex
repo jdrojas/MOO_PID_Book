@@ -158,7 +158,7 @@ The closed-loop is controlled by means of a \gls{pi} controller that manipulates
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=\linewidth]{Ch5SimulinkWTPModel}
-	\caption{\simulink implementation of the \gls{wwtp} control system.}
+	\caption{\simulink{} implementation of the \gls{wwtp} control system.}
 	\label{fig:Ch5SimulinkWTPModel}
 \end{figure}
 %
@@ -187,7 +187,7 @@ For this particular example, the left anchor point (the one with lower value of 
 
 On the other side, the anchor point on the right (the one with lower \gls{tv}) is an interesting case, in which the controller is set in open loop (the value of $K_p$ is equal to zero). The particular value of \gls{iae} for this case is totally dependent of the disturbance signal used for the simulation. However the behavior found in this example is what would be expected: better performance implies a more aggressive control signal.
 
-However, it is clear that is not efficient to find the Pareto front using brute force. Consider that, from all the points computed, only a small fraction ($8.4\%$ to be exact) correspond to cases in the front. A lot of computer power was literally wasted. Also, note that, by varying $K_p$ and $T_i$ evenly, it was not possible to found an evenly distributed front. It is also important to note that not all points that were selected as part of the Pareto may not actually belong to it. If more points were found, it may be possible to find a better representation of the front but the computation needed (an the time) will not be productive.
+However, it is clear that it is not efficient to find the Pareto front using brute force. Consider that, from all the points computed, only a small fraction ($8.4\%$ to be exact) correspond to cases in the front. A lot of computer power was literally wasted. Also, note that, by varying $K_p$ and $T_i$ evenly, it was not possible to found an evenly distributed front. It is also important to note that not all the points that were selected as part of the Pareto may actually belong to it. If more points were found, it may be possible to find a better representation of the front but the computation needed (an the time) will not be productive.
 
 However, once the Pareto is obtained, the user is capable to make decisions regarding the final selection of the parameters. For example, the decision maker can allow a level of degradation in \gls{iae} to obtain certain improvement on the \gls{tv}. Let's define the \gls{iae} degradation $\alpha_{iae}$ as:
 \begin{equation*}
@@ -261,13 +261,13 @@ As in nature, the idea behind GA is that only the best fitted specimen in a popu
 In this case, each individual is viewed as a possible solution to the problem. Its value is coded as a binary chain, simulating the genetic information of living beings. The algorithm then decides which individuals of each generation are allowed to be reproduced and therefore, only the ones with a minimal the minimal cost function survive.
 %
 \paragraph{Particle swarm optimization}
-Particle swarm optimization (PSO) is also a search algorithm. But in this case, each solution in the pool of initial solutions is considered to represent an individual in a swarm (for example a flock of birds). In general, each individual is called a particle which represents a possible solution to the problem.The interesting characteristic of this method is that the adjustment of each particle depends on its history and its relationship with the neighboring particles~\citep{Shi2004}.
+Particle swarm optimization (PSO) is also a search algorithm. But in this case, each solution in the pool of initial solutions is considered to represent an individual in a swarm (for example a flock of birds). In general, each individual is called a particle which represents a possible solution to the problem. The interesting characteristic of this method is that the adjustment of each particle depends on its history and its relationship with the neighboring particles~\citep{Shi2004}.
 
 If for example, a flock of birds is considered as the biological counterpart, the objective is to define an algorithm that mimics the movement of this flock that naturally occurs without an apparent leader, this phenomenon is usually called swarm intelligence~\citep{Kennedy1995}. At each iteration, the acceleration of each particle is changed to move them to the best solutions found.
 
 \paragraph{Comparison of each method for industrial controller tuning}
 %
-In this comparison a \gls{pid} controller is tuned as regulator using the methods presented above, for a second order overdamped system with pure time delay. The results of each method were obtained with a computer equipped with an Intel Core i5-3470 CPU at 3.20GHz and 8 GB of RAM using \matlab as programming language.
+In this comparison a \gls{pid} controller is tuned as regulator using the methods presented above, for a second order overdamped system with pure time delay. The results of each method were obtained with a computer equipped with an Intel Core i5-3470 CPU at 3.20GHz and 8 GB of RAM using \matlab{} as programming language.
 
 For comparison purposes, the result of the optimization using the interior-point algorithm is presented. In all cases it was required to  perform at least 125 iteration in order to let all methods to explore the complete solution space. Also, in al cases, the initial solutions where selected around the same point. A total of 100 different experiments were applied to 9 different plants. The difference in the plants were the time delay and the relationship between the larger and smaller time constant. These plants are presented in %
 %
@@ -511,7 +511,7 @@ g(\mathbf{x}) \leq 0,
 %
 where $\bar{\mathbf{N}}_1$ is the vector that contains the direction of the utopia plane. In some cases, the optimization may yield points that do not belong to the Pareto front. In \citet{Messac2003}, the authors propose to use a filter algorithm to eliminate those points.
 
-This method has been used in several cases. Also in \citet{Hosseini2016a} the method was implemented to optimally solve the transmission congestion management taking into account the cost of congestion management, voltage stability margin, and transient stability margin. In \citet{Sanchez2017a}, the \gls{nnc} was considered to find optimally balanced tuning rules for fractional-order proportional-integral-derivative controllers for \gls{foptd} process models subject to a robustness constraint. In \citet{Mittal2017a} the NNC was used in conjunction with an evolutionary algorithm to find the optimum number and location of wind turbines in a wind farm. In \citet{Benki2018}, the \gls{nnc} was implemented for the design of an aerosol can, tanking into account both the dome growth and the dome reversal pressure. In \citet{Tan2018a}, the \gls{nnc} was applied for the design of microvascular panels for battery cooling applications. The NNC is also applied in \citet{Liu2019} within their algorithm to optimally control the glycerol in a 1,3-propanediol batch process.
+This method has been used in several cases. Also in \citet{Hosseini2016a} the method was implemented to optimally solve the transmission congestion management taking into account the cost of congestion management, voltage stability margin, and transient stability margin. In \citet{Sanchez2017a}, the \gls{nnc} was considered to find optimally balanced tuning rules for fractional-order \gls{pid} controllers for \gls{foptd} process models subject to a robustness constraint. In \citet{Mittal2017a} the NNC was used in conjunction with an evolutionary algorithm to find the optimum number and location of wind turbines in a wind farm. In \citet{Benki2018}, the \gls{nnc} was implemented for the design of an aerosol can, tanking into account both the dome growth and the dome reversal pressure. In \citet{Tan2018a}, the \gls{nnc} was applied for the design of microvascular panels for battery cooling applications. The NNC is also applied in \citet{Liu2019} within their algorithm to optimally control the glycerol in a 1,3-propanediol batch process.
 
 \subsection{Enhanced Normalized Normal Constraint}
 \label{sec:ENNC}
@@ -591,11 +591,11 @@ As usual where there do exist different approaches to deal with a complex proble
 %
 Since the Pareto front cannot be considered as the final solution of the \gls{moop}, one may use it as the basis to construct a tool that takes advantage of the multiple optimal points found.
 
-In other words, the Pareto front becomes the raw material that is used to produce the final decision tool. This tool may be an algorithm (as a tuning rule for PID controllers for example) that incorporates the information obtained from the optimization to produce a final decision.
+In other words, the Pareto front becomes the raw material that is used to produce the final decision tool. This tool may be an algorithm (as a tuning rule for \gls{pid} controllers for example) that incorporates the information obtained from the optimization to produce a final decision.
 
 For example in \cite{Zhao2007}	the concept of Pareto optimality is used to define a genetic programming approach for optimal decision trees. The author presented a Java code for the final tool and use code in two different study cases.
 
-Another example can be found in \cite{Das2012}. In this paper, the route for the transportation of hardzarous waste has to be selected taking into account the cost of the route and the mortality and morbidity of incidents. Once the Pareto frontier has been obtained, the authors present a selection criteria where the Cost Elasticity of risk and the Knees on the Pareto are taken into account for the final decision.
+Another example can be found in \cite{Das2012}. In this paper, the route for the transportation of hazardous waste has to be selected taking into account the cost of the route and the mortality and morbidity of incidents. Once the Pareto frontier has been obtained, the authors present a selection criteria where the Cost Elasticity of risk and the Knees on the Pareto are taken into account for the final decision.
 %
 %\subsection{The Pareto Front as part of a decision tool}
 %\label{sec:ParetoDecision}

@@ -1,7 +1,7 @@
 \chapter{Industrial application examples}
 \label{chap:ApplicationExamples}
 %
-\abstract{In this chapter, different examples are provided to apply the tool presented in this book. The MOOTuning software is used to analyze the temperature control in a Continuous Stirred Tank Heater (CSTH) in Section~\ref{sec:CSTH} using two a three cost functions. Also a Continuos Stirred Tank Reactor (CSTR) is considered for the control of the concentration of the product in an isothermal case in Section~\ref{sec:CSTRVandeVusse}}
+\abstract{In this chapter, different examples are provided to apply the tool presented in this book. The MOOTuning software is used to analyze the temperature control in a Continuously Stirred Tank Heater in Section~\ref{sec:CSTH} using two a three cost functions. Also a Continuously Stirred Tank Reactor is considered for the control of the concentration of the product in an isothermal case in Section~\ref{sec:CSTRVandeVusse}}
 %
 
 %
@@ -64,14 +64,14 @@ Also, in \citet{Alfaro2016}, the transmitters and the valves are modeled as:
 		%
 		where $T_T$ is its time constant and $K_T$ is its gain.
 	%
-	\item Level control valve: it is supposed that a ball valve with an electroneumatic actuator is used. The valve	inherent flow characteristics is nearly quadratic and the relationship between the flow $Q(t)$ and the input variable $U_L$ is given by:
+	\item Level control valve: it is supposed that a ball valve with an electropneumatic actuator is used. The valve	inherent flow characteristics is nearly quadratic and the relationship between the flow $Q(t)$ and the input variable $U_L$ is given by:
 		\begin{align*}
 			T_{vL} \frac{d X_L(t)}{dt} + X_L(t) = K_{xL} U_L(t),\\
 			Q(t) = K_{vL} X_L^2(t)\sqrt{\rho g H(t)},
 		\end{align*}
 		where $T_{vL}$ is the level control valve time constant, $K_{xL}$ level control valve stem constant $K_{vL}$ level control valve constant and $X_L(t)$ is the level control valve stem normalized travel.
 	%
-	\item Temperature control valve it is also supposed to be a ball valve with an electroneumatic actuator, however, it is supposed that the valve has an equal-percentage inherent flow characteristics given by:
+	\item Temperature control valve it is also supposed to be a ball valve with an electropneumatic actuator, however, it is supposed that the valve has an equal-percentage inherent flow characteristics given by:
 		\begin{align*}
 			T_{vT} \frac{d X_T(t)}{dt} + X_T(t) = K_{xT} U_T(t),\\
 			Q_c(t) = K_{vT}R_{vT}^{\left( X_T(t) -1 \right) } \sqrt{P_{cp} - \left(R_c Q^2_c(t)+P_{cr} \right) },
@@ -128,7 +128,7 @@ Table~\ref{tab:ParametersCSTH}. This model was implemented in \simulink{} and ca
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=\columnwidth]{Ch7Implementation}
-	\caption{\simulink implementation of the model of the heater.}
+	\caption{\simulink{} implementation of the model of the heater.}
 	\label{fig:Ch7Implementation}
 \end{figure}
 %
@@ -267,7 +267,7 @@ Figure~\ref{fig:Ch7CompPareto}. As it was expected, all the controllers found us
 
 In Figures~\ref{fig:Ch7CompParetoReg} and \ref{fig:Ch7CompParetoServo} the responses to a step change in the setpoint and in the disturbance are presented. The corresponding values of \gls{iae} are also presented in the graph. In all cases, the robustness was not considered as a constraint. but it is possible to include it within the MOOTuning software. From Figure~\ref{fig:Ch7CompPareto} given the steep slope of the curve for lower values of $J_{di}$ that a small change in $J_{di}$ may improve substantially the performance for $J_r$. Therefore, one may be more prone to select a controller that may have a little degradation in $J_{di}$ and for this reason, controller MOO01 may not be a good selection as a final solution unless having the minimum value possible of $J_{di}$ is the final goal.
 
-The controller MOO02 may be seen as an intermediate solution between MOO1 and MOO03 in case both $J_{di}$ and $J_r$ are equally important for the decision maker. The power of the multiobjective framework is evident, and giving that the computational work is done offline, it becomes a good tool for the tuning of PIDs in an industrial setting.
+The controller MOO02 may be seen as an intermediate solution between MOO1 and MOO03 in case both $J_{di}$ and $J_r$ are equally important for the decision maker. The power of the multiobjective framework is evident, and giving that the computational work is done offline, it becomes a good tool for the tuning of \gls{pid} controllers in an industrial setting.
 
 To check how the tuning performs with the nonlinear model, a simulation was performed using the tuning of the controller MOO02. The setpoint was increased by $5\%$ at $t=\SI{100}{\second}$ and the temperature of the steam was increased by $\SI{10}{\celsius}$ at $t=\SI{700}{\second}$. The response is presented in %
 \begin{figure}[tb]
@@ -448,9 +448,9 @@ When considering the transient response to a change in the input $u$, the respon
 	\label{fig:Ch7VandeVusseStep}
 \end{figure}
 %
-Figure~\ref{fig:Ch7VandeVusseStep}. It is interesting to note that the the system has an inverse response. This characteristic limits the possible performance of the controlled loop, making unfeasible to increase the gain of the controller to achieve a faster response without instability. This is also another point that has to be considered when designing the controller.
+Figure~\ref{fig:Ch7VandeVusseStep}. It is interesting to note that the system has an inverse response. This characteristic limits the possible performance of the controlled loop, making unfeasible to increase the gain of the controller to achieve a faster response without instability. This is also another point that has to be considered when designing the controller.
 
-This model was implemented as an S-Function in \matlab/\simulink and can be found in the companion software. In %
+This model was implemented as an S-Function in \matlab/\simulink{} and can be found in the companion software. In %
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=\linewidth]{Ch7CSTRSimulinkSystem}
@@ -462,7 +462,7 @@ Figure~\ref{fig:Ch7CSTRSimulinkSystem}, the basic block with the model is presen
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=0.7\linewidth]{Ch7VandeVusseParamWindow}
-	\caption{\simulink mask to enter parameters and initial values for the \gls{cstr} system.}
+	\caption{\simulink{} mask to enter parameters and initial values for the \gls{cstr} system.}
 	\label{fig:Ch7VandeVusseParamWindow}
 \end{figure}  
 Figure~\ref{fig:Ch7VandeVusseParamWindow}. All the values of the parameters can be set on the \matlab{} workspace and use directly on the mask. This is and advantage in case the user desires to use another set of parameters or compare the response of the system with different values.
@@ -510,7 +510,7 @@ It has to be clear that this transfer function is only an approximation of the m
 	\label{fig:Ch7CSTRLinear}
 \end{figure}
 %
-Figure~\ref{fig:Ch7CSTRLinear}. As it can be seen, the linear model represents the transient response well, however it fails to predict the steady state. Of course, the smaller the change in the input, the better is the the approximation for both the transient and the steady state response.
+Figure~\ref{fig:Ch7CSTRLinear}. As it can be seen, the linear model represents the transient response well, however it fails to predict the steady state. Of course, the smaller the change in the input, the better is the approximation for both the transient and the steady state response.
 
 However, the model that is expected in the \matlab{} app does not contemplate a non-minimum phase zero in the model. Using the model reduction rules of \citet{Skogestad2003}, the \gls{soptd} model ends as:
 \begin{equation}
@@ -584,7 +584,7 @@ Figure~\ref{fig:Ch7CSTRControlC1} and for C2 controllers as in %
 %
 Figure~\ref{fig:Ch7CSTRControlC2}. It is interesting to note that C1 controllers presents more variability in the response with respect to the controllers of the C2 family. In both figures it is clear that there is a compromise between the servo and the regulator responses, but this compromise becomes less important when the robustness is considered. Consider Figure~\ref{fig:Ch7CSTRControlC1}, the response for $M_s \geq 2.0$ does not take into account any constraint on the robustness and as it can be seen this response is very different than the cases where $M_s = 2.0$ and $M_s = 1.8$ are forced. It has to be noticed that adding the robustness constraint greatly limits the possible values of the controllers.
 
-On the other hand, it was found that for the C2 controllers family the responses are very similar among all robustness, as can be seen in Figure~\ref{fig:Ch7CSTRControlC2}. The reason for this is the parameter $\beta$. This parameter does not affect the robustness value of the controlled system nor the regulator response. Therefore, the optimization tend to find a low value for $K_p$, which gives better robustness, but then compensates with a high value of $\beta$.
+On the other hand, it was found that for the C2 family of controllers the responses are very similar among all robustness, as can be seen in Figure~\ref{fig:Ch7CSTRControlC2}. The reason for this is the parameter $\beta$. This parameter does not affect the robustness value of the controlled system nor the regulator response. Therefore, the optimization tend to find a low value for $K_p$, which gives better robustness, but then compensates with a high value of $\beta$.
 
 The control signals for the controllers are presented in Figures~\ref{fig:Ch7CSTRControlC1U} and \ref{fig:Ch7CSTRControlC2U}. %
 \begin{figure}[tb]
@@ -683,7 +683,7 @@ The designed controllers were tested using the nonlinear model of the \gls{cstr}
 %
 In Table~\ref{tab:CSTRIAEServo}, the \gls{iae} for the servo response to a step change in the reference at $t= \SI{1}{\second}$ is presented, with the response  plotted in Figure~\ref{fig:CH7CSTRControlServoY}. On the other hand the total variation is presented in Table~\ref{tab:CSTRTVServo} and the control signal in Figure~\ref{fig:CH7CSTRControlServoU}. All controllers where tested for all possible robustness measures.
 
-The first thing to notice is that for the case of $M_s \geq 2.0$, presented in Figure~\ref{fig:CH7CSTRControlServoMs10Y}, the response becomes practically unstable for the C1 tuning. The \gls{pid} controller that was implemented in \simulink have and antiwindup loop that prevents the integral part to become infinite. For the other cases the response presents important oscillations. The problem with C1 is that the gain is relatively high, which produces the controller to saturate as can be seen in Figure~\ref{fig:CH7CSTRControlServoMs10U}.
+The first thing to notice is that for the case of $M_s \geq 2.0$, presented in Figure~\ref{fig:CH7CSTRControlServoMs10Y}, the response becomes practically unstable for the C1 tuning. The \gls{pid} controller that was implemented in \simulink{} has an antiwindup loop that prevents the integral part from becoming infinite. For the other cases the response presents important oscillations. The problem with C1 is that the gain is relatively high, which produces the controller to saturate as can be seen in Figure~\ref{fig:CH7CSTRControlServoMs10U}.
 
 For this particular case, controller C2 (which was expected to be the ``best'' servo) yields a better \gls{iae} when comparing the $M_s \geq 2.0$ against $M_s = 1.8$ and $M_s = 2.0$ as it was expected knowing Table~\ref{tab:CSTRDesigns}. However this is not the case for C4 controllers, because the nonlinearity of the plant and the approximations made start to take a toll on the design of the controllers.
 
@@ -781,7 +781,7 @@ Figure~\ref{fig:CH7CSTRControlServoSat} for all controllers families and $M_s = 
 
 The values of IAE and TV are presented in Table~\ref{tab:CSTRIAEServoSat}. The \gls{pid} was implemented to be limited in the range between 0 and 100\%, with the corresponding antiwindup. Since controllers C2 and C4 have a control signal which is more aggressive for setpoint changes, they saturate and produces larger values of IAE than the controllers intended for regulation. Interestingly, C3 controller has a lower value of IAE than any other controller while its TV value lies in between C1 and C4 controllers. Again, this test indicates that C3 controller can be a good candidate for the final tuning of the \gls{pid}.
 
-Lastly, lets again set the change in the setpoint to 5\%, but lets compare the difference when C3 is selected as the controller and the $M_s$ is varied. %
+Lastly, let us again set the change in the setpoint to 5\%, but lets compare the difference when C3 is selected as the controller and the $M_s$ is varied. %
 %
 \begin{figure}[tb]
 	\centering
