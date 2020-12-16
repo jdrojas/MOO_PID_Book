@@ -299,7 +299,7 @@ As an example, the tuning tool is used to find the parameters of the controller 
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=\columnwidth]{Ch7CSTHControlled3Fun}
-	\caption{Response of the CSTH process in the three anchor points of the pareto front for $M_s \leq 2.0$.}
+	\caption{Response of the CSTH process in the three anchor points of the Pareto front for $M_s \leq 2.0$.}
 	\label{fig:Ch7CSTHControlled3Fun}
 \end{figure}
 %
@@ -687,7 +687,7 @@ The first thing to notice is that for the case of $M_s \geq 2.0$, presented in F
 
 For this particular case, controller C2 (which was expected to be the ``best'' servo) yields a better \gls{iae} when comparing the $M_s \geq 2.0$ against $M_s = 1.8$ and $M_s = 2.0$ as it was expected knowing Table~\ref{tab:CSTRDesigns}. However this is not the case for C4 controllers, because the nonlinearity of the plant and the approximations made start to take a toll on the design of the controllers.
 
-Now consider the controllers that took into account the robustness as a constraint in the optimization. For all cases, the controller is able to control the plant without oscillation (except for controller C1). As expected, controllers C2 and C4 had the best performance, but also the were more expensive (higher values of TV). However, an interesting option is controller C3. This controller was designed by allowing a 20\% degradation of $J_{di}$. Its servo response may not be the best in terms of performance but it has an interesting compromise between the control effort and the \gls{iae} value. If this degradation does not affect the regulator response too much, this controller may be considered as the final tuning.
+Now consider the controllers that took into account the robustness as a constraint in the optimization. For all cases, the controller is able to control the plant without oscillation (except for controller C1). As expected, controllers C2 and C4 had the best performance, but also the were more expensive (higher values of \gls{tv}). However, an interesting option is controller C3. This controller was designed by allowing a 20\% degradation of $J_{di}$. Its servo response may not be the best in terms of performance but it has an interesting compromise between the control effort and the \gls{iae} value. If this degradation does not affect the regulator response too much, this controller may be considered as the final tuning.
 
 The next step is then to validate the response as a regulator. %
 %
@@ -779,7 +779,7 @@ Figure~\ref{fig:CH7CSTRControlServoSat} for all controllers families and $M_s = 
 \end{table}
 %
 
-The values of IAE and TV are presented in Table~\ref{tab:CSTRIAEServoSat}. The \gls{pid} was implemented to be limited in the range between 0 and 100\%, with the corresponding antiwindup. Since controllers C2 and C4 have a control signal which is more aggressive for setpoint changes, they saturate and produces larger values of IAE than the controllers intended for regulation. Interestingly, C3 controller has a lower value of IAE than any other controller while its TV value lies in between C1 and C4 controllers. Again, this test indicates that C3 controller can be a good candidate for the final tuning of the \gls{pid}.
+The values of \gls{iae} and \gls{tv} are presented in Table~\ref{tab:CSTRIAEServoSat}. The \gls{pid} was implemented to be limited in the range between 0 and 100\%, with the corresponding antiwindup. Since controllers C2 and C4 have a control signal which is more aggressive for setpoint changes, they saturate and produces larger values of \gls{iae} than the controllers intended for regulation. Interestingly, C3 controller has a lower value of \gls{iae} than any other controller while its \gls{tv} value lies in between C1 and C4 controllers. Again, this test indicates that C3 controller can be a good candidate for the final tuning of the \gls{pid}.
 
 Lastly, let us again set the change in the setpoint to 5\%, but lets compare the difference when C3 is selected as the controller and the $M_s$ is varied. %
 %
@@ -807,7 +807,7 @@ Lastly, let us again set the change in the setpoint to 5\%, but lets compare the
 	\label{tab:CSTRIAEServoC3Sat}
 \end{table}
 %
-In Figure~\ref{fig:CH7CSTRControlServoC3Sat} the output of the controlled loop and the control signal is presented and in Table~\ref{tab:CSTRIAEServoC3Sat}, the values of IAE and TV are presented for both $M_s = 1.8$ and $M_s = 2.0$. As it was expected, since neither of those controllers saturates, the response with a less restrictive robustness constraint has a better IAE. However it certainly has a more aggressive control signal. The IAE for the case $M_s = 2.0$ is $4.55\%$ lower than the $M_s = 1.8$ case however it comes to a cost of having a $42.03\%$ higher TV. Considering all the analysis done to this point and having into account that the tuning were made with several approximations from the original model, it seems that the C3 tuning (best servo allowing a 20\% degradation on $J_{di}$) with a robustness constraint of $M_s = 1.8$ is the most sensible choice as the final tuning.
+In Figure~\ref{fig:CH7CSTRControlServoC3Sat} the output of the controlled loop and the control signal is presented and in Table~\ref{tab:CSTRIAEServoC3Sat}, the values of IAE and \gls{tv} are presented for both $M_s = 1.8$ and $M_s = 2.0$. As it was expected, since neither of those controllers saturates, the response with a less restrictive robustness constraint has a better IAE. However it certainly has a more aggressive control signal. The IAE for the case $M_s = 2.0$ is $4.55\%$ lower than the $M_s = 1.8$ case however it comes to a cost of having a $42.03\%$ higher \gls{tv}. Considering all the analysis done to this point and having into account that the tuning were made with several approximations from the original model, it seems that the C3 tuning (best servo allowing a 20\% degradation on $J_{di}$) with a robustness constraint of $M_s = 1.8$ is the most sensible choice as the final tuning.
 %\cite{Kuntanapreeda2012}
  
 \section{Final remarks}

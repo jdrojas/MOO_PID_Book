@@ -158,7 +158,7 @@ As it can be seen, depending on $\tau_0$, the values that the cost functions hav
 	\label{fig:Paretos_t0_Norm}%
 \end{figure}
 %
-In this figure, all the Paretos have been scaled in order to have its cost functions between 0 and 1. The value 0 represents the lowest value of the cost function while the 1 represents the highest value. Therefore, it can be seen as a degradation value: a value of one represents a total degradation of one of the function (but, preserving the fact that it is Pareto optimal).
+In this figure, all the Pareto fronts have been scaled in order to have its cost functions between 0 and 1. The value 0 represents the lowest value of the cost function while the 1 represents the highest value. Therefore, it can be seen as a degradation value: a value of one represents a total degradation of one of the function (but, preserving the fact that it is Pareto optimal).
 
 It is interesting to note that, if a degradation of around $10\%$ in the input disturbance cost function is allowed, it yields to an improvement of up to $50\%$ in the servo response for all values of $\tau_0$. However, it is interesting to note that, in the other case where the system is initially set to be optimal for servo response (a value of $J_{do} = 0$) if a $10\%$ of degradation is allowed, an improvement between 30\% and 60\% is achieved depending of the value of $\tau_0$. These results show that, by analyzing the Pareto front, an important improvement can be achieved if one of the functions is allowed to be degraded  by just a small amount. But of course, the decision on how much to degrade is entirely up to the decision maker. But it is clear that the Pareto is a good tool to support that decision.
 
@@ -305,11 +305,11 @@ In order to compare the response of the optimal controllers, the tuning for the 
 %
 Table~\ref{tab:parametroscontrolador} for reference. It is important to note that in all cases, the Maximum Sensibility was set to be around $M_s = 2.0$ to ensure a minimum level of robustness.
 
-In Figure~\ref{fig:Ch7cambioreferencia}, the closed-loop responses of all the four controllers are presented for the case of a step change in the setpoint. it was found that precisely the controller in the anchor point of the Pareto front that give the minimum value of $J_r$ is in fact the one that give the best result of all the controllers. However, it has to be noticed that both ART$_2$ and uSORT methods are intended for regulator response mainly, and theredore, it was not expected to have a lower $J_r$. The obtained values are given in Table~\ref{tab:IAEref} where both the \gls{iae} and \gls{ms} are presented. 
+In Figure~\ref{fig:Ch7cambioreferencia}, the closed-loop responses of all the four controllers are presented for the case of a step change in the setpoint. it was found that precisely the controller in the anchor point of the Pareto front that give the minimum value of $J_r$ is in fact the one that give the best result of all the controllers. However, it has to be noticed that both ART$_2$ and uSORT methods are intended for regulator response mainly, and therefore, it was not expected to have a lower $J_r$. The obtained values are given in Table~\ref{tab:IAEref} where both the \gls{iae} and \gls{ms} are presented. 
 
-On the other hand, the optimal controllers in the regulator mode are presented in Figure~\ref{fig:cambiodi}. Again, as expected, the controller in the anchor point that has the lowest value of $J_{di}$, is the one with the fastest response. Also, it is clear that the other anchor point (the one with the lowest value of $J_r$) has the worst response for disturbance rejection as it was expected. In table \ref{tab:IAEdi}, the corresponding values of IAE for the curves in Figure~\ref{fig:cambiodi} are presented.
+On the other hand, the optimal controllers in the regulator mode are presented in Figure~\ref{fig:cambiodi}. Again, as expected, the controller in the anchor point that has the lowest value of $J_{di}$, is the one with the fastest response. Also, it is clear that the other anchor point (the one with the lowest value of $J_r$) has the worst response for disturbance rejection as it was expected. In table \ref{tab:IAEdi}, the corresponding values of \gls{iae} for the curves in Figure~\ref{fig:cambiodi} are presented.
 
-The optimal controller for disturbance rejection is presented in figure \ref{fig:cambiodi}. Again, the tuning given by the ENNC method is the fastest response to reach the desired value. As it can be seen, the ART$_2$ and the uSORT$_{2}$ methods fall between these two optimal responses. However, it does not necessarily means that these methods are optimal because they could be dominated by other controllers that are exactly in the front. Only the tuning found with the ENNC method can be considered to be Pareto optimal using the \gls{iae} as the metric. In Table~\ref{tab:IAEdi}, the IAE values of the responses presented in Figure~\ref{fig:cambiodi} are stated, and again the controller that achieves the lower error value is the one that correspond to the anchor point.
+The optimal controller for disturbance rejection is presented in figure \ref{fig:cambiodi}. Again, the tuning given by the \gls{ennc} method is the fastest response to reach the desired value. As it can be seen, the ART$_2$ and the uSORT$_{2}$ methods fall between these two optimal responses. However, it does not necessarily means that these methods are optimal because they could be dominated by other controllers that are exactly in the front. Only the tuning found with the \gls{ennc} method can be considered to be Pareto optimal using the \gls{iae} as the metric. In Table~\ref{tab:IAEdi}, the \gls{iae} values of the responses presented in Figure~\ref{fig:cambiodi} are stated, and again the controller that achieves the lower error value is the one that correspond to the anchor point.
 %CAMBIO EN VALOR REFERENCIA
 \begin{figure}[tb]%
 	\centering
@@ -326,7 +326,7 @@ The optimal controller for disturbance rejection is presented in figure \ref{fig
 	\label{fig:cambiodi}%
 \end{figure}
 %
-%IAE ante cambio en valor de referencia
+%\gls{iae} ante cambio en valor de referencia
 \begin{table}[tb]
 	\caption{Servo response for the benchmark system.}
 	\centering
@@ -343,7 +343,7 @@ The optimal controller for disturbance rejection is presented in figure \ref{fig
 	\label{tab:IAEref}
 \end{table}
 %
-%IAE ante cambio en perturbación
+%\gls{iae} ante cambio en perturbación
 \begin{table}[tb]
 	\caption{Regulator response for the benchmark system.}
 	\centering
@@ -376,7 +376,7 @@ G(s) = \frac{K e^{-L s}}{T s+1},
 %
 where the gain $K = 3.2$, the time constant $T = 200$~s and the time-delay $L = 150$~s.
 
-For this case, a two function MOOP is considered with $J_{di}$ and $J_{r}$ as cost functions and a robustness constraint of $M_S = 2.0$. When solving the optimization using the ENNC method, the obtained Pareto front is as given in %
+For this case, a two function \gls{moop} is considered with $J_{di}$ and $J_{r}$ as cost functions and a robustness constraint of $M_S = 2.0$. When solving the optimization using the \gls{ennc} method, the obtained Pareto front is as given in %
 \begin{figure}[tb]
 	\centering
 	\begin{tikzpicture}
