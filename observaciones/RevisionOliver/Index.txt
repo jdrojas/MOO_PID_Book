@@ -1,19 +1,29 @@
 Index
-
+Activated Sludge Process
+1DoF
+One Degree of Freedom.
+2DoF
+Two Degrees of Freedom.
 Anchor point
-Cad tool
+CAD
+Computer-aided design
 Continuously stirred tank heater
 Continuously stirred tank reactor
 Control signal
 Controller parameters
 Cost functions
+CSTR
+CSTH
+Database
 Degradation
-Disturbances
+Derivative time
+Disturbance
 Enhanced normalized normal constraint
-ENNc
+ENNC
 Filtered ideal pid form
 First order plus time delay plant
 FOPTD
+Graphical user interface
 GUI
 IAE
 Input signal
@@ -28,13 +38,17 @@ MATLAB
 Maximum sensitivity
 MOOP
 Mootuning
+MIMO
+Multiple-Input Multiple-Output
 Multiobjective optimization
+Maximum Sensitivity
+Ms
 Nadir point
 NBI
 NNC
 Normal boundary intersection
 Normalized normal constraint
-Odsoptd
+OdSOPTD
 Output signal
 Overdamped second order plus time delay
 Parallel PID form
@@ -43,14 +57,19 @@ Pareto front
 Performance
 PI controller
 PID controller
+PID Parallel controller
+PD controler
 Proportional gain
 Regulator
 Robustness
 Scalarization methods
 Series PID form
 Servo
+S-function
 Setpoint
 Simulink
+SISO
+Single-Input Single-Output
 Standard pID form
 Thin film deposition process
 Time delay
@@ -59,7 +78,14 @@ Tuning rule
 TV
 Two degrees of freedom
 Utopia point
+uSORT 2
 Wastewater treatment plant
 Weighted sum
 WS
 WWTP
+Ant Colony optimization
+Invasive Weed Colony optimization
+Linear Biogeography-based optimization
+Genetic Algorithms
+Particle swarm optimization
+Runge–Kutta

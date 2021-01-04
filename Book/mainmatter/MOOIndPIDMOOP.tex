@@ -46,7 +46,7 @@ In regard of the robustness constraint, it has to be noticed that the constraint
 \end{equation*} 
 in this particular case, the maximum sensitivity is set as $2.0$, $1.8$, $1.6$ or $1.4$. A maximum sensitivity of $M_s = 10.0$ was used as a way to relax the constraint in such a manner that practically the optimization was done without constraints but the same script was used for the computation.
 
-The function to compute the Pareto front with the \gls{ennc} method transform the multiobjective cost function into a single function using the scalarization method presented in Section~\ref{sec:ENNC}. The function uses a standard optimization procedure\footnote{The function \texttt{fmincon} of the \matlab optimization toolbox was applied} to find each of the points of the Pareto. The \gls{ennc} function was based on the work of \citet{Houska2011} and \citet{Logist2012}, the Pareto filter used was as in \citet{Cao2020}.
+The function to compute the Pareto front with the \gls{ennc} method transform the multiobjective cost function into a single function using the scalarization method presented in Section~\ref{sec:ENNC}. The function uses a standard optimization procedure\footnote{The function \texttt{fmincon} of the \matlab{} optimization toolbox was applied} to find each of the points of the Pareto. The \gls{ennc} function was based on the work of \citet{Houska2011} and \citet{Logist2012}, the Pareto filter used was as in \citet{Cao2020}.
 
 A very important part of the computation is the implementation of the cost function. It is desirable to have a convex function to minimize, since a global minimum is most likely to be found. However, when using the \gls{iae} as a measure of the performance of the closed-loop response, the resulting cost function is not convex. In fact, the implementation of the cost function implies to do a simulation of the dynamic model and compute the integral of the absolute value of the error.
 
@@ -717,7 +717,7 @@ Of course, it may be possible that the user selects a set of values for $J_{di}$
 	\label{fig:Ch6MOOTuningError}
 \end{figure}
 %
-Figure~\ref{fig:Ch6MOOTuningError}. The user then needs to relax the allowed degradation of the cost function (i.e. increase the allowed degradation of one of the functions) to be able to find the appropriate tuning. Once the user is satisfied with the design, the tuning can be exported to the \matlab{} workspace and the figure can be saved using the standard \matlab{} methods\footnote{The tool was created using \matlab{} 20019b, earlier versions may not work as expected.}.
+Figure~\ref{fig:Ch6MOOTuningError}. The user then needs to relax the allowed degradation of the cost function (i.e. increase the allowed degradation of one of the functions) to be able to find the appropriate tuning. Once the user is satisfied with the design, the tuning can be exported to the \matlab{} workspace and the figure can be saved using the standard \matlab{} methods\footnote{The tool was created using \matlab{} 2020a, earlier versions may not work as expected.}.
 
 \subsection{Example using MOOTuning}
 \label{sec:MOOTuningExample}
