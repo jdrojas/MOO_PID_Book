@@ -2,14 +2,14 @@
 \label{chap:Multi-objective}
 %\begin{refsection}
 %\glsresetall
-\abstract{Before tackling the problem of multiple criteria for \gls{pid} tuning, the multi-objective optimization is explained in general. First the basic formulation of the optimization problem is presented with the introduction of the Pareto front concept. The methodology chosen to solve the multiobjective optimization problem is to transform the multi-criteria situation into a single scalar cost function. However it is known that this scalarization procedure may not yield to a good Pareto front. For this reason several scalarization methods are presented and compared. The Pareto found using this scalarization methods may be used as just data that can be later used or may be directly used as part of a decision tool useful to select the final solution to the problem.} 
+\abstract{This chapter further explores multiobjective optimization by presenting the Pareto front concept. In order to find this front, the multi-criteria problem is transformed into a single scalar cost function. However, it is known that this scalarization procedure may not yield to a good Pareto front in all cases. For this reason several scalarization methods are presented and compared. To exemplify the concepts, a wastewater treatment plant model is employed in conjunction with a feedback controller.} 
 
 \section{Formalization of the multiobjective optimization problem}
 \label{sec:MOOPForm}
 %
 A \gls{moop} arises when, in order to solve a given problem or design, it is necessary to optimize several cost functions at the same time. 
 
-In general, these cost functions depend on the same variables and usually are in conflict.  In addition, they may be independent of one another, that is, the value of the variables that optimize one of the function do not necessarily optimize the other cost functions.
+In general, these cost functions depend on the same variables and usually are in conflict.  In addition, they may be independent of one another, that is, the value of the variables that optimize one of the functions do not necessarily optimize the other cost functions.
 
 In those cases, given a set of cost functions:
 \begin{equation}
@@ -17,7 +17,7 @@ In those cases, given a set of cost functions:
 \label{eq:functions}
 \end{equation}
 %
-that depends on $n$ different variables $\xv=\left[x_1, x_2, \ldots, x_n \right]^T$, $\xv \in \mathbf{X}$, where $\mathbf{X}$ is the feasible decision space. The \gls{moop} may be formulated as follows \citep{Marler2004}:%
+that depends on $n$ different variables $\xv=\left[x_1, x_2, \ldots, x_n \right]^T$, $\xv \in \mathbf{X}$, where $\mathbf{X}$ is the feasible decision space, the \gls{moop} may be formulated as follows \citep{Marler2004}:%
 %
 \begin{subequations}%
 	\begin{align}%
@@ -46,26 +46,29 @@ The concept of Pareto optimality is represented in %
 	\label{fig:planoFun01}
 \end{figure}
 %
-figure~\ref{fig:planoFun01} for a two-function multi-objective optimization. The gray area represents the feasible function space, given by the value of $F_1(\xv)$ and $F_2(\xv)$ for all $\xv \in \mathbf{X}$. From all those points, only the points in the curve from ``a'' to ``b'' (marked with a thicker dash line) are Pareto optimal because there is not another point in the feasible decision space with a lower value of $\mathbf{F}$, but there is at least one point that has a lower value for either $F_1$ or $F_2$. The curve from ``a'' to ``b'' is the Pareto front and contains all possible solutions to problem \eqref{eq:OptProb} that are Pareto optimal. These solutions are always in the edge of the feasible function space, closer to the utopia point (the ``u'' point in the figure). The utopia point is a point in the space where all the cost functions have their minimum value. As it can be seen from figure~\ref{fig:planoFun01}, this point is more likely to be outside of the feasible function space.
+Figure~\ref{fig:planoFun01} for a two-function multi-objective optimization. The gray area represents the feasible function space, given by the value of $F_1(\xv)$ and $F_2(\xv)$ for all $\xv \in \mathbf{X}$. From all those points, only the points in the curve from ``a'' to ``b'' (marked with a thicker dash line) are Pareto optimal because there is not another point in the feasible decision space with a lower value of $\mathbf{F}$, but there is at least one point that has a lower value for either $F_1$ or $F_2$. The curve from ``a'' to ``b'' is the Pareto front and contains all possible solutions to problem \eqref{eq:OptProb} that are Pareto optimal. These solutions are always in the edge of the feasible function space, closer to the utopia point (the ``u'' point in the figure), which is a point where all the cost functions have their minimum value. As it can be seen from Figure~\ref{fig:planoFun01}, this point is more likely to be outside of the feasible function space.
 
-Points ``a'' and ``b'' are called anchor points and represent the combination of decision variables that optimizes at least one of the functions. In this case, ``a'' is the point where function $F_1(\xv)$ has its minimum value whereas ``b'' the one in which $F_2(\xv)$ has its minimum value.
+Points ``a'' and ``b'' are called anchor points and represent the combination of decision variables that optimize at least one of the functions. In this case, ``a'' is the point where function $F_1(\xv)$ has its minimum value whereas ``b'' is the one in which $F_2(\xv)$ has its minimum value.
 
 Point ``N'' is called the pseudo-nadir point, and is defined as the point with the worst values of all the anchor points.
 
 \subsection{Practical example}
 \label{sec:ParetoPractical}
-To get an insight of the concept of Pareto Front, an industrial controlled process will be considered. In this particular case, the relationship between \gls{tv} and \gls{iae} for the controller as regulator is studied. However, in the rest of the book, the compromises between the response for different sources of disturbances will be considered. The objective of this section is to show that the concept of Pareto front can be used with diverse cost functions.
+To gain insight of the concept of Pareto front, it will be applied to an industrial controlled process with the focus on the relationship between \gls{tv} and \gls{iae} for the controller as regulator. Later chapters of the book focus on the compromises between the responses for different sources of disturbances with the aim to highlight how the Pareto front can be used with diverse cost functions.
 
-In Section~\ref{sec:ParetoApproach}, different approaches to obtain the Pareto are presented. For this particular example a ``brute force'' approach is taken. The process that is used as example is a \gls{wwtp}.
+In Section~\ref{sec:ParetoApproach}, different approaches to obtain the Pareto are presented. For this particular example a ``brute force'' approach is taken and applied to an example \gls{wwtp}.
 
-The residual water after it has been used in residential commercial or industrial zones is known as wastewater. It is collected through sewers with the intention to be treated to be later deposited in receiving waters like rivers, lakes or the sea. According to \citet{Olsson1999} ``while the primary goal of a treatment plant is to achieve an average reduction in nutrient levels, the secondary goal is disturbance rejection, to achieve good effluent quality in spite of the many disturbances''. One of the characteristics of this process is that it is subject to large variation in the influent characteristics like the substrate concentration, oxygen levels and even flow. For example in \citet{Henze1997}, it is shown an example were the influent flow at midday can reach up to 244\% of the average flow in one day, while minimum could reach 32\% of the average flow.
+The residual water from residential, commercial or industrial zones is known as wastewater which is collected through sewers with the intention to be treated and then deposited in receiving waters like rivers, lakes or the sea. According to \citet{Olsson1999} ``while the primary goal of a treatment plant is to achieve an average reduction in nutrient levels, the secondary goal is disturbance rejection, to achieve good effluent quality in spite of the many disturbances''. One of the characteristics of this process is that it is subject to large variation in the influent characteristics like the substrate concentration, oxygen levels and even flow. \citet{Henze1997} presents an example were the influent flow at midday can reach up to 244\% of the average flow in one day, while minimum could reach 32\% of the average flow.
 
-To reduce the substrate levels, the idea is to stimulate the grow of microorganism that consume the substrate, to later be removed in the settler. This biological process is known as Activated Sludge Process (ASP) and it is one of the most important methods for wastewater treatment \citep{Henze1997}. Bacteria is the most important component of the sludge. These bacteria can remove carbon components and also nitrogenous components from the influent. To control the grow of bacteria, air is pumped into the wastewater while being store in tanks.
+To reduce the substrate levels, the idea is to stimulate the growth of microorganisms that consume the substrate and then removed them in the settler. This biological process is known as Activated Sludge Process (ASP) and it is one of the most important methods for wastewater treatment \citep{Henze1997}. Bacteria is the most important component of the sludge because it removes carbon components as well as nitrogenous components from the influent. To control the growth of bacteria, air is pumped into the wastewater while being stored in tanks.
 
-As pointed out by \citet{Jeppsson1996}, from the point of view of the bacteria, the organic particles in the influent are used as its source of energy. Bacteria take the oxygen and the particles and produce other simpler compounds (methane for example). The air injected in the tanks is its main source of oxygen and therefore is the principal manipulated variable of the system. However it is common to also have anoxic tanks (that is, tanks without external oxygen) that are used to promote the growth of bacteria that takes the oxygen directly from the water in the tank. Anoxic tanks are used to remove the nitrogenous components. The suspended material, the sludge, is remove from the water by settlers. Part of the sludge is recirculated to the system in order to keep enough biomass in the tanks, while the rest is dispose out of the loop to be used as fertilizer.
+Organic particles in the influent are used as bacteria's source of energy \citep{Jeppsson1996}. Bacteria takes the oxygen and the organic particles and produces other simpler compounds such as methane. The air injected in the tanks is its main source of oxygen and therefore is the principal manipulated variable of the system.
 
-Therefore, the basic layout of a \gls{wwtp} using the ASP contains an aeration tank and a settling tank as represented in 
-as presented in %
+It is also common to have anoxic tanks, i.e. tanks without external oxygen, that are used to promote the growth of bacteria that takes the oxygen directly from the water in the tank. The purpose of these anoxic tanks is to remove the nitrogenous components.
+
+The suspended material, the sludge, is remove from the water by settlers. Part of the sludge is recirculated to the system in order to keep enough biomass in the tanks, while the rest is extracted from the loop and could be used as fertilizer.
+
+The basic layout of a \gls{wwtp} using the ASP contains an aeration tank and a settling tank as represented in %
 %
 \begin{figure}[tb]
 	\centering
@@ -74,11 +77,11 @@ as presented in %
 	\label{sec:Ch5WTP}
 \end{figure}
 %
-Figure~\ref{sec:Ch5WTP}. The ``cleaned'' water is withdrawn from the top of the settler while part of the sludge is recirculated to the bioreactor and the rest is used to produce where the treated wastewater is deposited in the receiving water while a concentrated sludge is withdrawn from the bottom \citep{Henze1997}. This concentrated sludge can be recycled in order to maintain a high density of biomass in the thanks.
+Figure~\ref{sec:Ch5WTP}. The ``cleaned'' water is withdrawn from the top of the settle. The treated wastewater is deposited in the receiving water while a concentrated sludge is withdrawn from the bottom \citep{Henze1997}. This concentrated sludge can be recycled in order to maintain a high density of biomass in the tanks.
 
-One of the characteristics of \gls{wwtp}s is their high energy consumption \citep{Longo2016}. The bioreactor needs electricity to produce the aeration, move the water using pumps and continuous stirring. At the same time it is necessary to cope with disturbances coming from the influent. With this train of logic, from a control perspective, it is necessary to keep the system regulated, at the same time that the energy is minimized.
+One of the characteristics of \gls{wwtp}s is their high energy consumption \citep{Longo2016}. The bioreactor needs electricity to produce the aeration and  to move the water using pumps and continuous stirring while simultaneously coping with disturbances coming from the influent. Therefor, from a control perspective, it is necessary to keep the system regulated whilst ensuring energy use is minimized.
 
-In order to frame this problem mathematically, first a model has to be selected. In this case, the model first proposed in \cite{Nejjari1999} and slightly modified in \cite{Han2008} will be considered. This model is a fourth order non-linear set of equations found after a material balance is performed. The model is given by:
+In order to frame this problem mathematically, first a model has to be selected. In this case, the model first proposed by \citet{Nejjari1999} and slightly modified by \citet{Han2008} will be considered. This model is a fourth order non-linear set of equations found after a material balance is performed. The model is given by:
 \begin{equation}
 	\begin{split}
 	\frac{d X (t)}{dt} &= \mu(t) X(t) - D(t) (1+r)X(t)+rD(t)X_r(t)\\
@@ -101,7 +104,7 @@ where,
 	\item $D(t)$ is the dilution rate
 	\item $DO_{in}(t)$ is dissolved oxygen concentration in the influent
 	\item $Q_{air}(t)$ is the aeration rate
-	\item $\mu(t)$ biomass growth rate
+	\item $\mu(t)$ is the biomass growth rate
 \end{itemize}
 %
 and the parameters are:
@@ -151,7 +154,7 @@ Table~\ref{tab:ParamValues}, while the value of the variables in the selected op
 %
 Table~\ref{tab:WTPOP}.
 
-The idea is to study the relationship between the \gls{iae} for the closed-loop regulation against the dilution rate disturbances and the \gls{tv} of the aeration rate. The \gls{iae} represents the performance of the plant while the \gls{tv} is an indirect measure of the energy required to accomplished that level of performance. It is expected that a good disturbance rejection response (lower \gls{iae}) implies a higher \gls{tv} (which means a more aggressive control signal).
+The idea is to study the relationship between the \gls{iae} for the closed-loop regulation against the dilution rate disturbances and the \gls{tv} of the aeration rate. The \gls{iae} represents the performance of the plant while the \gls{tv} is an indirect measure of the energy required to accomplish that level of performance. It is expected that a good disturbance rejection response (lower \gls{iae}) implies a higher \gls{tv}, which means a more aggressive control signal.
 
 The closed-loop is controlled by means of a \gls{pi} controller that manipulates the aeration rate in order to keep the dissolved oxygen concentration in the reactor around $5.0$ in the presence of dilution rate disturbances. The model was implemented with an S-function and the simulations were performed using \simulink. The implementation of the model can be found in the software companion to this book and is represented in Figure~\ref{fig:Ch5SimulinkWTPModel}. The parameters of the \gls{wwtp} can be varied by means of a mask, as presented in Figure~\ref{fig:Ch5WTPMask}. The parameters and the initial conditions can be set manually, alternatively, an initialization script is also included, with the parameter and variables values presented in Table~\ref{tab:ParamValues} and Table~\ref{tab:WTPOP}.
 %
@@ -171,46 +174,46 @@ The closed-loop is controlled by means of a \gls{pi} controller that manipulates
 
 The implementation of the controller is very simple, a more complete version is used in Section~\ref{sec:CSTRVandeVusse}, where a chemical process is used to show the multivariable approach presented in this book. The \gls{iae} and \gls{tv} values are also computed within the \simulink{} model.
 
-In Section~\ref{sec:ParetoApproach}, some methods to generate the front are presented, however, for this practical example, a more basic approach is taken. The idea can be summarized as follows: Varying the values of $K_p$ and $T_i$ within a certain range, compute both \gls{iae} and \gls{tv} for all possible combinations. From this data, found the Pareto front.
+In Section~\ref{sec:ParetoApproach}, some methods to generate the front are presented, however, for this practical example, a more basic approach is taken. The idea can be summarized as follows: Varying the values of $K_p$ and $T_i$ within a certain range, compute both \gls{iae} and \gls{tv} for all possible combinations. The Pareto front can be deduced from this data.
 
 This procedure is simple, however it is necessary to do a simulation of the system for every point, as presented in Figure~\ref{fig:Ch5ParetoWTP}. %
-\begin{figure}
+\begin{figure}[tb]
 	\centering
 	\includegraphics[width=\linewidth]{Ch5ParetoWTP}
 	\caption{Result of the simulation for \gls{wwtp} considering \gls{iae} and \gls{tv}.}
 	\label{fig:Ch5ParetoWTP}
 \end{figure}
 %
-This figure represents 2500 simulations where the resulting \gls{iae} and \gls{tv} are represented in the plane known as the function space. One expect the Pareto to be shaped like the example presented in Figure~\ref{fig:planoFun01}, however this is not necessarily true for all cases, as can be verified with this particular example. Nevertheless, the Pareto arises once all the simulations are completed. All points represent a particular set of values of $K_p$ and $T_i$. The points marked with a circle are the ones that belong to the Pareto. All these points represent optimal values of $K_p$ and $T_i$ because, it is not possible to find any other solution capable to have a lower value for one of the functions without worsening the other function.
+This figure represents 2500 simulations where the resulting \gls{iae} and \gls{tv} are represented in the plane known as the function space. One may expect the Pareto to be shaped like the front presented in Figure~\ref{fig:planoFun01}, however this is not necessarily true for all cases, as can be verified with this particular example. Nevertheless, the Pareto arises once all the simulations are completed. All points represent a particular set of values of $K_p$ and $T_i$. The points marked with a circle are the ones that belong to the Pareto. All these points represent optimal values of $K_p$ and $T_i$ because it is not possible to find any other solution capable to have a lower value for one of the functions without worsening the other function.
 
-For this particular example, the left anchor point (the one with lower value of \gls{iae}) can be considered as the case with the controller with the best performance but with a higher consumption of energy. Since there are some points above this point, it can be said that there are more costly controllers but with worst performance. It is obvious that this set of controllers are not of our interest, that is the dominated solution can be disregarded.
+For this particular example, the left anchor point (the one with lower value of \gls{iae}) can be considered as the case with the controller with the best performance but with a higher consumption of energy. Since there are some points above this anchor, it can be said that there are more costly controllers but with worst performance. It is obvious that this set of controllers are not of our interest, and thus can be disregarded.
 
-On the other side, the anchor point on the right (the one with lower \gls{tv}) is an interesting case, in which the controller is set in open loop (the value of $K_p$ is equal to zero). The particular value of \gls{iae} for this case is totally dependent of the disturbance signal used for the simulation. However the behavior found in this example is what would be expected: better performance implies a more aggressive control signal.
+On the other side, the anchor point on the right (the one with lower \gls{tv}) is an interesting case, in which the controller is set in open loop (the value of $K_p$ is equal to zero). The particular value of \gls{iae} for this case is totally dependent of the disturbance signal used for the simulation. However, the behavior found in this example is what would be expected: better performance implies a more aggressive control signal.
 
-However, it is clear that it is not efficient to find the Pareto front using brute force. Consider that, from all the points computed, only a small fraction ($8.4\%$ to be exact) correspond to cases in the front. A lot of computer power was literally wasted. Also, note that, by varying $K_p$ and $T_i$ evenly, it was not possible to found an evenly distributed front. It is also important to note that not all the points that were selected as part of the Pareto may actually belong to it. If more points were found, it may be possible to find a better representation of the front but the computation needed (an the time) will not be productive.
+Nevertheless, it is clear that it is not efficient to find the Pareto front using brute force. Considering that, from all the points computed, only a small fraction ($8.4\%$ to be exact) corresponds to cases in the front. A lot of computer power was literally being wasted. Also, note that, by varying $K_p$ and $T_i$ evenly, it was not possible to find an evenly distributed front. It is also important to note that not all the points that were selected as part of the Pareto may actually belong to it. If more points were found, it may be possible to find a better representation of the front but the computation needed (an the time) will not be productive.
 
-However, once the Pareto is obtained, the user is capable to make decisions regarding the final selection of the parameters. For example, the decision maker can allow a level of degradation in \gls{iae} to obtain certain improvement on the \gls{tv}. Let's define the \gls{iae} degradation $\alpha_{iae}$ as:
+However, once the Pareto is obtained, the user is capable to make decisions regarding the final selection of the parameters. For example, the decision maker can allow a level of degradation in \gls{iae} to obtain certain improvement on the \gls{tv}. Let's define the \gls{iae} degradation $\alpha_{IAE}$ as:
 \begin{equation*}
 	\alpha_{IAE} = \frac{IAE - IAE_{min}}{IAE_{max}-IAE_{min}},
 \end{equation*}
 %
 with such definition, a value of $\alpha_{IAE} = 0$ represents zero degradation, that is, the case where the $IAE$ value is at its minimum. On the other hand, a value of $\alpha_{IAE} = 1$ represents the maximum value of \gls{iae} within the Pareto front, that is, the maximum possible degradation.
 
-With this in mind and looking at the Pareto in Figure~\ref{fig:Ch5ParetoWTP}, it is clear that, to obtain an improvement on \gls{tv} of about $20\%$, it is necessary to degrade the \gls{iae} about $50\%$. This may or may not be appropriate for the application. But, whichever point the decision maker takes as the final controller, if it is one of the points in the front, he or she can be sure that it is optimal.
+With this in mind and looking at the Pareto in Figure~\ref{fig:Ch5ParetoWTP}, it is clear that, to obtain an improvement on \gls{tv} of about $20\%$, it is necessary to degrade the \gls{iae} about $50\%$. This may or may not be appropriate for the application. But, whichever point the decision maker takes as the final controller, if it is one of the points in the front, they can be sure that it is optimal.
 
 But the efforts should be directed to find the Pareto from the beginning, not as a subproduct of a brute force task. Now, certain techniques are shown that are intended to directly find the best representation of the Pareto with as little effort as possible. Later in the book, some tools are proposed to take advantage from the Pareto, once it has been found.
 
 \subsection{Different approaches to obtain the Pareto front}
 \label{sec:ParetoApproach}
-In its most basic form, the Pareto front is found by performing several optimizations, each one are computed by varying some kind of parameters. Because of this, the idea is to be able to use standard optimization methods to find each point of the Pareto. However, these standard methods are meant to solve single objective problems.
+In its most basic form, the Pareto front is found by performing several optimizations, each one is computed by varying some kind of parameters. Because of this, the idea is to be able to use standard optimization methods to find each point of the Pareto. However, these standard methods are meant to solve single objective problems.
 
-As for single objective optimization there are two big families of methods to solve the problem: Bio-inspired methods that use some kind of heuristic in order to find the minimum of the cost function and deterministic methods mostly based on certain gradient of the cost function.
+As for single objective optimization there are two big families of methods to solve the problem: Bio-inspired methods that use some kind of heuristic techniques in order to find the minimum of the cost function and deterministic methods mostly based on the gradient of the cost function.
 
-In this section, a short review on both families is presented. However, because of the deterministic nature of the gradient based methods, in this book the later family is the chosen tool for solving \gls{moop}.
+In this section, a short review on both families is presented. However, because of the deterministic nature of the gradient based methods, the latter family is the chosen tool for solving \gls{moop}.
 
-In \citet{Zhou2011} a review on multi-objective evolutionary algorithm is presented. The author indicates that several algorithms are similar to the non-dominated sorting genetic algorithm II (NSGA-II) \citep{Deb2002}. Genetic algorithms are based on the idea of random mutation across generations and exchange of genes from parents to children. They also explain other kind of algorithms like particle swarm optimization which is based on the social behavior of bird flocking or fish schooling \citep{Eberhart1995}. Originally this method was employed for single function optimization, but it has been extended to multiple cost functions. Other methods that have been used for solving \gls{moop}, have a probabilistic nature like Ant Colony Optimization \citep{Dorigo2005} or the Cross Entropy method \citep{Rubinstein2004}. One drawback is that these methods are heuristic, and may yield different results each time they are computed. However, the main advantage is that they probably are able to find the global minimum of the functions.
+In \citet{Zhou2011} a review on multi-objective evolutionary algorithm is presented. The author indicates that several algorithms are similar to the non-dominated sorting genetic algorithm II (NSGA-II) \citep{Deb2002}. Genetic algorithms are based on the idea of random mutations across generations and exchange of genes from parents to children. They also explain other kinds of algorithms like particle swarm optimization which is based on the social behavior of bird flocking or fish schooling \citep{Eberhart1995}. Originally, this method was employed for single function optimization, but it has been extended to multiple cost functions. Other methods that have been used for solving \gls{moop} have a probabilistic nature like Ant Colony Optimization \citep{Dorigo2005} or the Cross Entropy method \citep{Rubinstein2004}. One drawback is that these methods are heuristic, and may yield different results each time they are computed. However, the main advantage is that they will probably find the global minimum of the functions.
 
-Specifically, for \gls{pid} control, evolutionary algorithms have been used in \citet{Reynoso-Meza2012b} for the multivariate process of the Wood and Berry distillation column. Another case is presented in \citet{Pierezan2014} where multi-objective Particle Swarm Optimization is applied on multivariable \gls{pid} controllers tuning to improve the performance of a robotic manipulator. This method was also used in \citet{Tian2014} but applied to a nonlinear continuous stirred tank reactor. Also in \citet{Mahdavian2014}, a multi-objective optimization for \gls{pid} control of a greenhouse electrical lighting system based on the cost of electricity is investigated and solved using an evolutionary algorithm. Multiobjective salp swarm algorithm (MSSA) with opposition based learning initialization and evolution was used in \citet{Domingues2019} for tuning the parameters of a \gls{pid} controller for an Antilock Braking Systems with good results over NSGA-II, but the later was more consistent with the results.
+Specifically, for \gls{pid} control, evolutionary algorithms have been used in \citet{Reynoso-Meza2012b} for the multivariate process of the Wood and Berry distillation column. Another case is presented in \citet{Pierezan2014} where multi-objective Particle Swarm Optimization is applied on multivariable \gls{pid} controllers tuning to improve the performance of a robotic manipulator. This method was also used in \citet{Tian2014} but applied to a nonlinear continuous stirred tank reactor. Furthermore, \citet{Mahdavian2014} present a multi-objective optimization for \gls{pid} control of a greenhouse electrical lighting system based on the cost of electricity which is solved using an evolutionary algorithm. Multiobjective salp swarm algorithm (MSSA) with opposition based learning initialization and evolution was used in \citet{Domingues2019} for tuning the parameters of a \gls{pid} controller for an Antilock Braking Systems with good results over NSGA-II, but the latter was more consistent with the results.
 
 \subsubsection{Comparison of bio-inspired methods for process control}
 %
@@ -218,33 +221,33 @@ Now lets compare the performance of some bio-inspired methods for industrial pro
 
 \paragraph{Ant Colony Optimization}
 \label{sec:ACO}
-Ants can naturally fin the shortest path between its nest and the food source by producing some kind of chemical signaling that allows the complete population to know the path that most ants are using.  As pointed out by \citet{Dorigo2006}: ``\textit{these  ants  deposit pheromone  on  the  ground  in  order  to  mark  some  favorable path that should be followed by other members of the colony. Ant colony optimization (ACO) exploits a similar mechanism for solving optimization problems}''
+Ants can naturally find the shortest path between its nest and the food source by producing some kind of chemical signaling that allows the complete population to know the path that most ants are using.  As pointed out by \citet{Dorigo2006}: ``\textit{these  ants  deposit pheromone  on  the  ground  in  order  to  mark  some  favorable path that should be followed by other members of the colony. Ant colony optimization (ACO) exploits a similar mechanism for solving optimization problems}''
 
-Initially a fixed number of ``artificial ants'' are assigned a given random path which represent the different values of the decision variables that minimize the cost function. The quantity of ``artificial pheromone'' is also assigned to each path according to the fitness of the solution. The algorithm then starts to discard some paths and in the end, the path with more ``pheromone'' is supposed to represent the optimal solution \citep{Goss1989}.
+Initially a fixed number of ``artificial ants'' are assigned a given random path which represents the different values of the decision variables that minimize the cost function. The quantity of ``artificial pheromone'' is also assigned to each path according to the fitness of the solution. The algorithm then starts to discard some paths and in the end, the path with more ``pheromone'' is supposed to represent the optimal solution \citep{Goss1989}.
 %
 \paragraph{Invasive Weed Colony Optimization}
 \label{sec:IWO}
 %
-Invasive Weed Optimization (IWO) is a search algorithm first presented in \citet{Mehrabian2006a}. The idea behind the method is based on how weed colonize and distribute the space around \citep{Binitha2012}. IWO can solve multidimensional optimization problems following the next steps:
+Invasive Weed Optimization (IWO) is a search algorithm first presented in \citet{Mehrabian2006a}. The idea behind the method is based on how weed colonize and distribute the space around \citep{Binitha2012}. IWO can solve optimization problems following the next steps:
 %
 \begin{enumerate}
-	\item Initialize the population: First a set of random initial solutions widespread over the multidimensional problem space are selected. These solution are considered as members of the weed colony. %, this random population based on VarMin, VarMax and VarSize.
+	\item Initialize the population: First a set of random initial solutions widespread over the multidimensional problem space are selected. These solutions are considered as members of the weed colony. %, this random population based on VarMin, VarMax and VarSize.
 	%%
-	\item Reproduction: Each member of the population is allowed to produce seeds depending on its own, as well as the colony's, lowest and highest fitness, such that, the number of seeds produced by a weed increases linearly from lowest possible seed for a weed with worst fitness to the maximum number of seeds for a plant with best fitness (which corresponds to the lowest objective function value for a minimization problem)\citep{Kundu2011}%
+	\item Reproduction: Each member of the population is allowed to produce seeds depending on its own, as well as the colony's, lowest and highest fitness, such that, the number of seeds produced by a weed increases linearly from lowest possible seed for a weed with worst fitness to the maximum number of seeds for a plant with best fitness (which corresponds to the lowest objective function value for a minimization problem)\citep{Kundu2011}.%
 	%%
 	\item Spatial dispersal: The seeds are distributed randomly across the search space with a varying variance. The idea behind this is that the seeds will not be near (that is, be similar) to the parent plant.
 	%
-	\item Competitive exclusion: When all seeds have a defined position, they are ranked using the cost function to minimize. The weeds with lower function value are discarded, since this cost function is considered to represent the fitness of each plant, when discarding the ones with worst value, it is ensure that only the specimens with better fitness survive and are able to reproduce in the next generation.
+	\item Competitive exclusion: When all seeds have a defined position, they are ranked using the cost function to minimize. The weeds with lower function value are discarded, since this cost function is considered to represent the fitness of each plant, when discarding the ones with worst value, it is ensured that only the specimens with better fitness survive and are able to reproduce in the next generation.
 \end{enumerate}
 %
 \paragraph{Linear Biogeography-based optimization}
 In its original form, Biogeography is the branch of biology that studies the geographical distribution of plants and animals and the mathematical models associated with the extinction and migration of species \citep{MacArthur1967}.
 
-Biogeography-based optimization (BBO) is an evolutionary algorithm in which each possible solution to the problem is treated as an habitat (or island). The solution with a better cost function then is considered to be a better habitat  because the value of the solution is analogous to the characteristics of the habitat that allows different species to thrive \citep{Simon2008}.
+Biogeography-based optimization (BBO) is an evolutionary algorithm in which each possible solution to the problem is treated as a habitat (or island). The solution with a better cost function then is considered to be a better habitat  because the value of the solution is analogous to the characteristics of the habitat that allows different species to thrive \citep{Simon2008}.
 
-Good habitats are considered to have high rate of emigration, because its good features allows an increase in the number of species. This increase may lead to a saturation in its capacity to house more species. The solutions with lower fitness has a high rate of immigration, because animals and plants search for less concentrated habitats to grow and reproduce.
+Good habitats are considered to have a high rate of emigration, because its good features allows an increase in the number of species. This increase may lead to a saturation in its capacity to house more species. The solutions with lower fitness have a high rate of immigration, because animals and plants search for less concentrated habitats to grow and reproduce.
 
-New solutions are found by mixing the characteristics of each habitats according to its emigration and immigration rates. Then, this new habitats are compared against each other, and the best ones are used to form new solutions until an optimal is found.
+New solutions are found by mixing the characteristics of each habitat according to its emigration and immigration rates. Then, these new habitats are compared against each other, and the best ones are used to form new solutions until an optimal is found.
 
 \paragraph{Genetic Algorithms}
 The Genetic Algorithms (GA) are based on the ideas of evolution, genetics and natural selection. The main characteristics of GA are~\citep{Simon2013}:
@@ -252,24 +255,24 @@ The Genetic Algorithms (GA) are based on the ideas of evolution, genetics and na
 \begin{itemize}
 	\item It tries to simulate the sexual reproduction of a biological population.
 	\item The individuals have a finite life span.
-	\item In each generation, some new characteristics of the population arises due to random mutation.
+	\item In each generation, some new characteristics of the population arise due to random mutation.
 	\item There is a positive correlation between the ability to survive and the ability to reproduce.
 \end{itemize}
 
 As in nature, the idea behind GA is that only the best fitted specimen in a population are able to reproduce, and therefore, pass its genome to the next generation. This ``fitness'' value is considered to be the cost function that is intended to be minimized \citep{Mitchell1995}.
 
-In this case, each individual is viewed as a possible solution to the problem. Its value is coded as a binary chain, simulating the genetic information of living beings. The algorithm then decides which individuals of each generation are allowed to be reproduced and therefore, only the ones with a minimal the minimal cost function survive.
+In this case, each individual is viewed as a possible solution to the problem. Its value is coded as a binary chain, simulating the genetic information of living beings. The algorithm then decides which individuals of each generation are allowed to be reproduced and therefore, only the ones with a minimal cost function survive.
 %
 \paragraph{Particle swarm optimization}
 Particle swarm optimization (PSO) is also a search algorithm. But in this case, each solution in the pool of initial solutions is considered to represent an individual in a swarm (for example a flock of birds). In general, each individual is called a particle which represents a possible solution to the problem. The interesting characteristic of this method is that the adjustment of each particle depends on its history and its relationship with the neighboring particles~\citep{Shi2004}.
 
-If for example, a flock of birds is considered as the biological counterpart, the objective is to define an algorithm that mimics the movement of this flock that naturally occurs without an apparent leader, this phenomenon is usually called swarm intelligence~\citep{Kennedy1995}. At each iteration, the acceleration of each particle is changed to move them to the best solutions found.
+If, for example, a flock of birds is considered as the biological counterpart, the objective is to define an algorithm that mimics the movement of this flock that naturally occurs without an apparent leader, this phenomenon is usually called swarm intelligence~\citep{Kennedy1995}. At each iteration, the acceleration of each particle is changed to move them to the best solutions found.
 
 \paragraph{Comparison of each method for industrial controller tuning}
 %
-In this comparison a \gls{pid} controller is tuned as regulator using the methods presented above, for a second order overdamped system with pure time delay. The results of each method were obtained with a computer equipped with an Intel Core i5-3470 CPU at 3.20GHz and 8 GB of RAM using \matlab{} as programming language.
+In this comparison, a \gls{pid} controller is tuned as a regulator using the methods presented above, for a second order overdamped system with pure time delay. The results of each method were obtained with a computer equipped with an Intel Core i5-3470 CPU at 3.20GHz and 8 GB of RAM using \matlab{} as programming language.
 
-For comparison purposes, the result of the optimization using the interior-point algorithm is presented. In all cases it was required to  perform at least 125 iteration in order to let all methods to explore the complete solution space. Also, in al cases, the initial solutions where selected around the same point. A total of 100 different experiments were applied to 9 different plants. The difference in the plants were the time delay and the relationship between the larger and smaller time constant. These plants are presented in %
+For comparison purposes, the result of the optimization using the interior-point algorithm is presented. In all cases, it was required to perform at least 125 iterations in order to let all methods explore the complete solution space. In all cases, the initial solutions were selected around the same point. A total of 100 different experiments were applied to 9 different plants. The difference in the plants were the time delay and the relationship between the larger and smaller time constant. These plants are presented in %
 %
 \begin{table}[tb]%
 	\centering
@@ -292,9 +295,9 @@ For comparison purposes, the result of the optimization using the interior-point
 	\end{tabular}
 \end{table}
 %
-Table~\ref{tab:Plants}. It has to be noticed in these plants that they cover all the spectrum of plants, from plants with small time delay ($L=0.1$) to plants where the time delay is twice the value of the larger time constant.
+Table~\ref{tab:Plants} and cover all the spectrum available, from plants with small time delay ($L=0.1$) to time delays twice the value of the larger time constant.
 
-It was found that all methods were able to find and optimal similar to the one found using the deterministic method IP. When comparing the disturbance rejection response, presented in %
+It was found that all methods were able to find an optimal solution similar to the one found using the deterministic method (represented with IP from "interior point"). When comparing the disturbance rejection response, presented in %
 %
 \begin{figure}[tb]%
 	\centering
@@ -321,7 +324,7 @@ It was found that all methods were able to find and optimal similar to the one f
 	\label{fig:Disturbance}%
 \end{figure}
 %
-Fig.~\ref{fig:Disturbance}, it was found that the results of each method are acceptable. The values presented on the figure are the \gls{iae} of the regulator response, that is, the algorithm were applied by taking $J_{di}$ as its cost function. The lowest value was found with the PSO and IWO methods. The simulation in Fig.~\ref{fig:Disturbance} is the application of the average parameters of the controller with plant P5. Remember that the methods were applied 100 times for each case, the average was taken to minimize the random nature of the bio-inspire methods. The computational cost associated to each method is presented in %
+Figure~\ref{fig:Disturbance}, it was found that the results of each method are acceptable. The values presented on the figure are the \gls{iae} of the regulator response, that is, $J_{di}$ was considered as the cost function to be minimized. The lowest value was found with the PSO and IWO methods. The simulation in Figure~\ref{fig:Disturbance} is the application of the average parameters of the controller with plant P5. Remember that the methods were applied 100 times for each case, the average was taken to minimize the random nature of the bio-inspire methods. The computational cost associated to each method is presented in %
 %
 \begin{table}[tb]%
 	\centering
@@ -345,8 +348,8 @@ Fig.~\ref{fig:Disturbance}, it was found that the results of each method are acc
 %
 Table~\ref{tab:Results01}. It can be seen that the method with higher number of iteration, in average, is LBBO, followed by PSO. IWO and GA has the lowest number of mean iterations.
 
-Compared to the base case of the IP algorithm, the bio-inspired methods have a larger number of function calls, because the bio-inspired methods has a large number of ``agents'' (particles, ants, genes, habitats, seeds, etc).
-Regarding the spent time, the algorithm that takes longer time to finish in average was ACO, and the fastest was LBBO.
+Compared to the base case of the IP algorithm, the bio-inspired methods have a larger number of function calls, because the bio-inspired methods have a large number of ``agents'' (particles, ants, genes, habitats, seeds, etc).
+Regarding the spent time, the algorithm that takes the longest time to finish in average was ACO, and the fastest was LBBO.
 
 Of course, the servo response can also be analyzed with the obtained controllers. In %
 %
@@ -375,20 +378,22 @@ Of course, the servo response can also be analyzed with the obtained controllers
 	\label{fig:Reference}%
 \end{figure}
 %
-Figure~\ref{fig:Reference}, the response to a step change in the setpoint can be observed for all methods. Since the controller used had only one degree of freedom, the controller that has better response for regulation response has the worst response for setpoint tracking. This compromise exists even when a \gls{2dof} controller is employed. It is true that for most cases, the disturbance rejection is more important than the setpoint tracking, however, in industrial processes, both responses may have to be taken into account for a correct functioning of the system. In those cases, multiobjective optimization comes handy in order to let the decision maker to find the best set of parameters for the controlled loop.
+Figure~\ref{fig:Reference}, the response to a step change in the setpoint can be observed for all methods. Since the controller used had only one degree of freedom, the controller that has the best response for regulation response has the worst response for setpoint tracking. This compromise exists even when a \gls{2dof} controller is employed. It is true that for most cases, the disturbance rejection is more important than the setpoint tracking, however, in industrial processes, both responses may have to be taken into account for a correct functioning of the system. In those cases, multiobjective optimization is a useful tool to let the decision maker find the best set of parameters for the controlled loop.
 
 \subsubsection{Deterministic methods for multiobjective optimization}
 
 In its core conception, bio-inspired methods are stochastic. They depend on a random set of initial solutions or they add some randomness within the algorithm. For this reason, the final solution obtained may be (hopefully) slightly different each time the optimization is performed.
 
-The classical deterministic methods are based more on the computation of a gradient, in order to minimize the cost function. Given that it exists, a lot of results and well-proven algorithms to minimize the problem with this idea, it is logical to try to pose a multiobjective problem in such a way that the standard methods can be applied. One way to do this is performing a scalarization.
+The classical deterministic methods are based on the computation of a gradient in order to minimize the cost function. For the case of multiobjective problems, the purpose is to rewrite them in such a way that it is possible to use the standard methods. One way to do this is performing a scalarization.
 
-The main idea behind this scalarization is to take all the cost functions and formulate the problem in such a way that a minimize a single function gives a result such that all functions are taken into account simultaneously. Repeatedly solving this scalar optimization methods while varying a parameter leads to find the Pareto front. According to \citet{Marler2004}, the main methods are the \gls{ws}, the \gls{nbi} \citep{Das1998}, the \gls{nnc} \citep{Messac2003} and the \gls{ennc} \citep{Sanchis2008}. These methods are explored in the next section and used in the rest of the book.
+The main idea behind this scalarization is to take all the cost functions and formulate the problem in such a way that minimizing a new single compound function gives the optimal solution. Repeatedly solving this scalar optimization problem while varying a parameter leads to finding the Pareto front.
+
+According to \citet{Marler2004}, the main methods are the \gls{ws}, the \gls{nbi} \citep{Das1998}, the \gls{nnc} \citep{Messac2003} and the \gls{ennc} \citep{Sanchis2008}. These methods are explored in the next section and used in the rest of the book.
 %----------------------------------------------------
 \section{Scalarization algorithms to find the Pareto front}
 \label{sec:design-methodologies}
 
-In general, the algorithms to find the optimal value of a function are designed to be used in a single objective paradigm. In order to be able to use the same standard algorithms with a multi-objective problem, some scalarization method has to be employed.
+In general, the algorithms to find the optimal value of a function are designed to be used in a single objective paradigm. In order to be able to use the same standard algorithms with a multi-objective problem, a scalarization method has to be employed.
 
 The most important methods are summarized next and then applied in Chapter~\ref{chap:ApplicationExamplesNoGUI}.
 
@@ -401,26 +406,26 @@ F_{WS}(\mathbf{x}) = \sum_{i=1}^{k}\alpha_{i} {f}_{i}(\mathbf{x}),
 \label{eq:JWSOriginal}
 \end{equation}
 %
-where $\alpha_i$ is the weight associated with function $f_i$ and $\sum_{i=1}^{k}\alpha_{i} = 1$. The idea behind the utility function $F_{WS}$ is to be able to take into account all individual cost functions at the same time. It is known that when minimizing \eqref{eq:JWSOriginal}, the solution belongs to the Pareto front. Therefore, it is of great importance to select the values of the weights that better reflect the desire of the decision-maker.
+where $\alpha_i$ is the weight associated with function $f_i$ and $\sum_{i=1}^{k}\alpha_{i} = 1$. The idea behind the utility function $F_{WS}$ is to be able to take into account all individual cost functions at the same time. The solution on the minimization of~\eqref{eq:JWSOriginal} belongs to the Pareto front. Therefore, it is of great importance to select the values of the weights that better reflect the desire of the decision-maker.
 
-The weights have two different roles that are entangled, in one hand the weights can be used to represent the importance of one function over the others (the bigger the weight, the higher the importance) and in the other hand the weights can be used to equalize the relative values of the functions (one function may yield higher values that shadows the others).
+The weights have two different roles that are entangled, on one hand, the weights can be used to represent the importance of one function over the others (the bigger the weight, the higher the importance) and on the other hand, the weights can be used to equalize the relative values of the functions (one function may yield higher values that shadows the others).
 
-However, choosing the values of the weight can be difficult. In \citet{Marler2010} it is shown that the weight can be interpreted as a first order approximation of a preference function, and therefore, cannot fully take into account the desires of the decision-maker.
+However, choosing the values of the weight can be difficult. \citet{Marler2010} demonstrate that the weight can be interpreted as a first order approximation of a preference function, and therefore, cannot fully take into account the desires of the decision-maker.
 
-Lets take a two function \gls{moop} as an example. If the Pareto front is desired to be computed, it is highly recommended to normalize the function:
+Lets take a two function \gls{moop} as an example. If the Pareto front is to be computed, it is highly recommended to normalize the function:
 \begin{equation}
 F_{WS}(\mathbf{x}) = \alpha_{1WS} \hat{f}_{1}(\mathbf{x}) + \alpha_{2WS} \hat{f}_{2}(\mathbf{x}),
 \label{eq:JWS}
 \end{equation}
 with $\alpha_{1WS} + \alpha_{2WS}=1$, and $\hat{f}_{1}(\mathbf{x})$ and $\hat{f}_{2}(\mathbf{x})$ the normalized versions of $f_{1}(\mathbf{x})$ and $f_{2}(\mathbf{x})$, respectively. One possible normalization (see \citet{Marler2004}) is given by:
 \begin{equation}
-\hat{f}_{1}(\mathbf{x}) = \frac{f_{1}(\mathbf{x})-\min{\left( f_{1}(\mathbf{x})\right) }}{\max{(f_{1}(\mathbf{x}))}-\min{\left( f_{1}(\mathbf{x})\right) }}.
+\hat{f}_{i}(\mathbf{x}) = \frac{f_{i}(\mathbf{x})-\min{\left( f_{i}(\mathbf{x})\right) }}{\max{(f_{i}(\mathbf{x}))}-\min{\left( f_{i}(\mathbf{x})\right) }}.
 \label{eq:NormalizedJ}
 \end{equation}
 
 With this normalization, the utopia point is moved to the origin and the maximum value of the new normalized function is 1.
 
-The optimization problem then is written as:
+The optimization problem is then written as:
 \begin{equation}
 \begin{gathered}
 \min_{\mathbf{x}}{\; F_{WS}(\mathbf{x})}, \\
@@ -430,13 +435,15 @@ g(\mathbf{x}) \leq 0,
 \label{eq:WSProblem}
 \end{equation}
 %
-where $h(\mathbf{x})$ and $g(\mathbf{x})$ are the equality and inequality constraints of the original problem. To find the Pareto front, the problem in \eqref{eq:WSProblem} is to be solved solve by varying the weights. However, it is known that the \gls{ws} method is not appropriate to find the Pareto front. In first place, when \eqref{eq:JWS} is minimized for different values of $\alpha_{1WS}$ and $\alpha_{2WS}$ in order to obtain the Pareto front, an even distribution of the weights does not assure an even distribution of the points in the front. Also, with \gls{ws} it is not possible to obtain Pareto points in the non-convex region of the front, and therefore, not all the possible solutions can be found \citep{Das1997}. In order to tackle this issue, alternative problem formulations have been proposed in the literature to obtain the Pareto front which are presented next.
+where $h(\mathbf{x})$ and $g(\mathbf{x})$ are the equality and inequality constraints of the original problem. To find the Pareto front, the problem in \eqref{eq:WSProblem} would be solved by varying the weights.
+
+However, it is known that the \gls{ws} method is not effective in finding the Pareto front. When \eqref{eq:JWS} is minimized for different values of $\alpha_{1WS}$ and $\alpha_{2WS}$ in order to obtain the Pareto front, an even distribution of the weights does not assure an even distribution of the points in the front. What is more, it is not possible to obtain Pareto points in the non-convex region of the front, and therefore, not all the possible solutions can be found \citep{Das1997}. In order to tackle this issue, alternative problem formulations have been proposed in the literature to obtain the Pareto front.
 %--------------------------------------------------
 %--------------------------------------------------
 \subsection{Normal Boundary Intersection}
 \label{sec:NBI}
 %
-The \gls{nbi} is a variation in the way that the \gls{moop} is posed as a single objective optimization problem, in order to obtain an even spaced Pareto front \citep{Das1998}. In %
+The \gls{nbi} is a variation in the way that the \gls{moop} is posed as a single objective optimization problem in order to obtain an even spaced Pareto front \citep{Das1998}. In %
 %
 \begin{figure}[b]%
 	\centering
@@ -445,7 +452,16 @@ The \gls{nbi} is a variation in the way that the \gls{moop} is posed as a single
 	\label{fig:NBI}%
 \end{figure}
 %
-figure~\ref{fig:NBI}, a representation of the method is shown for two normalized objective functions. If the utopia plane (the plane that contains the anchor points, in the case of a bi-objective problem, the straight line that joins the anchor points) is parameterized by $\Phi\mathbf{\beta}$, where $\Phi(:,i)=\mathbf{F}(\mathbf{x}_i^*)-\mathbf{F}(\mathbf{x}^*)$, $\mathbf{F}(\mathbf{x}_i^*)$ is the value of the multi-objective function evaluated in the $i$th anchor point, $\mathbf{F}(\mathbf{x}^*)$ is the value of the function at the utopia point, and $\beta$ is chosen as:
+Figure~\ref{fig:NBI}, a representation of the method is shown for two normalized objective functions.
+
+First we define the utopia plane $U$ as the one that contains the anchor points\footnote{In the case of a bi-objective problem, the utopia plane is just the straight line that joins the anchor points.}, and it  is parameterized as:
+%
+\begin{equation}
+	U = \Phi\mathbf{\beta},
+	\label{eq:UtpiaPlaneNBI}
+\end{equation}
+%
+where $\Phi(:,i)=\mathbf{F}(\mathbf{x}_i^*)-\mathbf{F}(\mathbf{x}^*)$, $\mathbf{F}(\mathbf{x}_i^*)$ is the value of the multi-objective function evaluated in the $i$th anchor point, $\mathbf{F}(\mathbf{x}^*)$ is the value of the function at the utopia point, and $\beta$ is chosen as:
 \begin{equation}
 \beta=
 \left[\begin{tabular}{c}
@@ -469,15 +485,17 @@ g(\xv) \leq 0.
 \label{eq:NBIProblem}
 \end{equation}%
 
-The \gls{nbi} method converts the original problem by adding an equality constraint. By maximizing the new variable $v$ (which represents the distance from the utopia plane towards the utopia point), the front that is closer to the utopia point is found. An alternative formulation of \eqref{eq:NBIProblem} was proposed in \citet{Shukla2007} to ensure that only the points that really belong to the Pareto front are found.
+The \gls{nbi} method converts the original \gls{moop} into a single objective optimization problem by adding an equality constraint. By maximizing the new variable $v$ (which represents the distance from the utopia plane towards the utopia point), the front that is closer to the utopia point is found. An alternative formulation of \eqref{eq:NBIProblem} was proposed in \citet{Shukla2007} to ensure that only the points that really belong to the Pareto front are found.
 
-This method has been widely used in several areas. For example, in \citet{Stehr2003} was used to analyze the compromise between gain and phase margin when designing analog circuits. In \citet{Sendin2004}, the \gls{nbi} was considered in the design of nonlinear bioprocesses. In \citet{Ierapetritou2007a} the \gls{nbi} is used to optimize the scheduling of a chemical process with uncertainty. In \citet{Vahidinasab2010} \gls{nbi} is applied to develop optimal bidding strategies for the participants of oligopolistic energy markets; the social welfare and the emissions are considered as cost functions and the constraints take into account the characteristics of the generators and the power flow of the system.
+This method has been widely used in several areas. For example, in \citet{Stehr2003}, it was used to analyze the compromise between gain and phase margin when designing analog circuits. In \citet{Sendin2004}, the \gls{nbi} was applied in the design of nonlinear bioprocesses. In \citet{Ierapetritou2007a}, the \gls{nbi} is used to optimize the scheduling of a chemical process with uncertainty. In \citet{Vahidinasab2010}, the \gls{nbi} is applied to develop optimal bidding strategies for the participants of oligopolistic energy markets; social welfare and emissions are considered as cost functions and the constraints take into account the characteristics of the generators and the power flow of the system.
 
-In \citet{Ganesan2013}, \gls{nbi} is used in conjunction with a meta-heuristic algorithm to generate optimal solution options to the green sand mould system problem. In \citet{Brito2014} the method is used coupled with mean-squared error functions in a robust parameter design of the surface roughness in end milling process. In \citet{Rubio-Largo2014} the method is adapted to solve a traffic grooming problem in the telecommunications field. In \citet{Rojas2015b} a comparison between several scalarization methods, including \gls{nbi}, was presented for a \gls{foptd} plant where different disturbance sources are considered. In \citet{Naves2017} \gls{nbi} is used for the optimization of methyl orange treatment with ozone. In \citet{Simab2018} a model for short-term hydrothermal scheduling problem in the presence of the pumped-storage technology and stated as Mixed-Integer Non-Linear Programming, while the scalarization was done using \gls{nbi}. Finally, in \citet{Moura2018} \gls{nbi} was used in the construction of a Pareto boundary chart of a treatment of a synthetic solution of amoxicillin in a reactor with ozone bubbling.
+In \citet{Ganesan2013}, the \gls{nbi} is used in conjunction with a meta-heuristic algorithm to generate optimal solution options to the green sand mould system problem. In \citet{Brito2014}, the method is used coupled with mean-squared error functions in a robust parameter design of the surface roughness in end milling process. In \citet{Rubio-Largo2014}, the method is adapted to solve a traffic grooming problem in the telecommunications field. In \citet{Rojas2015b}, a comparison between several scalarization methods, including \gls{nbi}, was presented for a \gls{foptd} plant where different disturbance sources are considered. In \citet{Naves2017}, the \gls{nbi} is used for the optimization of methyl orange treatment with ozone. In \citet{Simab2018}, a model for short-term hydrothermal scheduling problem is posed as a multiobjective Mixed-Integer Non-Linear problem and solved by applying the \gls{nbi} method. Finally, in \citet{Moura2018}, the \gls{nbi} was used in the construction of a Pareto boundary chart of a treatment of a synthetic solution of amoxicillin in a reactor with ozone bubbling.
 %-------------------------------------------------- 
 \subsection{Normalized Normal Constraint}
 \label{sec:NNC}
-The \gls{nnc} is presented in \citet{Messac2003} and is intended to improve the results of the \gls{nbi} by formulating the optimization problem only with inequality constraints and by filtering all the non-Pareto optimal points. The main idea of the methodology is presented in
+The \gls{nnc} is presented in \citet{Messac2003} and is intended to improve the results of the \gls{nbi} by formulating the optimization problem only with inequality constraints and by filtering all the non-Pareto optimal points.
+
+The main idea of the methodology is presented in:
 %
 \begin{figure}[b]%
 	\centering
@@ -486,9 +504,9 @@ The \gls{nnc} is presented in \citet{Messac2003} and is intended to improve the 
 	\label{fig:NNC}%
 \end{figure}
 %
-figure~\ref{fig:NNC}: the utopia plane is parameterized in a similar way as the \gls{nbi} but, instead of constraining the points to be within a line, the new constrained feasible region is constructed with the original feasible region and a line that is normal to the utopia plane. With this new feasible region it is only required to minimize one of the functions (e.g. $f_{1}$) in order to find the Pareto front.
+Figure~\ref{fig:NNC}: the utopia plane is parameterized in a similar way as the \gls{nbi}, but instead of constraining the points to be within a line, the new constrained feasible region is constructed with the original feasible region and a line that is normal to the utopia plane. It is only required to minimize one of the functions (e.g. $f_{1}$) in this new feasible region.
 
-By varying the parameter $\bar{\mathbf{X}}_{pj}$ along the utopia plane, it is possible to find an even spaced front. $\bar{\mathbf{X}}_{pj}$ is computed as%
+By varying the parameter $\bar{\mathbf{X}}_{pj}$ along the utopia plane, it is possible to find an even spaced front. $\bar{\mathbf{X}}_{pj}$ is computed as:%
 %
 \begin{equation}
 \bar{\mathbf{X}}_{pj}= \alpha_{1NNC} \mathbf{\hat{F}}(\mathbf{x}_1^*)+\alpha_{2NNC} \mathbf{\hat{F}}(\mathbf{x}_2^*).
@@ -509,13 +527,13 @@ g(\mathbf{x}) \leq 0,
 \label{eq:NNCProblem}
 \end{equation}
 %
-where $\bar{\mathbf{N}}_1$ is the vector that contains the direction of the utopia plane. In some cases, the optimization may yield points that do not belong to the Pareto front. In \citet{Messac2003}, the authors propose to use a filter algorithm to eliminate those points.
+where $\bar{\mathbf{N}}_1$ is the vector that contains the direction of the utopia plane. In some cases, the optimization may yield points that do not belong to the Pareto front. In \citet{Messac2003}, the authors proposed to use a filter algorithm to eliminate those points.
 
-This method has been used in several cases. Also in \citet{Hosseini2016a} the method was implemented to optimally solve the transmission congestion management taking into account the cost of congestion management, voltage stability margin, and transient stability margin. In \citet{Sanchez2017a}, the \gls{nnc} was considered to find optimally balanced tuning rules for fractional-order \gls{pid} controllers for \gls{foptd} process models subject to a robustness constraint. In \citet{Mittal2017a} the \gls{nnc} was used in conjunction with an evolutionary algorithm to find the optimum number and location of wind turbines in a wind farm. In \citet{Benki2018}, the \gls{nnc} was implemented for the design of an aerosol can, tanking into account both the dome growth and the dome reversal pressure. In \citet{Tan2018a}, the \gls{nnc} was applied for the design of microvascular panels for battery cooling applications. The \gls{nnc} is also applied in \citet{Liu2019} within their algorithm to optimally control the glycerol in a 1,3-propanediol batch process.
+This method has been used in several cases. \citet{Hosseini2016a}  implemented it to optimally solve the transmission congestion management taking into account the cost, voltage stability margin, and transient stability margin. In \citet{Sanchez2017a}, the \gls{nnc} was applied to find optimally balanced tuning rules for fractional-order \gls{pid} controllers for \gls{foptd} process models subject to a robustness constraint. In \citet{Mittal2017a}, the \gls{nnc} was used in conjunction with an evolutionary algorithm to find the optimum number and location of wind turbines in a wind farm. In \citet{Benki2018}, the \gls{nnc} was implemented for the design of an aerosol can, tanking into account both the dome growth and the dome reversal pressure. In \citet{Tan2018a}, the \gls{nnc} was applied for the design of microvascular panels for battery cooling applications. The \gls{nnc} is also applied in \citet{Liu2019} within their algorithm to optimally control the glycerol in a 1,3-propanediol batch process.
 
 \subsection{Enhanced Normalized Normal Constraint}
 \label{sec:ENNC}
-The \gls{ennc} \citet{Sanchis2008}, is a new perspective of the original \gls{nnc} method. Implicitly, the \gls{nnc} method supposes that in each anchor point, the other functions that are not optimal, have their worst value. For a two functions optimization, this is always the case; however for more than two functions this supposition is not true in general. The \gls{ennc} method redefines the anchor points in such a way that the supposition of the \gls{nnc} holds true, and then the same method may be used. Other advantage of the \gls{ennc} is that it is possible to expand the explored regions of the problem, given a better representation of the Pareto front.
+The \gls{ennc} proposed by \citet{Sanchis2008}, is a new perspective of the original \gls{nnc} method. Implicitly, the \gls{nnc} method supposes that in each anchor point, the other functions that are not optimal have their worst value. For a two functions optimization, this is always the case; however for more than two functions this supposition is not true in general. The \gls{ennc} method redefines the anchor points in such a way that the supposition of the \gls{nnc} holds true, and then the same method may be used. Another advantage of the \gls{ennc} is that it is possible to expand the explored regions of the problem, given a better representation of the Pareto front.
 %
 The new anchor points (called pseudo anchor points) are defined as:
 \begin{equation}
@@ -536,7 +554,7 @@ The Pareto is then computed using the same methodology as in the \gls{nnc} case.
 %%--------------------------------------------------------------------------
 %%-------------------------------o-o-o--------------------------------------
 %%--------------------------------------------------------------------------
-The optimizations techniques presented in Section~\ref{sec:design-methodologies} are very well suited to find the Pareto Front of a multiobjective optimization problem. However, in the end, it is necessary to decide which of the multiple equally optimal points is the one that is going to be selected as the final solution.
+The optimization techniques presented in Section~\ref{sec:design-methodologies} are very well suited to find the Pareto Front of a multiobjective optimization problem. However, in the end, it is necessary to decide which of the multiple equally optimal points is the one that is going to be selected as the final solution.
 
 Consider the general Pareto Front presented in 
 \begin{figure}[b]
@@ -546,16 +564,16 @@ Consider the general Pareto Front presented in
 	\label{fig:Ch5GeneralPareto}
 \end{figure}
 %
-Figure~\ref{fig:Ch5GeneralPareto}. Once the Pareto is computed, it is certainly very useful to plot it to see how the cost functions $f_1(\mathbf{x})$ and $f_2(\mathbf{x})$ vary with the change in the decision variables $\mathbf{x}$. In this figure, the arbitrary solution $p_1$ is pointed out. By definition, all points in the Pareto Front are equally optimal, therefore, what makes $p_1$ any special from other points? More important, how any one of the Pareto points can be selected from any other?
+Figure~\ref{fig:Ch5GeneralPareto}. Once the Pareto is computed, it is certainly very useful to plot it to see how the cost functions $f_1(\mathbf{x})$ and $f_2(\mathbf{x})$ vary with the change in the decision variables $\mathbf{x}$. In this figure, the arbitrary solution $p_1$ is pointed out. By definition, all points in the Pareto Front are equally optimal, therefore, what makes $p_1$ any special from other points? More importantly, how can any one of the Pareto points be selected from any other?
 
-One may then conclude that obtaining the Pareto front is half the solution to the \gls{moop}. The final task to fully solve the problem is to be able to select one of the (maybe infinite) possible points of the Pareto. With a front like the one presented in Figure~\ref{fig:Ch5GeneralPareto}, it may be easy to explore all possible solutions, but with more than three objective functions, it is impossible to directly plot the front. Even with three objectives, the visualization of the results may be cumbersome.
+One may then conclude that obtaining the Pareto front is half the solution to the \gls{moop}. The final task to fully solve the problem is to be able to select one of the (maybe infinite) possible points of the Pareto. When dealing with a front such as the one presented in Figure~\ref{fig:Ch5GeneralPareto}, it may be easy to explore all possible solutions, but with more than three objective functions, it is impossible to directly plot the front. Even with three objectives, the visualization of the results may be cumbersome.
 
-Even more, the plot of Figure~\ref{fig:Ch5GeneralPareto} contains the solutions viewed from the function space, but what is really necessary is to know the value of the decision variables. But each one of every point in the Pareto is associated with a $n$-size vector representing one of the optimal solutions. Once again, plotting the Pareto is not enough to help the decision maker to solve the problem.
+Moreover, the plot of Figure~\ref{fig:Ch5GeneralPareto} contains the solutions viewed from the function space, but what is really necessary is ascertain the value of the decision variables. But each one of every point in the Pareto is associated with a $n$-size vector representing one of the optimal solutions. Once again, plotting the Pareto is not enough to help the decision maker solve the problem.
 
 For these reasons, once the Pareto is found, it may be useful to accomplish some tasks to help the decision maker:
 \begin{itemize}
 	\item  Visualize the Pareto to understand the relation between the cost functions and the decision variables.
-	\item Use the Pareto as data for the construction of a decision tool.
+	\item Use the Pareto as data for the construction of a decision model.
 	\item Use the Pareto as part of a decision tool.
 \end{itemize}
 In the following, these three tasks are going to be explored.
@@ -563,37 +581,43 @@ In the following, these three tasks are going to be explored.
 \subsection{Visualization of the Pareto Front}
 \label{sec:ParetoVisualization}
 %
-One of the advantages of using a multiobjective problem approach, is its ability to take into account many cost functions at the same time, and being able to find the set of the \emph{best} solutions. This is the ultimate goal of a multiobjective optimization, to provide useful information to the decision makers in order to help to choose according to its preferences. This can be done in terms of a large set of raw data that has lately to be processed accordingly. This introduces some cognitive issues that become harder and a clear obstacle for decision making stage, especially when having many objectives (say more than 3). Although there are some performance metrics that can evaluate the quality of a Pareto front approximation set (Inverted Generational Distance \citep{Bosman2003} and Hypervolume \citep{Zitzler1999} among others), it is still not intuitive this approach really helps the decision maker to understand the trade-off relationship among objectives.
+One of the advantages of using a multiobjective problem approach, is its ability to take into account many cost functions at the same time, and being able to find the set of the \emph{best} solutions. This is the ultimate goal of a multiobjective optimization, to provide useful information to the decision makers in order to make a sound choice based on their preferences.
 
-In contrast, high-dimensional data visualization is a widely recognized effective way to facilitate the analysis and understanding of multidimensional data. More effective and intuitive to facilitate the decision maker stage to understand the trade-off solutions and thus make a meaningful decision. In the context of multi-objective optimization, comparing to quantitative performance metrics, salivation is, in principle, able to provide a decision maker better insights about Pareto front approximation sets (e.g. the distribution of solutions, the geometric characteristics of Pareto front approximation) thus to facilitate the decision-making (e.g. the exploration of trade-off relationship, the knee region or region of interest).
+This can be done in terms of a large set of raw data that has to be processed accordingly. This introduces some cognitive issues that become more complex, which is a clear obstacle in the decision making stage, especially when having many objectives (say more than 3).
 
-According to \citet{Gao2019} a high quality visualization tool must provide three types of information in the high dimensional space: 
+There are some performance metrics that can evaluate the quality of a Pareto front, as for example, Inverted Generational Distance \citep{Bosman2003} and Hypervolume \citep{Zitzler1999} among others. However, these approaches do not completely help the decision maker in their task since it is not easy to understand the trade-offs among objectives without a visual aid.
+
+In contrast, high-dimensional data visualization is a widely recognized effective way to facilitate the analysis and understanding of multidimensional data  allowing the decision maker to understand the trade-off solutions and thus make a meaningful decision.
+
+According to \citet{Gao2019} a high quality visualization tool must: 
 \begin{itemize}
-\item  Should provide accurate shape, location, and range of the approximate Pareto front. 
-\item  From the provided visualization, decision makers can observe trade-off between objectives, monitor the evolution progress, assess the quality of the approximate front, and select their preferred solutions if desired. 
-\item  Should be scalable to any dimensions, handle a large number of individuals on the approximate front, and simultaneously visualize multiple fronts for the purpose of visual comparison. Moreover, the resulted visualization plot should be robust and insensitive to the addition or removal of an individual.
+\item  Provide information on accurate shape, location, and range of the approximate Pareto front. 
+\item  Show the trade-offs between objectives, monitor the evolution progress, assess the quality of the approximate front, and allow selection of preferred solutions if desired. 
+\item  Scale to any dimensions, handle a large number of points on the approximate front, and simultaneously visualize multiple fronts for the purpose of visual comparison.
 \end{itemize}
 
-To tackle these issues, different kinds of plots have been proposed in the literature that tries to present all the information of the Pareto in a bi-dimensional graph. Generally speaking, they can be divided into three categories. Interested readers are encouraged to found a recent taxonomy from \citet{B.2018}.
-
+To tackle these issues, different kinds of plots have been proposed in the literature that tries to present all the information of the Pareto in a bi-dimensional graph. Generally speaking, they can be divided into three categories:
+%
 \begin{itemize}
 \item Visualization of All Objective Information: These visualization techniques aim to reveal all individual objective information of the underlying approximation set. Specifically, scatter plot is the most commonly utilized data visualization technique that provides a holistic exploration of the population distribution. 
 
-\item Visualization via Dimension Reduction: Techniques in this category aims to transform the high-dimensional data into a lower dimensional space to facilitate the human cognition. In modern data analytics, there are many dimension reduction techniques available to implement such transformation.  Instead of using dimension reduction techniques from machine learning. \citet{Blasco2008} proposed a new visualization technique called level diagrams to visualize the approximation set in a objective-wise manner. More specifically, each diagram is a two-dimensional scatter plot where the horizontal coordinate represents the objective value at the corresponding objective while the vertical coordinate indicates the distance with respect to the ideal point. As claimed by the authors, the level diagrams are able to facilitate the investigation of some of the Pareto front characteristics, i.e. discontinuities, closeness to ideal point and ranges of attainable values. 
+\item Visualization via Dimension Reduction: Techniques in this category aim to transform the high-dimensional data into a lower dimensional space to facilitate human cognition. In modern data analytics, there are many dimension reduction techniques available to implement such as transformation.  Instead of using dimension reduction techniques from machine learning, \citet{Blasco2008} proposed a new visualization technique called level diagrams to visualize the approximation set in a objective-wise manner. More specifically, each diagram is a two-dimensional scatter plot where the horizontal coordinate represents the objective value at the corresponding objective while the vertical coordinate indicates the distance with respect to the ideal point. As claimed by the authors, the level diagrams are able to facilitate the investigation of some of the Pareto front characteristics such as discontinuities, closeness to ideal point and ranges of attainable values. 
 
 \item Visualization via a Transformed Coordinate System: Techniques in this category share some similarity with the dimension reduction. They also aim to visualize the original high-dimensional data in a lower-dimensional space. But they try to maintain the original information as much as possible. For example, \citet{Ibrahim2016} developed a variant of the classic Radial coordinate visualization (RadViz) \citep{Hoffman2002}, called 3D-RadViz, by adding an additional dimension. In particular, this additional dimension represents the perpendicular distance between a solution and an hyper-plane formed by the extreme points of the underlying population. By doing so, the 3D-RadViz is able to provide the information of the convergence of the population. 
 \end{itemize}
+%
+Interested readers are encouraged to follow the work of \citet{B.2018} for further information on the subject.
 
-As usual where there do exist different approaches to deal with a complex problem, no single visualization technique is able to provide a comprehensive understanding of the characteristics of the approximation set. It is important to know the specific characteristics, pros and cons of each approach and evaluate the suitability for the problem at hand.
+As expected when different approaches to deal with a complex problem do exist, no single visualization technique is able to provide a comprehensive understanding of the characteristics of the approximation set. It is important to know the specific characteristics, pros and cons of each approach and evaluate the suitability for the problem at hand in order to effectively chose the best visualization.
   
-\subsection{The Pareto as a decision tool}
+\subsection{The Pareto as a decision model}
 \label{sec:ParetoData}
 %
-Since the Pareto front cannot be considered as the final solution of the \gls{moop}, one may use it as the basis to construct a tool that takes advantage of the multiple optimal points found.
+Since the Pareto front cannot be considered as the final solution of the \gls{moop}, one may use it as the basis to construct a model that takes advantage of the multiple optimal points found.
 
-In other words, the Pareto front becomes the raw material that is used to produce the final decision tool. This tool may be an algorithm (as a tuning rule for \gls{pid} controllers for example) that incorporates the information obtained from the optimization to produce a final decision.
+In other words, the Pareto front becomes the raw material that is used to produce the final decision model. This model may be an algorithm (as a tuning rule for \gls{pid} controllers for example) that incorporates the information obtained from the optimization to produce a final decision.
 
-For example in \cite{Zhao2007}	the concept of Pareto optimality is used to define a genetic programming approach for optimal decision trees. The author presented a Java code for the final tool and use code in two different study cases.
+For example, in \cite{Zhao2007}	the concept of Pareto optimality is used to define a genetic programming approach for optimal decision trees. The author presented a Java code for the final tool and use code in two different study cases.
 
 Another example can be found in \cite{Das2012}. In this paper, the route for the transportation of hazardous waste has to be selected taking into account the cost of the route and the mortality and morbidity of incidents. Once the Pareto frontier has been obtained, the authors present a selection criteria where the Cost Elasticity of risk and the Knees on the Pareto are taken into account for the final decision.
 %

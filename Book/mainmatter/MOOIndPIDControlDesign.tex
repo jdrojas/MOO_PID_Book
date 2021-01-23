@@ -1,96 +1,107 @@
 \chapter{PID Controller Design}
 \label{chap:PIDControllerDesign}
-\abstract{In this chapter the basics of the \gls{pid} controller tuning is considered. First the analytical tuning methods are presented in order to have the most fundamental mathematical description of a tuning rule. Then, the tuning based on the minimization of a performance criteria is considered. This subject is important for this particular book because the methodology that is presented is based on the minimization of multiple cost functions at the same time. Then the minimization of a performance criteria is particularized to the case of \gls{pid} controllers for integral cost functions.} 
+\abstract{\gls{pid} controller tuning is central in the process control field, but selecting the correct parameters is far from trivial since it needs to take into account multiple considerations such as performance, robustness, topology, etc. This chapter gives an overview of \gls{pid} controller tuning. Analytical tuning methods are presented in order to have the most fundamental mathematical description of a tuning rule. Then, the chapter explores the tuning based on the minimization of a performance criteria which is then applied to integral cost functions. The particular solution to this problem is explored in detail in the next chapter.} 
 
 \section{PID Controller Tuning}
-The appropriate selection of the tuning parameters is one of the most important steps in the definition of a \gls{pid} based control loop. This is known as the \gls{pid} tuning. The selection of the \gls{pid} controller parameters should be made according to the available knowledge of the process dynamics and stated performance specifications in terms of tracking and disturbance attenuation as well as desired robustness. One of the aspects that makes \gls{pid} control specially appealing is the clear physical meaning associated to each one of its parameters.
+Selecting the appropriate tuning parameters is one of the most important steps in a \gls{pid} based control loop. The selection of the \gls{pid} controller parameters should be made according to the available knowledge of the process dynamics and stated performance specifications in terms of tracking and disturbance attenuation as well as desired robustness. One of the aspects that makes \gls{pid} control especially appealing is the clear physical meaning associated to each one of its parameters.
 
-Numerous studies have been made to develop assignment rules to specify \gls{pid} parameters on the basis of characteristics of the process being controlled. The collected information about the process to be controlled can, in one form or another be assimilated to a model of the process. This can be referred either as a parametric process model (or, in other words, a form suitable for analyzing and simulating the closed-loop system), or concrete process data and/or measurements that in a suitable way can be directly employed to determine the \gls{pid} controller parameters. There are many representative sources that can be consulted for details on a wide variety of alternative tuning rules  \citep{odwyer2006}.
+Numerous studies have been made to develop assignment rules to specify \gls{pid} parameters on the basis of characteristics of the process being controlled. The collected information about the process to be controlled can, in one form or another be assimilated to a model of the process. This can be referred to either as a parametric process model (or, in other words, a form suitable for analyzing and simulating the closed-loop system), or concrete process data and/or measurements that in a suitable way can be directly employed to determine the \gls{pid} controller parameters. There are many representative sources that can be consulted for details on a wide variety of alternative tuning rules  \citep{odwyer2006}.
 
-In what follows, a short presentation of the most usual existing methods for \gls{pid} tuning are presented. The presentation will not be deep into details because it is not the purpose of this book to explore existing tuning approaches, material that, on the other hand, can be accessed on numerous sources \citep{VilanovaBook2012}.  However, it is important not to forget the existing panorama and main features of existing approaches, This will make possible, in the next section, to better understand the formulation of the \gls{pid} tuning problem as a multiobjective optimization problem.
+In what follows, we focus of the most usual existing methods for \gls{pid} tuning. For more in detail explanation on the subject, the reader is encouraged to access other sources such as \citet{VilanovaBook2012}. The material presented in this chapter will serve as the basis to better understand the formulation of the \gls{pid} tuning as a multiobjective optimization problem as proposed in the rest of the book.
 
 \subsection{Analytical Tuning Methods}
 
-These approaches allow a specification of a desired closed-loop time response. This desired closed-loop behavior can take the form of desired poles for the closed-loop behavior, or a reference model the closed-loop system should try to mimic.  These approaches were originated by the early works on algebraic controller design (of course in a more generic setting, not just for \gls{pid} controllers) by \citep{ragazzini1958}. There are different approaches for doing that; some of them place only the closed loop poles, others also shape the zeros. In contrast, by using conventional \gls{pid} controller, it may not be possible to place all of the poles, so only the dominant pole is placed for this scenario. The design notion in this class of designs is based on re-assigning the system's poles with faster modes. The drawback, however, is that some modes may become uncontrollable due to pole/zero cancellation and the performance degrades if they become excited.
+Analytical tuning methods are intended to obtain a specified closed-loop time response. This desired closed-loop behavior is defined by a given set of poles or more generally, by defining a reference model. The controller accomplishes its function if the closed-loop mimics this reference model. These approaches were originated by the early works on algebraic controller design in a more generic setting by \citet{ragazzini1958}.
 
+There are a variety of different approaches for the design of the controller, the overall goal is to place the closed-loop poles according to the expected response, in other cases the zeros can also be shaped. However, when dealing with \gls{pid} controllers, the quantity of the poles and zeros is fixed, and therefore there is a limitation in what the controller can achieve.
 
-The introduction of ideas on algebraic design, gave rise to the so called \emph{$\lambda$-tuning} or  Dahlin method \citep{dahlin68}. It is straightforward to see that for \gls{foptd} and  \gls{soptd} models, \gls{pi} and \gls{pid}
-controllers can help achieve the desired performance. The number of poles that can be placed is equal to the number of controller parameters. Therefore these techniques can be used for process models with the maximum order of 2 if a \gls{pid} controller is selected. This method, in turn, is closely related to the Smith predictor and the design method based on Internal Model Control (IMC) \citep{riveraetall86}.  It is worth a special mention the fact that, for a \gls{foptd} process, the IMC controller takes the form of a PI or a \gls{pid} controller depending on the rational approximation used for the time delay.  These approaches, however, use cancellation of the poles of the process, which may lead to quite undesirable responses to load disturbances, especially for processes with very large time constants. In \citet{chien90} a modification is presented  that does not cancel the poles of the process, while \citet{Skogestad2003}, presents a variation of the IMC controller, applied to PI and \gls{pid} controller tuning, denominated SIMC, in which the cancellation is avoided by means of a redefinition of the integral mode for the cases of systems dominated by large time constants. 
+Given this constraint in the complexity of \gls{pid}, only the dominant poles are considered, and thus only first or second order plant models are taken into account. Then the controller is tuned by re-assigning the system's poles with faster modes. The drawback, however, is that some modes may become uncontrollable due to pole/zero cancellation resulting in performance degradation if they become excited.
 
-\citet{chenseborg2002} proposed a modification of the direct synthesis method adapted to disturbance rejection instead of set-point change. Tuning rules are provided for a wide range of process models. Following these lines, in 2007  Shamsuzzoha and Lee \citet{shamsu2008}, reported that IMC demonstrates sluggish disturbance rejection, especially when the deadtime to time constant ratio is small. To alleviate this problem they proposed an IMC-PID tuning method for improved disturbance rejection. A robust version of this approach is presented in \citet{Vilanova2018}.
+The introduction of ideas on algebraic design gave rise to the so called \emph{$\lambda$-tuning} \citep{dahlin68}. It is straightforward to see that for \gls{foptd} and  \gls{soptd} models, \gls{pi} and \gls{pid}
+controllers can help achieve the desired performance. The number of poles that can be placed is equal to the number of controller parameters. Therefore, these techniques can be used for process models with the maximum order of 2 if a \gls{pid} controller is selected.
 
-One of the advantages of IMC is the introduction of the desired closed loop time constant which can be used by operators to manipulate the degree of robustness. In \citet{vilanovaJPC2008} proposed a robust IMC based ISA tuning rule for set-point tracking. The tuning introduces two user defined parameters and also provides an automatic tuning rule. 
+This method, in turn, is closely related to the Smith predictor and the design method based on Internal Model Control (IMC) \citep{riveraetall86}.  In the particular case of a \gls{foptd} process, the IMC controller takes the form of a PI or a \gls{pid} controller depending on the rational approximation used for the time delay.
 
+Nevertheless, there is a limitation on these approaches which is that the poles of the process are canceled possibly leading to undesirable responses in the case of load disturbances, especially for processes with very large time constants. In \citet{chien90}, a modification is presented  that does not cancel the poles of the process, while \citet{Skogestad2003} presents a variation of the IMC controller denominated Simple IMC (SIMC), in which the cancellation is avoided by means of a redefinition of the integral mode for the cases of systems dominated by large time constants.
 
+\citet{chenseborg2002} proposed a modification of the direct synthesis method adapted to disturbance rejection instead of set-point change. Similarly, \citet{shamsu2008} reported that IMC demonstrates sluggish disturbance rejection, especially when the deadtime to time constant ratio is small. To alleviate this problem they proposed an IMC-PID tuning method for improved disturbance rejection. A robust version of this approach is presented by \citet{Vilanova2018}.
+
+One of the advantages of IMC is the introduction of the desired closed-loop time constant, which can be used by operators to manipulate the degree of robustness. \citet{vilanovaJPC2008} proposed a robust IMC based tuning rule for set-point tracking. The tuning introduces two user defined parameters and also provides an automatic tuning rule. 
+%
 \subsection{Tuning based on Minimization of Performance Criteria}
+%
+The methods based on the application of optimization techniques are an alternative to the analytical methods. The basic idea is to try to capture different aspects of the desired operation specifying a cost function that is intended to be minimized.
 
-The methods based on the application of optimization techniques are an alternative to the analytical methods. The basic idea is to try to capture different aspects of the desired operation in closed loop under the signature of a determined cost functional to be minimized. In \citet{corripio2001} and in \citet{shinskey.1994}, for example, controllers are  optimized with respect to integral error criteria such as the \gls{ise}, \gls{iae} and \gls{itae}.
+For example, \citet{corripio2001} and \citet{shinskey.1994} present a controller tuning that is found as the solution of an optimization of integral error criteria such as the \gls{ise}, \gls{iae} and \gls{itae}.
 
-However, among the set of tuning rules in this category, \gls{itae} is claimed to yield better performance \citet{ogatabook}. The first works in using optimization of integral criteria for deriving tuning rules where the ones of \citet{lopez1967} and \citet{Rovira1969a}   where, coming from the load disturbance based tunings of Ziegler-Nichols, tunings are provided for both load disturbance and set-point as different closed-loop operation modes. More recently, optimal tunings have been proposed \citep{Arrieta2010} for a balanced operation among both modes when two degrees of freedom are not available or, when it is not clear the predominant operation mode the control system will work on.
+Optimization of integral criteria for deriving tuning rules were started by \citet{lopez1967} and \citet{Rovira1969a}, where tunings are provided for load disturbance rejection and set-point tracking separately. When is not clear which mode of operation is more predominant or only \gls{1dof} controllers are available, some tuning methods can be applied where a balanced operation is considered but at the same time, is the solution of an optimization problem \citep{Arrieta2010}. Simple tuning rules for different variants of the integral criteria are provided by \citet{zhuang1993}. Rules for unstable and integrating systems can be found in \citet{visioli2001}.
 
-Quite simple tuning rules, for different variants of the integral criteria are provided in \citet{zhuang1993}. The corresponding version for unstable and integrating systems is provided in \citet{visioli2001}. More recently, thanks in part to greater accessibility to optimization routines, powerful software and computing power, there have appeared approaches of Multiobjective optimization, such as \citet{herreros2002}  and \citet{toivonen2006}, where a generic approach is presented and its application to the particular case of a \gls{pid} controller exemplified. 
+Over the years, greater accessibility to optimization routines and increasing computing power, have given rise to new multiobjective optimization approaches as is presented by \citet{herreros2002}  and \citet{toivonen2006}, where a general tuning approach is tackled but \gls{pid} controllers are used as particular cases.
 
-The application of these optimization strategies, although effective, relies on the use of fairly complex numerical routines and not results. in general, in tuning rules as a solution of the problem. Through its application, you get the controller tuning as the solution to the optimization problem. However, as presented in some recent works, by solving the optimization problem for well defined process families and by interpolating the results, it is possible to obtain tuning formulae that give the optimal \gls{pid} gains based on the process parameters. 
-
-
+In spite of the effectiveness of these multiobjective optimization strategies, they rely on the use of fairly complex numerical routines which hinders recognizing appropriate tuning rules based on the solutions. This is explored in more detail in Chapter~\ref{chap:PIDMOOP}
+%
 \subsection{Tuning Rules for Robustness}
+%
+Whereas there are some tuning approaches that provide tuning parameters that  affect the system robustness (this is the case, for example of IMC control), their main aim is not to ensure a robust closed-loop system, but to optimize its performance.
 
-Tuning rules designed specifically to achieve a closed-loop with some robustness guarantees. Whereas there are some tuning approaches that provide tuning parameters that  affect the system robustness (this is the case, for example of IMC control) they main aim is not to ensure a robust closed-loop system. Even if their application may derive in a control system with some robustness properties, its achievement will always be indirect. On the other hand, in recent years, there has been an increasing interest in including robustness. Starting point are the well-known design strategies based on setting the gain and phase margin, initiated in \citet{astromhagglun84} that have given rise to numerous variants and extensions. In this case, the design parameter or specification is directly measuring the desired robustness for the closed-loop system. Later on, \citet{hoetal95} proposed tuning rules for \gls{pid} controllers for gain and phase specifications.
+Even if their application may result in a control system with some robustness properties, its achievement will always be indirect. On the other hand, in recent years, there has been an increasing interest in including robustness explicitly into the tuning of the controller as one of the main objectives.
 
-As previously mentioned, it was within the IMC approach that the work of \citet{vilanovaJPC2008} introduced robustness considerations into the formulation of the autotuning  expressions. These ideas conducted lately to a series of works \citep{alcantara2010, alcantara2013} where the robustness was explicitly considered as part of the design and by taking into account the robustness/performance tradeoff \citep{alfaroajoc12}.
+The work of \citet{astromhagglun84} which used the gain and phase margin of the closed-loop system was seminal in giving rise to numerous variants and extensions. In this case, the design parameter or specification is directly measuring the desired robustness for the closed-loop system. Later on, \citet{hoetal95} proposed tuning rules for \gls{pid} controllers for gain and phase specifications.
 
-The robustness idea has evolved in such a way that today it is common use to include a robustness constraint or consideration in whatever approach. One of the measures that has gained more popularity today is the maximum of the sensitivity function (commonly called $M_S$) as a reasonable robustness measure. It is also possible to distinguish between approaches that are attempting to achieve a closed-loop with a particular value of $M_S$ and more flexible approaches providing tuning rules directly parameterized by the target $M_S$ value \citep{arrieta2012, VilanovaBook2012}. 
+As previously mentioned, it was within the IMC approach that the work of \citet{vilanovaJPC2008} introduced robustness considerations into the autotuning  formulas. Later,  these ideas brought forth a series of works where the robustness was explicitly considered as part of the design and by taking into account the robustness/performance trade-off \citep{alfaroajoc12, alcantara2010, alcantara2013}.
 
-The robustness constraint has also been incorporated into more elaborated  methods such as the Model reference Robust Tuning (MoReRT) approach \citep{alfarojopc22}. Such method incorporates a model reference based design within an optimization procedure and with the mentioned robustness constraint. Robust tuning rules are provided for all the most common process dynamics as well as different levels of robustness. The work also allows \gls{pid} formulations where the reference and output signals are filtered. The filters are considered as parts of the design \citep{alfaroiechr2013}.
+This has evolved in such a way that today it is common use to include a robustness constraint or consideration in whatever approach. One of the measures that has gained more popularity today is the maximum of the sensitivity function (commonly called $M_S$) as a reasonable robustness measure. It is also possible to distinguish between approaches that are attempting to achieve a closed-loop with a particular value of $M_S$ and more flexible approaches providing tuning rules directly parameterized by the target $M_S$ value \citep{arrieta2012, VilanovaBook2012}. 
+
+The robustness constraint has also been incorporated into more elaborated  methods such as the Model Reference Robust Tuning (MoReRT) approach \citep{alfarojopc22}. Such method incorporates a model reference based design within an optimization procedure and with the mentioned robustness constraint. Robust tuning rules are provided for all the most common process dynamics as well as different levels of robustness. It also allows \gls{pid} formulations where the reference and output signals are filtered and considered as parts of the design \citep{alfaroiechr2013}.
 %
 %
 \section{Formalization of PID tuning as a multiobjective optimization problem}
 \label{sec:FormPIDMOOP}
 \subsection{Cost Function and Constraint Selection}
 \label{sec:CostFunSelec}
-When dealing with \gls{pid} tuning, it is common to define a metric either to optimize the parameters, or as a measure to check how well the tuning behaves with respect to other set of parameters.
+When dealing with \gls{pid} tuning, it is common to define a metric either to optimize the parameters, or as a measure to check how well the tuning behaves with respect to another set of parameters.
 
 In theory, to formulate the \gls{moo} problem, any cost function may be used. However, it is common to select cost functions that are contradictory to each other, which is something that arises naturally when dealing with real designs.
 
-For example in \citet{SabinaSanchez2017} the \gls{iae} and the total variation are used as contradictory cost functions. The total variation represents the control effort and is related to the robustness of the closed system, therefore, using these two cost functions, the compromise is made between performance and robustness. Something similar is done in \citet{Pierezan2014}, where a particle swarm optimization technique is applied to the tuning of \gls{pid} controllers for a robotic manipulator. In \citet{Zhou2018} also a two objectives optimization is done with similar cost functions, the difference consist in that a multivariable control loop is tackled at the same time using a compound weight sum of an \gls{iae} metric for three setpoints and a function related to the energy consumption based on the variation of the input variables.
+For example, in \citet{SabinaSanchez2017} the \gls{iae} and the \gls{tv} are used as contradictory cost functions. \gls{tv} represents the control effort and is related to the robustness of the closed-system, therefore, using these two cost functions, the compromise is made between performance and robustness. Something similar is done in \citet{Pierezan2014}, where a particle swarm optimization technique is applied to the tuning of \gls{pid} controllers for a robotic manipulator. In \citet{Zhou2018} also a two objectives optimization is done with similar cost functions, the difference consist in that a multivariable control loop is tackled at the same time using a compound weight sum of an \gls{iae} metric for three setpoints and a function related to the energy consumption based on the variation of the input variables.
 
-The cost function not necessarily has to conform as an integral function. For example in \citet{Abbas1995} the cost functions are the percent overshoot  and the rise time, but the authors also indicate that the settling time and the maximum controller output can also be considered. A more classical approach takes into account frequency domain measures such as phase and gain margins \citep{astromhagglun84,hoetal95}. In \citet{Huang2008a} the $\cal{ H}_\infty$ norm is used in different frequency bands of different sensitivity functions to define several cost functions which are then used in a multi-objective approach.
+The cost function does not necessarily have to conform to an integral function. For example, in \citet{Abbas1995} the cost functions are the percent overshoot  and the rise time, but the authors also indicate that the settling time and the maximum controller output can also be considered. A more classical approach takes into account frequency domain measures such as phase and gain margins \citep{astromhagglun84,hoetal95}. In \citet{Huang2008a} the $\cal{ H}_\infty$ norm is used in different frequency bands of different sensitivity functions to define several cost functions which are then used in a multi-objective approach.
 
 Other authors tries to combine integral cost functions with other time domain measures, as in \citet{Chiha2012} where the settling time, overshoot, rise time, \gls{iae}, \gls{ise} and \gls{itae} are taken into account in a weighted sum and optimized using an Ant Colony algorithm approach.
 
-Definitively, the selection of the cost function is a widely open subject and it entirely depends on the necessity of the task at hand. According to \citet{Shinskey2002}, the main objective of a process controller is to mitigate the effects of load of disturbances, setpoint changes are considered of secondary importance. The same author states that: \begin{quote}
+Definitively, the selection of the cost function is a widely open subject and it entirely depends on the necessity of the task at hand. According to \citet{Shinskey2002}, the main objective of a process controller is to mitigate the effects of load disturbances thus confining setpoint changes response to secondary importance. The same author states that: \begin{quote}
 	``minimum \gls{iae} is a preferred criterion that includes integral error and penalizes continued cycling. Minimum-\gls{iae} tuning also tends to be consistent with minimum error.''
 \end{quote}
 %
 
-Following this reasoning, in this work we propose to use integral cost functions to measure control performance with respect to input and output disturbances and setpoint changes in a multi-objective framework, taking the maximum sensitivity as a constraint to find the optimal controller tuning in a Pareto sense.
+Following this reasoning, in this book we propose to use integral cost functions to measure control performance with respect to input and output disturbances and setpoint changes in a multi-objective framework, taking the maximum sensitivity as a constraint to find the optimal controller tuning.
 
-The controller is considered to be a \gls{2dof} \gls{pid} controller. Even with this topology, the cost functions that results of considering all three sources of disturbances are contradictory among them because minimizing one of them does not minimize the other functions, in fact you may find that the optimal controller for one cost function yields to the maximum value of other function. These details are covered in Section~\ref{sec:MOOPForm} where the multi-objective framework is stated.
+The controller is considered to be a \gls{2dof} \gls{pid} controller. Even with this topology, the cost functions that are a result of considering all three sources of disturbances are contradictory because minimizing one of them does not minimize the other functions. In fact, you may find that the optimal controller for one cost function yields to the maximum value of other function. These details are covered in Section~\ref{sec:MOOPForm} where the multi-objective framework is stated.
 
 \subsection{PID tuning problem formulation for integral cost functions}
 \label{sec:CostProbPID}
 A feedback control system like the one shown in %
-\begin{figure}[tb]
+\begin{figure}[b]
 	\centering
 	\includegraphics[width=0.85\columnwidth]{Ch4bloques}%pretex=\scriptsize,
 	\caption{Feedback control loop.}% 
 	\label{fig:bloques}%
 \end{figure}
 %
-Figure~\ref{fig:bloques}, is designed to keep certain relationship between the process output $y(s)$ and the reference input $r(s)$. For such task, the difference between those signal is used to compute the control signal $u(s)$ needed in order to achieve $y(s) \approx r(s)$. 
+Figure~\ref{fig:bloques}, is designed to maintain certain relationships between the process output $y(s)$ and the reference input $r(s)$. For such tasks, the difference between those signals is used to compute the control signal $u(s)$ needed in order to achieve $y(s) \approx r(s)$. 
 
 In Figure.~\ref{fig:bloques}, $C(s,\bm{\theta})$ is the \gls{2dof} \gls{pid} controller with parameters:
 \begin{equation*}
-\bm{\theta}=\left[	\begin{tabular}{cccc} \gls{kp} & \gls{ti} & \gls{td} & \gls{beta}	\end{tabular}\right]^T
+\bm{\theta}=\left[	\begin{tabular}{cccc} \gls{kp} & \gls{ti} & \gls{td} & \gls{beta}	\end{tabular}\right]^T,
 \end{equation*}
 %
-with \gls{kp} the proportional gain, \gls{ti} the integral time constant, \gls{td} is the derivative time constant, \gls{beta} the weight on the reference signal. \gls{plan} represents the controlled process, modeled as a \gls{soptd} plant, with a transfer function of the form:
+where \gls{kp} is the proportional gain, \gls{ti} is the integral time constant, \gls{td} is the derivative time constant, \gls{beta} is the weight on the reference signal. \gls{plan} represents the controlled process, modeled as a \gls{soptd} plant, with a transfer function of the form:
 \begin{equation}  %inclusión de ecuaciones
 P(s) =  \frac{K e^{-Ls}}{(T s+1)(a T s+1)},
 \label{eq:plantaX}
 \end{equation}
 %
-where \gls{k}, \gls{l} and \gls{t}, correspond to the static gain, the time delay and main time constant respectively. The other pole of the system is represented with a time constant that is fraction of $T$, therefore $0 \leq a \leq 1$. \gls{di} represent the input disturbance while \gls{do} is the output disturbance.
+where \gls{k}, \gls{l} and \gls{t} correspond to the static gain, the time delay and main time constant respectively. The other pole of the system is represented with a time constant that is fraction of $T$, therefore $0 \leq a \leq 1$. \gls{di} represent the input disturbance while \gls{do} is the output disturbance.
 
 %El diagrama de bloques de un controlador PI de dos grados de libertad se muestra en la Figura \ref{fig:controlador}. 
 %
@@ -151,7 +162,7 @@ y_{do}(\hat{s}) &= \frac{1}{1 + P(\hat{s}) C_y(\hat{s},\bm{\theta})} {d_o(\hat{s
 
 %Dada \eqref{ys}, la respuesta de salida del lazo cerrado ante un cambio en el valor deseado puede ser ajustada a través del controlador de valor deseado $C_r(\hat{s},\theta)$, independientemente de cambios en la perturbación de entrada o en la de salida. Los parámetros de $C_r(\hat{s},\theta)$ y $C_y(\hat{s},\theta)$ son los mismos con un grado de libertad \cite{apuntescontrol}.
 
-Robustness is an indication of the relative stability of the controlled system and it measure the ability of the controller to keep the closed loop stable despite the variation in the process dynamics. A metric of the degree of relative stability is the maximum sensitivity \gls{ms} given by:
+Robustness is an indication of the relative stability of the controlled system and it measures the ability of the controller to keep the closed-loop stable despite the variation in the process dynamics. A metric of the degree of relative stability is the maximum sensitivity \gls{ms} given by:
 %
 \begin{equation}  %inclusión de ecuaciones
 \gls{ms}=  \max_\omega \left\{ \frac{1}{\left |{1 + C_y(j\omega ) P(j\omega )}\right |}\right\} 
@@ -165,7 +176,7 @@ J(\bm{\theta})=\int_0^\infty \left |{e(t,\bm{\theta})}\right | dt.
 \label{IAE}
 \end{equation}
 
-The error signal $e(t, \bm{\theta})$ it is calculated using:
+The error signal $e(t, \bm{\theta})$ is calculated using:
 %
 \begin{equation}  %inclusión de ecuaciones
 e(t,\bm{\theta})=r(t)-y(t,\bm{\theta}).
@@ -218,10 +229,10 @@ and solved by finding all possible optimal solutions of:
 \label{eq:probmoo}
 \end{equation}
 
-In general, it is not possible to find a set of parameters $\bm{\theta}$ that minimizes all those three functions at the same time. Such impossible point where all the cost functions are optimal is called the utopia point. As it names states, the utopia point is impossible to reach because optimizing one of the cost function always produce a degradation in the other remaining functions.
+In general, it is not possible to find a set of parameters $\bm{\theta}$ that minimizes all those three functions at the same time. This impossible point where all the cost functions are optimal is called the utopia point. As it names states, the utopia point is impossible to reach because optimizing one of the cost function always produces a degradation in the other remaining functions.
 
 The particular cases that are  the closest to the utopia point, are part of what is called the Pareto frontier. This set of possible solutions are considered to be equally optimal because there is no possibility to improve one of the functions without degrading the others.
 
-This means that finding the solution of the control problem does not give a single answer, instead a family of optimal controller tunings are found.
+This means that finding the solution of the control problem does not give a single answer, instead provides a family of optimal controller tunings as will be explored further in the rest of the book.
 \bibliographystyle{spbasic}
 \bibliography{ReferenciasMulti}
