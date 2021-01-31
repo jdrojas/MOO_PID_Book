@@ -81,10 +81,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \def\hasbeencalled{0}
 \newcommand\matlab{
-	\ifnum\hasbeencalled=0
+	\ifnum\hasbeencalled=0%
 	MATLAB\textregistered{}%
-	\global\def\hasbeencalled{1}
-	\else
+	\global\def\hasbeencalled{1}%
+	\else%
 	MATLAB%
 	\fi
 }
@@ -121,14 +121,14 @@
 
 \mainmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%\include{./mainmatter/MOOIndIntro}
-%\include{./mainmatter/MOOIndPIDControl}
-%\include{./mainmatter/MOOIndPIDControlConsideration}
-%\include{./mainmatter/MOOIndPIDControlDesign}
-%\include{./mainmatter/MOOIndMetodos}
+\include{./mainmatter/MOOIndIntro}
+\include{./mainmatter/MOOIndPIDControl}
+\include{./mainmatter/MOOIndPIDControlConsideration}
+\include{./mainmatter/MOOIndPIDControlDesign}
+\include{./mainmatter/MOOIndMetodos}
 \include{./mainmatter/MOOIndPIDMOOPNoGUI}
-%\include{./mainmatter/MOOIndPIDMOOP}
-%\include{./mainmatter/MOOIndApplications}
+\include{./mainmatter/MOOIndPIDMOOP}
+\include{./mainmatter/MOOIndApplications}
 \backmatter%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%\printindex
 %\bibliographystyle{spbasic}
